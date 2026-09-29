@@ -125,11 +125,14 @@ export function AntalyaMapSection() {
         scrollWheelZoom: false,
         attributionControl: true,
       }).setView([36.78, 30.62], 9);
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-        maxZoom: 18,
-      }).addTo(map);
+      L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+        {
+          attribution:
+            "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ &mdash; Kaynak: OpenStreetMap katkıcıları",
+          maxZoom: 16,
+        },
+      ).addTo(map);
       mapRef.current = map;
       layerRef.current = L.layerGroup().addTo(map);
       setReady(true);
