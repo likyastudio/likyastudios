@@ -77,10 +77,10 @@ export function ContactSection() {
                 E-posta
               </span>
               <a
-                href="mailto:hello@likyastudios.co"
+                href="mailto:likyastudios@gmail.com"
                 className="mt-1 block text-foreground transition hover:text-glow"
               >
-                hello@likyastudios.co
+                likyastudios@gmail.com
               </a>
             </div>
             <div>
