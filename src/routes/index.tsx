@@ -384,8 +384,8 @@ function Footer() {
           <a className="transition hover:text-foreground" href="#">
             GitHub
           </a>
-          <a className="transition hover:text-foreground" href="mailto:hello@likyastudios.co">
-            hello@likyastudios.co
+          <a className="transition hover:text-foreground" href="mailto:likyastudios@gmail.com">
+            likyastudios@gmail.com
           </a>
         </div>
       </div>
