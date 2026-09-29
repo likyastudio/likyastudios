@@ -71,5 +71,5 @@ function splitSystemMessages(messages: ModelMessage[]): {
       rest.push(message);
     }
   }
-  return { instructions, rest };
+  return { instructions, rest: rest.length ? rest : undefined };
 }
