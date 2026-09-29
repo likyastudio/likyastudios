@@ -58,10 +58,10 @@ export async function callLovableResponsesText(
 }
 
 function splitSystemMessages(messages: ModelMessage[]): {
-  instructions: string | undefined;
+  instructions: string;
   rest: ModelMessage[];
 } {
-  let instructions: string | undefined;
+  let instructions = "";
   const rest: ModelMessage[] = [];
   for (const message of messages) {
     if (message.role === "system") {
@@ -71,5 +71,5 @@ function splitSystemMessages(messages: ModelMessage[]): {
       rest.push(message);
     }
   }
-  return { instructions, rest: rest.length ? rest : undefined };
+  return { instructions, rest };
 }
