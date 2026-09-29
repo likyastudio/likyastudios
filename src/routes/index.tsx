@@ -1,15 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import antalyaImg from "@/assets/antalya.jpg";
-import posterAsset from "@/assets/likya-poster.png.asset.json";
+import logoAsset from "@/assets/likya-logo.png.asset.json";
 import logoMarkAsset from "@/assets/likya-logo-mark.png.asset.json";
 import astrosyncAsset from "@/assets/astrosync-icon.jpg.asset.json";
 import batakciAsset from "@/assets/batakci-icon.png.asset.json";
 import wineAsset from "@/assets/wine-icon.png.asset.json";
 import { AntalyaMapSection } from "@/components/antalya-map";
 import { TripPlanner } from "@/components/trip-planner";
+import { ContactSection } from "@/components/contact-form";
 
-const posterImg = posterAsset.url;
+const logoImg = logoAsset.url;
 const logoMark = logoMarkAsset.url;
 const astrosyncIcon = astrosyncAsset.url;
 const batakciIcon = batakciAsset.url;
@@ -106,12 +107,12 @@ function Hero() {
           </a>
         </div>
       </div>
-      <div className="relative mx-auto w-full max-w-xs">
+      <div className="relative mx-auto w-full max-w-xs md:max-w-sm">
         <div className="absolute -inset-8 rounded-full bg-gradient-to-b from-ember/20 via-glow/10 to-transparent blur-3xl"></div>
         <img
-          src={posterImg}
-          alt="Likya Studios — gün batımında Antalya koyu üzerinde stüdyo logosu"
-          className="relative w-full rounded-[2rem] object-cover shadow-2xl ring-1 ring-frost/15"
+          src={logoImg}
+          alt="Likya Studios logosu"
+          className="relative w-full object-contain drop-shadow-[0_0_40px_rgba(120,190,255,0.25)]"
           loading="eager"
         />
       </div>
@@ -372,7 +373,7 @@ function Antalya() {
 
 function Footer() {
   return (
-    <footer id="iletisim" className="relative z-10 mx-auto max-w-6xl px-6 pb-10">
+    <footer className="relative z-10 mx-auto max-w-6xl px-6 pb-10">
       <div className="flex flex-col items-center justify-between gap-4 border-t border-frost/10 pt-8 text-sm text-muted-foreground md:flex-row">
         <span className="font-display font-medium text-foreground">Likya Studios</span>
         <span>© 2026 — Uygulama ve oyun stüdyosu</span>
@@ -404,6 +405,7 @@ function Index() {
         <Products />
         <Approach />
         <Antalya />
+        <ContactSection />
         <Footer />
       </div>
     </div>
