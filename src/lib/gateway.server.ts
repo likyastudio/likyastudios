@@ -38,9 +38,12 @@ export async function callLovableResponsesText(
     headers: { "Lovable-API-Key": apiKey, "X-Lovable-AIG-SDK": "vercel-ai-sdk" },
     fetch: runIdFetch.fetch,
   });
+  // AI SDK v7 Responses: system content goes to `instructions`, not messages.
+  const { instructions, rest } = splitSystemMessages(messages);
   const result = streamText({
     model: provider.responses("openai/gpt-6-astra"),
-    messages,
+    messages: rest,
+    instructions,
     providerOptions: {
       openai: {
         store: false,
@@ -52,4 +55,21 @@ export async function callLovableResponsesText(
     },
   });
   return await result.text;
+}
+
+function splitSystemMessages(messages: ModelMessage[]): {
+  instructions: string | undefined;
+  rest: ModelMessage[];
+} {
+  let instructions: string | undefined;
+  const rest: ModelMessage[] = [];
+  for (const message of messages) {
+    if (message.role === "system") {
+      const text = typeof message.content === "string" ? message.content : undefined;
+      if (text) instructions = instructions ? `${instructions}\n\n${text}` : text;
+m    } else {
+      rest.push(message);
+    }
+  }
+  return { instructions, rest };
 }
