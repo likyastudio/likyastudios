@@ -130,6 +130,24 @@ const products = [
   },
 ] as const;
 
+const accents = {
+  glow: {
+    edge: "via-glow/60",
+    chip: "from-glow/25",
+    text: "text-glow",
+  },
+  mint: {
+    edge: "via-mint/60",
+    chip: "from-mint/25",
+    text: "text-mint",
+  },
+  ember: {
+    edge: "via-ember/60",
+    chip: "from-ember/25",
+    text: "text-ember",
+  },
+} as const;
+
 function Products() {
   return (
     <section id="urunler" className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
@@ -146,50 +164,53 @@ function Products() {
       </div>
 
       <div className="grid gap-5 md:grid-cols-3">
-        {products.map((product) => (
-          <article
-            key={product.name}
-            className="group relative overflow-hidden rounded-3xl bg-panel/70 p-6 ring-1 ring-frost/10 backdrop-blur-xl transition hover:ring-frost/25"
-          >
-            <div
-              className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-${product.accent}/60 to-transparent`}
-            />
-            <div className="mb-5 flex items-center justify-between">
+        {products.map((product) => {
+          const accent = accents[product.accent];
+          return (
+            <article
+              key={product.name}
+              className="group relative overflow-hidden rounded-3xl bg-panel/70 p-6 ring-1 ring-frost/10 backdrop-blur-xl transition hover:ring-frost/25"
+            >
               <div
-                className={`grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-${product.accent}/25 to-iris/25 ring-1 ring-frost/15`}
-              >
-                <span className={`font-display text-lg font-bold text-${product.accent}`}>
-                  {product.letter}
+                className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${accent.edge} to-transparent`}
+              />
+              <div className="mb-5 flex items-center justify-between">
+                <div
+                  className={`grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br ${accent.chip} to-iris/25 ring-1 ring-frost/15`}
+                >
+                  <span className={`font-display text-lg font-bold ${accent.text}`}>
+                    {product.letter}
+                  </span>
+                </div>
+                <span className="rounded-full bg-frost/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  {product.kind}
                 </span>
               </div>
-              <span className="rounded-full bg-frost/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                {product.kind}
-              </span>
-            </div>
-            <h3 className="font-display text-xl font-semibold tracking-tight">{product.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {product.description}
-            </p>
-            <img
-              src={product.image}
-              alt={product.alt}
-              width={1024}
-              height={768}
-              loading="lazy"
-              className="mt-5 aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-frost/10"
-            />
-            <div className="mt-5 flex flex-wrap gap-2">
-              {product.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-frost/5 px-2.5 py-1 text-xs text-muted-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))}
+              <h3 className="font-display text-xl font-semibold tracking-tight">{product.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {product.description}
+              </p>
+              <img
+                src={product.image}
+                alt={product.alt}
+                width={1024}
+                height={768}
+                loading="lazy"
+                className="mt-5 aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-frost/10"
+              />
+              <div className="mt-5 flex flex-wrap gap-2">
+                {product.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-frost/5 px-2.5 py-1 text-xs text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
