@@ -12,3 +12,4 @@
 ## Teknik kararlar
 - AI Gateway çağrıları yalnızca sunucuda: `src/lib/gateway.server.ts` (LOVABLE_API_KEY buradan okunur). Model `openai/gpt-6-astra`, Responses API, `streamText` + final text; sistem promptu AI SDK v7'de `instructions` opsiyonuna gider, messages'a system mesajı koymak hatadır.
 - Harita: Leaflet dinamik import (SSR güvenli), koyu tema için Esri "World Dark Gray" kutucukları (CARTO dark_all artık API anahtarı istiyor).
+- İletişim formu: `src/lib/contact.functions.ts` sunucu fonksiyonu zod ile doğrular, `contact_requests` tablosuna service-role istemciyle yazar (RLS'siz anon erişim yok).
