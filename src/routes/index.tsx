@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import antalyaImg from "@/assets/antalya.jpg";
 import astrosyncImg from "@/assets/astrosync.jpg";
 import batakciImg from "@/assets/batakcipro.jpg";
 import wineImg from "@/assets/wine.jpg";
@@ -42,8 +43,8 @@ function Header() {
         <a className="transition hover:text-foreground" href="#yaklasim">
           Stüdyo
         </a>
-        <a className="transition hover:text-foreground" href="#yaklasim">
-          Süreç
+        <a className="transition hover:text-foreground" href="#antalya">
+          Antalya
         </a>
         <a className="transition hover:text-foreground" href="#iletisim">
           İletişim
@@ -254,6 +255,92 @@ function Approach() {
   );
 }
 
+const places = [
+  {
+    no: "01",
+    name: "Kaleiçi",
+    description:
+      "Roma surları, Osmanlı konakları ve dar taş sokaklar. Yivli Minare ve gece ışıklarıyla bir başka güzel tarihi merkez.",
+  },
+  {
+    no: "02",
+    name: "Aspendos Antik Tiyatrosu",
+    description:
+      "MS 2. yüzyıldan kalma, 15 bin kişilik ve dünyanın en iyi korunan antik tiyatrolarından biri. Akustiği hâlâ şaşırtıyor.",
+  },
+  {
+    no: "03",
+    name: "Düden Şelalesi",
+    description:
+      "İki ayrı doğa harikası: piknik alanlarıyla çevrili Yukarı Düden ve falezlerden denize dökülen Aşağı Düden.",
+  },
+  {
+    no: "04",
+    name: "Hadrian Kapısı",
+    description:
+      "MS 130'da Roma İmparatoru Hadrian şerefine inşa edilen, şehrin en fotojenik antik kapısı.",
+  },
+  {
+    no: "05",
+    name: "Konyaaltı & Lara",
+    description:
+      "Turkuaz denizi ve dağ manzarasıyla şehrin iki ünlü sahili; turistlerin en çok tercih ettiği duraklar arasında.",
+  },
+  {
+    no: "06",
+    name: "Olympos & Çıralı",
+    description:
+      "Antik kent, orman ve denizin buluştuğu milli park; yanan doğal taşlarıyla ünlü Yanartaş da burada.",
+  },
+] as const;
+
+function Antalya() {
+  return (
+    <section id="antalya" className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
+      <div className="mb-10 flex items-end justify-between">
+        <div>
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint/80">
+            03 — Antalya
+          </span>
+          <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold tracking-tight">
+            Evimiz Antalya, turizmin başkenti.
+          </h2>
+        </div>
+      </div>
+
+      <p className="mb-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        Stüdyo olarak Antalya'da yaşıyoruz ve buradan çalışıyoruz. Şehrimiz her yıl yaklaşık 17
+        milyon turisti ağırlıyor; antik kentleri, şelaleleri ve plajlarıyla keşfedilecek onlarca
+        durak sunuyor.
+      </p>
+
+      <img
+        src={antalyaImg}
+        alt="Antalya Kaleiçi ve marina, akşamüstü dağ manzarası"
+        width={1024}
+        height={768}
+        loading="lazy"
+        className="mb-8 aspect-[16/7] w-full rounded-3xl object-cover ring-1 ring-frost/10"
+      />
+
+      <div className="grid gap-5 md:grid-cols-3">
+        {places.map((place) => (
+          <div
+            key={place.name}
+            className="rounded-3xl bg-panel/70 p-6 ring-1 ring-frost/10 backdrop-blur-xl transition hover:ring-frost/25"
+          >
+            <span className="font-mono text-sm text-mint">{place.no}</span>
+            <h3 className="mt-2 font-display text-lg font-semibold">{place.name}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {place.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer id="iletisim" className="relative z-10 mx-auto max-w-6xl px-6 pb-10">
@@ -287,6 +374,7 @@ function Index() {
         <Hero />
         <Products />
         <Approach />
+        <Antalya />
         <Footer />
       </div>
     </div>
