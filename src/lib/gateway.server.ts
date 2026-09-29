@@ -67,7 +67,7 @@ function splitSystemMessages(messages: ModelMessage[]): {
     if (message.role === "system") {
       const text = typeof message.content === "string" ? message.content : undefined;
       if (text) instructions = instructions ? `${instructions}\n\n${text}` : text;
-m    } else {
+    } else {
       rest.push(message);
     }
   }
