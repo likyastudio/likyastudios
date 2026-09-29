@@ -1,24 +1,273 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import astrosyncImg from "@/assets/astrosync.jpg";
+import batakciImg from "@/assets/batakcipro.jpg";
+import wineImg from "@/assets/wine.jpg";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Likya Studios — Uygulama ve Oyun Geliştirme Stüdyosu" },
+      {
+        name: "description",
+        content:
+          "Likya Studios, uygulamalar ve oyunlar tasarlayıp geliştiren bağımsız bir dijital stüdyodur. AstroSync, Batakçı Pro ve Wine Intelligence — üçü de evimizde doğdu.",
+      },
+      { property: "og:title", content: "Likya Studios — Uygulama ve Oyun Geliştirme Stüdyosu" },
+      {
+        property: "og:description",
+        content:
+          "Bağımsız uygulama ve oyun stüdyosu. AstroSync, Batakçı Pro ve Wine Intelligence'ın yaratıcısı.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+function Header() {
+  return (
+    <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <a href="#" className="flex items-center gap-2.5">
+        <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-glow/30 to-iris/30 ring-1 ring-frost/20">
+          <span className="font-display text-sm font-bold text-foreground">L</span>
+        </div>
+        <span className="font-display text-[15px] font-semibold tracking-tight">Likya Studios</span>
+      </a>
+      <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+        <a className="transition hover:text-foreground" href="#urunler">
+          Çalışmalar
+        </a>
+        <a className="transition hover:text-foreground" href="#yaklasim">
+          Stüdyo
+        </a>
+        <a className="transition hover:text-foreground" href="#yaklasim">
+          Süreç
+        </a>
+        <a className="transition hover:text-foreground" href="#iletisim">
+          İletişim
+        </a>
+      </nav>
+      <a
+        className="rounded-full bg-frost/10 px-4 py-2 text-sm font-medium text-foreground ring-1 ring-frost/20 transition hover:bg-frost/20"
+        href="#iletisim"
+      >
+        Proje Başlat
+      </a>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative z-10 mx-auto max-w-6xl px-6 pt-16 pb-24 text-center">
+      <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full bg-frost/5 px-3.5 py-1.5 text-xs text-muted-foreground ring-1 ring-frost/10">
+        <span className="h-1.5 w-1.5 rounded-full bg-mint"></span> 3 yayında · 2 uygulama, 1 oyun
+      </div>
+      <h1 className="mx-auto max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+        Fikirleri{" "}
+        <span className="bg-gradient-to-r from-glow via-frost to-iris bg-clip-text text-transparent">
+          parlak
+        </span>
+        , canlı ürünlere dönüştürüyoruz.
+      </h1>
+      <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+        Likya Studios, uygulamalar ve oyunlar tasarlayıp geliştiren bağımsız bir dijital
+        stüdyodur. AstroSync, Batakçı Pro ve Wine Intelligence — üçü de evimizde doğdu.
+      </p>
+      <div className="mt-9 flex items-center justify-center gap-3">
+        <a
+          className="rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-frost"
+          href="#urunler"
+        >
+          Portfolyoyu Keşfet
+        </a>
+        <a
+          className="rounded-full bg-frost/5 px-6 py-3 text-sm font-medium text-foreground ring-1 ring-frost/15 transition hover:bg-frost/10"
+          href="#iletisim"
+        >
+          Bize Ulaşın
+        </a>
+      </div>
+    </section>
+  );
+}
+
+const products = [
+  {
+    letter: "A",
+    name: "AstroSync",
+    kind: "Uygulama",
+    description:
+      "Gökyüzü takvimlerini, gezegen konumlarını ve kişisel astroloji haritalarını tek ekranda canlı senkronize eden rehber.",
+    image: astrosyncImg,
+    alt: "AstroSync uygulaması — yıldız haritası ekranı",
+    accent: "glow",
+    tags: ["iOS", "Canlı Harita", "Bildirim"],
+  },
+  {
+    letter: "B",
+    name: "Batakçı Pro",
+    kind: "Oyun",
+    description:
+      "Türkiye'nin efsane kart oyunu batak; puan takibi, el istatistikleri ve arkadaşlarla çevrimiçi masa deneyimiyle cebinizde.",
+    image: batakciImg,
+    alt: "Batakçı Pro — batak kart oyunu ekranı",
+    accent: "mint",
+    tags: ["Android", "Çevrimiçi", "İstatistik"],
+  },
+  {
+    letter: "W",
+    name: "Wine Intelligence",
+    kind: "Uygulama",
+    description:
+      "Etiketi tarayarak şarap hakkında tahmin yürüttüğünüz, tadımları puanladığınız ve koleksiyonunuzu derinleştirdiğiniz rehber.",
+    image: wineImg,
+    alt: "Wine Intelligence — şarap etiketi tarama ekranı",
+    accent: "ember",
+    tags: ["Etiket Tarama", "Tadım Notları", "Koleksiyon"],
+  },
+] as const;
+
+function Products() {
+  return (
+    <section id="urunler" className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
+      <div className="mb-10 flex items-end justify-between">
+        <div>
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-glow/80">
+            01 — Yayında
+          </span>
+          <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight">Stüdyo Ürünleri</h2>
+        </div>
+        <span className="hidden text-sm text-muted-foreground md:block">
+          Her biri sıfırdan tasarlandı ve kodlandı.
+        </span>
+      </div>
+
+      <div className="grid gap-5 md:grid-cols-3">
+        {products.map((product) => (
+          <article
+            key={product.name}
+            className="group relative overflow-hidden rounded-3xl bg-panel/70 p-6 ring-1 ring-frost/10 backdrop-blur-xl transition hover:ring-frost/25"
+          >
+            <div
+              className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-${product.accent}/60 to-transparent`}
+            />
+            <div className="mb-5 flex items-center justify-between">
+              <div
+                className={`grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-${product.accent}/25 to-iris/25 ring-1 ring-frost/15`}
+              >
+                <span className={`font-display text-lg font-bold text-${product.accent}`}>
+                  {product.letter}
+                </span>
+              </div>
+              <span className="rounded-full bg-frost/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                {product.kind}
+              </span>
+            </div>
+            <h3 className="font-display text-xl font-semibold tracking-tight">{product.name}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {product.description}
+            </p>
+            <img
+              src={product.image}
+              alt={product.alt}
+              width={1024}
+              height={768}
+              loading="lazy"
+              className="mt-5 aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-frost/10"
+            />
+            <div className="mt-5 flex flex-wrap gap-2">
+              {product.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-frost/5 px-2.5 py-1 text-xs text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Approach() {
+  return (
+    <section id="yaklasim" className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
+      <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10 backdrop-blur-xl md:p-12">
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-iris/80">
+          02 — Yaklaşım
+        </span>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          Küçük ekip, derin iş. Her satır bizden.
+        </h2>
+        <div className="mt-10 grid gap-8 md:grid-cols-3">
+          <div className="border-l border-frost/10 pl-5">
+            <span className="font-mono text-sm text-glow">01</span>
+            <h3 className="mt-2 font-display text-lg font-semibold">Ürün Tasarımı</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Akıştan arayüze kadar, kullanıcının ilk saniyesinde anlaşılır deneyimler çiziyoruz.
+            </p>
+          </div>
+          <div className="border-l border-frost/10 pl-5">
+            <span className="font-mono text-sm text-mint">02</span>
+            <h3 className="mt-2 font-display text-lg font-semibold">Geliştirme</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Mobil ve oyun platformlarında temiz, test edilmiş ve yayına hazır kod.
+            </p>
+          </div>
+          <div className="border-l border-frost/10 pl-5">
+            <span className="font-mono text-sm text-ember">03</span>
+            <h3 className="mt-2 font-display text-lg font-semibold">Büyüme</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Yayından sonra analitik, mağaza optimizasyonu ve iterasyonla ürünü büyütüyoruz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer id="iletisim" className="relative z-10 mx-auto max-w-6xl px-6 pb-10">
+      <div className="flex flex-col items-center justify-between gap-4 border-t border-frost/10 pt-8 text-sm text-muted-foreground md:flex-row">
+        <span className="font-display font-medium text-foreground">Likya Studios</span>
+        <span>© 2026 — Uygulama ve oyun stüdyosu</span>
+        <div className="flex gap-5">
+          <a className="transition hover:text-foreground" href="#">
+            Instagram
+          </a>
+          <a className="transition hover:text-foreground" href="#">
+            GitHub
+          </a>
+          <a className="transition hover:text-foreground" href="mailto:hello@likyastudios.co">
+            hello@likyastudios.co
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="relative overflow-hidden">
+        <div className="drift1 absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full bg-glow/20 blur-[120px]"></div>
+        <div className="drift2 absolute top-1/3 -right-40 h-[560px] w-[560px] rounded-full bg-iris/20 blur-[130px]"></div>
+        <div className="drift3 absolute -bottom-40 left-1/4 h-[480px] w-[480px] rounded-full bg-mint/10 blur-[120px]"></div>
+        <Header />
+        <Hero />
+        <Products />
+        <Approach />
+        <Footer />
+      </div>
     </div>
   );
 }
