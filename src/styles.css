@@ -136,3 +136,60 @@
 @utility drift3 {
   animation: drift3 26s ease-in-out infinite;
 }
+
+/* Antalya keşif haritası */
+.leaflet-container {
+  background: var(--void);
+  font-family: var(--font-sans);
+}
+
+.map-pin {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  border: 2px solid oklch(0.92 0.02 260 / 0.4);
+  box-shadow: 0 0 10px 2px currentColor;
+}
+
+.map-pin-tarih {
+  background: var(--glow);
+  color: var(--glow);
+}
+
+.map-pin-doga {
+  background: var(--mint);
+  color: var(--mint);
+}
+
+.map-pin-plaj {
+  background: var(--ember);
+  color: var(--ember);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--panel);
+  color: var(--foreground);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.9rem;
+  box-shadow: 0 12px 32px oklch(0 0 0 / 0.45);
+}
+
+.leaflet-popup-content {
+  margin: 0.75rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.leaflet-control-attribution {
+  background: oklch(0.18 0.042 271.1 / 0.85) !important;
+  color: var(--muted-foreground) !important;
+  font-size: 0.6rem;
+}
+
+.leaflet-control-attribution a {
+  color: var(--frost) !important;
+}

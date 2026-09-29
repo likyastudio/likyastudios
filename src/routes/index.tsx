@@ -1,9 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import antalyaImg from "@/assets/antalya.jpg";
-import astrosyncImg from "@/assets/astrosync.jpg";
-import batakciImg from "@/assets/batakcipro.jpg";
-import wineImg from "@/assets/wine.jpg";
+import posterAsset from "@/assets/likya-poster.png.asset.json";
+import logoMarkAsset from "@/assets/likya-logo-mark.png.asset.json";
+import astrosyncAsset from "@/assets/astrosync-icon.jpg.asset.json";
+import batakciAsset from "@/assets/batakci-icon.png.asset.json";
+import wineAsset from "@/assets/wine-icon.png.asset.json";
+import { AntalyaMapSection } from "@/components/antalya-map";
+import { TripPlanner } from "@/components/trip-planner";
+
+const posterImg = posterAsset.url;
+const logoMark = logoMarkAsset.url;
+const astrosyncIcon = astrosyncAsset.url;
+const batakciIcon = batakciAsset.url;
+const wineIcon = wineAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,7 +42,7 @@ function Header() {
     <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
       <a href="#" className="flex items-center gap-2.5">
         <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-glow/30 to-iris/30 ring-1 ring-frost/20">
-          <span className="font-display text-sm font-bold text-foreground">L</span>
+          <img src={logoMark} alt="Likya Studios logosu" className="h-7 w-7 object-contain" />
         </div>
         <span className="font-display text-[15px] font-semibold tracking-tight">Likya Studios</span>
       </a>
@@ -45,6 +55,9 @@ function Header() {
         </a>
         <a className="transition hover:text-foreground" href="#antalya">
           Antalya
+        </a>
+        <a className="transition hover:text-foreground" href="#gezi">
+          Gezi Rehberi
         </a>
         <a className="transition hover:text-foreground" href="#iletisim">
           İletişim
@@ -62,34 +75,45 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative z-10 mx-auto max-w-6xl px-6 pt-16 pb-24 text-center">
-      <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full bg-frost/5 px-3.5 py-1.5 text-xs text-muted-foreground ring-1 ring-frost/10">
-        <span className="h-1.5 w-1.5 rounded-full bg-mint"></span> 3 yayında · 2 uygulama, 1 oyun
+    <section className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 pt-16 pb-24 md:grid-cols-[1.2fr_0.8fr] md:text-left">
+      <div className="text-center md:text-left">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-frost/5 px-3.5 py-1.5 text-xs text-muted-foreground ring-1 ring-frost/10">
+          <span className="h-1.5 w-1.5 rounded-full bg-mint"></span> 3 yayında · 2 uygulama, 1 oyun
+        </div>
+        <h1 className="mx-auto max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+          Fikirleri{" "}
+          <span className="bg-gradient-to-r from-glow via-frost to-iris bg-clip-text text-transparent">
+            parlak
+          </span>
+          , canlı ürünlere dönüştürüyoruz.
+        </h1>
+        <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground md:mx-0">
+          Likya Studios, uygulamalar ve oyunlar tasarlayıp geliştiren bağımsız bir dijital
+          stüdyodur. AstroSync, Batakçı Pro ve Wine Intelligence — üçü de evimizde doğdu.
+        </p>
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+          <a
+            className="rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-frost"
+            href="#urunler"
+          >
+            Portfolyoyu Keşfet
+          </a>
+          <a
+            className="rounded-full bg-frost/5 px-6 py-3 text-sm font-medium text-foreground ring-1 ring-frost/15 transition hover:bg-frost/10"
+            href="#iletisim"
+          >
+            Bize Ulaşın
+          </a>
+        </div>
       </div>
-      <h1 className="mx-auto max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-        Fikirleri{" "}
-        <span className="bg-gradient-to-r from-glow via-frost to-iris bg-clip-text text-transparent">
-          parlak
-        </span>
-        , canlı ürünlere dönüştürüyoruz.
-      </h1>
-      <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-        Likya Studios, uygulamalar ve oyunlar tasarlayıp geliştiren bağımsız bir dijital
-        stüdyodur. AstroSync, Batakçı Pro ve Wine Intelligence — üçü de evimizde doğdu.
-      </p>
-      <div className="mt-9 flex items-center justify-center gap-3">
-        <a
-          className="rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-frost"
-          href="#urunler"
-        >
-          Portfolyoyu Keşfet
-        </a>
-        <a
-          className="rounded-full bg-frost/5 px-6 py-3 text-sm font-medium text-foreground ring-1 ring-frost/15 transition hover:bg-frost/10"
-          href="#iletisim"
-        >
-          Bize Ulaşın
-        </a>
+      <div className="relative mx-auto w-full max-w-xs">
+        <div className="absolute -inset-8 rounded-full bg-gradient-to-b from-ember/20 via-glow/10 to-transparent blur-3xl"></div>
+        <img
+          src={posterImg}
+          alt="Likya Studios — gün batımında Antalya koyu üzerinde stüdyo logosu"
+          className="relative w-full rounded-[2rem] object-cover shadow-2xl ring-1 ring-frost/15"
+          loading="eager"
+        />
       </div>
     </section>
   );
@@ -102,8 +126,8 @@ const products = [
     kind: "Uygulama",
     description:
       "Gökyüzü takvimlerini, gezegen konumlarını ve kişisel astroloji haritalarını tek ekranda canlı senkronize eden rehber.",
-    image: astrosyncImg,
-    alt: "AstroSync uygulaması — yıldız haritası ekranı",
+    icon: astrosyncIcon,
+    alt: "AstroSync uygulama ikonu — pusula içinde yıldızlar",
     accent: "glow",
     tags: ["iOS", "Canlı Harita", "Bildirim"],
   },
@@ -113,8 +137,8 @@ const products = [
     kind: "Oyun",
     description:
       "Türkiye'nin efsane kart oyunu batak; puan takibi, el istatistikleri ve arkadaşlarla çevrimiçi masa deneyimiyle cebinizde.",
-    image: batakciImg,
-    alt: "Batakçı Pro — batak kart oyunu ekranı",
+    icon: batakciIcon,
+    alt: "Batakçı Pro oyun ikonu — yeşil zemin üzerinde altın maça jetonu",
     accent: "mint",
     tags: ["Android", "Çevrimiçi", "İstatistik"],
   },
@@ -124,8 +148,8 @@ const products = [
     kind: "Uygulama",
     description:
       "Etiketi tarayarak şarap hakkında tahmin yürüttüğünüz, tadımları puanladığınız ve koleksiyonunuzu derinleştirdiğiniz rehber.",
-    image: wineImg,
-    alt: "Wine Intelligence — şarap etiketi tarama ekranı",
+    icon: wineIcon,
+    alt: "Wine Intelligence uygulama ikonu — bordo zeminde altın şarap kadehi",
     accent: "ember",
     tags: ["Etiket Tarama", "Tadım Notları", "Koleksiyon"],
   },
@@ -175,31 +199,31 @@ function Products() {
               <div
                 className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${accent.edge} to-transparent`}
               />
-              <div className="mb-5 flex items-center justify-between">
-                <div
-                  className={`grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br ${accent.chip} to-iris/25 ring-1 ring-frost/15`}
-                >
-                  <span className={`font-display text-lg font-bold ${accent.text}`}>
-                    {product.letter}
-                  </span>
-                </div>
+              <div className="mb-2 flex items-center justify-end">
                 <span className="rounded-full bg-frost/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                   {product.kind}
                 </span>
               </div>
-              <h3 className="font-display text-xl font-semibold tracking-tight">{product.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <div className="relative mx-auto mb-6 mt-1 w-fit">
+                <div
+                  className={`absolute -inset-6 rounded-full bg-gradient-to-b ${accent.chip} to-transparent blur-2xl`}
+                ></div>
+                <img
+                  src={product.icon}
+                  alt={product.alt}
+                  width={200}
+                  height={200}
+                  loading="lazy"
+                  className="relative h-28 w-28 rounded-[1.4rem] object-cover shadow-lg ring-1 ring-frost/15 transition duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="text-center font-display text-xl font-semibold tracking-tight">
+                {product.name}
+              </h3>
+              <p className="mt-2 text-center text-sm leading-relaxed text-muted-foreground">
                 {product.description}
               </p>
-              <img
-                src={product.image}
-                alt={product.alt}
-                width={1024}
-                height={768}
-                loading="lazy"
-                className="mt-5 aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-frost/10"
-              />
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap justify-center gap-2">
                 {product.tags.map((tag) => (
                   <span
                     key={tag}
@@ -336,6 +360,11 @@ function Antalya() {
             </p>
           </div>
         ))}
+      </div>
+
+      <div id="gezi" className="mt-14 space-y-8 scroll-mt-24">
+        <AntalyaMapSection />
+        <TripPlanner />
       </div>
     </section>
   );
