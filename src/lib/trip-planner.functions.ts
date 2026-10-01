@@ -24,6 +24,15 @@ export const createTripPlan = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const en = data.locale === "en";
     const msg = (tr: string, eng: string) => (en ? eng : tr);
+    const { checkRateLimit } = await import("./rate-limit.server");
+    if (!checkRateLimit("trip-plan", 5, 10 * 60 * 1000)) {
+      throw new Error(
+        msg(
+          "Kısa sürede çok fazla plan istendi. Lütfen birkaç dakika sonra tekrar deneyin.",
+          "Too many plans requested in a short time. Please try again in a few minutes.",
+        ),
+      );
+    }
     const systemPrompt =
       SYSTEM_PROMPT +
       (en

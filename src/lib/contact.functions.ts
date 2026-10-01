@@ -7,7 +7,7 @@ const BUDGETS = ["50k-alti", "50k-150k", "150k-ustu", "belirsiz"] as const;
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Lütfen adınızı yazın.").max(80),
-  email: z.string().trim().email("Geçerli bir e-posta adresi girin."),
+  email: z.string().trim().max(254, "Geçerli bir e-posta adresi girin.").email("Geçerli bir e-posta adresi girin."),
   phone: z.string().trim().max(30, "Telefon numarası çok uzun.").optional().or(z.literal("")),
   serviceType: z.enum(SERVICE_TYPES),
   budget: z.enum(BUDGETS).optional().or(z.literal("")),
@@ -30,6 +30,10 @@ export const submitContactRequest = createServerFn({ method: "POST" })
     return parsed.data;
   })
   .handler(async ({ data }) => {
+    const { checkRateLimit } = await import("@/lib/rate-limit.server");
+    if (!checkRateLimit("contact", 3, 10 * 60 * 1000)) {
+      throw new Error("Çok fazla talep gönderildi. Lütfen birkaç dakika sonra tekrar deneyin.");
+    }
     try {
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
       const { error } = await supabaseAdmin.from("contact_requests").insert({
