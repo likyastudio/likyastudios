@@ -18,13 +18,13 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DeleteAccountRouteImport } from './routes/delete-account'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as KvkkRouteImport } from './routes/kvkk'
-import { Route as LabsRouteImport } from './routes/labs'
 import { Route as PressRouteImport } from './routes/press'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as LabsIndexRouteImport } from './routes/labs.index'
 import { Route as LabsAntalyaAiRouteImport } from './routes/labs.antalya-ai'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -72,11 +72,6 @@ const KvkkRoute = KvkkRouteImport.update({
   path: '/kvkk',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LabsRoute = LabsRouteImport.update({
-  id: '/labs',
-  path: '/labs',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PressRoute = PressRouteImport.update({
   id: '/press',
   path: '/press',
@@ -85,11 +80,6 @@ const PressRoute = PressRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SupportRoute = SupportRouteImport.update({
@@ -102,10 +92,20 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LabsIndexRoute = LabsIndexRouteImport.update({
+  id: '/labs/',
+  path: '/labs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LabsAntalyaAiRoute = LabsAntalyaAiRouteImport.update({
   id: '/antalya-ai',
   path: '/antalya-ai',
   getParentRoute: () => LabsRoute,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   id: '/$slug',
@@ -123,14 +123,14 @@ export interface FileRoutesByFullPath {
   '/delete-account': typeof DeleteAccountRoute
   '/journal': typeof JournalRoute
   '/kvkk': typeof KvkkRoute
-  '/labs': typeof LabsRouteWithChildren
   '/press': typeof PressRoute
   '/privacy': typeof PrivacyRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/labs/': typeof LabsIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -142,14 +142,14 @@ export interface FileRoutesByTo {
   '/delete-account': typeof DeleteAccountRoute
   '/journal': typeof JournalRoute
   '/kvkk': typeof KvkkRoute
-  '/labs': typeof LabsRouteWithChildren
   '/press': typeof PressRoute
   '/privacy': typeof PrivacyRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/labs': typeof LabsIndexRoute
+  '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -162,14 +162,14 @@ export interface FileRoutesById {
   '/delete-account': typeof DeleteAccountRoute
   '/journal': typeof JournalRoute
   '/kvkk': typeof KvkkRoute
-  '/labs': typeof LabsRouteWithChildren
   '/press': typeof PressRoute
   '/privacy': typeof PrivacyRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/labs/': typeof LabsIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -183,14 +183,14 @@ export interface FileRouteTypes {
     | '/delete-account'
     | '/journal'
     | '/kvkk'
-    | '/labs'
     | '/press'
     | '/privacy'
-    | '/projects'
     | '/support'
     | '/terms'
     | '/labs/antalya-ai'
     | '/projects/$slug'
+    | '/labs/'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -202,14 +202,14 @@ export interface FileRouteTypes {
     | '/delete-account'
     | '/journal'
     | '/kvkk'
-    | '/labs'
     | '/press'
     | '/privacy'
-    | '/projects'
     | '/support'
     | '/terms'
     | '/labs/antalya-ai'
     | '/projects/$slug'
+    | '/labs'
+    | '/projects'
   id:
     | '__root__'
     | '/'
@@ -221,14 +221,14 @@ export interface FileRouteTypes {
     | '/delete-account'
     | '/journal'
     | '/kvkk'
-    | '/labs'
     | '/press'
     | '/privacy'
-    | '/projects'
     | '/support'
     | '/terms'
     | '/labs/antalya-ai'
     | '/projects/$slug'
+    | '/labs/'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -241,12 +241,12 @@ export interface RootRouteChildren {
   DeleteAccountRoute: typeof DeleteAccountRoute
   JournalRoute: typeof JournalRoute
   KvkkRoute: typeof KvkkRoute
-  LabsRoute: typeof LabsRouteWithChildren
   PressRoute: typeof PressRoute
   PrivacyRoute: typeof PrivacyRoute
-  ProjectsRoute: typeof ProjectsRouteWithChildren
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
+  LabsIndexRoute: typeof LabsIndexRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -314,13 +314,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KvkkRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/labs': {
-      id: '/labs'
-      path: '/labs'
-      fullPath: '/labs'
-      preLoaderRoute: typeof LabsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/press': {
       id: '/press'
       path: '/press'
@@ -333,13 +326,6 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/support': {
@@ -356,12 +342,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/labs/': {
+      id: '/labs/'
+      path: '/labs'
+      fullPath: '/labs/'
+      preLoaderRoute: typeof LabsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/labs/antalya-ai': {
       id: '/labs/antalya-ai'
       path: '/antalya-ai'
       fullPath: '/labs/antalya-ai'
       preLoaderRoute: typeof LabsAntalyaAiRouteImport
       parentRoute: typeof LabsRoute
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/projects/$slug': {
       id: '/projects/$slug'
@@ -373,28 +373,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface LabsRouteChildren {
-  LabsAntalyaAiRoute: typeof LabsAntalyaAiRoute
-}
-
-const LabsRouteChildren: LabsRouteChildren = {
-  LabsAntalyaAiRoute: LabsAntalyaAiRoute,
-}
-
-const LabsRouteWithChildren = LabsRoute._addFileChildren(LabsRouteChildren)
-
-interface ProjectsRouteChildren {
-  ProjectsSlugRoute: typeof ProjectsSlugRoute
-}
-
-const ProjectsRouteChildren: ProjectsRouteChildren = {
-  ProjectsSlugRoute: ProjectsSlugRoute,
-}
-
-const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
-  ProjectsRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -405,12 +383,12 @@ const rootRouteChildren: RootRouteChildren = {
   DeleteAccountRoute: DeleteAccountRoute,
   JournalRoute: JournalRoute,
   KvkkRoute: KvkkRoute,
-  LabsRoute: LabsRouteWithChildren,
   PressRoute: PressRoute,
   PrivacyRoute: PrivacyRoute,
-  ProjectsRoute: ProjectsRouteWithChildren,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
+  LabsIndexRoute: LabsIndexRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
