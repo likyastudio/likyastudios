@@ -360,6 +360,11 @@ export const DICT: Record<string, [string, string]> = {
   Konum: ["Konum", "Location"],
   "Dönüş Süresi": ["Dönüş Süresi", "Response"],
   "E-posta ile yanıt": ["E-posta ile yanıt", "Reply by email"],
+  "Kaynak: OpenStreetMap katkıcıları": ["Kaynak: OpenStreetMap katkıcıları", "Source: OpenStreetMap contributors"],
+  "Çok fazla talep gönderildi. Lütfen birkaç dakika sonra tekrar deneyin.": [
+    "Çok fazla talep gönderildi. Lütfen birkaç dakika sonra tekrar deneyin.",
+    "Too many requests sent. Please try again in a few minutes.",
+  ],
   "Talebiniz bize ulaştı": ["Talebiniz bize ulaştı", "Your message has been received."],
   Teşekkürler: ["Teşekkürler", "Thank you"],
   "En kısa sürede e-posta yoluyla size dönüş yapacağız.": [

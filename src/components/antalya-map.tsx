@@ -106,6 +106,8 @@ const PLACES: MapPlace[] = [
   },
 ];
 
+const ESRI_ATTRIBUTION = "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ";
+
 const visiblePlaces = (filter: Category | "hepsi") =>
   filter === "hepsi" ? PLACES : PLACES.filter((place) => place.category === filter);
 
@@ -130,11 +132,11 @@ export function AntalyaMapSection() {
       L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
         {
-          attribution:
-            "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ &mdash; Kaynak: OpenStreetMap katkıcıları",
+          attribution: "",
           maxZoom: 16,
         },
       ).addTo(map);
+      map.attributionControl.addAttribution(ESRI_ATTRIBUTION);
       mapRef.current = map;
       layerRef.current = L.layerGroup().addTo(map);
       setReady(true);
@@ -146,6 +148,16 @@ export function AntalyaMapSection() {
       layerRef.current = null;
     };
   }, []);
+
+  const sourceAttribution = t("Kaynak: OpenStreetMap katkıcıları");
+  useEffect(() => {
+    const control = mapRef.current?.attributionControl;
+    if (!ready || !control) return;
+    control.addAttribution(sourceAttribution);
+    return () => {
+      control.removeAttribution(sourceAttribution);
+    };
+  }, [ready, sourceAttribution]);
 
   useEffect(() => {
     if (!ready) return;
