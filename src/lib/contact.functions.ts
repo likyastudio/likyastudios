@@ -1,25 +1,14 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
-const SERVICE_TYPES = [
-  "mobil-uygulama",
-  "oyun",
-  "web-sitesi",
-  "danismanlik",
-  "diger",
-] as const;
+const SERVICE_TYPES = ["mobil-uygulama", "oyun", "web-sitesi", "danismanlik", "diger"] as const;
 
 const BUDGETS = ["50k-alti", "50k-150k", "150k-ustu", "belirsiz"] as const;
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Lütfen adınızı yazın.").max(80),
   email: z.string().trim().email("Geçerli bir e-posta adresi girin."),
-  phone: z
-    .string()
-    .trim()
-    .max(30, "Telefon numarası çok uzun.")
-    .optional()
-    .or(z.literal("")),
+  phone: z.string().trim().max(30, "Telefon numarası çok uzun.").optional().or(z.literal("")),
   serviceType: z.enum(SERVICE_TYPES),
   budget: z.enum(BUDGETS).optional().or(z.literal("")),
   message: z
@@ -42,9 +31,7 @@ export const submitContactRequest = createServerFn({ method: "POST" })
   })
   .handler(async ({ data }) => {
     try {
-      const { supabaseAdmin } = await import(
-        "@/integrations/supabase/client.server"
-      );
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
       const { error } = await supabaseAdmin.from("contact_requests").insert({
         name: data.name,
         email: data.email,
@@ -56,9 +43,7 @@ export const submitContactRequest = createServerFn({ method: "POST" })
 
       if (error) {
         console.error("contact_requests insert failed:", error.message);
-        throw new Error(
-          "Talebiniz kaydedilemedi. Lütfen birazdan tekrar deneyin."
-        );
+        throw new Error("Talebiniz kaydedilemedi. Lütfen birazdan tekrar deneyin.");
       }
 
       return { ok: true as const };
