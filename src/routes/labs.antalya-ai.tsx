@@ -17,7 +17,9 @@ function AntalyaAIPage() {
         <PageHero
           eyebrow={t("LIKYA LABS • EXPERIMENT")}
           title="Antalya AI"
-          description={t("Likya Studios'un Antalya köklerinden doğan deneysel keşif projesi. Haritada durakları inceleyin ve AI ile kişisel rota oluşturun.")}
+          description={t(
+            "Likya Studios'un Antalya köklerinden doğan deneysel keşif projesi. Haritada durakları inceleyin ve AI ile kişisel rota oluşturun.",
+          )}
         />
         <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
           <img

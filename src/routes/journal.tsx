@@ -20,11 +20,17 @@ function JournalPage() {
         <PageHero
           eyebrow={t("STUDIO JOURNAL")}
           title={t("Üretim sürecinin içinden.")}
-          description={t("Geliştirme notları, ürün kararları, tasarım, AI ve stüdyo güncellemeleri için yayın alanı.")}
+          description={t(
+            "Geliştirme notları, ürün kararları, tasarım, AI ve stüdyo güncellemeleri için yayın alanı.",
+          )}
         />
         <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
           <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10">
-            <p className="text-sm text-muted-foreground">{t("Journal altyapısı hazır. Henüz yayınlanmış makale olmadığı için sahte tarih veya içerik göstermiyoruz.")}</p>
+            <p className="text-sm text-muted-foreground">
+              {t(
+                "Journal altyapısı hazır. Henüz yayınlanmış makale olmadığı için sahte tarih veya içerik göstermiyoruz.",
+              )}
+            </p>
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               {planned.map((title) => (
                 <div

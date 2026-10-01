@@ -37,7 +37,9 @@ function ProjectDetailPage() {
             description={t("Aradığınız proje mevcut değil veya adresi değişmiş olabilir.")}
           />
           <section className="mx-auto max-w-6xl px-6 pb-24">
-            <a className="text-glow" href="/projects">{t("← Projelere dön")}</a>
+            <a className="text-glow" href="/projects">
+              {t("← Projelere dön")}
+            </a>
           </section>
         </main>
       </StudioPage>
@@ -102,7 +104,11 @@ function ProjectDetailPage() {
           </div>
           <div className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10 md:col-span-2">
             <h2 className="font-display text-2xl font-semibold">{t("Roadmap & Store")}</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("Yayın bağlantıları ve sürüm yol haritası doğrulanmış bilgiler hazır olduğunda burada gösterilecek. Gerçek olmayan mağaza veya kullanıcı metrikleri yayınlanmayacak.")}</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              {t(
+                "Yayın bağlantıları ve sürüm yol haritası doğrulanmış bilgiler hazır olduğunda burada gösterilecek. Gerçek olmayan mağaza veya kullanıcı metrikleri yayınlanmayacak.",
+              )}
+            </p>
           </div>
         </section>
       </main>

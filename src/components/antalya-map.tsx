@@ -185,9 +185,17 @@ export function AntalyaMapSection() {
 
   return (
     <div className="rounded-3xl bg-panel/70 p-6 ring-1 ring-frost/10 backdrop-blur-xl md:p-8">
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-glow/80">{t("04 — Keşif Haritası")}</span>
-      <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">{t("Antalya'yı haritada keşfet.")}</h3>
-      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("Durakları kategorilere göre süz; ilgi alanına uyan yerleri haritada işaretli ve listelenmiş olarak gör.")}</p>
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-glow/80">
+        {t("04 — Keşif Haritası")}
+      </span>
+      <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">
+        {t("Antalya'yı haritada keşfet.")}
+      </h3>
+      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        {t(
+          "Durakları kategorilere göre süz; ilgi alanına uyan yerleri haritada işaretli ve listelenmiş olarak gör.",
+        )}
+      </p>
 
       <div className="mt-5 flex flex-wrap gap-2">
         {FILTERS.map((option) => {
@@ -210,7 +218,11 @@ export function AntalyaMapSection() {
       </div>
 
       <div className="mt-5 overflow-hidden rounded-2xl ring-1 ring-frost/10">
-        <div ref={containerRef} className="h-[420px] w-full" aria-label={t("Antalya gezi haritası")} />
+        <div
+          ref={containerRef}
+          className="h-[420px] w-full"
+          aria-label={t("Antalya gezi haritası")}
+        />
       </div>
 
       <ul className="mt-5 grid gap-2 sm:grid-cols-2">

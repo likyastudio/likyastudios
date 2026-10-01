@@ -61,7 +61,9 @@ export function LanguageSwitcher() {
           onClick={() => setLang(code)}
           aria-pressed={lang === code}
           className={`rounded-full px-2.5 py-1.5 uppercase tracking-wider transition ${
-            lang === code ? "bg-frost/15 text-foreground" : "text-muted-foreground hover:text-foreground"
+            lang === code
+              ? "bg-frost/15 text-foreground"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           {code}

@@ -14,7 +14,10 @@ export const DICT: Record<string, [string, string]> = {
   "Kullanım Koşulları": ["Kullanım Koşulları", "Terms of Service"],
   Çerezler: ["Çerezler", "Cookies"],
   "Hesap Silme": ["Hesap Silme", "Delete Account"],
-  "From Idea to Digital Reality.": ["Fikirden Dijital Gerçekliğe.", "From Idea to Digital Reality."],
+  "From Idea to Digital Reality.": [
+    "Fikirden Dijital Gerçekliğe.",
+    "From Idea to Digital Reality.",
+  ],
   "Apps • Games • AI • Digital Experiences": [
     "Uygulamalar • Oyunlar • AI • Dijital Deneyimler",
     "Apps • Games • AI • Digital Experiences",
@@ -74,7 +77,10 @@ export const DICT: Record<string, [string, string]> = {
     "Products don't end at launch; they keep evolving with feedback and data.",
   ],
   "03 — Technology": ["03 — Teknoloji", "03 — Technology"],
-  "Technology Behind Our Products": ["Ürünlerimizin Arkasındaki Teknoloji", "Technology Behind Our Products"],
+  "Technology Behind Our Products": [
+    "Ürünlerimizin Arkasındaki Teknoloji",
+    "Technology Behind Our Products",
+  ],
   "Kullandığımız ve ürünlerimizde geliştirdiğimiz teknoloji alanları.": [
     "Kullandığımız ve ürünlerimizde geliştirdiğimiz teknoloji alanları.",
     "The technology areas we use and develop in our products.",
@@ -95,7 +101,10 @@ export const DICT: Record<string, [string, string]> = {
       "Likya Studios, Akdeniz'in üretim ve keşif ruhundan ilham alan bağımsız bir teknoloji ve dijital ürün stüdyosudur. Antalya artık ana sayfada bir gezi kataloğu değil, markamızın köküdür.",
       "Likya Studios is an independent technology and digital product studio inspired by the Mediterranean spirit of making and discovery. Antalya isn't a travel catalogue on our homepage; it's the root of our brand.",
     ],
-  "Antalya AI deneyini keşfet →": ["Antalya AI deneyini keşfet →", "Explore the Antalya AI experiment →"],
+  "Antalya AI deneyini keşfet →": [
+    "Antalya AI deneyini keşfet →",
+    "Explore the Antalya AI experiment →",
+  ],
   "Founders of Likya Studios": ["Likya Studios Kurucuları", "Founders of Likya Studios"],
   "Projeyi İncele →": ["Projeyi İncele →", "View Project →"],
 
@@ -120,6 +129,8 @@ export const DICT: Record<string, [string, string]> = {
     "The project you're looking for doesn't exist or has moved.",
   ],
   Uygulama: ["Uygulama", "App"],
+  Apps: ["Uygulama", "Apps"],
+  Game: ["Oyun", "Game"],
   Oyun: ["Oyun", "Game"],
   Yayında: ["Yayında", "Live"],
   Geliştiriliyor: ["Geliştiriliyor", "In Development"],
@@ -155,11 +166,17 @@ export const DICT: Record<string, [string, string]> = {
     ],
   "AstroSync uygulama ikonu": ["AstroSync uygulama ikonu", "AstroSync app icon"],
   "Likya Batak oyun ikonu": ["Likya Batak oyun ikonu", "Likya Batak game icon"],
-  "Wine Intelligence uygulama ikonu": ["Wine Intelligence uygulama ikonu", "Wine Intelligence app icon"],
+  "Wine Intelligence uygulama ikonu": [
+    "Wine Intelligence uygulama ikonu",
+    "Wine Intelligence app icon",
+  ],
 
   // About
   "ABOUT LIKYA STUDIOS": ["LIKYA STUDIOS HAKKINDA", "ABOUT LIKYA STUDIOS"],
-  "Technology born on the Mediterranean.": ["Akdeniz'de doğan teknoloji.", "Technology born on the Mediterranean."],
+  "Technology born on the Mediterranean.": [
+    "Akdeniz'de doğan teknoloji.",
+    "Technology born on the Mediterranean.",
+  ],
   "Likya Studios, Antalya'da mobil uygulamalar, oyunlar ve yapay zekâ destekli dijital ürünler geliştiren bağımsız bir teknoloji stüdyosudur.":
     [
       "Likya Studios, Antalya'da mobil uygulamalar, oyunlar ve yapay zekâ destekli dijital ürünler geliştiren bağımsız bir teknoloji stüdyosudur.",
@@ -198,7 +215,10 @@ export const DICT: Record<string, [string, string]> = {
   "Agent Systems": ["Agent Sistemleri", "Agent Systems"],
 
   // Labs
-  "Deneyler, prototipler, yeni fikirler.": ["Deneyler, prototipler, yeni fikirler.", "Experiments, prototypes, new ideas."],
+  "Deneyler, prototipler, yeni fikirler.": [
+    "Deneyler, prototipler, yeni fikirler.",
+    "Experiments, prototypes, new ideas.",
+  ],
   "Henüz ana ürüne dönüşmemiş deneysel çalışmalar için stüdyo alanı.": [
     "Henüz ana ürüne dönüşmemiş deneysel çalışmalar için stüdyo alanı.",
     "The studio space for experimental work that hasn't become a main product yet.",
@@ -214,7 +234,10 @@ export const DICT: Record<string, [string, string]> = {
       "Likya Studios'un Antalya köklerinden doğan deneysel keşif projesi. Haritada durakları inceleyin ve AI ile kişisel rota oluşturun.",
       "An experimental discovery project born from Likya Studios' Antalya roots. Explore stops on the map and create a personal route with AI.",
     ],
-  "Antalya Kaleiçi ve marina": ["Antalya Kaleiçi ve marina", "Antalya old town (Kaleiçi) and marina"],
+  "Antalya Kaleiçi ve marina": [
+    "Antalya Kaleiçi ve marina",
+    "Antalya old town (Kaleiçi) and marina",
+  ],
 
   // Map
   "04 — Keşif Haritası": ["04 — Keşif Haritası", "04 — Discovery Map"],
@@ -256,7 +279,10 @@ export const DICT: Record<string, [string, string]> = {
     "Güllük Dağı'nda, bulutların üzerindeki antik kent.",
     "An ancient city above the clouds on Mount Güllük.",
   ],
-  "Üç koyuyla antik liman kenti.": ["Üç koyuyla antik liman kenti.", "An ancient harbour city with three bays."],
+  "Üç koyuyla antik liman kenti.": [
+    "Üç koyuyla antik liman kenti.",
+    "An ancient harbour city with three bays.",
+  ],
   "Falezlerden denize dökülen Aşağı Düden.": [
     "Falezlerden denize dökülen Aşağı Düden.",
     "Lower Düden, falling from the cliffs into the sea.",
@@ -316,7 +342,10 @@ export const DICT: Record<string, [string, string]> = {
     "Get in touch to talk about a product, a collaboration or Likya Studios.",
   ],
   "04 — İletişim": ["04 — İletişim", "04 — Contact"],
-  "Bir fikriniz mi var? Konuşalım.": ["Bir fikriniz mi var? Konuşalım.", "Have an idea? Let's talk."],
+  "Bir fikriniz mi var? Konuşalım.": [
+    "Bir fikriniz mi var? Konuşalım.",
+    "Have an idea? Let's talk.",
+  ],
   "Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun; talebinizi inceleyip size e-posta yoluyla dönüş yapalım.":
     [
       "Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun; talebinizi inceleyip size e-posta yoluyla dönüş yapalım.",
@@ -397,8 +426,14 @@ export const DICT: Record<string, [string, string]> = {
   Planned: ["Planlanan", "Planned"],
   "Building Wine Intelligence": ["Wine Intelligence'ı Geliştirmek", "Building Wine Intelligence"],
   "Why We Created Likya Studios": ["Likya Studios'u Neden Kurduk", "Why We Created Likya Studios"],
-  "Building a Modern Turkish Card Game": ["Modern Bir Türk Kart Oyunu Geliştirmek", "Building a Modern Turkish Card Game"],
-  "How AI Is Changing Mobile Apps": ["Yapay Zekâ Mobil Uygulamaları Nasıl Değiştiriyor", "How AI Is Changing Mobile Apps"],
+  "Building a Modern Turkish Card Game": [
+    "Modern Bir Türk Kart Oyunu Geliştirmek",
+    "Building a Modern Turkish Card Game",
+  ],
+  "How AI Is Changing Mobile Apps": [
+    "Yapay Zekâ Mobil Uygulamaları Nasıl Değiştiriyor",
+    "How AI Is Changing Mobile Apps",
+  ],
 
   // Press / brand / account
   "PRESS KIT": ["BASIN KİTİ", "PRESS KIT"],
@@ -413,7 +448,10 @@ export const DICT: Record<string, [string, string]> = {
       "Logo and product assets are available. Licensing and final brand files must be confirmed before a downloadable press pack is published.",
     ],
   BRAND: ["MARKA", "BRAND"],
-  "Likya Studios marka sistemi.": ["Likya Studios marka sistemi.", "The Likya Studios brand system."],
+  "Likya Studios marka sistemi.": [
+    "Likya Studios marka sistemi.",
+    "The Likya Studios brand system.",
+  ],
   "Logo, kurucu imzası ve dijital ürün stüdyosu görsel dilinin temel öğeleri.": [
     "Logo, kurucu imzası ve dijital ürün stüdyosu görsel dilinin temel öğeleri.",
     "The logo, the founders' mark and the core elements of our studio's visual language.",

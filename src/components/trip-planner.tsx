@@ -50,9 +50,17 @@ export function TripPlanner() {
 
   return (
     <div className="rounded-3xl bg-panel/70 p-6 ring-1 ring-frost/10 backdrop-blur-xl md:p-8">
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-iris/80">{t("05 — Kişisel Plan")}</span>
-      <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">{t("Yapay zekâyla gezi planını 10 saniyede çıkar.")}</h3>
-      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("İlgini çeken başlıkları seç, Antalya'da kaç günün olduğunu söyle; sana özel bir günlük plan hazırlayalım.")}</p>
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-iris/80">
+        {t("05 — Kişisel Plan")}
+      </span>
+      <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">
+        {t("Yapay zekâyla gezi planını 10 saniyede çıkar.")}
+      </h3>
+      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        {t(
+          "İlgini çeken başlıkları seç, Antalya'da kaç günün olduğunu söyle; sana özel bir günlük plan hazırlayalım.",
+        )}
+      </p>
 
       <div className="mt-6 flex flex-wrap gap-2">
         {INTERESTS.map((interest) => {
@@ -77,7 +85,9 @@ export function TripPlanner() {
       <div className="mt-6 max-w-md">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span>{t("Gezi süresi")}</span>
-          <span className="font-mono text-sm text-foreground">{days} {t("gün")}</span>
+          <span className="font-mono text-sm text-foreground">
+            {days} {t("gün")}
+          </span>
         </div>
         <input
           type="range"
@@ -101,7 +111,9 @@ export function TripPlanner() {
       </button>
 
       {selected.length === 0 && !loading && (
-        <p className="mt-3 text-xs text-muted-foreground">{t("Plan için en az bir ilgi alanı seçmelisin.")}</p>
+        <p className="mt-3 text-xs text-muted-foreground">
+          {t("Plan için en az bir ilgi alanı seçmelisin.")}
+        </p>
       )}
 
       {error && (

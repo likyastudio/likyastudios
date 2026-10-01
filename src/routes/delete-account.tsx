@@ -14,7 +14,9 @@ function DeleteAccountPage() {
         <PageHero
           eyebrow={t("ACCOUNT")}
           title={t("Hesap silme talebi.")}
-          description={t("Bir Likya Studios ürünündeki hesabınızı silmek için destek kanalını kullanabilirsiniz.")}
+          description={t(
+            "Bir Likya Studios ürünündeki hesabınızı silmek için destek kanalını kullanabilirsiniz.",
+          )}
         />
         <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
           <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10">
@@ -23,7 +25,9 @@ function DeleteAccountPage() {
               <a className="text-glow" href="mailto:likyastudios@gmail.com">
                 likyastudios@gmail.com
               </a>{" "}
-              {t("adresine talep gönderin. Ürün bazında otomatik silme akışı doğrulandığında bu sayfa ilgili bağlantılarla güncellenecektir.")}
+              {t(
+                "adresine talep gönderin. Ürün bazında otomatik silme akışı doğrulandığında bu sayfa ilgili bağlantılarla güncellenecektir.",
+              )}
             </p>
           </div>
         </section>

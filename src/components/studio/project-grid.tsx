@@ -61,7 +61,9 @@ export function ProjectGrid() {
             <a
               href={`/projects/${project.slug}`}
               className={`mt-auto pt-6 text-center text-sm font-medium ${accent.text}`}
-            >{t("Projeyi İncele →")}</a>
+            >
+              {t("Projeyi İncele →")}
+            </a>
           </article>
         );
       })}

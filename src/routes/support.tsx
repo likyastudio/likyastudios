@@ -24,7 +24,9 @@ function SupportPage() {
         <PageHero
           eyebrow={t("LIKYA SUPPORT")}
           title={t("Ürün desteği.")}
-          description={t("Likya Studios ürünleriyle ilgili teknik sorun, gizlilik, hesap veya özellik talepleri için destek merkezi.")}
+          description={t(
+            "Likya Studios ürünleriyle ilgili teknik sorun, gizlilik, hesap veya özellik talepleri için destek merkezi.",
+          )}
         />
         <section className="relative z-10 mx-auto grid max-w-6xl gap-5 px-6 pb-24 md:grid-cols-2">
           <div className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10">
@@ -55,7 +57,9 @@ function SupportPage() {
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
               {t("Destek talebi için")}{" "}
-              <a className="text-glow" href="/contact">{t("iletişim formunu")}</a>{" "}
+              <a className="text-glow" href="/contact">
+                {t("iletişim formunu")}
+              </a>{" "}
               {t("veya likyastudios@gmail.com adresini kullanabilirsiniz.")}
             </p>
           </div>

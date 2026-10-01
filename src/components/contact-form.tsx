@@ -54,18 +54,32 @@ export function ContactSection() {
   return (
     <section id="iletisim" className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-6 pb-24">
       <div className="mb-10">
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-ember/80">{t("04 — İletişim")}</span>
-        <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl">{t("Bir fikriniz mi var? Konuşalım.")}</h2>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">{t("Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun; talebinizi inceleyip size e-posta yoluyla dönüş yapalım.")}</p>
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-ember/80">
+          {t("04 — İletişim")}
+        </span>
+        <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          {t("Bir fikriniz mi var? Konuşalım.")}
+        </h2>
+        <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          {t(
+            "Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun; talebinizi inceleyip size e-posta yoluyla dönüş yapalım.",
+          )}
+        </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
         <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10 backdrop-blur-xl">
           <h3 className="font-display text-lg font-semibold">{t("Doğrudan ulaşın")}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t("Form doldurmak istemiyorsanız e-posta yazın; ya da aşağıdaki bilgilerle bize ulaşın.")}</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            {t(
+              "Form doldurmak istemiyorsanız e-posta yazın; ya da aşağıdaki bilgilerle bize ulaşın.",
+            )}
+          </p>
           <div className="mt-6 space-y-5 text-sm">
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{t("E-posta")}</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                {t("E-posta")}
+              </span>
               <a
                 href="mailto:likyastudios@gmail.com"
                 className="mt-1 block text-foreground transition hover:text-glow"
@@ -74,11 +88,15 @@ export function ContactSection() {
               </a>
             </div>
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{t("Konum")}</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                {t("Konum")}
+              </span>
               <span className="mt-1 block text-foreground">Antalya, Türkiye</span>
             </div>
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{t("Dönüş Süresi")}</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                {t("Dönüş Süresi")}
+              </span>
               <span className="mt-1 block text-foreground">{t("E-posta ile yanıt")}</span>
             </div>
           </div>
@@ -100,8 +118,8 @@ export function ContactSection() {
               </div>
               <h3 className="font-display text-xl font-semibold">{t("Talebiniz bize ulaştı")}</h3>
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                Teşekkürler {name.split(" ")[0]}. En kısa sürede e-posta yoluyla size dönüş
-                yapacağız.
+                {t("Teşekkürler")} {name.split(" ")[0]}.{" "}
+                {t("En kısa sürede e-posta yoluyla size dönüş yapacağız.")}
               </p>
               <button
                 type="button"
@@ -113,13 +131,17 @@ export function ContactSection() {
                   setMessage("");
                 }}
                 className="mt-6 rounded-full bg-frost/5 px-5 py-2.5 text-sm font-medium text-foreground ring-1 ring-frost/15 transition hover:bg-frost/10"
-              >{t("Yeni talep gönder")}</button>
+              >
+                {t("Yeni talep gönder")}
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{t("Ad Soyad *")}</span>
+                  <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
+                    {t("Ad Soyad *")}
+                  </span>
                   <input
                     required
                     value={name}
@@ -130,7 +152,9 @@ export function ContactSection() {
                   />
                 </label>
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{t("E-posta *")}</span>
+                  <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
+                    {t("E-posta *")}
+                  </span>
                   <input
                     required
                     type="email"
@@ -144,7 +168,9 @@ export function ContactSection() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{t("Telefon (opsiyonel)")}</span>
+                  <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
+                    {t("Telefon (opsiyonel)")}
+                  </span>
                   <input
                     type="tel"
                     value={phone}
@@ -155,7 +181,9 @@ export function ContactSection() {
                   />
                 </label>
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{t("Konu")}</span>
+                  <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
+                    {t("Konu")}
+                  </span>
                   <select
                     value={serviceType}
                     onChange={(e) => setServiceType(e.target.value)}
@@ -171,7 +199,9 @@ export function ContactSection() {
               </div>
 
               <label className="block">
-                <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{t("Bütçe (opsiyonel)")}</span>
+                <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
+                  {t("Bütçe (opsiyonel)")}
+                </span>
                 <select
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
@@ -186,13 +216,17 @@ export function ContactSection() {
               </label>
 
               <label className="block">
-                <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{t("Projenizden bahsedin *")}</span>
+                <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
+                  {t("Projenizden bahsedin *")}
+                </span>
                 <textarea
                   required
                   rows={5}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder={t("Fikrinizi, hedeflerinizi ve varsa örnek uygulamaları kısaca anlatın…")}
+                  placeholder={t(
+                    "Fikrinizi, hedeflerinizi ve varsa örnek uygulamaları kısaca anlatın…",
+                  )}
                   className={`${inputClass} resize-none`}
                   maxLength={2000}
                 />

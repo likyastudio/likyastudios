@@ -21,24 +21,36 @@ function Hero() {
     <section className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 pb-24 pt-16 md:grid-cols-[1.2fr_0.8fr] md:pt-24">
       <div className="text-center md:text-left">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-frost/5 px-3.5 py-1.5 text-xs text-muted-foreground ring-1 ring-frost/10">
-          <span className="h-1.5 w-1.5 rounded-full bg-mint" />{t("Apps • Games • AI • Digital Experiences")}</div>
+          <span className="h-1.5 w-1.5 rounded-full bg-mint" />
+          {t("Apps • Games • AI • Digital Experiences")}
+        </div>
         <p className="mb-4 font-mono text-xs uppercase tracking-[0.22em] text-ember/90">
           LIKYA STUDIOS • E × A
         </p>
         <h1 className="mx-auto max-w-3xl font-display text-5xl font-bold leading-[1.03] tracking-tight md:mx-0 md:text-7xl">
           {t("Fikirden")}{" "}
-          <span className="bg-gradient-to-r from-glow via-frost to-iris bg-clip-text text-transparent">{t("Dijital Gerçekliğe.")}</span>
+          <span className="bg-gradient-to-r from-glow via-frost to-iris bg-clip-text text-transparent">
+            {t("Dijital Gerçekliğe.")}
+          </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground md:mx-0 md:text-base">{t("Mobil uygulamalar, oyunlar ve yapay zekâ destekli dijital ürünler tasarlayan bağımsız teknoloji stüdyosu. Kendi ürünlerimizi fikir aşamasından tasarıma, koddan yayına kadar geliştiriyoruz.")}</p>
+        <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground md:mx-0 md:text-base">
+          {t(
+            "Mobil uygulamalar, oyunlar ve yapay zekâ destekli dijital ürünler tasarlayan bağımsız teknoloji stüdyosu. Kendi ürünlerimizi fikir aşamasından tasarıma, koddan yayına kadar geliştiriyoruz.",
+          )}
+        </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3 md:justify-start">
           <a
             className="rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-frost"
             href="#urunler"
-          >{t("Projelerimizi Keşfet")}</a>
+          >
+            {t("Projelerimizi Keşfet")}
+          </a>
           <a
             className="rounded-full bg-frost/5 px-6 py-3 text-sm font-medium text-foreground ring-1 ring-frost/15 transition hover:bg-frost/10"
             href="/about"
-          >{t("Likya Studios Hakkında")}</a>
+          >
+            {t("Likya Studios Hakkında")}
+          </a>
         </div>
       </div>
       <div className="relative mx-auto w-full max-w-xs md:max-w-sm">
@@ -85,9 +97,17 @@ function Products() {
   return (
     <section id="urunler" className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-6 pb-24">
       <div className="mb-10">
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-glow/80">{t("01 — Built at Likya Studios")}</span>
-        <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight md:text-4xl">{t("Stüdyo Ürünleri")}</h2>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("Fikir aşamasından tasarıma, koddan yayına kadar kendi bünyemizde geliştirdiğimiz dijital ürünler.")}</p>
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-glow/80">
+          {t("01 — Built at Likya Studios")}
+        </span>
+        <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          {t("Stüdyo Ürünleri")}
+        </h2>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          {t(
+            "Fikir aşamasından tasarıma, koddan yayına kadar kendi bünyemizde geliştirdiğimiz dijital ürünler.",
+          )}
+        </p>
       </div>
       <ProjectGrid />
     </section>
@@ -109,8 +129,12 @@ function Philosophy() {
   return (
     <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
       <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10 backdrop-blur-xl md:p-12">
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-iris/80">{t("02 — Philosophy")}</span>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl">{t("Küçük ekip. Derin iş.")}</h2>
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-iris/80">
+          {t("02 — Philosophy")}
+        </span>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          {t("Küçük ekip. Derin iş.")}
+        </h2>
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           {items.map(([no, title, copy]) => (
             <div key={no} className="border-l border-frost/10 pl-5">
@@ -137,9 +161,15 @@ function Technology() {
   ];
   return (
     <section id="teknoloji" className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-6 pb-24">
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint/80">{t("03 — Technology")}</span>
-      <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight md:text-4xl">{t("Technology Behind Our Products")}</h2>
-      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("Kullandığımız ve ürünlerimizde geliştirdiğimiz teknoloji alanları.")}</p>
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-mint/80">
+        {t("03 — Technology")}
+      </span>
+      <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight md:text-4xl">
+        {t("Technology Behind Our Products")}
+      </h2>
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        {t("Kullandığımız ve ürünlerimizde geliştirdiğimiz teknoloji alanları.")}
+      </p>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         {groups.map(([title, copy]) => (
           <div key={title} className="rounded-3xl bg-panel/50 p-6 ring-1 ring-frost/10">
@@ -160,9 +190,17 @@ function AILabTeaser() {
         <span className="font-mono text-xs uppercase tracking-[0.2em] text-iris/80">
           04 — Likya AI Lab
         </span>
-        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-5xl">{t("Building with Intelligence.")}</h2>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("AI assistants, computer vision, recommendation engines, personalization, voice AI ve agent sistemleri üzerinde çalışan deneysel alanımız.")}</p>
-        <a className="mt-7 inline-flex text-sm font-semibold text-glow" href="/ai-lab">{t("AI Lab'i keşfet →")}</a>
+        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-5xl">
+          {t("Building with Intelligence.")}
+        </h2>
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          {t(
+            "AI assistants, computer vision, recommendation engines, personalization, voice AI ve agent sistemleri üzerinde çalışan deneysel alanımız.",
+          )}
+        </p>
+        <a className="mt-7 inline-flex text-sm font-semibold text-glow" href="/ai-lab">
+          {t("AI Lab'i keşfet →")}
+        </a>
       </div>
     </section>
   );
@@ -177,13 +215,23 @@ function Roots() {
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-ember/80">
             05 — Antalya • Türkiye
           </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">{t("Born in Antalya. Inspired by Lycia.")}</h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("Likya Studios, Akdeniz'in üretim ve keşif ruhundan ilham alan bağımsız bir teknoloji ve dijital ürün stüdyosudur. Antalya artık ana sayfada bir gezi kataloğu değil, markamızın köküdür.")}</p>
-          <a className="mt-6 inline-flex text-sm font-semibold text-mint" href="/labs/antalya-ai">{t("Antalya AI deneyini keşfet →")}</a>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
+            {t("Born in Antalya. Inspired by Lycia.")}
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            {t(
+              "Likya Studios, Akdeniz'in üretim ve keşif ruhundan ilham alan bağımsız bir teknoloji ve dijital ürün stüdyosudur. Antalya artık ana sayfada bir gezi kataloğu değil, markamızın köküdür.",
+            )}
+          </p>
+          <a className="mt-6 inline-flex text-sm font-semibold text-mint" href="/labs/antalya-ai">
+            {t("Antalya AI deneyini keşfet →")}
+          </a>
         </div>
         <div className="flex min-h-48 flex-col items-center justify-center rounded-3xl bg-background/40 text-center ring-1 ring-frost/10">
           <div className="font-display text-6xl text-ember md:text-7xl">E × A</div>
-          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{t("Founders of Likya Studios")}</p>
+          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            {t("Founders of Likya Studios")}
+          </p>
         </div>
       </div>
     </section>
