@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 export const Route = createFileRoute("/delete-account")({
-  head: () => ({ meta: [{ title: "Hesap Silme — Likya Studios" }] }),
+  head: () => seoHead("/delete-account"),
   component: DeleteAccountPage,
 });
 function DeleteAccountPage() {

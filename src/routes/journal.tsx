@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 export const Route = createFileRoute("/journal")({
-  head: () => ({ meta: [{ title: "Studio Journal — Likya Studios" }] }),
+  head: () => seoHead("/journal"),
   component: JournalPage,
 });
 const planned = [

@@ -227,7 +227,6 @@ export function softwareAppLd(p: {
     url: `${SITE_URL}/projects/${p.slug}`,
     description: p.description,
     applicationCategory: p.category,
-    operatingSystem: "iOS, Android",
     publisher: { "@type": "Organization", name: "Likya Studios", url: SITE_URL },
   };
 }

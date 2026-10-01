@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 import { projects } from "@/data/projects";
 export const Route = createFileRoute("/support")({
-  head: () => ({ meta: [{ title: "Destek — Likya Studios" }] }),
+  head: () => seoHead("/support"),
   component: SupportPage,
 });
 const topics = [
