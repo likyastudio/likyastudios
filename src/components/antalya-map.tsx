@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useT } from "@/lib/i18n";
 import type { LayerGroup, Map as LeafletMap } from "leaflet";
 
 type Category = "tarih" | "doga" | "plaj";
@@ -109,6 +110,7 @@ const visiblePlaces = (filter: Category | "hepsi") =>
   filter === "hepsi" ? PLACES : PLACES.filter((place) => place.category === filter);
 
 export function AntalyaMapSection() {
+  const t = useT();
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const layerRef = useRef<LayerGroup | null>(null);
@@ -163,9 +165,9 @@ export function AntalyaMapSection() {
           iconAnchor: [9, 9],
           popupAnchor: [0, -10],
         });
-        L.marker([place.lat, place.lng], { icon, title: place.name })
+        L.marker([place.lat, place.lng], { icon, title: t(place.name) })
           .addTo(layer)
-          .bindPopup(`<strong>${place.name}</strong><br/><span>${place.description}</span>`);
+          .bindPopup(`<strong>${t(place.name)}</strong><br/><span>${t(place.description)}</span>`);
       }
       if (places.length > 0) {
         map.fitBounds(
@@ -177,22 +179,15 @@ export function AntalyaMapSection() {
     return () => {
       cancelled = true;
     };
-  }, [ready, filter]);
+  }, [ready, filter, t]);
 
   const places = visiblePlaces(filter);
 
   return (
     <div className="rounded-3xl bg-panel/70 p-6 ring-1 ring-frost/10 backdrop-blur-xl md:p-8">
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-glow/80">
-        04 — Keşif Haritası
-      </span>
-      <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">
-        Antalya'yı haritada keşfet.
-      </h3>
-      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-        Durakları kategorilere göre süz; ilgi alanına uyan yerleri haritada işaretli ve listelenmiş
-        olarak gör.
-      </p>
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-glow/80">{t("04 — Keşif Haritası")}</span>
+      <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">{t("Antalya'yı haritada keşfet.")}</h3>
+      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("Durakları kategorilere göre süz; ilgi alanına uyan yerleri haritada işaretli ve listelenmiş olarak gör.")}</p>
 
       <div className="mt-5 flex flex-wrap gap-2">
         {FILTERS.map((option) => {
@@ -208,14 +203,14 @@ export function AntalyaMapSection() {
                   : "bg-frost/5 text-muted-foreground ring-frost/10 hover:ring-frost/25"
               }`}
             >
-              {option.label}
+              {t(option.label)}
             </button>
           );
         })}
       </div>
 
       <div className="mt-5 overflow-hidden rounded-2xl ring-1 ring-frost/10">
-        <div ref={containerRef} className="h-[420px] w-full" aria-label="Antalya gezi haritası" />
+        <div ref={containerRef} className="h-[420px] w-full" aria-label={t("Antalya gezi haritası")} />
       </div>
 
       <ul className="mt-5 grid gap-2 sm:grid-cols-2">
@@ -226,8 +221,8 @@ export function AntalyaMapSection() {
           >
             <span className={`map-pin map-pin-${place.category} mt-1.5 shrink-0`}></span>
             <span>
-              <span className="font-medium text-foreground">{place.name}</span>
-              <span className="block text-xs text-muted-foreground">{place.description}</span>
+              <span className="font-medium text-foreground">{t(place.name)}</span>
+              <span className="block text-xs text-muted-foreground">{t(place.description)}</span>
             </span>
           </li>
         ))}

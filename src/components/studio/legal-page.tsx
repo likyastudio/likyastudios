@@ -1,4 +1,5 @@
 import { PageHero, StudioPage } from "./site-shell";
+import { useT } from "@/lib/i18n";
 
 type LegalKind = "privacy" | "terms" | "cookies" | "kvkk";
 const copy: Record<
@@ -84,6 +85,7 @@ const copy: Record<
   },
 };
 export function LegalPage({ kind }: { kind: LegalKind }) {
+  const t = useT();
   const page = copy[kind];
   return (
     <StudioPage>
@@ -92,8 +94,8 @@ export function LegalPage({ kind }: { kind: LegalKind }) {
         <section className="relative z-10 mx-auto max-w-4xl space-y-4 px-6 pb-24">
           {page.sections.map(([title, body]) => (
             <article key={title} className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10">
-              <h2 className="font-display text-xl font-semibold">{title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              <h2 className="font-display text-xl font-semibold">{t(title)}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t(body)}</p>
             </article>
           ))}
         </section>
