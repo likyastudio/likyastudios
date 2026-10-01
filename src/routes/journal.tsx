@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useT } from "@/lib/i18n";
 import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 export const Route = createFileRoute("/journal")({
@@ -12,19 +13,23 @@ const planned = [
   "How AI Is Changing Mobile Apps",
 ];
 function JournalPage() {
+  const t = useT();
   return (
     <StudioPage>
       <main>
         <PageHero
-          eyebrow="STUDIO JOURNAL"
-          title="Üretim sürecinin içinden."
-          description="Geliştirme notları, ürün kararları, tasarım, AI ve stüdyo güncellemeleri için yayın alanı."
+          eyebrow={t("STUDIO JOURNAL")}
+          title={t("Üretim sürecinin içinden.")}
+          description={t(
+            "Geliştirme notları, ürün kararları, tasarım, AI ve stüdyo güncellemeleri için yayın alanı.",
+          )}
         />
         <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
           <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10">
             <p className="text-sm text-muted-foreground">
-              Journal altyapısı hazır. Henüz yayınlanmış makale olmadığı için sahte tarih veya
-              içerik göstermiyoruz.
+              {t(
+                "Journal altyapısı hazır. Henüz yayınlanmış makale olmadığı için sahte tarih veya içerik göstermiyoruz.",
+              )}
             </p>
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               {planned.map((title) => (
@@ -32,7 +37,7 @@ function JournalPage() {
                   key={title}
                   className="rounded-2xl bg-frost/5 p-4 text-sm text-muted-foreground ring-1 ring-frost/10"
                 >
-                  Planned • {title}
+                  {t("Planned")} • {t(title)}
                 </div>
               ))}
             </div>

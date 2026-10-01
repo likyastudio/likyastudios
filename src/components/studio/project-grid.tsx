@@ -1,4 +1,5 @@
 import { projects, statusLabels } from "@/data/projects";
+import { useT } from "@/lib/i18n";
 
 const accents = {
   glow: { edge: "via-glow/60", chip: "from-glow/25", text: "text-glow" },
@@ -7,6 +8,7 @@ const accents = {
 } as const;
 
 export function ProjectGrid() {
+  const t = useT();
   return (
     <div className="grid gap-5 md:grid-cols-3">
       {projects.map((project) => {
@@ -21,10 +23,10 @@ export function ProjectGrid() {
             />
             <div className="mb-5 flex items-center justify-between gap-3">
               <span className={`font-mono text-[10px] uppercase tracking-wider ${accent.text}`}>
-                {statusLabels[project.status]}
+                {t(statusLabels[project.status])}
               </span>
               <span className="rounded-full bg-frost/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                {project.kind}
+                {t(project.kind)}
               </span>
             </div>
             <div className="relative mx-auto mb-6 w-fit">
@@ -33,7 +35,7 @@ export function ProjectGrid() {
               />
               <img
                 src={project.icon}
-                alt={project.alt}
+                alt={t(project.alt)}
                 width={200}
                 height={200}
                 loading="lazy"
@@ -44,7 +46,7 @@ export function ProjectGrid() {
               {project.name}
             </h3>
             <p className="mt-2 text-center text-sm leading-relaxed text-muted-foreground">
-              {project.shortDescription}
+              {t(project.shortDescription)}
             </p>
             <div className="mt-5 flex flex-wrap justify-center gap-2">
               {project.features.slice(0, 3).map((feature) => (
@@ -60,7 +62,7 @@ export function ProjectGrid() {
               href={`/projects/${project.slug}`}
               className={`mt-auto pt-6 text-center text-sm font-medium ${accent.text}`}
             >
-              Projeyi İncele →
+              {t("Projeyi İncele →")}
             </a>
           </article>
         );

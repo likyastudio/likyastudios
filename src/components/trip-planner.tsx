@@ -1,4 +1,5 @@
 import { useServerFn } from "@tanstack/react-start";
+import { useT } from "@/lib/i18n";
 import { useState } from "react";
 
 import { createTripPlan } from "@/lib/trip-planner.functions";
@@ -14,6 +15,7 @@ const INTERESTS = [
 ] as const;
 
 export function TripPlanner() {
+  const t = useT();
   const generate = useServerFn(createTripPlan);
   const [selected, setSelected] = useState<string[]>([INTERESTS[0]]);
   const [days, setDays] = useState(3);
@@ -49,14 +51,15 @@ export function TripPlanner() {
   return (
     <div className="rounded-3xl bg-panel/70 p-6 ring-1 ring-frost/10 backdrop-blur-xl md:p-8">
       <span className="font-mono text-xs uppercase tracking-[0.2em] text-iris/80">
-        05 — Kişisel Plan
+        {t("05 — Kişisel Plan")}
       </span>
       <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">
-        Yapay zekâyla gezi planını 10 saniyede çıkar.
+        {t("Yapay zekâyla gezi planını 10 saniyede çıkar.")}
       </h3>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-        İlgini çeken başlıkları seç, Antalya'da kaç günün olduğunu söyle; sana özel bir günlük plan
-        hazırlayalım.
+        {t(
+          "İlgini çeken başlıkları seç, Antalya'da kaç günün olduğunu söyle; sana özel bir günlük plan hazırlayalım.",
+        )}
       </p>
 
       <div className="mt-6 flex flex-wrap gap-2">
@@ -73,7 +76,7 @@ export function TripPlanner() {
                   : "bg-frost/5 text-muted-foreground ring-frost/10 hover:ring-frost/25"
               }`}
             >
-              {interest}
+              {t(interest)}
             </button>
           );
         })}
@@ -81,8 +84,10 @@ export function TripPlanner() {
 
       <div className="mt-6 max-w-md">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
-          <span>Gezi süresi</span>
-          <span className="font-mono text-sm text-foreground">{days} gün</span>
+          <span>{t("Gezi süresi")}</span>
+          <span className="font-mono text-sm text-foreground">
+            {days} {t("gün")}
+          </span>
         </div>
         <input
           type="range"
@@ -92,7 +97,7 @@ export function TripPlanner() {
           value={days}
           onChange={(event) => setDays(Number(event.target.value))}
           className="mt-2 w-full accent-glow"
-          aria-label="Gezi süresi (gün)"
+          aria-label={t("Gezi süresi (gün)")}
         />
       </div>
 
@@ -102,12 +107,12 @@ export function TripPlanner() {
         disabled={loading || selected.length === 0}
         className="mt-6 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-frost disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {loading ? "Plan hazırlanıyor…" : "Planımı Oluştur"}
+        {loading ? t("Plan hazırlanıyor…") : t("Planımı Oluştur")}
       </button>
 
       {selected.length === 0 && !loading && (
         <p className="mt-3 text-xs text-muted-foreground">
-          Plan için en az bir ilgi alanı seçmelisin.
+          {t("Plan için en az bir ilgi alanı seçmelisin.")}
         </p>
       )}
 

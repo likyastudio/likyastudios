@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useT } from "@/lib/i18n";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 import { projects, statusLabels } from "@/data/projects";
 import { seoHead, seoEntries, softwareAppLd } from "@/data/seo";
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetailPage() {
+  const t = useT();
   const { slug } = Route.useParams();
   const project = projects.find((item) => item.slug === slug);
 
@@ -31,12 +33,12 @@ function ProjectDetailPage() {
         <main>
           <PageHero
             eyebrow="404"
-            title="Proje bulunamadı."
-            description="Aradığınız proje mevcut değil veya adresi değişmiş olabilir."
+            title={t("Proje bulunamadı.")}
+            description={t("Aradığınız proje mevcut değil veya adresi değişmiş olabilir.")}
           />
           <section className="mx-auto max-w-6xl px-6 pb-24">
             <a className="text-glow" href="/projects">
-              ← Projelere dön
+              {t("← Projelere dön")}
             </a>
           </section>
         </main>
@@ -56,11 +58,11 @@ function ProjectDetailPage() {
               {project.name}
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              {project.description}
+              {t(project.description)}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <span className="rounded-full bg-frost/5 px-3 py-1 text-xs text-muted-foreground">
-                {statusLabels[project.status]}
+                {t(statusLabels[project.status])}
               </span>
               {project.platforms.map((p) => (
                 <span
@@ -74,13 +76,13 @@ function ProjectDetailPage() {
           </div>
           <img
             src={project.icon}
-            alt={project.alt}
+            alt={t(project.alt)}
             className="mx-auto h-44 w-44 rounded-[2rem] object-cover ring-1 ring-frost/15"
           />
         </section>
         <section className="relative z-10 mx-auto grid max-w-6xl gap-5 px-6 pb-24 md:grid-cols-2">
           <div className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10">
-            <h2 className="font-display text-2xl font-semibold">Ana Özellikler</h2>
+            <h2 className="font-display text-2xl font-semibold">{t("Ana Özellikler")}</h2>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               {project.features.map((x) => (
                 <li key={x}>• {x}</li>
@@ -88,7 +90,7 @@ function ProjectDetailPage() {
             </ul>
           </div>
           <div className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10">
-            <h2 className="font-display text-2xl font-semibold">Teknolojiler</h2>
+            <h2 className="font-display text-2xl font-semibold">{t("Teknolojiler")}</h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {project.technologies.map((x) => (
                 <span
@@ -101,10 +103,11 @@ function ProjectDetailPage() {
             </div>
           </div>
           <div className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10 md:col-span-2">
-            <h2 className="font-display text-2xl font-semibold">Roadmap & Store</h2>
+            <h2 className="font-display text-2xl font-semibold">{t("Roadmap & Store")}</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Yayın bağlantıları ve sürüm yol haritası doğrulanmış bilgiler hazır olduğunda burada
-              gösterilecek. Gerçek olmayan mağaza veya kullanıcı metrikleri yayınlanmayacak.
+              {t(
+                "Yayın bağlantıları ve sürüm yol haritası doğrulanmış bilgiler hazır olduğunda burada gösterilecek. Gerçek olmayan mağaza veya kullanıcı metrikleri yayınlanmayacak.",
+              )}
             </p>
           </div>
         </section>
