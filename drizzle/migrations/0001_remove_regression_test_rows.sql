@@ -1,0 +1,1 @@
+DELETE FROM public.contact_requests WHERE email IN ('regtest-tr@example.com','regtest-en@example.com');

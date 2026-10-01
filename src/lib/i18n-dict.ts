@@ -360,7 +360,7 @@ export const DICT: Record<string, [string, string]> = {
   Konum: ["Konum", "Location"],
   "Dönüş Süresi": ["Dönüş Süresi", "Response"],
   "E-posta ile yanıt": ["E-posta ile yanıt", "Reply by email"],
-  "Talebiniz bize ulaştı": ["Talebiniz bize ulaştı", "We've received your request"],
+  "Talebiniz bize ulaştı": ["Talebiniz bize ulaştı", "Your message has been received."],
   Teşekkürler: ["Teşekkürler", "Thank you"],
   "En kısa sürede e-posta yoluyla size dönüş yapacağız.": [
     "En kısa sürede e-posta yoluyla size dönüş yapacağız.",
