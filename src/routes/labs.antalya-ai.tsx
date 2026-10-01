@@ -1,19 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seoHead } from "@/data/seo";
 import antalyaImg from "@/assets/antalya.jpg";
 import { AntalyaMapSection } from "@/components/antalya-map";
 import { TripPlanner } from "@/components/trip-planner";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 export const Route = createFileRoute("/labs/antalya-ai")({
-  head: () => ({
-    meta: [
-      { title: "Antalya AI — Likya Labs" },
-      {
-        name: "description",
-        content:
-          "Antalya'yı harita ve yapay zekâ destekli kişisel planlayıcıyla keşfetmek için Likya Labs deneysel projesi.",
-      },
-    ],
-  }),
+  head: () => seoHead("/labs/antalya-ai"),
   component: AntalyaAIPage,
 });
 function AntalyaAIPage() {

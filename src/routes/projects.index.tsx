@@ -1,18 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seoHead } from "@/data/seo";
 import { ProjectGrid } from "@/components/studio/project-grid";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 
 export const Route = createFileRoute("/projects/")({
-  head: () => ({
-    meta: [
-      { title: "Projeler — Likya Studios" },
-      {
-        name: "description",
-        content:
-          "Likya Studios tarafından geliştirilen mobil uygulamalar, oyunlar ve yapay zekâ destekli ürünler.",
-      },
-    ],
-  }),
+  head: () => seoHead("/projects"),
   component: ProjectsPage,
 });
 

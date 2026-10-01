@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 export const Route = createFileRoute("/about")({
-  head: () => ({ meta: [{ title: "Hakkımızda — Likya Studios" }] }),
+  head: () => seoHead("/about"),
   component: AboutPage,
 });
 function AboutPage() {

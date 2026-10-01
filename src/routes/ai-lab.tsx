@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 
 export const Route = createFileRoute("/ai-lab")({
-  head: () => ({ meta: [{ title: "Likya AI Lab — Likya Studios" }] }),
+  head: () => seoHead("/ai-lab"),
   component: AILabPage,
 });
 

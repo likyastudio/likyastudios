@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seoHead, organizationLd, websiteLd } from "@/data/seo";
 
 import logoAsset from "@/assets/likya-logo.png.asset.json";
 import { ContactSection } from "@/components/contact-form";
@@ -9,24 +10,7 @@ import { projects } from "@/data/projects";
 const logoImg = logoAsset.url;
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Likya Studios — Apps, Games & AI" },
-      {
-        name: "description",
-        content:
-          "Likya Studios, Antalya'da mobil uygulamalar, oyunlar ve yapay zekâ destekli dijital ürünler geliştiren bağımsız teknoloji stüdyosudur.",
-      },
-      { property: "og:title", content: "Likya Studios — Apps, Games & AI" },
-      {
-        property: "og:description",
-        content:
-          "From Idea to Digital Reality. Mobil uygulamalar, oyunlar ve AI destekli dijital ürünler.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => seoHead("/", [organizationLd, websiteLd]),
   component: Index,
 });
 
