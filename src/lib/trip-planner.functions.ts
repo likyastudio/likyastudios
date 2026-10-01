@@ -6,6 +6,7 @@ import { callLovableResponsesText } from "./gateway.server";
 const inputSchema = z.object({
   interests: z.array(z.string().min(1).max(40)).min(1).max(7),
   days: z.number().int().min(1).max(7),
+  locale: z.enum(["tr", "en"]).catch("tr").default("tr"),
 });
 
 const SYSTEM_PROMPT = `Sen Antalya'da yaşayan, şehri ve çevresini çok iyi tanıyan bir yerel gezi danışmanısın. Kullanıcının ilgi alanlarına ve gezi süresine göre kişisel, uygulanabilir bir gezi planı hazırlıyorsun.
@@ -21,11 +22,18 @@ Kurallar:
 export const createTripPlan = createServerFn({ method: "POST" })
   .inputValidator((data) => inputSchema.parse(data))
   .handler(async ({ data }) => {
+    const en = data.locale === "en";
+    const msg = (tr: string, eng: string) => (en ? eng : tr);
+    const systemPrompt =
+      SYSTEM_PROMPT +
+      (en
+        ? "\n\nOutput language: Respond entirely in English (use the heading format 'Day 1 — <theme>' and 'Local Tips')."
+        : "\n\nÇıktı dili: Yanıtın tamamını Türkçe yaz.");
     const userMessage = `İlgi alanlarım: ${data.interests.join(", ")}. Gezi sürem: ${data.days} gün. Bu koşullara göre kişisel Antalya gezi planımı hazırla.`;
     try {
       const plan = await callLovableResponsesText(
         [
-          { role: "system", content: SYSTEM_PROMPT },
+          { role: "system", content: systemPrompt },
           { role: "user", content: userMessage },
         ],
         "low",
@@ -34,16 +42,16 @@ export const createTripPlan = createServerFn({ method: "POST" })
     } catch (error) {
       const status = (error as { statusCode?: number }).statusCode;
       if (status === 402) {
-        throw new Error("AI kredisi tükendi. Kredi eklendikten sonra tekrar deneyebilirsiniz.");
+        throw new Error(msg("AI kredisi tükendi. Kredi eklendikten sonra tekrar deneyebilirsiniz.", "AI credits are used up. Please try again after credits are added."));
       }
       if (status === 403) {
         throw new Error(
-          "AI servisi şu anda bu istek için erişilebilir değil. Lütfen daha sonra tekrar deneyin.",
+          msg("AI servisi şu anda bu istek için erişilebilir değil. Lütfen daha sonra tekrar deneyin.", "The AI service isn't available for this request right now. Please try again later."),
         );
       }
       if (status === 429 || (typeof status === "number" && status >= 500)) {
-        throw new Error("AI servisi şu anda yoğun. Lütfen kısa bir süre sonra tekrar deneyin.");
+        throw new Error(msg("AI servisi şu anda yoğun. Lütfen kısa bir süre sonra tekrar deneyin.", "The AI service is busy right now. Please try again shortly."));
       }
-      throw new Error("Plan oluşturulamadı. Lütfen tekrar deneyin.");
+      throw new Error(msg("Plan oluşturulamadı. Lütfen tekrar deneyin.", "Couldn't create the plan. Please try again."));
     }
   });
