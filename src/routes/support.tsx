@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useT } from "@/lib/i18n";
 import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 import { projects } from "@/data/projects";
@@ -16,17 +17,18 @@ const topics = [
   "Diğer",
 ];
 function SupportPage() {
+  const t = useT();
   return (
     <StudioPage>
       <main>
         <PageHero
-          eyebrow="LIKYA SUPPORT"
-          title="Ürün desteği."
-          description="Likya Studios ürünleriyle ilgili teknik sorun, gizlilik, hesap veya özellik talepleri için destek merkezi."
+          eyebrow={t("LIKYA SUPPORT")}
+          title={t("Ürün desteği.")}
+          description={t("Likya Studios ürünleriyle ilgili teknik sorun, gizlilik, hesap veya özellik talepleri için destek merkezi.")}
         />
         <section className="relative z-10 mx-auto grid max-w-6xl gap-5 px-6 pb-24 md:grid-cols-2">
           <div className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10">
-            <h2 className="font-display text-xl font-semibold">Ürünler</h2>
+            <h2 className="font-display text-xl font-semibold">{t("Ürünler")}</h2>
             <div className="mt-4 space-y-2">
               {projects.map((p) => (
                 <a
@@ -40,23 +42,21 @@ function SupportPage() {
             </div>
           </div>
           <div className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10">
-            <h2 className="font-display text-xl font-semibold">Destek Konuları</h2>
+            <h2 className="font-display text-xl font-semibold">{t("Destek Konuları")}</h2>
             <div className="mt-4 flex flex-wrap gap-2">
-              {topics.map((t) => (
+              {topics.map((topic) => (
                 <span
-                  key={t}
+                  key={topic}
                   className="rounded-full bg-frost/5 px-3 py-1.5 text-xs text-muted-foreground"
                 >
-                  {t}
+                  {t(topic)}
                 </span>
               ))}
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
-              Destek talebi için{" "}
-              <a className="text-glow" href="/contact">
-                iletişim formunu
-              </a>{" "}
-              veya likyastudios@gmail.com adresini kullanabilirsiniz.
+              {t("Destek talebi için")}{" "}
+              <a className="text-glow" href="/contact">{t("iletişim formunu")}</a>{" "}
+              {t("veya likyastudios@gmail.com adresini kullanabilirsiniz.")}
             </p>
           </div>
         </section>
