@@ -20,6 +20,10 @@ const copy: Record<
         "Her uygulama için gerçek veri toplama davranışı doğrulanarak ayrı ve güncel gizlilik açıklaması yayınlanmalıdır. Bu sayfa doğrulanmamış veri toplama iddiaları üretmez.",
       ],
       [
+        "Harita hizmeti",
+        "Antalya AI haritası Google Maps Platform üzerinden sunulmaktadır. Harita yüklenirken Google tarafından IP adresi ve teknik bağlantı bilgileri gibi veriler işlenebilir.",
+      ],
+      [
         "İletişim",
         "Gizlilik soruları için likyastudios@gmail.com adresinden iletişim kurulabilir.",
       ],
@@ -56,6 +60,10 @@ const copy: Record<
       [
         "Analitik",
         "Analitik entegrasyonu doğrulanmadan bu sayfa analitik çerez kullanıldığını iddia etmez.",
+      ],
+      [
+        "Harita hizmeti",
+        "Antalya AI haritası Google Maps Platform üzerinden sunulmaktadır. Harita yüklenirken Google tarafından IP adresi ve teknik bağlantı bilgileri gibi veriler işlenebilir.",
       ],
       [
         "Tercihler",
