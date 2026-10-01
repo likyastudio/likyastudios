@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
-export const Route = createFileRoute("/labs/")({ head: () => seoHead("/labs"), component: LabsPage });
+export const Route = createFileRoute("/labs/")({
+  head: () => seoHead("/labs"),
+  component: LabsPage,
+});
 function LabsPage() {
   return (
     <StudioPage>

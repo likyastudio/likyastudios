@@ -1,8 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 import { projects, statusLabels } from "@/data/projects";
+import { seoHead, seoEntries, softwareAppLd } from "@/data/seo";
 
 export const Route = createFileRoute("/projects/$slug")({
+  head: ({ params }) => {
+    const path = `/projects/${params.slug}`;
+    const p = projects.find((item) => item.slug === params.slug);
+    const e = seoEntries[path];
+    if (!p || !e) return seoHead(path);
+    return seoHead(path, [
+      softwareAppLd({
+        name: p.name,
+        slug: p.slug,
+        description: e.description,
+        category: p.kind === "Oyun" ? "GameApplication" : "LifestyleApplication",
+      }),
+    ]);
+  },
   component: ProjectDetailPage,
 });
 
