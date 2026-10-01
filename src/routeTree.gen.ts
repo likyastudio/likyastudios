@@ -98,9 +98,9 @@ const LabsIndexRoute = LabsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const LabsAntalyaAiRoute = LabsAntalyaAiRouteImport.update({
-  id: '/antalya-ai',
-  path: '/antalya-ai',
-  getParentRoute: () => LabsRoute,
+  id: '/labs/antalya-ai',
+  path: '/labs/antalya-ai',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
@@ -108,9 +108,9 @@ const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ProjectsRoute,
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -245,6 +245,8 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
+  LabsAntalyaAiRoute: typeof LabsAntalyaAiRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
   LabsIndexRoute: typeof LabsIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
@@ -351,10 +353,10 @@ declare module '@tanstack/react-router' {
     }
     '/labs/antalya-ai': {
       id: '/labs/antalya-ai'
-      path: '/antalya-ai'
+      path: '/labs/antalya-ai'
       fullPath: '/labs/antalya-ai'
       preLoaderRoute: typeof LabsAntalyaAiRouteImport
-      parentRoute: typeof LabsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/projects/': {
       id: '/projects/'
@@ -365,10 +367,10 @@ declare module '@tanstack/react-router' {
     }
     '/projects/$slug': {
       id: '/projects/$slug'
-      path: '/$slug'
+      path: '/projects/$slug'
       fullPath: '/projects/$slug'
       preLoaderRoute: typeof ProjectsSlugRouteImport
-      parentRoute: typeof ProjectsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -387,6 +389,8 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
+  LabsAntalyaAiRoute: LabsAntalyaAiRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
   LabsIndexRoute: LabsIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
 }
