@@ -44,9 +44,11 @@ export function ContactSection() {
     } catch (err) {
       setStatus("idle");
       setError(
-        err instanceof Error && err.message
-          ? err.message
-          : "Talebiniz gönderilemedi. Lütfen tekrar deneyin.",
+        t(
+          err instanceof Error && err.message
+            ? err.message
+            : "Talebiniz gönderilemedi. Lütfen tekrar deneyin.",
+        ),
       );
     }
   }

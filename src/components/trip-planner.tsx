@@ -1,5 +1,5 @@
 import { useServerFn } from "@tanstack/react-start";
-import { useT } from "@/lib/i18n";
+import { useLang, useT } from "@/lib/i18n";
 import { useState } from "react";
 
 import { createTripPlan } from "@/lib/trip-planner.functions";
@@ -16,6 +16,7 @@ const INTERESTS = [
 
 export function TripPlanner() {
   const t = useT();
+  const { lang } = useLang();
   const generate = useServerFn(createTripPlan);
   const [selected, setSelected] = useState<string[]>([INTERESTS[0]]);
   const [days, setDays] = useState(3);
@@ -35,13 +36,13 @@ export function TripPlanner() {
     setError(null);
     setPlan(null);
     try {
-      const result = await generate({ data: { interests: [...selected], days } });
+      const result = await generate({ data: { interests: [...selected], days, locale: lang } });
       setPlan(result.plan);
     } catch (submitError) {
       setError(
         submitError instanceof Error
           ? submitError.message
-          : "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+          : t("Bir şeyler ters gitti. Lütfen tekrar deneyin."),
       );
     } finally {
       setLoading(false);

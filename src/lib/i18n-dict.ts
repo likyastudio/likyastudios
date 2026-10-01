@@ -564,4 +564,44 @@ export const DICT: Record<string, [string, string]> = {
       "Bu taslak, doğrulanmamış hukuki taahhüt veya veri işleme faaliyeti uydurmaz ve nihai hukuki metin yerine geçmez.",
       "This draft doesn't invent unverified legal commitments or data processing and doesn't replace the final legal text.",
     ],
+  "Lütfen adınızı yazın.": ["Lütfen adınızı yazın.", "Name is required."],
+  "Geçerli bir e-posta adresi girin.": [
+    "Geçerli bir e-posta adresi girin.",
+    "Please enter a valid email address.",
+  ],
+  "Telefon numarası çok uzun.": ["Telefon numarası çok uzun.", "Phone number is too long."],
+  "Mesajınızı biraz daha detaylandırın (en az 10 karakter).": [
+    "Mesajınızı biraz daha detaylandırın (en az 10 karakter).",
+    "Please add a bit more detail to your message (at least 10 characters).",
+  ],
+  "Mesajınız en fazla 2000 karakter olabilir.": [
+    "Mesajınız en fazla 2000 karakter olabilir.",
+    "Your message can be at most 2000 characters.",
+  ],
+  "Girdiler geçersiz.": ["Girdiler geçersiz.", "Some fields are invalid."],
+  "Talebiniz kaydedilemedi. Lütfen birazdan tekrar deneyin.": [
+    "Talebiniz kaydedilemedi. Lütfen birazdan tekrar deneyin.",
+    "Your request couldn't be saved. Please try again shortly.",
+  ],
+  "Bir sorun oluştu. Lütfen tekrar deneyin.": [
+    "Bir sorun oluştu. Lütfen tekrar deneyin.",
+    "Something went wrong. Please try again.",
+  ],
+  "Talebiniz gönderilemedi. Lütfen tekrar deneyin.": [
+    "Talebiniz gönderilemedi. Lütfen tekrar deneyin.",
+    "Something went wrong. Please try again.",
+  ],
+  "Bir şeyler ters gitti. Lütfen tekrar deneyin.": [
+    "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+    "Something went wrong. Please try again.",
+  ],
+  "Bu rota henüz inşa edilmedi.": [
+    "Bu yol henüz oluşturulmamış.",
+    "Looks like this path hasn't been built yet.",
+  ],
+  "Aradığınız sayfa mevcut değil veya adresi değişmiş olabilir.": [
+    "Aradığınız sayfa mevcut değil veya adresi değişmiş olabilir.",
+    "The page you're looking for doesn't exist or may have moved.",
+  ],
+  "Likya Studios'a dön": ["Ana Sayfaya Dön", "Return to Likya Studios"],
 };
