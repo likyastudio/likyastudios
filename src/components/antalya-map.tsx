@@ -165,9 +165,7 @@ export function AntalyaMapSection() {
         });
         L.marker([place.lat, place.lng], { icon, title: place.name })
           .addTo(layer)
-          .bindPopup(
-            `<strong>${place.name}</strong><br/><span>${place.description}</span>`,
-          );
+          .bindPopup(`<strong>${place.name}</strong><br/><span>${place.description}</span>`);
       }
       if (places.length > 0) {
         map.fitBounds(
@@ -192,8 +190,8 @@ export function AntalyaMapSection() {
         Antalya'yı haritada keşfet.
       </h3>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-        Durakları kategorilere göre süz; ilgi alanına uyan yerleri haritada işaretli ve
-        listelenmiş olarak gör.
+        Durakları kategorilere göre süz; ilgi alanına uyan yerleri haritada işaretli ve listelenmiş
+        olarak gör.
       </p>
 
       <div className="mt-5 flex flex-wrap gap-2">

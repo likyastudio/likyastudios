@@ -23,9 +23,7 @@ export function TripPlanner() {
 
   const toggle = (interest: string) => {
     setSelected((prev) =>
-      prev.includes(interest)
-        ? prev.filter((item) => item !== interest)
-        : [...prev, interest],
+      prev.includes(interest) ? prev.filter((item) => item !== interest) : [...prev, interest],
     );
   };
 
@@ -57,8 +55,8 @@ export function TripPlanner() {
         Yapay zekâyla gezi planını 10 saniyede çıkar.
       </h3>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-        İlgini çeken başlıkları seç, Antalya'da kaç günün olduğunu söyle; sana özel bir günlük
-        plan hazırlayalım.
+        İlgini çeken başlıkları seç, Antalya'da kaç günün olduğunu söyle; sana özel bir günlük plan
+        hazırlayalım.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-2">
@@ -133,9 +131,7 @@ export function TripPlanner() {
 
       {plan && !loading && (
         <div className="mt-6 rounded-2xl bg-frost/5 p-5 ring-1 ring-frost/10">
-          <p className="whitespace-pre-wrap text-sm leading-relaxed text-foreground/90">
-            {plan}
-          </p>
+          <p className="whitespace-pre-wrap text-sm leading-relaxed text-foreground/90">{plan}</p>
         </div>
       )}
     </div>

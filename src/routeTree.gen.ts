@@ -10,33 +10,243 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiLabRouteImport } from './routes/ai-lab'
+import { Route as BrandRouteImport } from './routes/brand'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as DeleteAccountRouteImport } from './routes/delete-account'
+import { Route as JournalRouteImport } from './routes/journal'
+import { Route as KvkkRouteImport } from './routes/kvkk'
+import { Route as LabsRouteImport } from './routes/labs'
+import { Route as PressRouteImport } from './routes/press'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as LabsAntalyaAiRouteImport } from './routes/labs.antalya-ai'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiLabRoute = AiLabRouteImport.update({
+  id: '/ai-lab',
+  path: '/ai-lab',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandRoute = BrandRouteImport.update({
+  id: '/brand',
+  path: '/brand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeleteAccountRoute = DeleteAccountRouteImport.update({
+  id: '/delete-account',
+  path: '/delete-account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KvkkRoute = KvkkRouteImport.update({
+  id: '/kvkk',
+  path: '/kvkk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LabsRoute = LabsRouteImport.update({
+  id: '/labs',
+  path: '/labs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PressRoute = PressRouteImport.update({
+  id: '/press',
+  path: '/press',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LabsAntalyaAiRoute = LabsAntalyaAiRouteImport.update({
+  id: '/antalya-ai',
+  path: '/antalya-ai',
+  getParentRoute: () => LabsRoute,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-lab': typeof AiLabRoute
+  '/brand': typeof BrandRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/delete-account': typeof DeleteAccountRoute
+  '/journal': typeof JournalRoute
+  '/kvkk': typeof KvkkRoute
+  '/labs': typeof LabsRouteWithChildren
+  '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/labs/antalya-ai': typeof LabsAntalyaAiRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-lab': typeof AiLabRoute
+  '/brand': typeof BrandRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/delete-account': typeof DeleteAccountRoute
+  '/journal': typeof JournalRoute
+  '/kvkk': typeof KvkkRoute
+  '/labs': typeof LabsRouteWithChildren
+  '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/labs/antalya-ai': typeof LabsAntalyaAiRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-lab': typeof AiLabRoute
+  '/brand': typeof BrandRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/delete-account': typeof DeleteAccountRoute
+  '/journal': typeof JournalRoute
+  '/kvkk': typeof KvkkRoute
+  '/labs': typeof LabsRouteWithChildren
+  '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/labs/antalya-ai': typeof LabsAntalyaAiRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/ai-lab'
+    | '/brand'
+    | '/contact'
+    | '/cookies'
+    | '/delete-account'
+    | '/journal'
+    | '/kvkk'
+    | '/labs'
+    | '/press'
+    | '/privacy'
+    | '/projects'
+    | '/support'
+    | '/terms'
+    | '/labs/antalya-ai'
+    | '/projects/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/ai-lab'
+    | '/brand'
+    | '/contact'
+    | '/cookies'
+    | '/delete-account'
+    | '/journal'
+    | '/kvkk'
+    | '/labs'
+    | '/press'
+    | '/privacy'
+    | '/projects'
+    | '/support'
+    | '/terms'
+    | '/labs/antalya-ai'
+    | '/projects/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/ai-lab'
+    | '/brand'
+    | '/contact'
+    | '/cookies'
+    | '/delete-account'
+    | '/journal'
+    | '/kvkk'
+    | '/labs'
+    | '/press'
+    | '/privacy'
+    | '/projects'
+    | '/support'
+    | '/terms'
+    | '/labs/antalya-ai'
+    | '/projects/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AiLabRoute: typeof AiLabRoute
+  BrandRoute: typeof BrandRoute
+  ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
+  DeleteAccountRoute: typeof DeleteAccountRoute
+  JournalRoute: typeof JournalRoute
+  KvkkRoute: typeof KvkkRoute
+  LabsRoute: typeof LabsRouteWithChildren
+  PressRoute: typeof PressRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
+  SupportRoute: typeof SupportRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +258,159 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-lab': {
+      id: '/ai-lab'
+      path: '/ai-lab'
+      fullPath: '/ai-lab'
+      preLoaderRoute: typeof AiLabRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand': {
+      id: '/brand'
+      path: '/brand'
+      fullPath: '/brand'
+      preLoaderRoute: typeof BrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/delete-account': {
+      id: '/delete-account'
+      path: '/delete-account'
+      fullPath: '/delete-account'
+      preLoaderRoute: typeof DeleteAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kvkk': {
+      id: '/kvkk'
+      path: '/kvkk'
+      fullPath: '/kvkk'
+      preLoaderRoute: typeof KvkkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/labs': {
+      id: '/labs'
+      path: '/labs'
+      fullPath: '/labs'
+      preLoaderRoute: typeof LabsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/press': {
+      id: '/press'
+      path: '/press'
+      fullPath: '/press'
+      preLoaderRoute: typeof PressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/labs/antalya-ai': {
+      id: '/labs/antalya-ai'
+      path: '/antalya-ai'
+      fullPath: '/labs/antalya-ai'
+      preLoaderRoute: typeof LabsAntalyaAiRouteImport
+      parentRoute: typeof LabsRoute
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
   }
 }
 
+interface LabsRouteChildren {
+  LabsAntalyaAiRoute: typeof LabsAntalyaAiRoute
+}
+
+const LabsRouteChildren: LabsRouteChildren = {
+  LabsAntalyaAiRoute: LabsAntalyaAiRoute,
+}
+
+const LabsRouteWithChildren = LabsRoute._addFileChildren(LabsRouteChildren)
+
+interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AiLabRoute: AiLabRoute,
+  BrandRoute: BrandRoute,
+  ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
+  DeleteAccountRoute: DeleteAccountRoute,
+  JournalRoute: JournalRoute,
+  KvkkRoute: KvkkRoute,
+  LabsRoute: LabsRouteWithChildren,
+  PressRoute: PressRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
+  SupportRoute: SupportRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

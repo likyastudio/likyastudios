@@ -1,4 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
-export const Route = createFileRoute("/delete-account")({ head: () => ({ meta: [{ title: "Hesap Silme — Likya Studios" }] }), component: DeleteAccountPage });
-function DeleteAccountPage(){return <StudioPage><main><PageHero eyebrow="ACCOUNT" title="Hesap silme talebi." description="Bir Likya Studios ürünündeki hesabınızı silmek için destek kanalını kullanabilirsiniz."/><section className="relative z-10 mx-auto max-w-6xl px-6 pb-24"><div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10"><p className="text-sm leading-relaxed text-muted-foreground">Ürünü ve hesabınızla ilişkili e-posta adresini belirterek <a className="text-glow" href="mailto:likyastudios@gmail.com">likyastudios@gmail.com</a> adresine talep gönderin. Ürün bazında otomatik silme akışı doğrulandığında bu sayfa ilgili bağlantılarla güncellenecektir.</p></div></section></main></StudioPage>}
+export const Route = createFileRoute("/delete-account")({
+  head: () => ({ meta: [{ title: "Hesap Silme — Likya Studios" }] }),
+  component: DeleteAccountPage,
+});
+function DeleteAccountPage() {
+  return (
+    <StudioPage>
+      <main>
+        <PageHero
+          eyebrow="ACCOUNT"
+          title="Hesap silme talebi."
+          description="Bir Likya Studios ürünündeki hesabınızı silmek için destek kanalını kullanabilirsiniz."
+        />
+        <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
+          <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10">
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Ürünü ve hesabınızla ilişkili e-posta adresini belirterek{" "}
+              <a className="text-glow" href="mailto:likyastudios@gmail.com">
+                likyastudios@gmail.com
+              </a>{" "}
+              adresine talep gönderin. Ürün bazında otomatik silme akışı doğrulandığında bu sayfa
+              ilgili bağlantılarla güncellenecektir.
+            </p>
+          </div>
+        </section>
+      </main>
+    </StudioPage>
+  );
+}

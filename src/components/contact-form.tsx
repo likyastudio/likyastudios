@@ -44,7 +44,7 @@ export function ContactSection() {
       setError(
         err instanceof Error && err.message
           ? err.message
-          : "Talebiniz gönderilemedi. Lütfen tekrar deneyin."
+          : "Talebiniz gönderilemedi. Lütfen tekrar deneyin.",
       );
     }
   }
@@ -59,7 +59,8 @@ export function ContactSection() {
           Bir fikriniz mi var? Konuşalım.
         </h2>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun; talebinizi inceleyip size e-posta yoluyla dönüş yapalım.
+          Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun; talebinizi inceleyip size
+          e-posta yoluyla dönüş yapalım.
         </p>
       </div>
 
@@ -67,8 +68,7 @@ export function ContactSection() {
         <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10 backdrop-blur-xl">
           <h3 className="font-display text-lg font-semibold">Doğrudan ulaşın</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Form doldurmak istemiyorsanız e-posta yazın; ya da aşağıdaki bilgilerle
-            bize ulaşın.
+            Form doldurmak istemiyorsanız e-posta yazın; ya da aşağıdaki bilgilerle bize ulaşın.
           </p>
           <div className="mt-6 space-y-5 text-sm">
             <div>
@@ -108,19 +108,13 @@ export function ContactSection() {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="font-display text-xl font-semibold">
-                Talebiniz bize ulaştı
-              </h3>
+              <h3 className="font-display text-xl font-semibold">Talebiniz bize ulaştı</h3>
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                Teşekkürler {name.split(" ")[0]}. En kısa sürede e-posta yoluyla
-                size dönüş yapacağız.
+                Teşekkürler {name.split(" ")[0]}. En kısa sürede e-posta yoluyla size dönüş
+                yapacağız.
               </p>
               <button
                 type="button"
