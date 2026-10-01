@@ -54,13 +54,13 @@ export function ContactSection() {
   }
 
   return (
-    <section id="iletisim" className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-6 pb-24">
-      <div className="mb-10">
+    <section id="iletisim" className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-6 py-24">
+      <div className="mb-12">
         <span className="font-mono text-xs uppercase tracking-[0.2em] text-ember/80">
-          {t("04 — İletişim")}
+          {t("08 — İletişim")}
         </span>
-        <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl">
-          {t("Bir fikriniz mi var? Konuşalım.")}
+        <h2 className="mt-2 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
+          {t("Yeni bir şey üretelim.")}
         </h2>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
           {t(

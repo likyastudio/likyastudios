@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — "Deep space glass"
- * Likya Studios: koyu uzay zemin, cam efektli paneller, cyan/violet parıltılar.
+ * Design system — "Mediterranean midnight" (V3)
+ * Likya Studios: gece mavisi zemin, Akdeniz mavisi/turkuaz ışık, antik altın yalnız vurgu.
  * Tüm renkler oklch.
  */
 
@@ -46,6 +46,11 @@
   --color-iris: var(--iris);
   --color-mint: var(--mint);
   --color-ember: var(--ember);
+  --color-sand: var(--sand);
+  --color-wine: var(--wine);
+  --color-felt: var(--felt);
+  --color-violet: var(--violet);
+  --font-serif: "Cormorant Garamond", serif;
   /* Fonts */
   --font-display: "Space Grotesk", sans-serif;
   --font-sans: "Inter", sans-serif;
@@ -54,31 +59,36 @@
 
 :root {
   --radius: 1rem;
-  --void: oklch(0.125 0.022 269.7);
-  --panel: oklch(0.18 0.042 271.1);
-  --frost: oklch(0.904 0.046 262.5);
-  --glow: oklch(0.847 0.132 212.3);
-  --iris: oklch(0.676 0.189 292.5);
-  --mint: oklch(0.818 0.143 162.8);
-  --ember: oklch(0.784 0.142 52.7);
+  /* Likya V3 — Mediterranean midnight: navy, Mediterranean blue, turquoise, antique gold, sand, off-white */
+  --void: oklch(0.165 0.035 255);
+  --panel: oklch(0.21 0.04 252);
+  --frost: oklch(0.965 0.012 85);
+  --glow: oklch(0.8 0.115 195);
+  --iris: oklch(0.63 0.15 245);
+  --mint: oklch(0.79 0.12 172);
+  --ember: oklch(0.79 0.105 80);
+  --sand: oklch(0.87 0.045 80);
+  --wine: oklch(0.55 0.15 12);
+  --felt: oklch(0.58 0.1 160);
+  --violet: oklch(0.66 0.16 290);
   --background: var(--void);
-  --foreground: oklch(0.957 0.02 264.5);
+  --foreground: oklch(0.965 0.012 85);
   --card: var(--panel);
-  --card-foreground: oklch(0.957 0.02 264.5);
+  --card-foreground: oklch(0.965 0.012 85);
   --popover: var(--panel);
-  --popover-foreground: oklch(0.957 0.02 264.5);
+  --popover-foreground: oklch(0.965 0.012 85);
   --primary: var(--frost);
   --primary-foreground: var(--void);
-  --secondary: oklch(0.23 0.05 270);
-  --secondary-foreground: oklch(0.957 0.02 264.5);
-  --muted: oklch(0.23 0.05 270);
-  --muted-foreground: oklch(0.661 0.068 266);
-  --accent: oklch(0.23 0.05 270);
-  --accent-foreground: oklch(0.957 0.02 264.5);
+  --secondary: oklch(0.25 0.04 252);
+  --secondary-foreground: oklch(0.965 0.012 85);
+  --muted: oklch(0.25 0.04 252);
+  --muted-foreground: oklch(0.74 0.03 245);
+  --accent: oklch(0.25 0.04 252);
+  --accent-foreground: oklch(0.965 0.012 85);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.327 0.09 269.9);
-  --input: oklch(0.327 0.09 269.9);
+  --border: oklch(0.31 0.04 250);
+  --input: oklch(0.31 0.04 250);
   --ring: var(--glow);
 }
 
@@ -135,6 +145,64 @@
 }
 @utility drift3 {
   animation: drift3 26s ease-in-out infinite;
+}
+
+/* Scroll reveal — only hides content once JS has marked the document ready */
+html.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0) scale(0.985);
+  transition:
+    opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+html.reveal-ready [data-reveal][data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.965 0.012 85 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.965 0.012 85 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@utility bg-felt {
+  background-image:
+    radial-gradient(oklch(1 0 0 / 0.035) 1px, transparent 1px),
+    radial-gradient(120% 90% at 50% 0%, oklch(0.42 0.08 160 / 0.55), transparent 70%);
+  background-size:
+    4px 4px,
+    100% 100%;
+}
+
+@utility bg-stars {
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, oklch(1 0 0 / 0.7), transparent),
+    radial-gradient(1px 1px at 68% 14%, oklch(1 0 0 / 0.55), transparent),
+    radial-gradient(1.5px 1.5px at 42% 64%, oklch(1 0 0 / 0.6), transparent),
+    radial-gradient(1px 1px at 86% 72%, oklch(1 0 0 / 0.5), transparent),
+    radial-gradient(1px 1px at 24% 84%, oklch(1 0 0 / 0.45), transparent),
+    radial-gradient(1.5px 1.5px at 92% 38%, oklch(1 0 0 / 0.55), transparent);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@utility twinkle {
+  animation: twinkle 6s ease-in-out infinite;
+}
+
+@utility hairline {
+  height: 1px;
+  background: linear-gradient(to right, transparent, oklch(0.79 0.105 80 / 0.35), transparent);
 }
 
 /* Antalya keşif haritası */
@@ -198,9 +266,14 @@
   html {
     scroll-behavior: auto;
   }
+  html.reveal-ready [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   .drift1,
   .drift2,
-  .drift3 {
+  .drift3,
+  .twinkle {
     animation: none !important;
   }
   *,

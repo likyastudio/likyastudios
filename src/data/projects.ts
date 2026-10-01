@@ -3,7 +3,7 @@ import batakciAsset from "@/assets/batakci-icon.png.asset.json";
 import wineAsset from "@/assets/wine-icon.png.asset.json";
 
 export type ProjectStatus = "live" | "beta" | "development" | "concept";
-export type ProjectAccent = "glow" | "mint" | "ember";
+export type ProjectAccent = "violet" | "felt" | "wine";
 
 export type StudioProject = {
   slug: string;
@@ -34,7 +34,7 @@ export const projects: StudioProject[] = [
       "AstroSync; gökyüzü takvimlerini, gezegen konumlarını ve kişisel deneyimleri tek bir mobil arayüzde birleştirmeyi hedefleyen Likya Studios ürünüdür.",
     icon: astrosyncAsset.url,
     alt: "AstroSync uygulama ikonu",
-    accent: "glow",
+    accent: "violet",
     platforms: ["iOS"],
     status: "development",
     features: ["Sky Data", "Notifications", "Personal Profiles", "Interactive Experience"],
@@ -52,7 +52,7 @@ export const projects: StudioProject[] = [
       "Likya Batak; puan takibi, el istatistikleri ve çevrimiçi masa deneyimiyle Batak oyununu modern mobil arayüze taşıyan oyundur.",
     icon: batakciAsset.url,
     alt: "Likya Batak oyun ikonu",
-    accent: "mint",
+    accent: "felt",
     platforms: ["Android"],
     status: "development",
     features: ["Online Multiplayer", "Statistics", "Competitive Tables", "Modern UI"],
@@ -70,7 +70,7 @@ export const projects: StudioProject[] = [
       "Wine Intelligence; şarap keşfi, tadım notları, koleksiyon yönetimi ve yapay zekâ destekli özellikleri tek mobil deneyimde bir araya getiren Likya Studios ürünüdür.",
     icon: wineAsset.url,
     alt: "Wine Intelligence uygulama ikonu",
-    accent: "ember",
+    accent: "wine",
     platforms: ["Android"],
     status: "development",
     features: [

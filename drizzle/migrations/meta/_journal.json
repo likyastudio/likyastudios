@@ -36,6 +36,13 @@
       "when": 1790865745495,
       "tag": "0004_remove_live_test_row",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1790867189919,
+      "tag": "0005_remove_v3_test_rows",
+      "breakpoints": true
     }
   ]
 }
