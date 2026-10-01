@@ -90,7 +90,11 @@ export function LegalPage({ kind }: { kind: LegalKind }) {
   return (
     <StudioPage>
       <main>
-        <PageHero eyebrow={page.eyebrow} title={page.title} description={page.description} />
+        <PageHero
+          eyebrow={t(page.eyebrow)}
+          title={t(page.title)}
+          description={t(page.description)}
+        />
         <section className="relative z-10 mx-auto max-w-4xl space-y-4 px-6 pb-24">
           {page.sections.map(([title, body]) => (
             <article key={title} className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10">
