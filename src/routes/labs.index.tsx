@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
-export const Route = createFileRoute("/labs")({ component: LabsPage });
+export const Route = createFileRoute("/labs/")({ component: LabsPage });
 function LabsPage() {
   return (
     <StudioPage>

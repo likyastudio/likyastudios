@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProjectGrid } from "@/components/studio/project-grid";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projeler — Likya Studios" },
