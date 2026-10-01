@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from "react";
 import { useT } from "@/lib/i18n";
-import type { LayerGroup, Map as LeafletMap } from "leaflet";
 
 type Category = "tarih" | "doga" | "plaj";
 
@@ -106,92 +106,148 @@ const PLACES: MapPlace[] = [
   },
 ];
 
-const ESRI_ATTRIBUTION = "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ";
+const CATEGORY_LABEL: Record<Category, string> = {
+  tarih: "Tarih & Kültür",
+  doga: "Doğa",
+  plaj: "Plaj & Deniz",
+};
+
+const PIN_COLOR: Record<Category, string> = {
+  tarih: "#5fd3dc",
+  doga: "#6fd6b4",
+  plaj: "#d9b36a",
+};
+
+// Mediterranean Midnight map style (legible, low-contrast POIs, gold accents on markers).
+const MAP_STYLES = [
+  { elementType: "geometry", stylers: [{ color: "#0f1a2e" }] },
+  { elementType: "labels.text.fill", stylers: [{ color: "#9fb0c8" }] },
+  { elementType: "labels.text.stroke", stylers: [{ color: "#0b1424" }] },
+  { featureType: "administrative", elementType: "geometry.stroke", stylers: [{ color: "#2a3a55" }] },
+  { featureType: "poi", stylers: [{ visibility: "off" }] },
+  { featureType: "road", elementType: "geometry", stylers: [{ color: "#1d2a42" }] },
+  { featureType: "road", elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+  { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#26364f" }] },
+  { featureType: "transit", stylers: [{ visibility: "off" }] },
+  { featureType: "water", elementType: "geometry", stylers: [{ color: "#0d3a5c" }] },
+  { featureType: "water", elementType: "labels.text.fill", stylers: [{ color: "#5fd3dc" }] },
+  { featureType: "landscape.natural", elementType: "geometry", stylers: [{ color: "#13203a" }] },
+];
 
 const visiblePlaces = (filter: Category | "hepsi") =>
   filter === "hepsi" ? PLACES : PLACES.filter((place) => place.category === filter);
 
+const escapeHtml = (v: string) =>
+  v.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+
+declare global {
+  interface Window {
+    __likyaMapsInit?: () => void;
+    google?: any;
+  }
+}
+
+let mapsPromise: Promise<any> | null = null;
+function loadGoogleMaps(): Promise<any> {
+  if (window.google?.maps?.Map) return Promise.resolve(window.google.maps);
+  if (mapsPromise) return mapsPromise;
+  const env = import.meta.env as Record<string, string | undefined>;
+  const key = env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"];
+  const channel = env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_TRACKING_ID"] ?? "";
+  if (!key) return Promise.reject(new Error("missing key"));
+  mapsPromise = new Promise((resolve, reject) => {
+    window.__likyaMapsInit = () => resolve(window.google.maps);
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&loading=async&callback=__likyaMapsInit&channel=${encodeURIComponent(channel)}`;
+    script.async = true;
+    script.onerror = () => {
+      mapsPromise = null;
+      reject(new Error("load failed"));
+    };
+    document.head.appendChild(script);
+  });
+  return mapsPromise;
+}
+
 export function AntalyaMapSection() {
   const t = useT();
   const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<LeafletMap | null>(null);
-  const layerRef = useRef<LayerGroup | null>(null);
-  const [ready, setReady] = useState(false);
+  const mapRef = useRef<any>(null);
+  const infoRef = useRef<any>(null);
+  // Markers kept in a plain array so a clusterer can be added later if locations grow.
+  const markersRef = useRef<any[]>([]);
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [filter, setFilter] = useState<Category | "hepsi">("hepsi");
 
   useEffect(() => {
     let cancelled = false;
-    (async () => {
-      const L = await import("leaflet");
-      await import("leaflet/dist/leaflet.css");
-      if (cancelled || !containerRef.current) return;
-      const map = L.map(containerRef.current, {
-        scrollWheelZoom: false,
-        attributionControl: true,
-      }).setView([36.78, 30.62], 9);
-      L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-        {
-          attribution: "",
-          maxZoom: 16,
-        },
-      ).addTo(map);
-      map.attributionControl.addAttribution(ESRI_ATTRIBUTION);
-      mapRef.current = map;
-      layerRef.current = L.layerGroup().addTo(map);
-      setReady(true);
-    })();
+    loadGoogleMaps()
+      .then((maps) => {
+        if (cancelled || !containerRef.current) return;
+        mapRef.current = new maps.Map(containerRef.current, {
+          center: { lat: 36.78, lng: 30.62 },
+          zoom: 9,
+          styles: MAP_STYLES,
+          clickableIcons: false,
+          disableDefaultUI: true,
+          zoomControl: true,
+          fullscreenControl: true,
+          gestureHandling: "cooperative",
+          backgroundColor: "#0f1a2e",
+        });
+        infoRef.current = new maps.InfoWindow();
+        setStatus("ready");
+      })
+      .catch(() => {
+        if (!cancelled) setStatus("error");
+      });
     return () => {
       cancelled = true;
-      mapRef.current?.remove();
+      markersRef.current.forEach((m) => m.setMap(null));
+      markersRef.current = [];
       mapRef.current = null;
-      layerRef.current = null;
     };
   }, []);
 
-  const sourceAttribution = t("Kaynak: OpenStreetMap katkıcıları");
   useEffect(() => {
-    const control = mapRef.current?.attributionControl;
-    if (!ready || !control) return;
-    control.addAttribution(sourceAttribution);
-    return () => {
-      control.removeAttribution(sourceAttribution);
-    };
-  }, [ready, sourceAttribution]);
-
-  useEffect(() => {
-    if (!ready) return;
-    let cancelled = false;
-    (async () => {
-      const L = await import("leaflet");
-      const map = mapRef.current;
-      const layer = layerRef.current;
-      if (cancelled || !map || !layer) return;
-      layer.clearLayers();
-      const places = visiblePlaces(filter);
-      for (const place of places) {
-        const icon = L.divIcon({
-          className: "",
-          html: `<span class="map-pin map-pin-${place.category}"></span>`,
-          iconSize: [18, 18],
-          iconAnchor: [9, 9],
-          popupAnchor: [0, -10],
-        });
-        L.marker([place.lat, place.lng], { icon, title: t(place.name) })
-          .addTo(layer)
-          .bindPopup(`<strong>${t(place.name)}</strong><br/><span>${t(place.description)}</span>`);
-      }
-      if (places.length > 0) {
-        map.fitBounds(
-          L.latLngBounds(places.map((place) => [place.lat, place.lng] as [number, number])),
-          { padding: [40, 40], maxZoom: 11 },
+    const map = mapRef.current;
+    const maps = window.google?.maps;
+    if (status !== "ready" || !map || !maps) return;
+    markersRef.current.forEach((m) => m.setMap(null));
+    infoRef.current?.close();
+    const places = visiblePlaces(filter);
+    const bounds = new maps.LatLngBounds();
+    markersRef.current = places.map((place) => {
+      const marker = new maps.Marker({
+        position: { lat: place.lat, lng: place.lng },
+        map,
+        title: t(place.name),
+        optimized: false,
+        icon: {
+          path: maps.SymbolPath.CIRCLE,
+          scale: 8,
+          fillColor: PIN_COLOR[place.category],
+          fillOpacity: 1,
+          strokeColor: "#d9b36a",
+          strokeWeight: 2,
+        },
+      });
+      marker.addListener("click", () => {
+        infoRef.current.setContent(
+          `<div style="max-width:240px;font-family:Inter,sans-serif;line-height:1.45"><strong style="font-size:14px">${escapeHtml(t(place.name))}</strong><div style="font-size:11px;color:#8a6a2a;margin:2px 0 4px">${escapeHtml(t(CATEGORY_LABEL[place.category]))}</div><div style="font-size:12px">${escapeHtml(t(place.description))}</div></div>`,
         );
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [ready, filter, t]);
+        infoRef.current.open({ map, anchor: marker });
+      });
+      bounds.extend(marker.getPosition());
+      return marker;
+    });
+    if (places.length > 0) {
+      map.fitBounds(bounds, 40);
+      maps.event.addListenerOnce(map, "idle", () => {
+        if (map.getZoom() > 11) map.setZoom(11);
+      });
+    }
+  }, [status, filter, t]);
 
   const places = visiblePlaces(filter);
 
@@ -230,11 +286,24 @@ export function AntalyaMapSection() {
       </div>
 
       <div className="mt-5 overflow-hidden rounded-2xl ring-1 ring-frost/10">
-        <div
-          ref={containerRef}
-          className="h-[420px] w-full"
-          aria-label={t("Antalya gezi haritası")}
-        />
+        <div className="relative h-[420px] w-full">
+          <div
+            ref={containerRef}
+            className="h-full w-full"
+            role="region"
+            aria-label={t("Antalya gezi haritası")}
+          />
+          {status !== "ready" && (
+            <div
+              role="status"
+              className="absolute inset-0 flex items-center justify-center bg-panel p-6 text-center text-sm text-muted-foreground"
+            >
+              {status === "loading"
+                ? t("Harita yükleniyor…")
+                : t("Harita şu anda yüklenemiyor. Lütfen daha sonra tekrar deneyin.")}
+            </div>
+          )}
+        </div>
       </div>
 
       <ul className="mt-5 grid gap-2 sm:grid-cols-2">
