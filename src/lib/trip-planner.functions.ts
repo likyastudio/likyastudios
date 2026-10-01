@@ -17,7 +17,7 @@ Kurallar:
 - Yanıt biçimi: her gün için "1. Gün — <kısa tema>" başlığı, altında sabah / öğleden sonra / akşam kısa maddeler.
 - En sonda "Yerel İpuçları" başlığıyla 2-3 kısa satır ekle.
 - Markdown işaretleri (#, *, **) kullanma; düz metin yaz. Emoji kullanma.
-- Toplam yanıt 350 kelimeyi geçmesin. Türkçe yaz.`;
+- Toplam yanıt 350 kelimeyi geçmesin.`;
 
 export const createTripPlan = createServerFn({ method: "POST" })
   .inputValidator((data) => inputSchema.parse(data))
@@ -42,16 +42,34 @@ export const createTripPlan = createServerFn({ method: "POST" })
     } catch (error) {
       const status = (error as { statusCode?: number }).statusCode;
       if (status === 402) {
-        throw new Error(msg("AI kredisi tükendi. Kredi eklendikten sonra tekrar deneyebilirsiniz.", "AI credits are used up. Please try again after credits are added."));
+        throw new Error(
+          msg(
+            "AI kredisi tükendi. Kredi eklendikten sonra tekrar deneyebilirsiniz.",
+            "AI credits are used up. Please try again after credits are added.",
+          ),
+        );
       }
       if (status === 403) {
         throw new Error(
-          msg("AI servisi şu anda bu istek için erişilebilir değil. Lütfen daha sonra tekrar deneyin.", "The AI service isn't available for this request right now. Please try again later."),
+          msg(
+            "AI servisi şu anda bu istek için erişilebilir değil. Lütfen daha sonra tekrar deneyin.",
+            "The AI service isn't available for this request right now. Please try again later.",
+          ),
         );
       }
       if (status === 429 || (typeof status === "number" && status >= 500)) {
-        throw new Error(msg("AI servisi şu anda yoğun. Lütfen kısa bir süre sonra tekrar deneyin.", "The AI service is busy right now. Please try again shortly."));
+        throw new Error(
+          msg(
+            "AI servisi şu anda yoğun. Lütfen kısa bir süre sonra tekrar deneyin.",
+            "The AI service is busy right now. Please try again shortly.",
+          ),
+        );
       }
-      throw new Error(msg("Plan oluşturulamadı. Lütfen tekrar deneyin.", "Couldn't create the plan. Please try again."));
+      throw new Error(
+        msg(
+          "Plan oluşturulamadı. Lütfen tekrar deneyin.",
+          "Couldn't create the plan. Please try again.",
+        ),
+      );
     }
   });
