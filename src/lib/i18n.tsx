@@ -37,7 +37,8 @@ export function useLang() {
 export function useT() {
   const { lang } = useLang();
   return useCallback(
-    (text: string) => {
+    (text: string | undefined) => {
+      if (!text) return "";
       const entry = DICT[text];
       if (!entry) return text;
       return lang === "en" ? entry[1] : entry[0];
