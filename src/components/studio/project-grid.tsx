@@ -61,7 +61,7 @@ export function ProjectGrid() {
                 </div>
                 <a
                   href={`/projects/${project.slug}`}
-                  className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-foreground outline-none after:absolute after:inset-0 after:content-[''] focus-visible:underline"
+                  className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-foreground outline-none after:absolute after:inset-0 after:rounded-[inherit] after:content-[''] focus-visible:underline focus-visible:after:ring-2 focus-visible:after:ring-glow"
                 >
                   {t("Projeyi İncele")}
                   <span aria-hidden className="transition group-hover:translate-x-1">
