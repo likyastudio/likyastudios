@@ -143,6 +143,7 @@ const escapeHtml = (v: string) =>
 declare global {
   interface Window {
     __likyaMapsInit?: () => void;
+    gm_authFailure?: () => void;
     google?: any;
   }
 }
@@ -181,6 +182,9 @@ export function AntalyaMapSection() {
 
   useEffect(() => {
     let cancelled = false;
+    window.gm_authFailure = () => {
+      if (!cancelled) setStatus("error");
+    };
     loadGoogleMaps()
       .then((maps) => {
         if (cancelled || !containerRef.current) return;
