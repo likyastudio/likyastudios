@@ -42,9 +42,7 @@ export const createTripPlan = createServerFn({ method: "POST" })
         );
       }
       if (status === 429 || (typeof status === "number" && status >= 500)) {
-        throw new Error(
-          "AI servisi şu anda yoğun. Lütfen kısa bir süre sonra tekrar deneyin.",
-        );
+        throw new Error("AI servisi şu anda yoğun. Lütfen kısa bir süre sonra tekrar deneyin.");
       }
       throw new Error("Plan oluşturulamadı. Lütfen tekrar deneyin.");
     }
