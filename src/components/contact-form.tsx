@@ -59,8 +59,7 @@ export function ContactSection() {
           Bir fikriniz mi var? Konuşalım.
         </h2>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun, 1–2 iş günü
-          içinde size dönüş yapalım.
+          Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun; talebinizi inceleyip size e-posta yoluyla dönüş yapalım.
         </p>
       </div>
 
@@ -93,7 +92,7 @@ export function ContactSection() {
               <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                 Dönüş Süresi
               </span>
-              <span className="mt-1 block text-foreground">1–2 iş günü</span>
+              <span className="mt-1 block text-foreground">E-posta ile yanıt</span>
             </div>
           </div>
         </div>
