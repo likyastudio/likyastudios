@@ -117,26 +117,36 @@ export const seoEntries: Record<string, SeoEntry> = {
     image: og("likya-studios"),
   },
   "/privacy": {
-    title: "Privacy Policy — Likya Studios",
+    title: "Gizlilik Politikası — Likya Studios",
     description:
-      "Likya Studios gizlilik politikası ve kişisel verilerin işlenmesine ilişkin bilgiler.",
+      "Likya Studios web sitesi, iletişim formu, Antalya AI ve Google Maps kullanımında kişisel verilerin nasıl işlendiğini öğrenin.",
+    ogTitle: "Likya Studios Gizlilik Politikası",
+    ogDescription: "Likya Studios hizmetlerinde veri işleme, saklama, aktarım ve kullanıcı hakları hakkında güncel bilgiler.",
   },
   "/terms": {
-    title: "Terms of Service — Likya Studios",
-    description: "Likya Studios web sitesi ve dijital ürünleri için kullanım koşulları.",
+    title: "Kullanım Koşulları — Likya Studios",
+    description: "Likya Studios web sitesi, dijital ürünleri ve Antalya AI gezi önerileri için geçerli kullanım koşulları.",
+    ogTitle: "Likya Studios Kullanım Koşulları",
+    ogDescription: "Site kullanımı, AI önerileri, fikri mülkiyet ve üçüncü taraf hizmetlerine ilişkin koşullar.",
   },
   "/cookies": {
-    title: "Cookie Policy — Likya Studios",
-    description: "Likya Studios web sitesinin çerez kullanımı hakkında bilgiler.",
+    title: "Çerez ve Depolama Politikası — Likya Studios",
+    description: "Likya Studios sitesindeki dil tercihi, zorunlu teknik depolama ve Google Maps bağlantıları hakkında bilgi.",
+    ogTitle: "Likya Studios Çerez ve Depolama Politikası",
+    ogDescription: "Sitenin kullandığı tarayıcı depolaması, zorunlu teknolojiler ve üçüncü taraf bağlantıları.",
   },
   "/kvkk": {
-    title: "KVKK — Likya Studios",
-    description: "Likya Studios kişisel verilerin korunması ve KVKK bilgilendirme sayfası.",
+    title: "KVKK Aydınlatma Metni — Likya Studios",
+    description: "Likya Studios tarafından kişisel verilerin işlenme amaçları, hukuki sebepleri, saklanması ve KVKK hakları.",
+    ogTitle: "Likya Studios KVKK Aydınlatma Metni",
+    ogDescription: "Veri sorumlusu, işlenen veriler, hukuki sebepler, aktarımlar ve KVKK Madde 11 hakları.",
   },
   "/delete-account": {
-    title: "Delete Account — Likya Studios",
+    title: "Hesap Silme Talebi — Likya Studios",
     description:
-      "Likya Studios uygulamalarındaki hesabınızı ve ilişkili verilerinizi silme seçenekleri hakkında bilgi alın.",
+      "Likya Studios ürünlerindeki hesabınız ve ilişkili kişisel verileriniz için güvenli silme talebi gönderme adımları.",
+    ogTitle: "Likya Studios Hesap Silme Talebi",
+    ogDescription: "Hesap ve ilişkili veriler için silme talebinin nasıl iletileceğini öğrenin.",
     noindex: true,
   },
   "/press": {

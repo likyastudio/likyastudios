@@ -1,115 +1,56 @@
 import { PageHero, StudioPage } from "./site-shell";
-import { useT } from "@/lib/i18n";
+import { useLang } from "@/lib/i18n";
+import { LAST_UPDATED, legalDocuments, type LegalKind } from "@/data/legal";
 
-type LegalKind = "privacy" | "terms" | "cookies" | "kvkk";
-const copy: Record<
-  LegalKind,
-  { eyebrow: string; title: string; description: string; sections: [string, string][] }
-> = {
-  privacy: {
-    eyebrow: "LEGAL • PRIVACY",
-    title: "Gizlilik Politikası",
-    description: "Likya Studios web sitesi ve ürünleri için gizlilik bilgileri.",
-    sections: [
-      [
-        "Web sitesi",
-        "İletişim formu üzerinden kullanıcı tarafından gönderilen bilgiler talebi yanıtlamak amacıyla işlenebilir. Ürünlerin ayrı veri işleme süreçleri kendi ürün politikalarında belirtilmelidir.",
-      ],
-      [
-        "Ürünler",
-        "Her uygulama için gerçek veri toplama davranışı doğrulanarak ayrı ve güncel gizlilik açıklaması yayınlanmalıdır. Bu sayfa doğrulanmamış veri toplama iddiaları üretmez.",
-      ],
-      [
-        "Harita hizmeti",
-        "Antalya AI haritası Google Maps Platform üzerinden sunulmaktadır. Harita yüklenirken Google tarafından IP adresi ve teknik bağlantı bilgileri gibi veriler işlenebilir.",
-      ],
-      [
-        "İletişim",
-        "Gizlilik soruları için likyastudios@gmail.com adresinden iletişim kurulabilir.",
-      ],
-    ],
-  },
-  terms: {
-    eyebrow: "LEGAL • TERMS",
-    title: "Kullanım Koşulları",
-    description: "Likya Studios web sitesi için temel kullanım koşulları.",
-    sections: [
-      [
-        "İçerik",
-        "Web sitesindeki marka, görsel ve ürün içerikleri Likya Studios'a veya ilgili hak sahiplerine aittir.",
-      ],
-      [
-        "Ürün bilgileri",
-        "Geliştirme durumları, özellikler ve kullanılabilirlik zaman içinde değişebilir.",
-      ],
-      [
-        "TBD",
-        "Ürün veya ödeme bazlı ayrıntılı koşullar, ilgili hizmetler doğrulandığında hukuk danışmanlığıyla tamamlanmalıdır.",
-      ],
-    ],
-  },
-  cookies: {
-    eyebrow: "LEGAL • COOKIES",
-    title: "Çerez Politikası",
-    description: "Sitede kullanılan zorunlu ve isteğe bağlı teknolojiler hakkında bilgi.",
-    sections: [
-      [
-        "Zorunlu teknolojiler",
-        "Sitenin çalışması için gerekli oturum veya teknik depolama mekanizmaları kullanılabilir.",
-      ],
-      [
-        "Analitik",
-        "Analitik entegrasyonu doğrulanmadan bu sayfa analitik çerez kullanıldığını iddia etmez.",
-      ],
-      [
-        "Harita hizmeti",
-        "Antalya AI haritası Google Maps Platform üzerinden sunulmaktadır. Harita yüklenirken Google tarafından IP adresi ve teknik bağlantı bilgileri gibi veriler işlenebilir.",
-      ],
-      [
-        "Tercihler",
-        "Gelecekte isteğe bağlı analitik veya pazarlama çerezleri eklenirse açık tercih mekanizması sunulmalıdır.",
-      ],
-    ],
-  },
-  kvkk: {
-    eyebrow: "LEGAL • KVKK",
-    title: "KVKK Aydınlatma Alanı",
-    description:
-      "Kişisel verilerin işlenmesine ilişkin Türkiye mevzuatı kapsamındaki bilgilendirme alanı.",
-    sections: [
-      [
-        "Durum",
-        "Nihai KVKK metni şirketin gerçek veri sorumlusu bilgileri, işleme amaçları, hukuki sebepleri, aktarım süreçleri ve saklama süreleri doğrulanarak hazırlanmalıdır.",
-      ],
-      [
-        "Başvuru",
-        "KVKK kapsamındaki talepler için geçici iletişim kanalı: likyastudios@gmail.com.",
-      ],
-      [
-        "Önemli",
-        "Bu taslak, doğrulanmamış hukuki taahhüt veya veri işleme faaliyeti uydurmaz ve nihai hukuki metin yerine geçmez.",
-      ],
-    ],
-  },
-};
 export function LegalPage({ kind }: { kind: LegalKind }) {
-  const t = useT();
-  const page = copy[kind];
+  const { lang } = useLang();
+  const page = legalDocuments[lang][kind];
   return (
     <StudioPage>
       <main>
         <PageHero
-          eyebrow={t(page.eyebrow)}
-          title={t(page.title)}
-          description={t(page.description)}
+          eyebrow={page.eyebrow}
+          title={page.title}
+          description={page.description}
         />
-        <section className="relative z-10 mx-auto max-w-4xl space-y-4 px-6 pb-24">
-          {page.sections.map(([title, body]) => (
-            <article key={title} className="rounded-3xl bg-panel/60 p-7 ring-1 ring-frost/10">
-              <h2 className="font-display text-xl font-semibold">{t(title)}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t(body)}</p>
-            </article>
-          ))}
+        <section className="legal-document relative z-10 mx-auto grid max-w-6xl gap-12 px-6 pb-24 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ember">
+              {page.contentsLabel}
+            </p>
+            <nav className="mt-4 grid gap-1" aria-label={page.contentsLabel}>
+              {page.sections.map((section, index) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  className="rounded-md px-2 py-1.5 text-sm text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"
+                >
+                  <span className="mr-2 font-mono text-[10px] text-frost/40">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {section.title}
+                </a>
+              ))}
+            </nav>
+          </aside>
+          <article className="min-w-0">
+            <p className="border-b border-frost/10 pb-6 text-sm text-muted-foreground">
+              {page.updatedLabel}: <time dateTime="2026-10-02">{lang === "en" ? "2 October 2026" : LAST_UPDATED}</time>
+            </p>
+            {page.sections.map((section) => (
+              <section key={section.id} id={section.id} className="scroll-mt-28 border-b border-frost/10 py-8 first:pt-8">
+                <h2 className="font-display text-2xl font-semibold leading-tight">{section.title}</h2>
+                <div className="mt-4 space-y-4 text-[15px] leading-7 text-muted-foreground">
+                  {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  {section.items && (
+                    <ul className="list-disc space-y-2 pl-5 marker:text-ember">
+                      {section.items.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  )}
+                </div>
+              </section>
+            ))}
+          </article>
         </section>
       </main>
     </StudioPage>

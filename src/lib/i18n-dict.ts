@@ -531,12 +531,6 @@ export const DICT: Record<string, [string, string]> = {
     "Geliştirme durumları, özellikler ve kullanılabilirlik zaman içinde değişebilir.",
     "Development status, features and availability may change over time.",
   ],
-  TBD: ["Belirlenecek", "TBD"],
-  "Ürün veya ödeme bazlı ayrıntılı koşullar, ilgili hizmetler doğrulandığında hukuk danışmanlığıyla tamamlanmalıdır.":
-    [
-      "Ürün veya ödeme bazlı ayrıntılı koşullar, ilgili hizmetler doğrulandığında hukuk danışmanlığıyla tamamlanmalıdır.",
-      "Detailed product or payment terms will be completed with legal advice once those services are confirmed.",
-    ],
   "Zorunlu teknolojiler": ["Zorunlu teknolojiler", "Essential technologies"],
   "Sitenin çalışması için gerekli oturum veya teknik depolama mekanizmaları kullanılabilir.": [
     "Sitenin çalışması için gerekli oturum veya teknik depolama mekanizmaları kullanılabilir.",

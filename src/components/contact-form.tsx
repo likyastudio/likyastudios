@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useT } from "@/lib/i18n";
+import { useLang } from "@/lib/i18n";
 import { useServerFn } from "@tanstack/react-start";
 import { submitContactRequest } from "@/lib/contact.functions";
 
@@ -23,6 +24,7 @@ const inputClass =
 
 export function ContactSection() {
   const t = useT();
+  const { lang } = useLang();
   const submit = useServerFn(submitContactRequest);
 
   const [name, setName] = useState("");
@@ -245,6 +247,20 @@ export function ContactSection() {
                   {error}
                 </p>
               )}
+
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                {lang === "en"
+                  ? "Personal data submitted through this form is processed to receive and respond to your request. For further information, please review our "
+                  : "Bu form üzerinden ilettiğiniz kişisel veriler, talebinizi almak ve yanıtlamak amacıyla işlenir. Veri işleme faaliyetleri hakkında ayrıntılı bilgi için "}
+                <a href="/kvkk" className="text-glow underline decoration-glow/40 underline-offset-2 hover:decoration-glow">
+                  {lang === "en" ? "KVKK Privacy Notice" : "KVKK Aydınlatma Metni"}
+                </a>
+                {lang === "en" ? " and " : " ve "}
+                <a href="/privacy" className="text-glow underline decoration-glow/40 underline-offset-2 hover:decoration-glow">
+                  {lang === "en" ? "Privacy Policy" : "Gizlilik Politikası"}
+                </a>
+                {lang === "en" ? "." : "’nı inceleyebilirsiniz."}
+              </p>
 
               <button
                 type="submit"
