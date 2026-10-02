@@ -7,3 +7,4 @@
 - [x] Antalya haritası: gezilecek yerler kategorilere göre, ilgi alanına göre filtre
 - [x] Doğrulama: build + tarayıcı kontrolü
 - [ ] Hukuki sistemi gerçek TR/EN metinlerle tamamla ve test et
+- [ ] Google Cloud Map ID için Mediterranean Midnight harita stilini yapılandır
