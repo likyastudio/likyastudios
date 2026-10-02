@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://likyastudios.lovable.app/sitemap.xml
+Sitemap: https://likyastudios.live/sitemap.xml

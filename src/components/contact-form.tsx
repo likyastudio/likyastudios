@@ -140,11 +140,12 @@ export function ContactSection() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="block">
+                <label htmlFor="cf-name" className="block">
                   <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
                     {t("Ad Soyad *")}
                   </span>
                   <input
+                    id="cf-name"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -153,11 +154,12 @@ export function ContactSection() {
                     maxLength={80}
                   />
                 </label>
-                <label className="block">
+                <label htmlFor="cf-email" className="block">
                   <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
                     {t("E-posta *")}
                   </span>
                   <input
+                    id="cf-email"
                     required
                     type="email"
                     value={email}
@@ -169,11 +171,12 @@ export function ContactSection() {
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="block">
+                <label htmlFor="cf-phone" className="block">
                   <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
                     {t("Telefon (opsiyonel)")}
                   </span>
                   <input
+                    id="cf-phone"
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -182,11 +185,12 @@ export function ContactSection() {
                     maxLength={30}
                   />
                 </label>
-                <label className="block">
+                <label htmlFor="cf-service" className="block">
                   <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
                     {t("Konu")}
                   </span>
                   <select
+                    id="cf-service"
                     value={serviceType}
                     onChange={(e) => setServiceType(e.target.value)}
                     className={inputClass}
@@ -200,11 +204,12 @@ export function ContactSection() {
                 </label>
               </div>
 
-              <label className="block">
+              <label htmlFor="cf-budget" className="block">
                 <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
                   {t("Bütçe (opsiyonel)")}
                 </span>
                 <select
+                    id="cf-budget"
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
                   className={inputClass}
@@ -217,11 +222,12 @@ export function ContactSection() {
                 </select>
               </label>
 
-              <label className="block">
+              <label htmlFor="cf-message" className="block">
                 <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
                   {t("Projenizden bahsedin *")}
                 </span>
                 <textarea
+                    id="cf-message"
                   required
                   rows={5}
                   value={message}

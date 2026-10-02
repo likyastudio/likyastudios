@@ -33,7 +33,7 @@ export const projects: StudioProject[] = [
     description:
       "AstroSync; gökyüzü takvimlerini, gezegen konumlarını ve kişisel deneyimleri tek bir mobil arayüzde birleştirmeyi hedefleyen Likya Studios ürünüdür.",
     icon: astrosyncAsset.url,
-    alt: "AstroSync uygulama ikonu",
+    alt: "AstroSync astronomi uygulamasının logosu",
     accent: "violet",
     platforms: ["iOS"],
     status: "development",
@@ -51,7 +51,7 @@ export const projects: StudioProject[] = [
     description:
       "Likya Batak; puan takibi, el istatistikleri ve çevrimiçi masa deneyimiyle Batak oyununu modern mobil arayüze taşıyan oyundur.",
     icon: batakciAsset.url,
-    alt: "Likya Batak oyun ikonu",
+    alt: "Likya Batak kart oyununun logosu",
     accent: "felt",
     platforms: ["Android"],
     status: "development",
@@ -69,7 +69,7 @@ export const projects: StudioProject[] = [
     description:
       "Wine Intelligence; şarap keşfi, tadım notları, koleksiyon yönetimi ve yapay zekâ destekli özellikleri tek mobil deneyimde bir araya getiren Likya Studios ürünüdür.",
     icon: wineAsset.url,
-    alt: "Wine Intelligence uygulama ikonu",
+    alt: "Wine Intelligence yapay zekâ sommelier uygulamasının logosu",
     accent: "wine",
     platforms: ["Android"],
     status: "development",

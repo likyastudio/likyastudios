@@ -79,16 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Likya Studios" },
-      {
-        name: "description",
-        content: "Likya Studios — uygulamalar ve oyunlar tasarlayıp geliştiren bağımsız stüdyo.",
-      },
-      { property: "og:title", content: "Likya Studios" },
-      {
-        property: "og:description",
-        content: "Likya Studios — uygulamalar ve oyunlar tasarlayıp geliştiren bağımsız stüdyo.",
-      },
+      { property: "og:site_name", content: "Likya Studios" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
