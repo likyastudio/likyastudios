@@ -1,5 +1,5 @@
 // Central per-route SEO metadata. Each route's head() calls seoHead(path).
-export const SITE_URL = "https://likyastudios.lovable.app";
+export const SITE_URL = "https://likyastudios.live";
 
 type SeoEntry = {
   title: string;

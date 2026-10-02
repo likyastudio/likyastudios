@@ -242,7 +242,7 @@ function Label({ children }: { children: string }) {
       className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ember/90">
       <span className="h-px w-8 bg-ember/40" />
       {children}
-    </div>
+    </h2>
   );
 }
 
