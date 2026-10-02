@@ -244,3 +244,23 @@ html.reveal-ready [data-reveal][data-shown] {
     animation-iteration-count: 1 !important;
   }
 }
+
+@media print {
+  .legal-document {
+    display: block !important;
+    max-width: none !important;
+    color: oklch(0.18 0 0) !important;
+  }
+  .legal-document aside,
+  header,
+  footer {
+    display: none !important;
+  }
+  .legal-document article,
+  .legal-document section {
+    break-inside: avoid;
+  }
+  body {
+    background: oklch(1 0 0) !important;
+  }
+}

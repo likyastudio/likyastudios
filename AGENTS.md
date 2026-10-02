@@ -15,3 +15,4 @@
 - İletişim formu: `src/lib/contact.functions.ts` sunucu fonksiyonu zod ile doğrular, `contact_requests` tablosuna service-role istemciyle yazar (RLS'siz anon erişim yok).
 - List pages with child detail routes use `*.index.tsx` (e.g. `projects.index.tsx`, `labs.index.tsx`) — a plain parent file without `<Outlet />` would swallow child routes.
 - Bilingual UI (TR/EN): visible text stays in components as Turkish/source strings and is wrapped with `t()` from `useT()` (`src/lib/i18n.tsx`); translations live in `src/lib/i18n-dict.ts` keyed by source text. Choice is stored in the browser, so SEO/head metadata stays single-language.
+- Legal documents use the typed bilingual content and shared real-world values in `src/data/legal.ts` so disclosures stay consistent across pages.
