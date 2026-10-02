@@ -248,6 +248,14 @@ export function ContactSection() {
                 </p>
               )}
 
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-full rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-frost disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {status === "sending" ? t("Gönderiliyor…") : t("Talebi Gönder")}
+              </button>
+
               <p className="text-xs leading-relaxed text-muted-foreground">
                 {lang === "en"
                   ? "Personal data submitted through this form is processed to receive and respond to your request. For further information, please review our "
@@ -261,14 +269,6 @@ export function ContactSection() {
                 </a>
                 {lang === "en" ? "." : "’nı inceleyebilirsiniz."}
               </p>
-
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="w-full rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-frost disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {status === "sending" ? t("Gönderiliyor…") : t("Talebi Gönder")}
-              </button>
             </form>
           )}
         </div>

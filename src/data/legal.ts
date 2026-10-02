@@ -1,5 +1,7 @@
 export const LEGAL_ENTITY_NAME = "Erkan Kaplan";
 export const CONTACT_LOCATION = "Kemer, Antalya, Türkiye";
+// Briefteki alan adı korunur; ziyaretçiye yalnızca iletişim konumu olarak sunulur.
+export const REGISTERED_ADDRESS = CONTACT_LOCATION;
 export const CONTACT_EMAIL = "likyastudios@gmail.com";
 export const CONTACT_RETENTION_PERIOD = "30 gün";
 export const LAST_UPDATED = "2 Ekim 2026";
