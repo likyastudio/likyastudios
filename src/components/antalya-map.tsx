@@ -134,6 +134,10 @@ const MAP_STYLES = [
   { featureType: "landscape.natural", elementType: "geometry", stylers: [{ color: "#13203a" }] },
 ];
 
+// Cloud-based map style (configured in Google Cloud) controls the basemap look when a Map ID is set.
+const MAP_ID = "5b83f23afe37f9436ffd87c1";
+void MAP_STYLES;
+
 const visiblePlaces = (filter: Category | "hepsi") =>
   filter === "hepsi" ? PLACES : PLACES.filter((place) => place.category === filter);
 
@@ -186,12 +190,14 @@ export function AntalyaMapSection() {
       if (!cancelled) setStatus("error");
     };
     loadGoogleMaps()
-      .then((maps) => {
+      .then(async (maps) => {
+        await maps.importLibrary("marker");
         if (cancelled || !containerRef.current) return;
         mapRef.current = new maps.Map(containerRef.current, {
           center: { lat: 36.78, lng: 30.62 },
           zoom: 9,
-          styles: MAP_STYLES,
+          mapId: MAP_ID,
+          colorScheme: "DARK",
           clickableIcons: false,
           disableDefaultUI: true,
           zoomControl: true,
@@ -207,7 +213,7 @@ export function AntalyaMapSection() {
       });
     return () => {
       cancelled = true;
-      markersRef.current.forEach((m) => m.setMap(null));
+      markersRef.current.forEach((m) => (m.map = null));
       markersRef.current = [];
       mapRef.current = null;
     };
@@ -216,33 +222,32 @@ export function AntalyaMapSection() {
   useEffect(() => {
     const map = mapRef.current;
     const maps = window.google?.maps;
-    if (status !== "ready" || !map || !maps) return;
-    markersRef.current.forEach((m) => m.setMap(null));
+    if (status !== "ready" || !map || !maps?.marker) return;
+    markersRef.current.forEach((m) => (m.map = null));
     infoRef.current?.close();
     const places = visiblePlaces(filter);
     const bounds = new maps.LatLngBounds();
     markersRef.current = places.map((place) => {
-      const marker = new maps.Marker({
+      const pin = new maps.marker.PinElement({
+        background: PIN_COLOR[place.category],
+        borderColor: "#d9b36a",
+        glyphColor: "#0f1a2e",
+        scale: 0.9,
+      });
+      const marker = new maps.marker.AdvancedMarkerElement({
         position: { lat: place.lat, lng: place.lng },
         map,
         title: t(place.name),
-        optimized: false,
-        icon: {
-          path: maps.SymbolPath.CIRCLE,
-          scale: 8,
-          fillColor: PIN_COLOR[place.category],
-          fillOpacity: 1,
-          strokeColor: "#d9b36a",
-          strokeWeight: 2,
-        },
+        content: pin.element,
+        gmpClickable: true,
       });
       marker.addListener("click", () => {
         infoRef.current.setContent(
-          `<div style="max-width:240px;font-family:Inter,sans-serif;line-height:1.45"><strong style="font-size:14px">${escapeHtml(t(place.name))}</strong><div style="font-size:11px;color:#8a6a2a;margin:2px 0 4px">${escapeHtml(t(CATEGORY_LABEL[place.category]))}</div><div style="font-size:12px">${escapeHtml(t(place.description))}</div></div>`,
+          `<div style="max-width:240px;font-family:Inter,sans-serif;line-height:1.45;color:#0f1a2e"><strong style="font-size:14px">${escapeHtml(t(place.name))}</strong><div style="font-size:11px;color:#8a6a2a;margin:2px 0 4px">${escapeHtml(t(CATEGORY_LABEL[place.category]))}</div><div style="font-size:12px">${escapeHtml(t(place.description))}</div></div>`,
         );
         infoRef.current.open({ map, anchor: marker });
       });
-      bounds.extend(marker.getPosition());
+      bounds.extend({ lat: place.lat, lng: place.lng });
       return marker;
     });
     if (places.length > 0) {
