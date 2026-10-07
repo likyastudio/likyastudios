@@ -92,7 +92,7 @@ export function BatakShowcase({ project }: { project: StudioProject }) {
           <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-6 pb-24 pt-14 md:grid-cols-[1.15fr_0.85fr] md:pb-32 md:pt-20">
             <Reveal className="min-w-0">
               <Link to="/projects" className="inline-flex items-center gap-2 rounded text-sm text-muted-foreground hover:text-sand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"><ArrowLeft size={15} />{t("Projeler")}</Link>
-              <p className="mt-14 inline-flex items-center gap-2.5 rounded-full px-3 py-1 ring-1 ring-ember/30">
+              <p className="mt-14 flex w-fit items-center gap-2.5 rounded-full px-3 py-1 ring-1 ring-ember/30">
                 <span className="h-1.5 w-1.5 rounded-full bg-ember" />
                 <span className={`${eyebrow} text-sand`}>{t("Geliştiriliyor")}</span>
               </p>
