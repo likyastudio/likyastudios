@@ -25,7 +25,7 @@ export function ProjectGrid() {
                 <PhoneMockup
                   project={project}
                   size="sm"
-                  className={project.slug === "likya-batak" && !project.screenshots?.some((item) => item.src) ? "mb-10" : "translate-y-16 transition duration-500 group-hover:translate-y-12"}
+                  className={project.slug === "likya-batak" ? "mb-6" : "translate-y-16 transition duration-500 group-hover:translate-y-12"}
                 />
               </div>
               <div className="flex flex-1 flex-col border-t border-frost/10 p-6">

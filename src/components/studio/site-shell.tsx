@@ -1,10 +1,10 @@
-import logoMarkAsset from "@/assets/likya-logo-mark.png.asset.json";
+import logoAsset from "@/assets/likya-logo.png.asset.json";
 import { useEffect, useState, type ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import { useRevealReady } from "./reveal";
 import { LanguageSwitcher, useT } from "@/lib/i18n";
 
-const logoMark = logoMarkAsset.url;
+const logo = logoAsset.url;
 
 const NAV = [
   { href: "/projects", label: "Projeler" },
@@ -48,10 +48,7 @@ export function StudioHeader() {
           className="flex min-w-0 items-center gap-2.5 rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-glow"
           aria-label={t("Likya Studios ana sayfa")}
         >
-          <img src={logoMark} alt="" className="h-8 w-8 shrink-0 object-contain" />
-          <span className="truncate font-display text-[15px] font-semibold tracking-tight">
-            Likya Studios
-          </span>
+          <img src={logo} alt="Likya Studios" width={56} height={56} className={`shrink-0 object-contain transition-[height,width] duration-300 ${compact ? "h-11 w-11" : "h-12 w-12 md:h-14 md:w-14"}`} />
         </a>
 
         <nav className="hidden items-center gap-1 text-sm md:flex" aria-label={t("Ana menü")}>
@@ -180,8 +177,7 @@ export function StudioFooter() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
             <div className="flex items-center gap-2.5">
-              <img src={logoMark} alt="" className="h-8 w-8 object-contain" />
-              <p className="font-display text-lg font-semibold text-foreground">Likya Studios</p>
+              <img src={logo} alt="Likya Studios" width={112} height={112} loading="lazy" decoding="async" className="h-28 w-28 object-contain" />
             </div>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
               {t("Apps • Games • AI • Digital Experiences")}

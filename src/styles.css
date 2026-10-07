@@ -264,3 +264,8 @@ html.reveal-ready [data-reveal][data-shown] {
     background: oklch(1 0 0) !important;
   }
 }
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}

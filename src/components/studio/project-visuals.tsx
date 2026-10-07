@@ -46,12 +46,20 @@ export function PhoneMockup({
 }) {
   const t = useT();
   const a = accentStyles[project.accent];
-  const screenshot = project.screenshots?.find((item) => item.src);
-  if (screenshot?.src) {
-    return <img src={screenshot.src} alt={t(screenshot.alt)} width={540} height={960} loading="lazy" decoding="async" className={`aspect-[9/16] ${size === "sm" ? "w-[150px]" : "w-[230px]"} rounded-lg object-contain ${className}`} />;
-  }
   if (project.slug === "likya-batak") {
-    return <img src={project.icon} alt={t(project.alt)} width={240} height={240} loading="lazy" decoding="async" className={`${size === "sm" ? "h-32 w-32" : "h-48 w-48"} rounded-lg object-contain ${className}`} />;
+    const thumb = project.screenshots?.find((item) => item.src);
+    const big = size !== "sm";
+    return (
+      <div className={`relative flex items-center justify-center ${big ? "h-[420px] w-[300px]" : "h-48 w-56"} ${className}`}>
+        <div aria-hidden className="absolute inset-6 rounded-full bg-felt opacity-60 blur-3xl" />
+        <img src={project.icon} alt={t(project.alt)} width={240} height={240} loading="lazy" decoding="async" className={`relative ${big ? "h-44 w-44 rounded-[2.2rem]" : "h-28 w-28 rounded-[1.6rem]"} object-cover shadow-[0_24px_50px_-20px_oklch(0_0_0/0.8)] ring-1 ring-ember/30`} />
+        {thumb?.src && (
+          <div aria-hidden className={`absolute bottom-2 right-2 overflow-hidden rounded-[0.9rem] bg-void p-1 ring-1 ring-ember/30 shadow-xl ${big ? "w-24" : "w-14"}`}>
+            <img src={thumb.src} alt="" width={540} height={960} loading="lazy" decoding="async" className="aspect-[9/16] w-full rounded-[0.65rem] object-contain" />
+          </div>
+        )}
+      </div>
+    );
   }
   const dims = size === "sm" ? "w-[150px] h-[300px]" : "w-[210px] h-[430px] sm:w-[230px] sm:h-[470px]";
   return (
@@ -76,6 +84,16 @@ export function PhoneMockup({
           {t("Product Preview")}
         </p>
       </div>
+    </div>
+  );
+}
+
+/** Thin, elegant device shell. Screenshot shown uncropped at its native 9:16 ratio. */
+export function DeviceFrame({ src, alt, priority = false, className = "" }: { src: string; alt: string; priority?: boolean; className?: string }) {
+  return (
+    <div className={`relative rounded-[2.1rem] bg-void p-[7px] shadow-[0_40px_80px_-30px_oklch(0_0_0/0.9)] ring-1 ring-ember/25 ${className}`}>
+      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-frost/10" />
+      <img src={src} alt={alt} width={540} height={960} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} decoding="async" className="block aspect-[9/16] w-full rounded-[1.65rem] bg-void object-contain" />
     </div>
   );
 }

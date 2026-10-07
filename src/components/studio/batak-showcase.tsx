@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import type { StudioProject } from "@/data/projects";
 import type { GameplayScreenshot } from "@/data/batak-screenshots";
 import { useT } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { StudioPage } from "./site-shell";
+import { DeviceFrame } from "./project-visuals";
+
+const eyebrow = "font-mono text-[11px] uppercase tracking-[0.24em]";
 
 export function GameplayGallery({ screenshots }: { screenshots: GameplayScreenshot[] }) {
   const t = useT();
@@ -15,26 +17,49 @@ export function GameplayGallery({ screenshots }: { screenshots: GameplayScreensh
   const scroll = (direction: number) => {
     const node = track.current;
     if (!node) return;
-    node.scrollBy({ left: direction * node.clientWidth * 0.85, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    node.scrollBy({ left: direction * node.clientWidth * 0.8, behavior: reduce ? "instant" : "smooth" });
   };
   return (
-    <section className="border-y border-frost/10 bg-panel/25" aria-labelledby="gameplay-heading">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <h2 id="gameplay-heading" className="font-display text-2xl font-semibold sm:text-3xl">{t("Oynanış galerisi")}</h2>
-          {available.length > 1 && <div className="flex gap-2">
-            <Button variant="outline" size="icon" aria-label={t("Önceki ekran görüntüsü")} title={t("Önceki ekran görüntüsü")} onClick={() => scroll(-1)}><ArrowLeft /></Button>
-            <Button variant="outline" size="icon" aria-label={t("Sonraki ekran görüntüsü")} title={t("Sonraki ekran görüntüsü")} onClick={() => scroll(1)}><ArrowRight /></Button>
-          </div>}
+    <section className="relative" aria-labelledby="gameplay-heading">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6">
+          <div className="min-w-0">
+            <p className={`${eyebrow} text-ember`}>{t("Oynanış galerisi")}</p>
+            <h2 id="gameplay-heading" className="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-5xl">{t("Masadan gerçek kareler.")}</h2>
+          </div>
+          {available.length > 1 && (
+            <div className="flex gap-2 md:hidden">
+              <button type="button" aria-label={t("Önceki ekran görüntüsü")} onClick={() => scroll(-1)} className="grid h-10 w-10 place-items-center rounded-full ring-1 ring-frost/15 text-sand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"><ArrowLeft size={16} /></button>
+              <button type="button" aria-label={t("Sonraki ekran görüntüsü")} onClick={() => scroll(1)} className="grid h-10 w-10 place-items-center rounded-full ring-1 ring-frost/15 text-sand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"><ArrowRight size={16} /></button>
+            </div>
+          )}
         </div>
-        {available.length > 0 ? <div ref={track} role="region" aria-label={t("Oynanış galerisi")} tabIndex={0}
-          onKeyDown={(event) => { if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); scroll(event.key === "ArrowRight" ? 1 : -1); } }}
-          className="mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow">
-          {available.map((shot) => <figure key={shot.id} className="w-[min(78vw,280px)] shrink-0 snap-start">
-            <img src={shot.src} alt={t(shot.alt)} width={540} height={960} loading="lazy" decoding="async" className="aspect-[9/16] w-full rounded-lg bg-void object-contain" />
-            <figcaption className="mt-4"><h3 className="font-display text-lg font-semibold">{t(shot.title)}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(shot.description)}</p></figcaption>
-          </figure>)}
-        </div> : <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("Gerçek oyun içi ekran görüntüleri henüz bu sayfaya eklenmedi.")}</p>}
+        {available.length > 0 ? (
+          <div
+            ref={track}
+            role="region"
+            aria-label={t("Oynanış galerisi")}
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); scroll(e.key === "ArrowRight" ? 1 : -1); } }}
+            className="no-scrollbar -mx-6 mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow md:mx-0 md:grid md:grid-cols-3 md:gap-x-10 md:gap-y-20 md:overflow-visible md:px-0 md:pb-0"
+          >
+            {available.map((shot, i) => (
+              <figure key={shot.id} className={`w-[min(62vw,240px)] shrink-0 snap-center md:w-auto ${i % 3 === 1 ? "md:translate-y-16" : ""}`}>
+                <div className="mx-auto max-w-[250px] transition duration-500 ease-out motion-safe:hover:-translate-y-1">
+                  <DeviceFrame src={shot.src!} alt={t(shot.alt)} />
+                </div>
+                <figcaption className="mx-auto mt-6 max-w-[250px]">
+                  <span className={`${eyebrow} text-ember/80`}>0{i + 1}</span>
+                  <h3 className="mt-2 font-display text-lg font-semibold">{t(shot.title)}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t(shot.description)}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t("Gerçek oyun içi ekran görüntüleri henüz bu sayfaya eklenmedi.")}</p>
+        )}
       </div>
     </section>
   );
@@ -57,35 +82,91 @@ const features = [
 
 export function BatakShowcase({ project }: { project: StudioProject }) {
   const t = useT();
-  const hero = project.screenshots?.find((shot) => shot.src);
-  return <StudioPage><main>
-    <section className="bg-felt border-b border-ember/20">
-      <div className={`mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 ${hero ? "md:grid-cols-[1.2fr_0.8fr]" : "md:grid-cols-[1.4fr_0.6fr]"}`}>
-        <Reveal>
-          <Link to="/projects" className="inline-flex items-center gap-2 text-sm text-sand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"><ArrowLeft size={16} />{t("Projeler")}</Link>
-          <p className="mt-8 font-mono text-xs uppercase text-ember">{t("Geliştiriliyor")}</p>
-          <h1 className="mt-4 font-display text-4xl font-bold sm:text-5xl md:text-6xl">Likya Batak</h1>
-          <p className="mt-6 max-w-xl text-xl leading-relaxed text-sand">{t(project.shortDescription)}</p>
-          <p className="mt-7 font-mono text-xs text-muted-foreground">Android</p>
-        </Reveal>
-        <Reveal className="flex justify-center">
-          {hero?.src ? <figure className="w-full max-w-[280px]"><img src={hero.src} alt={t(hero.alt)} width={540} height={960} fetchPriority="high" decoding="async" className="aspect-[9/16] w-full rounded-lg object-contain" /><figcaption className="mt-3 text-center text-xs text-sand">{t(hero.title)}</figcaption></figure>
-            : <img src={project.icon} alt={t(project.alt)} width={240} height={240} className="h-40 w-40 rounded-lg object-contain md:h-52 md:w-52" />}
-        </Reveal>
-      </div>
-    </section>
-    <GameplayGallery screenshots={project.screenshots ?? []} />
-    <section className="mx-auto max-w-6xl px-6 py-16">
-      <Reveal><h2 className="font-display text-2xl font-semibold sm:text-3xl">{t("Oyun modları")}</h2></Reveal>
-      <div className="mt-8 grid gap-8 md:grid-cols-3">{modes.map(([title, text], index) => <Reveal key={title} delay={index * 60} className="border-t border-ember/30 pt-5"><span className="font-mono text-xs text-ember">0{index + 1}</span><h3 className="mt-3 font-display text-xl font-semibold">{t(title)}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t(text)}</p></Reveal>)}</div>
-    </section>
-    <section className="border-y border-frost/10 bg-panel/25"><div className="mx-auto max-w-6xl px-6 py-16">
-      <Reveal><h2 className="font-display text-2xl font-semibold sm:text-3xl">{t("Oyun özellikleri")}</h2></Reveal>
-      <div className="mt-8 grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">{features.map(([title, text]) => <Reveal key={title} className="border-t border-frost/10 pt-5"><h3 className="font-display text-lg font-semibold">{t(title)}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(text)}</p></Reveal>)}</div>
-    </div></section>
-    <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[0.8fr_1.2fr]">
-      <Reveal><h2 className="font-display text-2xl font-semibold sm:text-3xl">{t("Geliştirme durumu")}</h2><p className="mt-4 font-mono text-xs uppercase text-ember">{t("Geliştiriliyor")}</p></Reveal>
-      <Reveal><p className="text-base leading-relaxed text-muted-foreground">{t("Geliştirme devam ediyor. Oynanış, kurallar, bot ve çevrimiçi sistemler ile arayüz üzerinde aktif testler sürüyor.")}</p><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t("Bu sayfa geliştirme aşamasındaki ürünü tanıtır; mağaza yayını henüz hazır değildir.")}</p><div className="mt-6 flex flex-wrap gap-3 font-mono text-xs text-sand">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div></Reveal>
-    </section>
-  </main></StudioPage>;
+  const shots = project.screenshots ?? [];
+  const hero = shots.find((s) => s.id === "bid-pass" && s.src) ?? shots.find((s) => s.src);
+  return (
+    <StudioPage>
+      <main>
+        <section className="relative overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute right-[-10%] top-10 h-[520px] w-[520px] rounded-full bg-felt opacity-40 blur-[120px]" />
+          <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-6 pb-24 pt-14 md:grid-cols-[1.15fr_0.85fr] md:pb-32 md:pt-20">
+            <Reveal className="min-w-0">
+              <Link to="/projects" className="inline-flex items-center gap-2 rounded text-sm text-muted-foreground hover:text-sand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"><ArrowLeft size={15} />{t("Projeler")}</Link>
+              <p className="mt-14 flex w-fit items-center gap-2.5 rounded-full px-3 py-1 ring-1 ring-ember/30">
+                <span className="h-1.5 w-1.5 rounded-full bg-ember" />
+                <span className={`${eyebrow} text-sand`}>{t("Geliştiriliyor")}</span>
+              </p>
+              <h1 className="mt-7 font-display text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">Likya Batak</h1>
+              <p className="mt-7 max-w-lg text-lg leading-relaxed text-sand/90 sm:text-xl">{t(project.shortDescription)}</p>
+              <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-ember/20 pt-6">
+                <div><dt className={`${eyebrow} text-muted-foreground`}>{t("Platform")}</dt><dd className="mt-2 text-sm">Android</dd></div>
+                <div><dt className={`${eyebrow} text-muted-foreground`}>{t("Teknoloji")}</dt><dd className="mt-2 text-sm">{project.technologies[0]}</dd></div>
+                <div><dt className={`${eyebrow} text-muted-foreground`}>{t("Tür")}</dt><dd className="mt-2 text-sm">{t("Kart oyunu")}</dd></div>
+              </dl>
+            </Reveal>
+            <Reveal delay={120} className="flex justify-center">
+              {hero?.src ? (
+                <div className="w-[min(70vw,290px)] motion-safe:[transform:perspective(1400px)_rotateY(-8deg)_rotateX(2deg)]">
+                  <DeviceFrame src={hero.src} alt={t(hero.alt)} priority />
+                </div>
+              ) : (
+                <img src={project.icon} alt={t(project.alt)} width={240} height={240} className="h-44 w-44 rounded-[2.2rem] object-cover ring-1 ring-ember/30" />
+              )}
+            </Reveal>
+          </div>
+        </section>
+
+        <div aria-hidden className="mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-ember/30 to-transparent" />
+        <GameplayGallery screenshots={shots} />
+        <div aria-hidden className="mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-ember/30 to-transparent" />
+
+        <section className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+          <Reveal><p className={`${eyebrow} text-ember`}>{t("Oyun modları")}</p></Reveal>
+          <div className="mt-12 grid gap-14 md:grid-cols-3 md:gap-12">
+            {modes.map(([title, text], i) => (
+              <Reveal key={title} delay={i * 60}>
+                <span className="font-display text-5xl font-light text-ember/50">0{i + 1}</span>
+                <h3 className="mt-5 font-display text-2xl font-semibold tracking-tight">{t(title)}</h3>
+                <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">{t(text)}</p>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto grid max-w-6xl gap-12 px-6 pb-24 md:grid-cols-[0.7fr_1.3fr] md:pb-32">
+          <Reveal><p className={`${eyebrow} text-ember`}>{t("Oyun özellikleri")}</p></Reveal>
+          <ul className="grid gap-x-12 sm:grid-cols-2">
+            {features.map(([title, text]) => (
+              <li key={title} className="border-t border-frost/10 py-5">
+                <h3 className="font-display text-lg font-semibold">{t(title)}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t(text)}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-6 pb-28">
+          <Reveal className="grid gap-10 rounded-2xl p-8 ring-1 ring-ember/20 md:grid-cols-[0.7fr_1.3fr] md:p-12">
+            <div>
+              <p className={`${eyebrow} text-ember`}>{t("Build status")}</p>
+              <h2 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">{t("Geliştirme durumu")}</h2>
+            </div>
+            <dl className="grid gap-5 text-sm">
+              {[
+                ["Durum", "Geliştiriliyor"],
+                ["Aşama", "Aktif geliştirme ve test"],
+                ["Mağaza yayını", "Henüz yok"],
+              ].map(([k, v]) => (
+                <div key={k} className="grid grid-cols-[minmax(0,9rem)_1fr] gap-4 border-b border-frost/10 pb-4">
+                  <dt className="text-muted-foreground">{t(k)}</dt>
+                  <dd className="text-foreground">{t(v)}</dd>
+                </div>
+              ))}
+              <p className="pt-1 leading-relaxed text-muted-foreground">{t("Geliştirme devam ediyor. Oynanış, kurallar, bot ve çevrimiçi sistemler ile arayüz üzerinde aktif testler sürüyor.")}</p>
+            </dl>
+          </Reveal>
+        </section>
+      </main>
+    </StudioPage>
+  );
 }
