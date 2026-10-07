@@ -9,7 +9,6 @@ export const DICT: Record<string, [string, string]> = {
   "Tür": ["Tür", "Genre"],
   "Kart oyunu": ["Kart oyunu", "Card game"],
   "Build status": ["Build durumu", "Build status"],
-  "Durum": ["Durum", "Status"],
   "Aşama": ["Aşama", "Stage"],
   "Aktif geliştirme ve test": ["Aktif geliştirme ve test", "Active development and testing"],
   "Henüz yok": ["Henüz yok", "Not yet available"],
