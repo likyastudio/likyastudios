@@ -1,6 +1,7 @@
 import astrosyncAsset from "@/assets/astrosync-icon.jpg.asset.json";
 import batakciAsset from "@/assets/batakci-icon.png.asset.json";
 import wineAsset from "@/assets/wine-icon.png.asset.json";
+import { batakScreenshots, type GameplayScreenshot } from "./batak-screenshots";
 
 export type ProjectStatus = "live" | "beta" | "development" | "concept";
 export type ProjectAccent = "violet" | "felt" | "wine";
@@ -20,6 +21,7 @@ export type StudioProject = {
   features: string[];
   technologies: string[];
   storeLinks: { googlePlay?: string; appStore?: string; website?: string };
+  screenshots?: GameplayScreenshot[];
 };
 
 export const projects: StudioProject[] = [
@@ -47,15 +49,16 @@ export const projects: StudioProject[] = [
     kind: "Oyun",
     category: "Mobile Game • Card Game",
     shortDescription:
-      "Klasik Batak deneyimini modern mobil oyun tasarımı, istatistikler ve çevrimiçi oyun altyapısıyla yeniden yorumlayan kart oyunu.",
+      "Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.",
     description:
-      "Likya Batak; puan takibi, el istatistikleri ve çevrimiçi masa deneyimiyle Batak oyununu modern mobil arayüze taşıyan oyundur.",
+      "Likya Batak; İhaleli Batak, Eşli Batak ve Koz Maça modlarını mobil kart masasında bir araya getiren, geliştirme aşamasındaki kart oyunudur.",
     icon: batakciAsset.url,
     alt: "Likya Batak kart oyununun logosu",
     accent: "felt",
     platforms: ["Android"],
     status: "development",
-    features: ["Online Multiplayer", "Statistics", "Competitive Tables", "Modern UI"],
+    features: ["İhale sistemi ve PAS", "Koz göstergesi", "Eşli oyun arayüzü", "Tur / el takibi", "Yazboz / skor özeti", "Mobil kart masası", "Okunabilir kart arayüzü"],
+    screenshots: batakScreenshots,
     technologies: ["Flutter", "Dart", "Android"],
     storeLinks: {},
   },

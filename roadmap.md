@@ -1,6 +1,7 @@
 # Roadmap
 
-- [ ] Likya Batak gerçek screenshot destekli V4 vitrini ve TR/EN testleri (yayın yok)
+- [x] Likya Batak gerçek screenshot destekli V4 vitrini ve TR/EN testleri (yayın yok)
+- [ ] Likya Batak altı gerçek oyun ekranını ekle ve dolu galeriyi test et (kullanıcının görsel dosyaları bekleniyor)
 
 - [x] Ürün kartlarına gerçek mağaza ikonlarını ekle
 - [x] Şirket posterini hero bölümüne ekle

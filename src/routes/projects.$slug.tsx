@@ -5,6 +5,7 @@ import { Reveal } from "@/components/studio/reveal";
 import { PhoneMockup, accentStyles } from "@/components/studio/project-visuals";
 import { projects, statusLabels } from "@/data/projects";
 import { seoHead, seoEntries, softwareAppLd } from "@/data/seo";
+import { BatakShowcase } from "@/components/studio/batak-showcase";
 
 export const Route = createFileRoute("/projects/$slug")({
   head: ({ params }) => {
@@ -47,6 +48,8 @@ function ProjectDetailPage() {
       </StudioPage>
     );
   }
+
+  if (project.slug === "likya-batak") return <BatakShowcase project={project} />;
 
   const a = accentStyles[project.accent];
   const identity = IDENTITY[project.slug] ?? FALLBACK_IDENTITY;
