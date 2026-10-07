@@ -32,8 +32,8 @@ export const accentStyles: Record<
 };
 
 /**
- * Phone frame. No real screenshots exist yet, so the screen shows the real app icon
- * with a "Product Preview" label — never an invented app UI.
+ * Real screenshots take priority. Other products retain their safe icon preview.
+ * Likya Batak without a supplied screenshot shows its actual icon, never a fake phone screen.
  */
 export function PhoneMockup({
   project,
@@ -46,6 +46,13 @@ export function PhoneMockup({
 }) {
   const t = useT();
   const a = accentStyles[project.accent];
+  const screenshot = project.screenshots?.find((item) => item.src);
+  if (screenshot?.src) {
+    return <img src={screenshot.src} alt={t(screenshot.alt)} width={540} height={960} loading="lazy" decoding="async" className={`aspect-[9/16] ${size === "sm" ? "w-[150px]" : "w-[230px]"} rounded-lg object-contain ${className}`} />;
+  }
+  if (project.slug === "likya-batak") {
+    return <img src={project.icon} alt={t(project.alt)} width={240} height={240} loading="lazy" decoding="async" className={`${size === "sm" ? "h-32 w-32" : "h-48 w-48"} rounded-lg object-contain ${className}`} />;
+  }
   const dims = size === "sm" ? "w-[150px] h-[300px]" : "w-[210px] h-[430px] sm:w-[230px] sm:h-[470px]";
   return (
     <div

@@ -1,4 +1,5 @@
 import { projects, statusLabels } from "@/data/projects";
+import { Link } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { PhoneMockup, accentStyles } from "./project-visuals";
@@ -24,7 +25,7 @@ export function ProjectGrid() {
                 <PhoneMockup
                   project={project}
                   size="sm"
-                  className="translate-y-16 transition duration-500 group-hover:translate-y-12"
+                  className={project.slug === "likya-batak" && !project.screenshots?.some((item) => item.src) ? "mb-10" : "translate-y-16 transition duration-500 group-hover:translate-y-12"}
                 />
               </div>
               <div className="flex flex-1 flex-col border-t border-frost/10 p-6">
@@ -59,15 +60,16 @@ export function ProjectGrid() {
                   <span className="text-frost/20">/</span>
                   <span>{project.technologies.slice(0, 3).join(" • ")}</span>
                 </div>
-                <a
-                  href={`/projects/${project.slug}`}
+                <Link
+                  to="/projects/$slug"
+                  params={{ slug: project.slug }}
                   className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-foreground outline-none after:absolute after:inset-0 after:rounded-[inherit] after:content-[''] focus-visible:underline focus-visible:after:ring-2 focus-visible:after:ring-glow"
                 >
                   {t("Projeyi İncele")}
                   <span aria-hidden className="transition group-hover:translate-x-1">
                     →
                   </span>
-                </a>
+                </Link>
               </div>
             </article>
           </Reveal>
