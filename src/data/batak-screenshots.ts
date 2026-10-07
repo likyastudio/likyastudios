@@ -22,7 +22,7 @@ const slots: Omit<GameplayScreenshot, "src">[] = [
   { id: "compact", filename: "likya-batak-kompakt-masa.png", title: "Kompakt mobil masa", description: "Küçük ekranda okunabilir kartlar ve kompakt masa düzeni.", alt: "Likya Batak kompakt mobil masa görünümünde okunabilir kart yerleşimi" },
 ];
 
-export const batakScreenshots: GameplayScreenshot[] = slots.map((slot) => ({
-  ...slot,
-  src: assets[`../assets/${slot.filename}.asset.json`]?.default.url,
-}));
+export const batakScreenshots: GameplayScreenshot[] = slots.map((slot) => {
+  const src = assets[`../assets/${slot.filename}.asset.json`]?.default.url;
+  return src ? { ...slot, src } : slot;
+});
