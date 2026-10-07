@@ -32,8 +32,7 @@ export const accentStyles: Record<
 };
 
 /**
- * Real screenshots take priority. Other products retain their safe icon preview.
- * Likya Batak without a supplied screenshot shows its actual icon, never a fake phone screen.
+ * Shared phone preview for every project card: app icon, name and label inside one frame.
  */
 export function PhoneMockup({
   project,
