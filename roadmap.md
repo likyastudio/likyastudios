@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Likya Batak gerçek screenshot destekli V4 vitrini ve TR/EN testleri (yayın yok)
+
 - [x] Ürün kartlarına gerçek mağaza ikonlarını ekle
 - [x] Şirket posterini hero bölümüne ekle
 - [x] Logoyu siteye ekle (header + favicon)
