@@ -32,8 +32,7 @@ export const accentStyles: Record<
 };
 
 /**
- * Real screenshots take priority. Other products retain their safe icon preview.
- * Likya Batak without a supplied screenshot shows its actual icon, never a fake phone screen.
+ * Shared phone preview for every project card: app icon, name and label inside one frame.
  */
 export function PhoneMockup({
   project,
@@ -46,21 +45,6 @@ export function PhoneMockup({
 }) {
   const t = useT();
   const a = accentStyles[project.accent];
-  if (project.slug === "likya-batak") {
-    const thumb = project.screenshots?.find((item) => item.src);
-    const big = size !== "sm";
-    return (
-      <div className={`relative flex items-center justify-center ${big ? "h-[420px] w-[300px]" : "h-48 w-56"} ${className}`}>
-        <div aria-hidden className="absolute inset-6 rounded-full bg-felt opacity-60 blur-3xl" />
-        <img src={project.icon} alt={t(project.alt)} width={240} height={240} loading="lazy" decoding="async" className={`relative ${big ? "h-44 w-44 rounded-[2.2rem]" : "h-28 w-28 rounded-[1.6rem]"} object-cover shadow-[0_24px_50px_-20px_oklch(0_0_0/0.8)] ring-1 ring-ember/30`} />
-        {thumb?.src && (
-          <div aria-hidden className={`absolute bottom-2 right-2 overflow-hidden rounded-[0.9rem] bg-void p-1 ring-1 ring-ember/30 shadow-xl ${big ? "w-24" : "w-14"}`}>
-            <img src={thumb.src} alt="" width={540} height={960} loading="lazy" decoding="async" className="aspect-[9/16] w-full rounded-[0.65rem] object-contain" />
-          </div>
-        )}
-      </div>
-    );
-  }
   const dims = size === "sm" ? "w-[150px] h-[300px]" : "w-[210px] h-[430px] sm:w-[230px] sm:h-[470px]";
   return (
     <div
