@@ -12,13 +12,10 @@
 - Başlık ve canonical adresler likyastudios.live gösteriyor.
 - Önizlemede derleme ve çalışma hatası kaydı yok.
 
-## Henüz doğrulanmadı (onaylarsanız test edilecek)
-- TR/EN ve 320–1280 genişliklerde taşma, klavye erişimi (önizleme + canlı).
-- Tüm sayfalarda bozuk bağlantı/görsel taraması.
-- İletişim formu gönderimi, Antalya AI planlayıcı yanıtı, harita işaretçileri canlıda.
+## Sonradan test edildi
+- TR/EN, 320/390/430/768/1280 genişlikler: taşma yok; bozuk bağlantı/görsel yok; harita 12 işaretçi.
+- İletişim formu ve AI planlayıcıya üretim verisi oluşturmamak için gerçek gönderim yapılmadı.
 
-## Onay sonrası adımlar (tamamlandı)
-1. Yukarıdaki test turunu çalıştır ve sonuçları raporla (kod değişikliği yok).
-2. Yapılacaklar listesindeki çelişen maddeyi kapat.
-3. "Product Preview" kararınıza göre düzenle.
-4. Yayını yalnızca açık onayınızla yap.
+## Durum
+- Son küçük düzeltmeler (İngilizce büyük harf etiketler, Product Preview kaldırma) önizlemede; yayın kullanıcı onayı bekliyor.
+- Harita stili Google Cloud hesabında bağlanmalı.
