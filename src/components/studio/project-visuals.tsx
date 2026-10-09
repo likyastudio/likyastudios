@@ -64,9 +64,6 @@ export function PhoneMockup({
           className={`${size === "sm" ? "h-16 w-16 rounded-2xl" : "h-24 w-24 rounded-[1.5rem]"} object-cover shadow-xl ring-1 ring-frost/20 transition duration-500 group-hover:-translate-y-1`}
         />
         <p className="mt-4 font-display text-sm font-semibold text-foreground">{project.name}</p>
-        <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.22em] text-frost/60">
-          {t("Product Preview")}
-        </p>
       </div>
     </div>
   );
