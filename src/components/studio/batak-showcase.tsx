@@ -148,7 +148,7 @@ export function BatakShowcase({ project }: { project: StudioProject }) {
         <section className="mx-auto max-w-6xl px-6 pb-28">
           <Reveal className="grid gap-10 rounded-2xl p-8 ring-1 ring-ember/20 md:grid-cols-[0.7fr_1.3fr] md:p-12">
             <div>
-              <p className={`${eyebrow} text-ember`}>{t("Build status")}</p>
+              <p lang="en" className={`${eyebrow} text-ember`}>{t("Build status")}</p>
               <h2 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">{t("Geliştirme durumu")}</h2>
             </div>
             <dl className="grid gap-5 text-sm">

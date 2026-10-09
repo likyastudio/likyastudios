@@ -37,7 +37,7 @@ function AboutPage() {
           </article>
           <article className="rounded-3xl bg-panel/60 p-8 text-center ring-1 ring-frost/10 md:col-span-2">
             <div className="font-display text-7xl text-ember">E × A</div>
-            <p className="mt-3 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            <p lang="en" className="mt-3 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
               {t("Founders of Likya Studios")}
             </p>
           </article>
