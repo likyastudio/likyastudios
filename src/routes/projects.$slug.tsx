@@ -166,7 +166,7 @@ function ProjectDetailPage() {
               <Label>{t("Screenshots")}</Label>
             </Reveal>
             <Reveal delay={80} className="mt-8 grid place-items-center rounded-[1.75rem] border border-dashed border-frost/15 px-6 py-16 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ember/90">{t("Coming soon")}</p>
+              <p lang="en" className="font-mono text-[11px] uppercase tracking-[0.22em] text-ember/90">{t("Coming soon")}</p>
               <p className="mt-3 max-w-md text-sm text-muted-foreground">
                 {t("Gerçek ekran görüntüleri ürün yayına yaklaştığında burada paylaşılacak.")}
               </p>

@@ -274,7 +274,7 @@ function AILabTeaser() {
           <p lang="en" className="font-mono text-[11px] uppercase tracking-[0.3em] text-glow">
             04 — Likya AI Lab
           </p>
-          <h2 className="mt-5 font-display text-3xl font-bold uppercase tracking-[0.08em] sm:text-5xl md:text-6xl">
+          <h2 lang="en" className="mt-5 font-display text-3xl font-bold uppercase tracking-[0.08em] sm:text-5xl md:text-6xl">
             Building with Intelligence
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
@@ -354,7 +354,7 @@ function Signature() {
       <Reveal>
         <div className="font-serif text-7xl font-medium italic text-ember md:text-8xl">E × A</div>
         <div className="hairline mx-auto mt-6 max-w-[200px]" />
-        <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
+        <p lang="en" className="mt-5 font-mono text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
           {t("Founders of Likya Studios")}
         </p>
       </Reveal>
@@ -384,7 +384,7 @@ function JournalPreview() {
             delay={i * 80}
             className="flex min-h-44 flex-col justify-between rounded-[1.5rem] border border-dashed border-frost/15 p-6"
           >
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ember/80">
+            <span lang="en" className="font-mono text-[10px] uppercase tracking-[0.2em] text-ember/80">
               {t("Coming soon")}
             </span>
             <div className="space-y-2" aria-hidden>
@@ -437,7 +437,7 @@ function FutureProject() {
     <section className="relative overflow-hidden">
       <div aria-hidden className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-iris/20 blur-[100px]" />
       <Reveal className="relative mx-auto max-w-3xl px-6 py-28 text-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-ember">
+        <p lang="en" className="font-mono text-[11px] uppercase tracking-[0.3em] text-ember">
           {t("Coming soon")}
         </p>
         <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight md:text-5xl">
