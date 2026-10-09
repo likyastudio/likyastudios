@@ -311,7 +311,7 @@ export const DICT: Record<string, [string, string]> = {
   "Antalya Müzesi": ["Antalya Müzesi", "Antalya Museum"],
   "Aspendos Antik Tiyatrosu": ["Aspendos Antik Tiyatrosu", "Aspendos Ancient Theatre"],
   "Düden Şelalesi": ["Düden Şelalesi", "Düden Waterfall"],
-  "Kursunlu Şelalesi": ["Kursunlu Şelalesi", "Kurşunlu Waterfall"],
+  "Kurşunlu Şelalesi": ["Kurşunlu Şelalesi", "Kurşunlu Waterfall"],
   "Konyaaltı Plajı": ["Konyaaltı Plajı", "Konyaaltı Beach"],
   "Lara Plajı": ["Lara Plajı", "Lara Beach"],
   "Roma surları ve Osmanlı konaklarıyla tarihi merkez.": [
