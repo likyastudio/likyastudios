@@ -70,7 +70,7 @@ const PLACES: MapPlace[] = [
     description: "Falezlerden denize dökülen Aşağı Düden.",
   },
   {
-    name: "Kursunlu Şelalesi",
+    name: "Kurşunlu Şelalesi",
     category: "doga",
     lat: 37.0731,
     lng: 30.8236,
