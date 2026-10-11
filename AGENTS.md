@@ -18,3 +18,4 @@
 - Legal documents use the typed bilingual content and shared real-world values in `src/data/legal.ts` so disclosures stay consistent across pages.
 - Product screenshots use typed slots with optional uploaded asset pointers; missing assets render no image, preventing fabricated previews and broken image requests.
 - Likya Batak uses a dedicated showcase within the existing project detail route so other product presentations and route metadata remain unchanged.
+- Likya Mutant lives in `src/features/likya-mutant/` (pure engine/mutations/challenge/achievements/storage + components) with its own translation table merged into DICT, so game rules stay testable outside React; logic tests run with `bun test tests/`.
