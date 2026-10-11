@@ -4,7 +4,7 @@
 - [x] Likya Batak altı gerçek oyun ekranını ekle ve dolu galeriyi test et
 - [x] Son Likya Batak tasarımı canlıda (kullanıcı doğruladı)
 - [x] TR sayfalarda İngilizce büyük harf etiketlerde noktalı İ hatasını düzelt
-- [ ] Son düzeltmeleri yayınla (kullanıcı onayı bekleniyor)
+- [x] Son düzeltmeleri ve Likya Mutant vitrinini yayınla (kullanıcı onayı alındı)
 - [x] /projects kartlarının üçünden de "Product Preview" etiketini kaldır
 
 - [x] Ürün kartlarına gerçek mağaza ikonlarını ekle
