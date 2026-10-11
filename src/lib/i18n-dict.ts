@@ -1,9 +1,11 @@
 // Source text (as written in components) -> [Turkish, English].
 // Strings not listed here are shown unchanged in both languages.
 import { MUTANT_DICT } from "@/features/likya-mutant/i18n";
+import { MUTANT_PRODUCT_DICT } from "@/components/studio/mutant-showcase-i18n";
 
 export const DICT: Record<string, [string, string]> = {
   ...MUTANT_DICT,
+  ...MUTANT_PRODUCT_DICT,
   "Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.": ["Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.", "Bringing Türkiye’s classic Batak experience to the modern mobile table."],
   "Likya Batak; İhaleli Batak, Eşli Batak ve Koz Maça modlarını mobil kart masasında bir araya getiren, geliştirme aşamasındaki kart oyunudur.": ["Likya Batak; İhaleli Batak, Eşli Batak ve Koz Maça modlarını mobil kart masasında bir araya getiren, geliştirme aşamasındaki kart oyunudur.", "Likya Batak is a card game in development, bringing Auction Batak, Partnership Batak and Spades Trump together on a mobile table."],
   "Masadan gerçek kareler.": ["Masadan gerçek kareler.", "Real frames from the table."],

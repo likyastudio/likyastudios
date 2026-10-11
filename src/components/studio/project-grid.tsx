@@ -7,7 +7,7 @@ import { PhoneMockup, accentStyles } from "./project-visuals";
 export function ProjectGrid() {
   const t = useT();
   return (
-    <div className="grid gap-6 md:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-2">
       {projects.map((project, i) => {
         const a = accentStyles[project.accent];
         return (

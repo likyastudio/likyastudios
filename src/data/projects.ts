@@ -1,10 +1,11 @@
 import astrosyncAsset from "@/assets/astrosync-icon.jpg.asset.json";
 import batakciAsset from "@/assets/batakci-icon.png.asset.json";
 import wineAsset from "@/assets/wine-icon.png.asset.json";
+import mutantMark from "@/assets/likya-mutant-mark.svg";
 import { batakScreenshots, type GameplayScreenshot } from "./batak-screenshots";
 
-export type ProjectStatus = "live" | "beta" | "development" | "concept";
-export type ProjectAccent = "violet" | "felt" | "wine";
+export type ProjectStatus = "live" | "beta" | "development" | "concept" | "playable";
+export type ProjectAccent = "violet" | "felt" | "wine" | "mutant";
 
 export type StudioProject = {
   slug: string;
