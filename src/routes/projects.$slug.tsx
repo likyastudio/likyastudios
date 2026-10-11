@@ -6,6 +6,7 @@ import { PhoneMockup, accentStyles } from "@/components/studio/project-visuals";
 import { projects, statusLabels } from "@/data/projects";
 import { seoHead, seoEntries, softwareAppLd } from "@/data/seo";
 import { BatakShowcase } from "@/components/studio/batak-showcase";
+import { MutantShowcase } from "@/components/studio/mutant-showcase";
 
 export const Route = createFileRoute("/projects/$slug")({
   head: ({ params }) => {
@@ -50,6 +51,7 @@ function ProjectDetailPage() {
   }
 
   if (project.slug === "likya-batak") return <BatakShowcase project={project} />;
+  if (project.slug === "likya-mutant") return <MutantShowcase project={project} />;
 
   const a = accentStyles[project.accent];
   const identity = IDENTITY[project.slug] ?? FALLBACK_IDENTITY;

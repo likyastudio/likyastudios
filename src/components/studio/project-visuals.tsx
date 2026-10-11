@@ -21,6 +21,14 @@ export const accentStyles: Record<
     screen: "bg-felt",
     badge: "bg-felt/10 text-sand ring-felt/25",
   },
+  mutant: {
+    text: "text-glow",
+    ring: "hover:ring-glow/40 focus-within:ring-glow/50",
+    glow: "from-violet/30",
+    edge: "via-glow/70",
+    screen: "bg-[radial-gradient(120%_80%_at_50%_0%,color-mix(in_oklab,var(--violet)_55%,var(--glow)),transparent_70%)]",
+    badge: "bg-glow/10 text-sand ring-glow/25",
+  },
   violet: {
     text: "text-violet",
     ring: "hover:ring-violet/40 focus-within:ring-violet/50",

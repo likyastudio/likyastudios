@@ -49,6 +49,15 @@ export const seoEntries: Record<string, SeoEntry> = {
     image: og("likya-batak"),
     type: "product",
   },
+  "/projects/likya-mutant": {
+    title: "Likya Mutant — 15-Second Reflex Web Game | Likya Studios",
+    description:
+      "Likya Mutant, 15 saniyelik turlar, üç mutasyon, combo, meydan okuma bağlantıları ve yerel başarımlarla tarayıcıda oynanan bir Likya Studios refleks oyunudur.",
+    ogTitle: "Likya Mutant — 15 Seconds. One Target. Changing Rules.",
+    ogDescription: "A playable browser reflex prototype with mutations, combos, challenges and local achievements.",
+    image: og("likya-studios"),
+    type: "product",
+  },
   "/projects/astrosync": {
     title: "AstroSync — Astronomy Experience | Likya Studios",
     description:
