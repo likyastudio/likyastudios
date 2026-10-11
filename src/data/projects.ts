@@ -87,6 +87,23 @@ export const projects: StudioProject[] = [
     technologies: ["Flutter", "Dart", "Python", "Google Cloud", "PostgreSQL", "OpenAI"],
     storeLinks: {},
   },
+  {
+    slug: "likya-mutant",
+    name: "Likya Mutant",
+    kind: "Oyun",
+    category: "Web Arcade • Reflex Game",
+    shortDescription: "15 saniyelik refleks meydan okuması. Her turda kurallar değişebilir.",
+    description:
+      "Likya Mutant, 15 saniyelik hedef yakalama turları, üç birleşebilir mutasyon, combo göstergesi, meydan okuma/rövanş bağlantıları ve yerel başarımlarla oynanabilir bir web arcade deneyimidir.",
+    icon: mutantMark,
+    alt: "Likya Mutant refleks oyununun hedef simgesi",
+    accent: "mutant",
+    platforms: ["Web / Browser"],
+    status: "playable",
+    features: ["15 saniyelik turlar", "3 mutasyon", "Meydan okuma", "5 başarım", "Combo sistemi"],
+    technologies: ["React", "TypeScript", "Web"],
+    storeLinks: {},
+  },
 ];
 
 export const statusLabels: Record<ProjectStatus, string> = {
