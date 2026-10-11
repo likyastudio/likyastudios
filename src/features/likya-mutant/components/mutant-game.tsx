@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { useT } from "@/lib/i18n";
 import { SITE_URL } from "@/data/seo";
 import {
@@ -55,7 +55,11 @@ export function MutantGame({ challengeToken }: { challengeToken?: string }) {
   const finishedRef = useRef<RoundState | null>(null);
   const targetRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => setSave(readSave()), []);
+  const [vibrationSupported, setVibrationSupported] = useState(false);
+  useEffect(() => {
+    setSave(readSave());
+    setVibrationSupported(typeof navigator.vibrate === "function");
+  }, []);
   useEffect(() => {
     if (challenge) setMutations(challenge.mutations);
   }, [challenge]);
@@ -179,12 +183,11 @@ export function MutantGame({ challengeToken }: { challengeToken?: string }) {
 
   const toggle = (k: "sound" | "vibration") => persist({ ...save, settings: { ...save.settings, [k]: !save.settings[k] } });
 
-  const activeMuts = round && phase !== "idle" ? round.mutations : (challenge && mode === "solo" && !round ? challenge.mutations : mutations);
+  const activeMuts = round ? round.mutations : mutations;
   const flipped = round?.mutations.includes("flip") ?? false;
   const pos = round ? displayPosition(round.target, flipped) : { x: 0.5, y: 0.5 };
   const best = save.best[mutationKey(activeMuts)] ?? 0;
-  const vibrationSupported = typeof navigator !== "undefined" && typeof navigator.vibrate === "function";
-
+  
   return (
     <div className="rounded-[1.75rem] bg-panel/60 p-4 ring-1 ring-frost/10 sm:p-6">
       {/* HUD — always outside the arena so the target never covers it */}
@@ -517,7 +520,7 @@ function Achievements({ unlocked }: { unlocked: readonly string[] }) {
   );
 }
 
-function Overlay({ children }: { children: React.ReactNode }) {
+function Overlay({ children }: { children: ReactNode }) {
   return (
     <div
       className="absolute inset-0 z-10 flex flex-col items-center justify-center overflow-y-auto bg-void/85 p-5 text-center"
@@ -528,7 +531,7 @@ function Overlay({ children }: { children: React.ReactNode }) {
   );
 }
 
-function PrimaryButton({ children, onClick, compact }: { children: React.ReactNode; onClick: () => void; compact?: boolean }) {
+function PrimaryButton({ children, onClick, compact }: { children: ReactNode; onClick: () => void; compact?: boolean }) {
   return (
     <button
       type="button"
@@ -540,7 +543,7 @@ function PrimaryButton({ children, onClick, compact }: { children: React.ReactNo
   );
 }
 
-function SmallButton({ children, onClick, disabled }: { children: React.ReactNode; onClick: () => void; disabled?: boolean }) {
+function SmallButton({ children, onClick, disabled }: { children: ReactNode; onClick: () => void; disabled?: boolean }) {
   return (
     <button
       type="button"
