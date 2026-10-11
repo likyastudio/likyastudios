@@ -213,7 +213,7 @@ export function MutantGame({ challengeToken }: { challengeToken?: string | undef
 
       {/* Arena */}
       <div
-        className="relative mt-4 h-[min(58vh,480px)] min-h-[300px] touch-manipulation select-none overflow-hidden rounded-2xl bg-void/70 ring-1 ring-mint/20"
+        className="relative mt-4 h-[min(62vh,500px)] min-h-[420px] touch-manipulation select-none overflow-hidden rounded-2xl bg-void/70 ring-1 ring-mint/20"
         onClick={phase === "playing" ? onMiss : undefined}
         aria-label={t("Oyun alanı")}
         role="region"
@@ -523,10 +523,10 @@ function Achievements({ unlocked }: { unlocked: readonly string[] }) {
 function Overlay({ children }: { children: ReactNode }) {
   return (
     <div
-      className="absolute inset-0 z-10 flex flex-col items-center justify-center overflow-y-auto bg-void/85 p-5 text-center"
+      className="absolute inset-0 z-10 flex flex-col items-center overflow-y-auto overscroll-contain bg-void/85 p-5 text-center"
       onClick={(e) => e.stopPropagation()}
     >
-      {children}
+      <div className="my-auto flex w-full flex-col items-center">{children}</div>
     </div>
   );
 }
