@@ -24,6 +24,7 @@ import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as LabsIndexRouteImport } from './routes/labs.index'
 import { Route as LabsAntalyaAiRouteImport } from './routes/labs.antalya-ai'
+import { Route as LabsLikyaMutantRouteImport } from './routes/labs.likya-mutant'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
@@ -102,6 +103,11 @@ const LabsAntalyaAiRoute = LabsAntalyaAiRouteImport.update({
   path: '/labs/antalya-ai',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LabsLikyaMutantRoute = LabsLikyaMutantRouteImport.update({
+  id: '/labs/likya-mutant',
+  path: '/labs/likya-mutant',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
@@ -128,6 +134,7 @@ export interface FileRoutesByFullPath {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
+  '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs/': typeof LabsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
+  '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs': typeof LabsIndexRoute
   '/projects': typeof ProjectsIndexRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
+  '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs/': typeof LabsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/labs/antalya-ai'
+    | '/labs/likya-mutant'
     | '/projects/$slug'
     | '/labs/'
     | '/projects/'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/labs/antalya-ai'
+    | '/labs/likya-mutant'
     | '/projects/$slug'
     | '/labs'
     | '/projects'
@@ -226,6 +237,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/labs/antalya-ai'
+    | '/labs/likya-mutant'
     | '/projects/$slug'
     | '/labs/'
     | '/projects/'
@@ -246,6 +258,7 @@ export interface RootRouteChildren {
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
   LabsAntalyaAiRoute: typeof LabsAntalyaAiRoute
+  LabsLikyaMutantRoute: typeof LabsLikyaMutantRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   LabsIndexRoute: typeof LabsIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
@@ -358,6 +371,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabsAntalyaAiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/labs/likya-mutant': {
+      id: '/labs/likya-mutant'
+      path: '/labs/likya-mutant'
+      fullPath: '/labs/likya-mutant'
+      preLoaderRoute: typeof LabsLikyaMutantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -390,6 +410,7 @@ const rootRouteChildren: RootRouteChildren = {
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
   LabsAntalyaAiRoute: LabsAntalyaAiRoute,
+  LabsLikyaMutantRoute: LabsLikyaMutantRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   LabsIndexRoute: LabsIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,

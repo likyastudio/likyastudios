@@ -341,6 +341,12 @@ function Roots() {
           >
             {t("Explore Antalya AI")} <span aria-hidden>→</span>
           </a>
+          <a
+            className="mt-4 ml-1 inline-flex items-center gap-2 text-sm font-semibold text-mint underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none sm:ml-4"
+            href="/labs/likya-mutant"
+          >
+            {t("Likya Mutant'ı Oyna")} <span aria-hidden>→</span>
+          </a>
         </Reveal>
       </div>
     </section>

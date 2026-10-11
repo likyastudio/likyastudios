@@ -15,3 +15,4 @@
 - [x] Doğrulama: build + tarayıcı kontrolü
 - [x] Hukuki sistemi gerçek TR/EN metinlerle tamamla ve test et
 - [ ] Google Cloud Map ID için Mediterranean Midnight harita stilini yapılandır
+- [x] Likya Mutant oynanabilir web MVP'si (/labs/likya-mutant), testler; yayın yok
