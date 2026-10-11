@@ -65,7 +65,9 @@ describe("engine", () => {
     const d = E.displayPosition(p, true);
     expect(d.x).toBeCloseTo(0.8);
     expect(d.y).toBeCloseTo(0.1);
-    expect(E.fieldFromDisplay(d, true)).toEqual({ x: 0.8 === d.x ? 0.2 : 1 - d.x, y: 1 - d.y });
+    const back = E.fieldFromDisplay(d, true);
+    expect(back.x).toBeCloseTo(p.x);
+    expect(back.y).toBeCloseTo(p.y);
     expect(E.displayPosition(p, false)).toEqual(p);
   });
   test("win / loss / tie", () => {
