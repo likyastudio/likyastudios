@@ -94,4 +94,5 @@ export const statusLabels: Record<ProjectStatus, string> = {
   beta: "Beta",
   development: "Geliştiriliyor",
   concept: "Konsept",
+  playable: "Oynanabilir Prototip",
 };
