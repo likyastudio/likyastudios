@@ -7,7 +7,7 @@ import { MUTATIONS } from "@/features/likya-mutant/mutations";
 
 export const Route = createFileRoute("/labs/likya-mutant")({
   validateSearch: (search: Record<string, unknown>): { challenge?: string } => {
-    const c = search.challenge;
+    const c = search["challenge"];
     return typeof c === "string" && c.length <= 200 ? { challenge: c } : {};
   },
   head: () => seoHead("/labs/likya-mutant"),

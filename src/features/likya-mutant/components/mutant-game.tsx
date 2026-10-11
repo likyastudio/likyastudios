@@ -31,12 +31,12 @@ const TARGET = 56; // px, > 44px hit area
 function randomSeed(): number {
   const a = new Uint32Array(1);
   crypto.getRandomValues(a);
-  return a[0];
+  return a[0] ?? 1;
 }
 
 type RoundResult = { score: number; bestCombo: number; isRecord: boolean; fresh: string[] };
 
-export function MutantGame({ challengeToken }: { challengeToken?: string }) {
+export function MutantGame({ challengeToken }: { challengeToken?: string | undefined }) {
   const t = useT();
   const challenge = useMemo(() => (challengeToken ? decodeChallenge(challengeToken) : null), [challengeToken]);
   const invalidChallenge = Boolean(challengeToken) && !challenge;

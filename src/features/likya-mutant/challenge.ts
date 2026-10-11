@@ -75,7 +75,7 @@ export function decodeChallenge(token: unknown): ChallengePayload | null {
   if (!raw) return null;
   const parts = raw.split(".");
   if (parts.length !== 5) return null;
-  const [v, seed36, score, codes, nick] = parts;
+  const [v = "", seed36 = "", score = "", codes = "", nick = ""] = parts;
   if (!/^\d{1,3}$/.test(v) || !/^[0-9a-z]{1,7}$/.test(seed36) || !/^\d{1,3}$/.test(score)) return null;
   if (!/^(-|[abc]{1,3})$/.test(codes)) return null;
   const list = codes === "-" ? [] : [...codes].map((c) => MUTATIONS.find((m) => m.code === c)!.id);
