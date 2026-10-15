@@ -36,6 +36,13 @@ export function LegalPage({ kind }: { kind: LegalKind }) {
             </nav>
           </aside>
           <article className="min-w-0">
+            {kind === "privacy" && (
+              <div className="mb-6 border-b border-frost/10 pb-6">
+                <Button asChild variant="outline" className="h-auto min-h-11 max-w-full whitespace-normal py-3 text-center">
+                  <Link to="/privacy/astrosync">{lang === "en" ? "AstroSync app privacy policy" : "AstroSync uygulaması gizlilik politikası"}</Link>
+                </Button>
+              </div>
+            )}
             {kind === "delete-account" && (
               <div className="mb-6 border-b border-frost/10 pb-6">
                 <Button asChild variant="outline" className="h-auto min-h-11 max-w-full whitespace-normal py-3 text-center">

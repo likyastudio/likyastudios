@@ -140,6 +140,12 @@ export const seoEntries: Record<string, SeoEntry> = {
     ogTitle: "Likya Studios Gizlilik Politikası",
     ogDescription: "Likya Studios hizmetlerinde veri işleme, saklama, aktarım ve kullanıcı hakları hakkında güncel bilgiler.",
   },
+  "/privacy/astrosync": {
+    title: "AstroSync — Gizlilik Politikası | Likya Studios",
+    description: "AstroSync hesap ve doğum profili verileri, Firebase kimlik doğrulaması, Premium abonelik özeti, güvenlik ve hesap silme hakkında gizlilik politikası.",
+    ogTitle: "AstroSync — Gizlilik Politikası",
+    ogDescription: "AstroSync uygulamasında hesap, doğum profilleri, hesaplama, abonelik verileri ve silme haklarının nasıl işlendiğini öğrenin.",
+  },
   "/terms": {
     title: "Kullanım Koşulları — Likya Studios",
     description: "Likya Studios web sitesi, dijital ürünleri ve Antalya AI gezi önerileri için geçerli kullanım koşulları.",

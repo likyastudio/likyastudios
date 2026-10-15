@@ -1,5 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useT } from "@/lib/i18n";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useLang, useT } from "@/lib/i18n";
+import { Button } from "@/components/ui/button";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 import { Reveal } from "@/components/studio/reveal";
 import { PhoneMockup, accentStyles } from "@/components/studio/project-visuals";
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/projects/$slug")({
 
 function ProjectDetailPage() {
   const t = useT();
+  const { lang } = useLang();
   const { slug } = Route.useParams();
   const project = projects.find((item) => item.slug === slug);
 
@@ -211,6 +213,14 @@ function ProjectDetailPage() {
             </a>
           </Reveal>
         </section>
+
+        {project.slug === "astrosync" && (
+          <section className="mx-auto max-w-6xl px-6 pb-16">
+            <Button asChild variant="link" className="h-auto min-h-11 max-w-full whitespace-normal px-0 py-3 text-left">
+              <Link to="/privacy/astrosync">{lang === "en" ? "AstroSync privacy policy" : "AstroSync gizlilik politikası"}</Link>
+            </Button>
+          </section>
+        )}
 
         {/* Related Projects */}
         <section className="mx-auto max-w-6xl px-6 pb-24">
