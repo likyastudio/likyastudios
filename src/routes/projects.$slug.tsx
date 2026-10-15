@@ -221,6 +221,16 @@ function ProjectDetailPage() {
             </Button>
           </section>
         )}
+        {project.slug === "wine-intelligence" && (
+          <section className="mx-auto flex max-w-6xl flex-wrap gap-x-6 px-6 pb-16">
+            <Button asChild variant="link" className="h-auto min-h-11 max-w-full whitespace-normal px-0 py-3 text-left">
+              <Link to="/privacy/wine-intelligence">{lang === "en" ? "Wine Intelligence privacy policy" : "Wine Intelligence gizlilik politikası"}</Link>
+            </Button>
+            <Button asChild variant="link" className="h-auto min-h-11 max-w-full whitespace-normal px-0 py-3 text-left">
+              <Link to="/delete-account/wine-intelligence">{lang === "en" ? "Wine Intelligence account and data deletion" : "Wine Intelligence hesap ve veri silme"}</Link>
+            </Button>
+          </section>
+        )}
 
         {/* Related Projects */}
         <section className="mx-auto max-w-6xl px-6 pb-24">
