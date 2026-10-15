@@ -26,6 +26,7 @@ import { Route as DeleteAccountAstrosyncRouteImport } from './routes/delete-acco
 import { Route as LabsIndexRouteImport } from './routes/labs.index'
 import { Route as LabsAntalyaAiRouteImport } from './routes/labs.antalya-ai'
 import { Route as LabsLikyaMutantRouteImport } from './routes/labs.likya-mutant'
+import { Route as PrivacyAstrosyncRouteImport } from './routes/privacy_.astrosync'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
@@ -114,6 +115,11 @@ const LabsLikyaMutantRoute = LabsLikyaMutantRouteImport.update({
   path: '/labs/likya-mutant',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyAstrosyncRoute = PrivacyAstrosyncRouteImport.update({
+  id: '/privacy_/astrosync',
+  path: '/privacy/astrosync',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
@@ -142,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/delete-account/astrosync': typeof DeleteAccountAstrosyncRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/labs/likya-mutant': typeof LabsLikyaMutantRoute
+  '/privacy/astrosync': typeof PrivacyAstrosyncRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs/': typeof LabsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -163,6 +170,7 @@ export interface FileRoutesByTo {
   '/delete-account/astrosync': typeof DeleteAccountAstrosyncRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/labs/likya-mutant': typeof LabsLikyaMutantRoute
+  '/privacy/astrosync': typeof PrivacyAstrosyncRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs': typeof LabsIndexRoute
   '/projects': typeof ProjectsIndexRoute
@@ -185,6 +193,7 @@ export interface FileRoutesById {
   '/delete-account_/astrosync': typeof DeleteAccountAstrosyncRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/labs/likya-mutant': typeof LabsLikyaMutantRoute
+  '/privacy_/astrosync': typeof PrivacyAstrosyncRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs/': typeof LabsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -208,6 +217,7 @@ export interface FileRouteTypes {
     | '/delete-account/astrosync'
     | '/labs/antalya-ai'
     | '/labs/likya-mutant'
+    | '/privacy/astrosync'
     | '/projects/$slug'
     | '/labs/'
     | '/projects/'
@@ -229,6 +239,7 @@ export interface FileRouteTypes {
     | '/delete-account/astrosync'
     | '/labs/antalya-ai'
     | '/labs/likya-mutant'
+    | '/privacy/astrosync'
     | '/projects/$slug'
     | '/labs'
     | '/projects'
@@ -250,6 +261,7 @@ export interface FileRouteTypes {
     | '/delete-account_/astrosync'
     | '/labs/antalya-ai'
     | '/labs/likya-mutant'
+    | '/privacy_/astrosync'
     | '/projects/$slug'
     | '/labs/'
     | '/projects/'
@@ -272,6 +284,7 @@ export interface RootRouteChildren {
   DeleteAccountAstrosyncRoute: typeof DeleteAccountAstrosyncRoute
   LabsAntalyaAiRoute: typeof LabsAntalyaAiRoute
   LabsLikyaMutantRoute: typeof LabsLikyaMutantRoute
+  PrivacyAstrosyncRoute: typeof PrivacyAstrosyncRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   LabsIndexRoute: typeof LabsIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
@@ -398,6 +411,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabsLikyaMutantRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy_/astrosync': {
+      id: '/privacy_/astrosync'
+      path: '/privacy/astrosync'
+      fullPath: '/privacy/astrosync'
+      preLoaderRoute: typeof PrivacyAstrosyncRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -432,6 +452,7 @@ const rootRouteChildren: RootRouteChildren = {
   DeleteAccountAstrosyncRoute: DeleteAccountAstrosyncRoute,
   LabsAntalyaAiRoute: LabsAntalyaAiRoute,
   LabsLikyaMutantRoute: LabsLikyaMutantRoute,
+  PrivacyAstrosyncRoute: PrivacyAstrosyncRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   LabsIndexRoute: LabsIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
