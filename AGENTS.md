@@ -16,6 +16,7 @@
 - List pages with child detail routes use `*.index.tsx` (e.g. `projects.index.tsx`, `labs.index.tsx`) — a plain parent file without `<Outlet />` would swallow child routes.
 - Bilingual UI (TR/EN): visible text stays in components as Turkish/source strings and is wrapped with `t()` from `useT()` (`src/lib/i18n.tsx`); translations live in `src/lib/i18n-dict.ts` keyed by source text. Choice is stored in the browser, so SEO/head metadata stays single-language.
 - Legal documents use the typed bilingual content and shared real-world values in `src/data/legal.ts` so disclosures stay consistent across pages.
+- Product-specific AstroSync deletion disclosures use `src/data/astrosync-deletion.ts` and a non-nested `delete-account_.astrosync` route so the public detail URL does not replace or get swallowed by the generic legal page; the website only provides instructions and an email request link.
 - Product screenshots use typed slots with optional uploaded asset pointers; missing assets render no image, preventing fabricated previews and broken image requests.
 - Likya Batak uses a dedicated showcase within the existing project detail route so other product presentations and route metadata remain unchanged.
 - Likya Mutant lives in `src/features/likya-mutant/` (pure engine/mutations/challenge/achievements/storage + components) with its own translation table merged into DICT, so game rules stay testable outside React; logic tests run with `bun test tests/`.

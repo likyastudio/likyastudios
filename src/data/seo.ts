@@ -166,6 +166,12 @@ export const seoEntries: Record<string, SeoEntry> = {
     ogDescription: "Hesap ve ilişkili veriler için silme talebinin nasıl iletileceğini öğrenin.",
     noindex: true,
   },
+  "/delete-account/astrosync": {
+    title: "AstroSync — Hesap ve Veri Silme | Likya Studios",
+    description: "AstroSync hesabınızı ve verilerinizi uygulamadan silme adımları ve uygulamaya erişmeden e-posta ile silme talebi. Talepler en geç 30 gün içinde sonuçlandırılır.",
+    ogTitle: "AstroSync — Hesap ve Veri Silme",
+    ogDescription: "AstroSync hesabı ve verileri için uygulama içi silme adımları, silinen veriler ve e-posta ile hesap silme talebi.",
+  },
   "/press": {
     title: "Press Kit — Likya Studios",
     description:

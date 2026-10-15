@@ -1,6 +1,8 @@
 import { PageHero, StudioPage } from "./site-shell";
 import { useLang } from "@/lib/i18n";
 import { LAST_UPDATED, legalDocuments, type LegalKind } from "@/data/legal";
+import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 
 export function LegalPage({ kind }: { kind: LegalKind }) {
   const { lang } = useLang();
@@ -34,6 +36,15 @@ export function LegalPage({ kind }: { kind: LegalKind }) {
             </nav>
           </aside>
           <article className="min-w-0">
+            {kind === "delete-account" && (
+              <div className="mb-6 border-b border-frost/10 pb-6">
+                <Button asChild variant="outline" className="h-auto min-h-11 max-w-full whitespace-normal py-3 text-center">
+                  <Link to="/delete-account/astrosync">
+                    {lang === "en" ? "I want to delete my AstroSync account" : "AstroSync hesabımı silmek istiyorum"}
+                  </Link>
+                </Button>
+              </div>
+            )}
             <p className="border-b border-frost/10 pb-6 text-sm text-muted-foreground">
               {page.updatedLabel}: <time dateTime="2026-10-02">{lang === "en" ? "2 October 2026" : LAST_UPDATED}</time>
             </p>
