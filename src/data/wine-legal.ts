@@ -1,8 +1,8 @@
 import { CONTACT_EMAIL, CONTACT_LOCATION, LEGAL_ENTITY_NAME } from "./legal";
 
 // Source: owner-supplied Wine Intelligence draft HTML pages + publishing README (15 Oct 2026).
-// Mobile/server behavior below is as stated by those source documents; this website did not audit
-// the app or its backend. Outstanding values are rendered as explicit "awaiting confirmation" fields.
+// Mobile client behavior was checked by a Codex review of the mobile repo (see audit); server/provider
+// behavior is as stated by the owner's source documents and was not re-verified here. Outstanding values are rendered as explicit "awaiting confirmation" fields.
 // Internal audit: docs/legal/wine-intelligence-audit.md
 
 export type WineLang = "tr" | "en";
@@ -108,7 +108,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           items: [
             "Groq Inc. (ABD) — birincil sağlayıcı",
             "OpenAI (ABD) — birincil sağlayıcıya ulaşılamazsa yedek sağlayıcı",
-            "Bu servislere yalnızca yazdığınız metin ve sabit bir sistem yönergesi iletilir; adınız, e-postanız veya hesap kimliğiniz gönderilmez.",
+            "Bu servislere yalnızca yazdığınız metin ve sabit bir sistem yönergesi iletilir; adınız, e-postanız veya hesap kimliğiniz hesap bilgisi olarak eklenmez. Ancak metne kendiniz yazdığınız her bilgi, kişisel bilgiler dâhil, olduğu gibi iletilir.",
             "Şarap önerileri sunucudaki kendi kataloğumuzdan üretilir.",
           ],
           callout:
@@ -298,7 +298,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
             { label: "Yedekler", value: "Yedeklerden silme davranışı ve süresi", note: PENDING.tr, pending: true },
             { label: "Yasal saklama yükümlülüğü olan kayıtlar", value: "Varsa kapsamı ve süresi", note: PENDING.tr, pending: true },
             { label: "AI sağlayıcıları (Groq, OpenAI)", value: "AI Sommelier'e yazdığınız metin bu sağlayıcılara iletilir; kendi saklama politikaları geçerlidir." },
-            { label: "Şarap kataloğu, üretici ve yemek bilgileri", value: "Kişisel veri değildir; tüm kullanıcılar için ortaktır ve kalır." },
+            { label: "Şarap kataloğu, üretici ve yemek bilgileri", value: "Kişisel veri değildir; tüm kullanıcılar için ortaktır. Süre: Süresiz." },
           ],
         },
         {
@@ -373,7 +373,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           items: [
             "Groq Inc. (USA) — primary provider",
             "OpenAI (USA) — fallback provider if the primary one is unavailable",
-            "Only your text and a fixed system instruction are sent to these services; your name, email address and account identifier are not.",
+            "Only your text and a fixed system instruction are sent to these services; your name, email address and account identifier are not added as account metadata. However, anything you type into the text, including personal information, is transmitted as written.",
             "Wine recommendations are produced from our own catalogue on the server.",
           ],
           callout:
@@ -557,7 +557,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
             { label: "Backups", value: "Deletion behavior and period for backups", note: PENDING.en, pending: true },
             { label: "Records under a statutory retention obligation", value: "Scope and period, if any", note: PENDING.en, pending: true },
             { label: "AI providers (Groq, OpenAI)", value: "Text you typed into AI Sommelier is forwarded to these providers; their own retention policies apply." },
-            { label: "Wine catalogue, producer and dish information", value: "Not personal data; shared by all users and kept." },
+            { label: "Wine catalogue, producer and dish information", value: "Not personal data; shared by all users. Period: Indefinitely." },
           ],
         },
         {
