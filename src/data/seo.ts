@@ -178,6 +178,18 @@ export const seoEntries: Record<string, SeoEntry> = {
     ogTitle: "AstroSync — Hesap ve Veri Silme",
     ogDescription: "AstroSync hesabı ve verileri için uygulama içi silme adımları, silinen veriler ve e-posta ile hesap silme talebi.",
   },
+  "/privacy/wine-intelligence": {
+    title: "Wine Intelligence — Gizlilik Politikası | Likya Studios",
+    description: "Wine Intelligence uygulamasında misafir modu, Firebase hesabı, AI Sommelier metni, cihazda OCR ve yalnızca cihazda kalan veriler hakkında gizlilik politikası.",
+    ogTitle: "Wine Intelligence — Gizlilik Politikası",
+    ogDescription: "Wine Intelligence uygulamasının hesap, AI Sommelier, arama, etiket tarama ve teknik verileri nasıl işlediğini öğrenin.",
+  },
+  "/delete-account/wine-intelligence": {
+    title: "Wine Intelligence — Hesap ve Veri Silme | Likya Studios",
+    description: "Wine Intelligence hesabınızı uygulama içinden silme adımları, e-posta ile silme talebi ve cihazdaki verilerin temizlenmesi.",
+    ogTitle: "Wine Intelligence — Hesap ve Veri Silme",
+    ogDescription: "Wine Intelligence için uygulama içi silme, e-posta talebi, silinen ve kalan veriler.",
+  },
   "/press": {
     title: "Press Kit — Likya Studios",
     description:

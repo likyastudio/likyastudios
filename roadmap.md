@@ -22,3 +22,4 @@
 - [ ] Google Cloud Map ID için Mediterranean Midnight harita stilini yapılandır
 - [x] Likya Mutant oynanabilir web MVP'si (/labs/likya-mutant), testler; yayın yok
 - [x] Likya Mutant stüdyo ürünlerine 4. kart + /projects/likya-mutant tanıtım sayfası; yayın yok
+- [ ] Wine Intelligence gizlilik + hesap silme sayfaları: önizlemede hazır; yayın, eksik hukuki bilgiler doğrulanınca (bkz. docs/legal/wine-intelligence-audit.md)

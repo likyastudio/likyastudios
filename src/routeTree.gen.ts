@@ -23,10 +23,12 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as DeleteAccountAstrosyncRouteImport } from './routes/delete-account_.astrosync'
+import { Route as DeleteAccountWineIntelligenceRouteImport } from './routes/delete-account_.wine-intelligence'
 import { Route as LabsIndexRouteImport } from './routes/labs.index'
 import { Route as LabsAntalyaAiRouteImport } from './routes/labs.antalya-ai'
 import { Route as LabsLikyaMutantRouteImport } from './routes/labs.likya-mutant'
 import { Route as PrivacyAstrosyncRouteImport } from './routes/privacy_.astrosync'
+import { Route as PrivacyWineIntelligenceRouteImport } from './routes/privacy_.wine-intelligence'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
@@ -100,6 +102,12 @@ const DeleteAccountAstrosyncRoute = DeleteAccountAstrosyncRouteImport.update({
   path: '/delete-account/astrosync',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DeleteAccountWineIntelligenceRoute =
+  DeleteAccountWineIntelligenceRouteImport.update({
+    id: '/delete-account_/wine-intelligence',
+    path: '/delete-account/wine-intelligence',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LabsIndexRoute = LabsIndexRouteImport.update({
   id: '/labs/',
   path: '/labs/',
@@ -118,6 +126,11 @@ const LabsLikyaMutantRoute = LabsLikyaMutantRouteImport.update({
 const PrivacyAstrosyncRoute = PrivacyAstrosyncRouteImport.update({
   id: '/privacy_/astrosync',
   path: '/privacy/astrosync',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyWineIntelligenceRoute = PrivacyWineIntelligenceRouteImport.update({
+  id: '/privacy_/wine-intelligence',
+  path: '/privacy/wine-intelligence',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
@@ -146,9 +159,11 @@ export interface FileRoutesByFullPath {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/delete-account/astrosync': typeof DeleteAccountAstrosyncRoute
+  '/delete-account/wine-intelligence': typeof DeleteAccountWineIntelligenceRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/privacy/astrosync': typeof PrivacyAstrosyncRoute
+  '/privacy/wine-intelligence': typeof PrivacyWineIntelligenceRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs/': typeof LabsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -168,9 +183,11 @@ export interface FileRoutesByTo {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/delete-account/astrosync': typeof DeleteAccountAstrosyncRoute
+  '/delete-account/wine-intelligence': typeof DeleteAccountWineIntelligenceRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/privacy/astrosync': typeof PrivacyAstrosyncRoute
+  '/privacy/wine-intelligence': typeof PrivacyWineIntelligenceRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs': typeof LabsIndexRoute
   '/projects': typeof ProjectsIndexRoute
@@ -191,9 +208,11 @@ export interface FileRoutesById {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/delete-account_/astrosync': typeof DeleteAccountAstrosyncRoute
+  '/delete-account_/wine-intelligence': typeof DeleteAccountWineIntelligenceRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
   '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/privacy_/astrosync': typeof PrivacyAstrosyncRoute
+  '/privacy_/wine-intelligence': typeof PrivacyWineIntelligenceRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/labs/': typeof LabsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -215,9 +234,11 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/delete-account/astrosync'
+    | '/delete-account/wine-intelligence'
     | '/labs/antalya-ai'
     | '/labs/likya-mutant'
     | '/privacy/astrosync'
+    | '/privacy/wine-intelligence'
     | '/projects/$slug'
     | '/labs/'
     | '/projects/'
@@ -237,9 +258,11 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/delete-account/astrosync'
+    | '/delete-account/wine-intelligence'
     | '/labs/antalya-ai'
     | '/labs/likya-mutant'
     | '/privacy/astrosync'
+    | '/privacy/wine-intelligence'
     | '/projects/$slug'
     | '/labs'
     | '/projects'
@@ -259,9 +282,11 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/delete-account_/astrosync'
+    | '/delete-account_/wine-intelligence'
     | '/labs/antalya-ai'
     | '/labs/likya-mutant'
     | '/privacy_/astrosync'
+    | '/privacy_/wine-intelligence'
     | '/projects/$slug'
     | '/labs/'
     | '/projects/'
@@ -282,9 +307,11 @@ export interface RootRouteChildren {
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
   DeleteAccountAstrosyncRoute: typeof DeleteAccountAstrosyncRoute
+  DeleteAccountWineIntelligenceRoute: typeof DeleteAccountWineIntelligenceRoute
   LabsAntalyaAiRoute: typeof LabsAntalyaAiRoute
   LabsLikyaMutantRoute: typeof LabsLikyaMutantRoute
   PrivacyAstrosyncRoute: typeof PrivacyAstrosyncRoute
+  PrivacyWineIntelligenceRoute: typeof PrivacyWineIntelligenceRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   LabsIndexRoute: typeof LabsIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
@@ -390,6 +417,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DeleteAccountAstrosyncRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/delete-account_/wine-intelligence': {
+      id: '/delete-account_/wine-intelligence'
+      path: '/delete-account/wine-intelligence'
+      fullPath: '/delete-account/wine-intelligence'
+      preLoaderRoute: typeof DeleteAccountWineIntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/labs/': {
       id: '/labs/'
       path: '/labs'
@@ -416,6 +450,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy/astrosync'
       fullPath: '/privacy/astrosync'
       preLoaderRoute: typeof PrivacyAstrosyncRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy_/wine-intelligence': {
+      id: '/privacy_/wine-intelligence'
+      path: '/privacy/wine-intelligence'
+      fullPath: '/privacy/wine-intelligence'
+      preLoaderRoute: typeof PrivacyWineIntelligenceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/': {
@@ -450,9 +491,11 @@ const rootRouteChildren: RootRouteChildren = {
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
   DeleteAccountAstrosyncRoute: DeleteAccountAstrosyncRoute,
+  DeleteAccountWineIntelligenceRoute: DeleteAccountWineIntelligenceRoute,
   LabsAntalyaAiRoute: LabsAntalyaAiRoute,
   LabsLikyaMutantRoute: LabsLikyaMutantRoute,
   PrivacyAstrosyncRoute: PrivacyAstrosyncRoute,
+  PrivacyWineIntelligenceRoute: PrivacyWineIntelligenceRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   LabsIndexRoute: LabsIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
