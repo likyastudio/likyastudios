@@ -16,6 +16,7 @@ export type WineSection = {
   steps?: string[];
   rows?: { label: string; value: string; note?: string; pending?: boolean }[];
   callout?: string;
+  links?: { label: string; href: string }[];
   mailto?: boolean;
 };
 
@@ -174,6 +175,10 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
         },
         {
           id: "saklama",
+          links: [
+            { label: "Groq — Veri kullanımı belgeleri", href: "https://console.groq.com/docs/your-data" },
+            { label: "OpenAI — Veri kullanımı belgeleri", href: "https://developers.openai.com/api/docs/guides/your-data" },
+          ],
           title: "10. Saklama süreleri",
           rows: [
             { label: "Hesap verileri", value: "Hesabınız açık kaldığı sürece; silindiğinde Hesap ve Veri Silme sayfasında açıklandığı şekilde kaldırılır." },
@@ -281,7 +286,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           rows: [
             { label: "Uygulama sunucusundaki hesap kaydınız", value: "Silinir (sunucu ucunun tam silme kapsamı)", note: PENDING.tr, pending: true },
             { label: "Firebase kimlik hesabınız (ad, e-posta, parola, hesap kimliği)", value: "Silinir" },
-            { label: "O hesaba bağlı cihaz kayıtları: favoriler, puanlar, yorumlar, tarama geçmişi, son aramalar", value: "Uygulama içi akışla, o cihazdan silinir" },
+            { label: "O hesaba bağlı cihaz kayıtları: önbelleğe alınmış hesap bilgileri, favoriler, puanlar, yorumlar, tarama geçmişi, son aramalar", value: "Uygulama içi akışla, o cihazdan silinir" },
           ],
         },
         {
@@ -435,6 +440,10 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
         },
         {
           id: "saklama",
+          links: [
+            { label: "Groq — Data usage documentation", href: "https://console.groq.com/docs/your-data" },
+            { label: "OpenAI — Data usage documentation", href: "https://developers.openai.com/api/docs/guides/your-data" },
+          ],
           title: "10. Retention",
           rows: [
             { label: "Account data", value: "For as long as your account exists; when deleted, removed as described on the Account and Data Deletion page." },
@@ -536,7 +545,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           rows: [
             { label: "Your account record on the application server", value: "Deleted (full deletion coverage of the server endpoint)", note: PENDING.en, pending: true },
             { label: "Your Firebase identity account (name, email, password, account identifier)", value: "Deleted" },
-            { label: "Device records tied to that account: favourites, ratings, reviews, scan history, recent searches", value: "Deleted from that device by the in-app flow" },
+            { label: "Device records tied to that account: cached account details, favourites, ratings, reviews, scan history, recent searches", value: "Deleted from that device by the in-app flow" },
           ],
         },
         {

@@ -79,6 +79,11 @@ export function WineLegalPage({ kind }: { kind: WineDocKind }) {
                   </dl>
                 )}
                 {s.callout && <p className="rounded-lg border-l-2 border-ember bg-frost/5 p-4 text-foreground/90">{s.callout}</p>}
+                {s.links && (
+                  <ul className="space-y-1">
+                    {s.links.map((l) => <li key={l.href}><a className={linkCls} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a></li>)}
+                  </ul>
+                )}
                 {s.mailto && (
                   <div>
                     <Button asChild size="lg" className="h-auto min-h-11 max-w-full whitespace-normal px-5 py-3 text-center">
