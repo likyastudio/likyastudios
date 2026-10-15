@@ -35,8 +35,8 @@ Sources: owner-supplied `gizlilik-politikasi.html`, `privacy-policy.html`, `hesa
 - Privacy policy URL: https://likyastudios.live/privacy/wine-intelligence
 - Account deletion URL: https://likyastudios.live/delete-account/wine-intelligence
 
-## Mobile source review (by owner, repo likyastudio/wineintelligence @ 504ed56c922c5c52bccbb7c22a29d1256f1b11b5, 15 Oct 2026)
-Confirmed in client source (not by this website; release build equivalence NOT confirmed, no merged-manifest/network audit):
+## Mobile source review (Codex review in this session, repo likyastudio/wineintelligence @ 504ed56c922c5c52bccbb7c22a29d1256f1b11b5, 15 Oct 2026)
+Confirmed in client source by Codex review (no live-server verification; release build equivalence NOT confirmed, no merged-manifest/network audit):
 - `auth_provider.dart:481` deleteAccount: server request → Firebase delete → `LocalUserScope.deleteAuthenticatedUser`; any failure returns false.
 - `api_client.dart:60` `DELETE /auth/me/{uid}`; request sends only Content-Type/Accept, **no Authorization header**.
   → INTERNAL FOLLOW-UP: inspect server ownership/authorization check for this endpoint. Not asserted as a vulnerability; no destructive request tested.
