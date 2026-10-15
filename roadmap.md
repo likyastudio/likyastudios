@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] AstroSync hesap/veri silme sayfasını TR/EN ekle ve yayınla; tam canlı URL HTTP 200 ve doğru içerikle doğrulandı
+
 - [x] Likya Batak gerçek screenshot destekli V4 vitrini ve TR/EN testleri (yayın yok)
 - [x] Likya Batak altı gerçek oyun ekranını ekle ve dolu galeriyi test et
 - [x] Son Likya Batak tasarımı canlıda (kullanıcı doğruladı)
