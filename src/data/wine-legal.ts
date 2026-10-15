@@ -16,6 +16,7 @@ export type WineSection = {
   steps?: string[];
   rows?: { label: string; value: string; note?: string; pending?: boolean }[];
   callout?: string;
+  links?: { label: string; href: string }[];
   mailto?: boolean;
 };
 
@@ -67,14 +68,13 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
       pending: PENDING.tr,
       contentsLabel: "İçindekiler",
       sourceNote:
-        "Uygulama ve sunucu davranışlarına ilişkin açıklamalar uygulama sahibinin kaynak belgelerine dayanır; bu web sitesi tarafından bağımsız olarak denetlenmemiştir.",
+        "Uygulama içi davranışlar mobil uygulama kaynak kodunun incelenmesiyle doğrulanmıştır; yayımlanan sürümün bu kodla aynı olduğu ayrıca doğrulanmamıştır. Sunucu ve yapay zekâ sağlayıcılarına ilişkin açıklamalar uygulama sahibinin önceki sunucu kaynağı incelemesine dayanır; sunucu tarafı saklama ve yedek silme davranışı henüz doğrulanmamıştır.",
       sections: [
         {
           id: "veri-sorumlusu",
           title: "1. Veri sorumlusu",
           rows: [
-            { label: "Ad", value: LEGAL_ENTITY_NAME },
-            { label: "Resmî unvan", value: PENDING.tr, pending: true },
+            { label: "Veri sorumlusu", value: LEGAL_ENTITY_NAME },
             { label: "Açık / kayıtlı adres", value: PENDING.tr, pending: true },
             { label: "İletişim konumu", value: CONTACT_LOCATION, note: "Yalnızca iletişim konumudur; kayıtlı adres değildir." },
             { label: "E-posta", value: CONTACT_EMAIL },
@@ -94,6 +94,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           paragraphs: [
             "E-posta ile kayıt olduğunuzda ad, e-posta adresi ve parola; Google veya Apple ile giriş yaptığınızda ilgili sağlayıcının paylaştığı ad ve e-posta adresi işlenir.",
             "Kimlik doğrulaması Firebase Authentication (Google) tarafından yapılır. Parolanız Firebase tarafından yönetilir; Uygulama parolanızı cihazda tutmaz.",
+            "Sağlayıcı bir profil fotoğrafı adresi paylaşırsa bu adres de hesap bilgilerinizle birlikte işlenebilir.",
             "Oturumun doğrulanması için Firebase kimlik belirteciniz ile varsa ad ve e-posta bilginiz uygulama sunucusuna iletilir.",
             "Amaç: hesabınızı oluşturmak, oturumunuzu doğrulamak ve hesabınıza bağlı kayıtları ayırmak.",
           ],
@@ -135,13 +136,14 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
             "Aşağıdaki kayıtların bulut eşitlemesi yoktur; yalnızca cihazınızda saklanır ve hesabınız ile misafir kullanımı için ayrı ayrı tutulur:",
           ],
           items: ["Favori şaraplar", "Verdiğiniz puanlar ve yazdığınız yorumlar", "Tarama geçmişi", "Son arama terimleri", "Uygulama tercihleri"],
+          callout: "Hesap açtıysanız, hesap bilgileriniz de cihazda önbelleğe alınır: hesap kimliği, varsa sunucu hesap kimliği, ad, e-posta, giriş yöntemi ve varsa profil fotoğrafı adresi.",
         },
         {
           id: "teknik",
           title: "7. Teknik veriler",
           paragraphs: [
             "Uygulama sunucusuna yapılan her istekte, internet altyapısının doğası gereği IP adresiniz ve istek üst bilgileri barındırma sağlayıcısı Google Cloud Run tarafından işlenebilir.",
-            "Kaynak belgelere göre Uygulamada reklam ağı veya davranışsal analitik SDK'sı bulunmamaktadır; kullanım alışkanlıklarınızı profilleyen bir izleyici eklenmemiştir.",
+            "Mobil uygulama kaynak koduna göre Uygulamaya doğrudan eklenmiş reklam ağı veya davranışsal analitik SDK'sı yoktur; kullanım alışkanlıklarınızı profilleyen bir izleyici eklenmemiştir.",
           ],
         },
         {
@@ -173,6 +175,10 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
         },
         {
           id: "saklama",
+          links: [
+            { label: "Groq — Veri kullanımı belgeleri", href: "https://console.groq.com/docs/your-data" },
+            { label: "OpenAI — Veri kullanımı belgeleri", href: "https://developers.openai.com/api/docs/guides/your-data" },
+          ],
           title: "10. Saklama süreleri",
           rows: [
             { label: "Hesap verileri", value: "Hesabınız açık kaldığı sürece; silindiğinde Hesap ve Veri Silme sayfasında açıklandığı şekilde kaldırılır." },
@@ -235,7 +241,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
       pending: PENDING.tr,
       contentsLabel: "İçindekiler",
       sourceNote:
-        "Silme akışına ilişkin açıklamalar uygulama sahibinin kaynak belgelerine dayanır; bu web sitesi hesap silmez ve uygulamayı bağımsız olarak denetlememiştir.",
+        "Uygulama içi silme sırası mobil uygulama kaynak kodunda doğrulanmıştır; sunucunun tam silme kapsamı ve yedekler doğrulanmamıştır. Bu web sitesi hesap silmez.",
       sections: [
         {
           id: "uygulama-ici",
@@ -280,14 +286,14 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           rows: [
             { label: "Uygulama sunucusundaki hesap kaydınız", value: "Silinir (sunucu ucunun tam silme kapsamı)", note: PENDING.tr, pending: true },
             { label: "Firebase kimlik hesabınız (ad, e-posta, parola, hesap kimliği)", value: "Silinir" },
-            { label: "O hesaba bağlı cihaz kayıtları: favoriler, puanlar, yorumlar, tarama geçmişi, son aramalar", value: "Uygulama içi akışla, o cihazdan silinir" },
+            { label: "O hesaba bağlı cihaz kayıtları: önbelleğe alınmış hesap bilgileri, favoriler, puanlar, yorumlar, tarama geçmişi, son aramalar", value: "Uygulama içi akışla, o cihazdan silinir" },
           ],
         },
         {
           id: "kalan",
           title: "Silinmeyen veya ayrıca değerlendirilen veriler",
           rows: [
-            { label: "Misafir modunda oluşturduğunuz kayıtlar", value: "Hesabınızdan ayrı tutulur ve bir hesaba bağlı değildir; uygulama verisini temizleyene veya uygulamayı kaldırana kadar cihazınızda kalır." },
+            { label: "Misafir kayıtları, eski sürümlerden kalan kayıtlar ve aynı cihazdaki diğer hesapların kayıtları", value: "Silme yalnızca silinen hesaba ait cihaz kayıtlarını kaldırır; bunlar ayrı tutulur ve uygulama verisini temizleyene veya uygulamayı kaldırana kadar cihazınızda kalır." },
             { label: "Barındırma ve güvenlik kayıtları (IP, istek üst bilgileri)", value: "Hizmet güvenliği ve kötüye kullanımın önlenmesi; saklama süresi", note: PENDING.tr, pending: true },
             { label: "Yedekler", value: "Yedeklerden silme davranışı ve süresi", note: PENDING.tr, pending: true },
             { label: "Yasal saklama yükümlülüğü olan kayıtlar", value: "Varsa kapsamı ve süresi", note: PENDING.tr, pending: true },
@@ -299,7 +305,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           id: "cihaz-temizle",
           title: "Cihazdaki her şeyi silmek isterseniz",
           paragraphs: [
-            "Misafir kayıtları dâhil cihazınızdaki tüm uygulama verisini kaldırmak için: Android Ayarlar → Uygulamalar → Wine Intelligence → Depolama → Verileri temizle; ya da uygulamayı kaldırın.",
+            "Misafir, eski sürüm ve diğer hesap kayıtları dâhil cihazınızdaki tüm uygulama verisini kaldırmak için: Android Ayarlar → Uygulamalar → Wine Intelligence → Depolama → Verileri temizle; ya da uygulamayı kaldırın.",
           ],
         },
         {
@@ -327,14 +333,13 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
       pending: PENDING.en,
       contentsLabel: "Contents",
       sourceNote:
-        "Statements about app and server behavior are based on the app owner's source documents; they have not been independently audited by this website.",
+        "In-app behavior has been checked against the mobile app source code; that the published release matches this code has not been separately confirmed. Statements about the server and AI providers rely on the app owner's earlier server-source review; server-side retention and backup deletion are not yet verified.",
       sections: [
         {
           id: "veri-sorumlusu",
           title: "1. Data controller",
           rows: [
-            { label: "Name", value: LEGAL_ENTITY_NAME },
-            { label: "Legal name", value: PENDING.en, pending: true },
+            { label: "Data controller", value: LEGAL_ENTITY_NAME },
             { label: "Full / registered address", value: PENDING.en, pending: true },
             { label: "Contact location", value: CONTACT_LOCATION, note: "Contact location only; not a registered address." },
             { label: "Email", value: CONTACT_EMAIL },
@@ -354,6 +359,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           paragraphs: [
             "If you register with email, your name, email address and password are processed. If you sign in with Google or Apple, the name and email address shared by that provider are processed.",
             "Authentication is handled by Firebase Authentication (Google). Your password is managed by Firebase; the App does not keep your password on the device.",
+            "If the provider supplies a profile photo address, that address may also be processed with your account details.",
             "To verify your session, your Firebase ID token together with your name and email (where available) is sent to the application server.",
             "Purpose: creating your account, verifying your session and separating records that belong to your account.",
           ],
@@ -395,13 +401,14 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
             "The following records have no cloud sync. They are stored on your device only and kept separately for your account and for guest use:",
           ],
           items: ["Favourite wines", "Your ratings and written reviews", "Scan history", "Recent search terms", "App preferences"],
+          callout: "If you have an account, your account details are also cached on the device: account identifier, server account identifier where available, name, email, sign-in method and profile photo address where available.",
         },
         {
           id: "teknik",
           title: "7. Technical data",
           paragraphs: [
             "As with any internet service, your IP address and request headers may be processed by the hosting provider, Google Cloud Run, on every request to the application server.",
-            "According to the source documents, the App contains no advertising network and no behavioural analytics SDK; no tracker that profiles your usage has been added.",
+            "According to the mobile app source code, no advertising network or behavioural analytics SDK is directly included in the App; no tracker that profiles your usage has been added.",
           ],
         },
         {
@@ -433,6 +440,10 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
         },
         {
           id: "saklama",
+          links: [
+            { label: "Groq — Data usage documentation", href: "https://console.groq.com/docs/your-data" },
+            { label: "OpenAI — Data usage documentation", href: "https://developers.openai.com/api/docs/guides/your-data" },
+          ],
           title: "10. Retention",
           rows: [
             { label: "Account data", value: "For as long as your account exists; when deleted, removed as described on the Account and Data Deletion page." },
@@ -495,7 +506,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
       pending: PENDING.en,
       contentsLabel: "Contents",
       sourceNote:
-        "Statements about the deletion flow are based on the app owner's source documents; this website does not delete accounts and has not independently audited the app.",
+        "The in-app deletion order has been checked in the mobile app source code; the server's full deletion scope and backups are not verified. This website does not delete accounts.",
       sections: [
         {
           id: "uygulama-ici",
@@ -534,14 +545,14 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           rows: [
             { label: "Your account record on the application server", value: "Deleted (full deletion coverage of the server endpoint)", note: PENDING.en, pending: true },
             { label: "Your Firebase identity account (name, email, password, account identifier)", value: "Deleted" },
-            { label: "Device records tied to that account: favourites, ratings, reviews, scan history, recent searches", value: "Deleted from that device by the in-app flow" },
+            { label: "Device records tied to that account: cached account details, favourites, ratings, reviews, scan history, recent searches", value: "Deleted from that device by the in-app flow" },
           ],
         },
         {
           id: "kalan",
           title: "Data that is kept or assessed separately",
           rows: [
-            { label: "Records created in guest mode", value: "Stored separately and not tied to any account; remain on your device until you clear app data or uninstall the app." },
+            { label: "Guest records, records left from older app versions, and other accounts' records on the same device", value: "Deletion removes only the deleted account's device records; these are kept separately and remain on your device until you clear app data or uninstall the app." },
             { label: "Hosting and security logs (IP address, request headers)", value: "Service security and abuse prevention; retention period", note: PENDING.en, pending: true },
             { label: "Backups", value: "Deletion behavior and period for backups", note: PENDING.en, pending: true },
             { label: "Records under a statutory retention obligation", value: "Scope and period, if any", note: PENDING.en, pending: true },
@@ -553,7 +564,7 @@ export const wineLegal: Record<WineLang, Record<WineDocKind, WineDoc>> = {
           id: "cihaz-temizle",
           title: "Removing everything from your device",
           paragraphs: [
-            "To remove all app data from your device including guest records: Android Settings → Apps → Wine Intelligence → Storage → Clear data, or uninstall the app.",
+            "To remove all app data from your device, including guest, older-version and other accounts' records: Android Settings → Apps → Wine Intelligence → Storage → Clear data, or uninstall the app.",
           ],
         },
         {
