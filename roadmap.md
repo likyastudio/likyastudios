@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] AstroSync TR/EN gizlilik sayfası, ürün/hukuki bağlantılar, Veri Güvenliği denetim tablosu, test ve canlı yayın doğrulaması
+
 - [x] AstroSync hesap/veri silme sayfasını TR/EN ekle ve yayınla; tam canlı URL HTTP 200 ve doğru içerikle doğrulandı
 
 - [x] Likya Batak gerçek screenshot destekli V4 vitrini ve TR/EN testleri (yayın yok)
