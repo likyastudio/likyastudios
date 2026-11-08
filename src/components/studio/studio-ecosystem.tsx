@@ -17,13 +17,13 @@ export function GamesFeature({ hero = false }: { hero?: boolean }) {
       <div className="flex flex-wrap items-end justify-between gap-5 border-b border-ember/25 pb-7">
         <div>
           <p lang="en" className="mb-3 font-mono text-xs text-ember">LIKYA STUDIOS / {t("Oyunlar")}</p>
-          <Heading lang="en" className={`font-display font-semibold leading-none ${hero ? "text-6xl sm:text-7xl md:text-8xl" : "text-4xl md:text-6xl"}`}>Likya Games<span className="text-ember">.</span></Heading>
+          <Heading lang="en" className={`font-display font-semibold leading-none ${hero ? "text-5xl sm:text-7xl md:text-8xl" : "text-4xl md:text-6xl"}`}>Likya Games<span className="text-ember">.</span></Heading>
         </div>
         <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">{t("Bir stüdyo. İki farklı oyun dünyası. Kart masasından tarayıcı arcade deneyimine.")}</p>
       </div>
       <div className="grid gap-9 pt-8 lg:grid-cols-[1.6fr_1fr] lg:gap-10">
         <article className="grid items-center gap-6 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)]">
-          {screenshot?.src && <figure className="mx-auto w-full max-w-[230px]">
+          {screenshot?.src && <figure className="mx-auto w-full max-w-[150px] sm:max-w-[230px]">
             <img src={screenshot.src} alt={t(screenshot.alt)} width={1080} height={1920} loading={hero ? "eager" : "lazy"} decoding="async" className="h-auto w-full rounded-md border border-ember/20" />
           </figure>}
           <div>

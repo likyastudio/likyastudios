@@ -70,7 +70,7 @@ export function StudioHeader() {
           {NAV.map((item) => (
             <Button asChild variant="ghost" key={item.label} className="h-11"><Link
               to={item.to}
-              hash={item.hash}
+              {...(item.hash ? { hash: item.hash } : {})}
               onClick={() => setOpen(false)}
               aria-current={isActive(item) ? (item.hash ? "location" : "page") : undefined}
               className={`relative rounded-full px-3 py-1.5 transition outline-none focus-visible:ring-2 focus-visible:ring-glow ${
@@ -111,7 +111,7 @@ export function StudioHeader() {
           {NAV.map((item) => (
             <Button asChild variant="ghost" key={item.label} className="h-11"><Link
               to={item.to}
-              hash={item.hash}
+              {...(item.hash ? { hash: item.hash } : {})}
               onClick={() => setOpen(false)}
               aria-current={isActive(item) ? (item.hash ? "location" : "page") : undefined}
               className={`flex items-center justify-between rounded-xl px-3 py-2.5 transition ${
