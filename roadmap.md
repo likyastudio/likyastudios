@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Games-led homepage, curated Studio Ecosystem, Services and navigation/Instagram updates; TR/EN and responsive validation; no publishing
+- [x] Games-led homepage, curated Studio Ecosystem, Services and navigation/Instagram updates; TR/EN 320/390/768/1280, images, anchors, keyboard focus, game round, 13 tests and automatic type/build checks passed; no publishing
 
 - [x] AstroSync TR/EN gizlilik sayfası, ürün/hukuki bağlantılar, Veri Güvenliği iç denetim tablosu ve tarayıcı testleri
 - [ ] AstroSync gizlilik canlı URL HTTP 200 doğrulaması — yayın istendi; ilk canlı kontrolde HTTP 404 döndü, dağıtımın alan adına yansıması bekleniyor
