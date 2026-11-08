@@ -22,3 +22,5 @@
 - Likya Batak uses a dedicated showcase within the existing project detail route so other product presentations and route metadata remain unchanged.
 - Likya Mutant lives in `src/features/likya-mutant/` (pure engine/mutations/challenge/achievements/storage + components) with its own translation table merged into DICT, so game rules stay testable outside React; logic tests run with `bun test tests/`.
 - Wine Intelligence privacy/deletion use typed bilingual data in `src/data/wine-legal.ts`, one shared `wine-legal-page.tsx`, and non-nested `privacy_`/`delete-account_` routes; unverified facts render as explicit "awaiting confirmation" fields with the audit in `docs/legal/`, so drafts never hide gaps.
+
+- Homepage and Projects use the shared StudioEcosystem/GamesFeature presentation, separate from product showcases, so listing redesigns never alter game logic or detail pages.

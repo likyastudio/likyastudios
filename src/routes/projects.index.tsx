@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
 import { seoHead } from "@/data/seo";
-import { ProjectGrid } from "@/components/studio/project-grid";
+import { StudioEcosystem } from "@/components/studio/studio-ecosystem";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
 
 export const Route = createFileRoute("/projects/")({
@@ -16,11 +16,11 @@ function ProjectsPage() {
       <main>
         <PageHero
           eyebrow={t("PROJECTS")}
-          title={t("Built at Likya Studios.")}
+          title={t("Stüdyo Ekosistemi")}
           description={t("Kendi bünyemizde tasarladığımız ve geliştirdiğimiz ürünler.")}
         />
         <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
-          <ProjectGrid />
+          <StudioEcosystem includeGames />
         </section>
       </main>
     </StudioPage>

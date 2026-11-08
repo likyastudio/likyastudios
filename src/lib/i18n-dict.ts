@@ -4,6 +4,22 @@ import { MUTANT_DICT } from "@/features/likya-mutant/i18n";
 import { MUTANT_PRODUCT_DICT } from "@/components/studio/mutant-showcase-i18n";
 
 export const DICT: Record<string, [string, string]> = {
+  "Oyunlar": ["Oyunlar", "Games"],
+  "Hizmetler": ["Hizmetler", "Services"],
+  "Stüdyo Ekosistemi": ["Stüdyo Ekosistemi", "Studio Ecosystem"],
+  "Bir stüdyo. İki farklı oyun dünyası. Kart masasından tarayıcı arcade deneyimine.": ["Bir stüdyo. İki farklı oyun dünyası. Kart masasından tarayıcı arcade deneyimine.", "One studio. Two game worlds. From the card table to browser arcade."],
+  "Batak'ı Keşfet": ["Batak'ı Keşfet", "Explore Batak"],
+  "Tarayıcı oyunu": ["Tarayıcı oyunu", "Browser game"],
+  "Uygulamalar & dijital ürünler": ["Uygulamalar & dijital ürünler", "Apps & digital products"],
+  "Ürün stratejisi & tasarım": ["Ürün stratejisi & tasarım", "Product strategy & design"],
+  "Fikir, ürün yönü ve arayüz tasarımı.": ["Fikir, ürün yönü ve arayüz tasarımı.", "Ideas, product direction and interface design."],
+  "Mobil & oyun geliştirme": ["Mobil & oyun geliştirme", "Mobile & game development"],
+  "Mobil uygulamalar, kart oyunları ve tarayıcı deneyimleri.": ["Mobil uygulamalar, kart oyunları ve tarayıcı deneyimleri.", "Mobile apps, card games and browser experiences."],
+  "AI & dijital sistemler": ["AI & dijital sistemler", "AI & digital systems"],
+  "Yapay zekâ destekli deneyimler ve bağlantılı dijital ürünler.": ["Yapay zekâ destekli deneyimler ve bağlantılı dijital ürünler.", "AI-powered experiences and connected digital products."],
+  "Fikirden deneyime.": ["Fikirden deneyime.", "From idea to experience."],
+  "Birlikte Üretelim": ["Birlikte Üretelim", "Let’s Build Together"],
+  "Likya Studios Instagram hesabı (yeni sekmede açılır)": ["Likya Studios Instagram hesabı (yeni sekmede açılır)", "Likya Studios on Instagram (opens in a new tab)"],
   ...MUTANT_DICT,
   ...MUTANT_PRODUCT_DICT,
   "Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.": ["Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.", "Bringing Türkiye’s classic Batak experience to the modern mobile table."],
