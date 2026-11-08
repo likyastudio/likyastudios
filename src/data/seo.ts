@@ -15,20 +15,18 @@ const og = (name: string) => `/og/${name}.jpg`;
 
 export const seoEntries: Record<string, SeoEntry> = {
   "/": {
-    title: "Likya Studios — Apps, Games & AI",
+    title: "Likya Studios — Likya Games, Apps & AI",
     description:
-      "Likya Studios, Antalya’da mobil uygulamalar, oyunlar ve yapay zekâ destekli dijital ürünler geliştiren bağımsız teknoloji stüdyosudur.",
-    ogTitle: "Likya Studios — From Idea to Digital Reality",
-    ogDescription: "Apps, games and AI-powered digital experiences built in Antalya, Türkiye.",
-    image: og("likya-studios"),
+      "Likya Games dünyasını, Likya Batak ve oynanabilir Likya Mutant deneyimlerini keşfedin. Likya Studios: Antalya’da oyunlar, mobil uygulamalar ve AI destekli dijital ürünler.",
+    ogTitle: "Likya Studios — Likya Games & Studio Ecosystem",
+    ogDescription: "Explore Likya Batak, play Likya Mutant, and discover the apps and digital products of Likya Studios.",
   },
   "/projects": {
-    title: "Projects — Likya Studios",
+    title: "Studio Ecosystem & Projects — Likya Studios",
     description:
       "Likya Studios tarafından geliştirilen mobil uygulamaları, oyunları ve yapay zekâ destekli dijital ürünleri keşfedin.",
     ogTitle: "Projects by Likya Studios",
     ogDescription: "Explore apps, games and AI products built at Likya Studios.",
-    image: og("likya-studios"),
   },
   "/projects/wine-intelligence": {
     title: "Wine Intelligence — AI Sommelier | Likya Studios",

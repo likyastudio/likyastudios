@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+
 import { useT } from "@/lib/i18n";
 import { seoHead, organizationLd, websiteLd } from "@/data/seo";
 
 import antalyaImg from "@/assets/antalya.jpg";
-import logoAsset from "@/assets/likya-logo.png.asset.json";
+
 import { ContactSection } from "@/components/contact-form";
-import { ProjectGrid } from "@/components/studio/project-grid";
+import { GamesFeature, StudioEcosystem, ServicesSection } from "@/components/studio/studio-ecosystem";
 import { Reveal } from "@/components/studio/reveal";
 import { StudioPage } from "@/components/studio/site-shell";
-import { projects } from "@/data/projects";
 
-const logoImg = logoAsset.url;
+
+
 
 export const Route = createFileRoute("/")({
   head: () => seoHead("/", [organizationLd, websiteLd]),
@@ -30,138 +30,6 @@ function SectionLabel({ no, children }: { no: string; children: string }) {
   );
 }
 
-function Hero() {
-  const t = useT();
-  const ref = useRef<HTMLElement>(null);
-
-  // Subtle pointer parallax — fine pointers only, disabled for reduced motion.
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      !window.matchMedia("(pointer: fine)").matches
-    )
-      return;
-    let frame = 0;
-    const onMove = (e: PointerEvent) => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--px", String((e.clientX - r.left) / r.width - 0.5));
-        el.style.setProperty("--py", String((e.clientY - r.top) / r.height - 0.5));
-      });
-    };
-    el.addEventListener("pointermove", onMove);
-    return () => {
-      cancelAnimationFrame(frame);
-      el.removeEventListener("pointermove", onMove);
-    };
-  }, []);
-
-  return (
-    <section
-      ref={ref}
-      className="relative -mt-[72px] overflow-hidden pt-[72px]"
-      style={{ "--px": 0, "--py": 0 } as React.CSSProperties}
-    >
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <img
-          src={antalyaImg}
-          alt=""
-          className="h-full w-full scale-110 object-cover opacity-[0.14] transition-transform duration-700 ease-out [transform:translate3d(calc(var(--px)*-14px),calc(var(--py)*-10px),0)_scale(1.1)]"
-          loading="eager"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-void/70 via-void/80 to-void" />
-        <div className="drift1 absolute -left-40 top-10 h-[460px] w-[460px] rounded-full bg-iris/20 blur-[120px]" />
-        <div className="drift2 absolute -right-32 top-40 h-[420px] w-[420px] rounded-full bg-glow/12 blur-[120px]" />
-      </div>
-
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pb-24 pt-14 md:grid-cols-[1.25fr_0.75fr] md:pb-32 md:pt-24">
-        <div className="text-center md:text-left">
-          <Reveal>
-            <p lang="en" className="font-mono text-xs uppercase tracking-[0.32em] text-ember">
-              Likya Studios
-            </p>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="mx-auto mt-5 max-w-3xl font-display text-[2.6rem] font-bold leading-[1.02] tracking-tight sm:text-6xl md:mx-0 md:text-7xl">
-              {t("Fikirden")}{" "}
-              <span className="bg-gradient-to-r from-glow via-frost to-sand bg-clip-text text-transparent">
-                {t("Dijital Gerçekliğe.")}
-              </span>
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-glow/90 sm:text-xs">
-              {t("Apps • Games • AI • Digital Experiences")}
-            </p>
-            <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground md:mx-0 md:text-base">
-              {t(
-                "Mobil uygulamalar, oyunlar ve yapay zekâ destekli dijital ürünler tasarlayan bağımsız teknoloji stüdyosu. Kendi ürünlerimizi fikir aşamasından tasarıma, koddan yayına kadar geliştiriyoruz.",
-              )}
-            </p>
-          </Reveal>
-          <Reveal delay={240}>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3 md:justify-start">
-              <a
-                className="rounded-full bg-frost px-6 py-3 text-sm font-semibold text-void shadow-[0_10px_30px_-12px_var(--glow)] transition hover:-translate-y-0.5 hover:bg-sand active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-void"
-                href="#urunler"
-              >
-                {t("Projelerimizi Keşfet")}
-              </a>
-              <a
-                className="rounded-full px-6 py-3 text-sm font-medium text-foreground ring-1 ring-frost/20 transition hover:bg-frost/5 hover:ring-frost/35 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"
-                href="/about"
-              >
-                {t("Likya Studios Hakkında")}
-              </a>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={200} className="relative mx-auto w-full max-w-[260px] md:max-w-sm">
-          <div className="absolute -inset-10 rounded-full bg-gradient-to-b from-ember/20 via-glow/10 to-transparent blur-3xl" />
-          <img
-            src={logoImg}
-            alt="Likya Studios"
-            className="relative w-full object-contain transition-transform duration-700 ease-out [transform:translate3d(calc(var(--px)*12px),calc(var(--py)*12px),0)]"
-            loading="eager"
-          />
-        </Reveal>
-      </div>
-      <div className="hairline mx-auto max-w-6xl" />
-    </section>
-  );
-}
-
-function StudioStats() {
-  const t = useT();
-  const gameCount = projects.filter((project) => project.kind === "Oyun").length;
-  const appCount = projects.filter((project) => project.kind === "Uygulama").length;
-  const stats = [
-    [String(projects.length), t("Studio Products")],
-    [`${appCount} + ${gameCount}`, `${t("Apps")} + ${t("Game")}`],
-    ["Antalya", "Türkiye"],
-  ];
-  return (
-    <section className="mx-auto max-w-6xl px-6 py-14">
-      <div className="grid gap-8 text-center sm:grid-cols-3 sm:text-left">
-        {stats.map(([value, label], i) => (
-          <Reveal key={label} delay={i * 90}>
-            <strong className="block font-display text-4xl font-semibold tracking-tight">
-              {value}
-            </strong>
-            <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              {label}
-            </span>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function Products() {
   const t = useT();
   return (
@@ -169,7 +37,7 @@ function Products() {
       <Reveal className="mb-12 max-w-2xl">
         <SectionLabel no="01">{t("Built at Likya Studios")}</SectionLabel>
         <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-5xl">
-          {t("Stüdyo Ürünleri")}
+          {t("Stüdyo Ekosistemi")}
         </h2>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
           {t(
@@ -177,7 +45,7 @@ function Products() {
           )}
         </p>
       </Reveal>
-      <ProjectGrid />
+      <StudioEcosystem />
     </section>
   );
 }
@@ -341,12 +209,7 @@ function Roots() {
           >
             {t("Explore Antalya AI")} <span aria-hidden>→</span>
           </a>
-          <a
-            className="mt-4 ml-1 inline-flex items-center gap-2 text-sm font-semibold text-mint underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none sm:ml-4"
-            href="/labs/likya-mutant"
-          >
-            {t("Likya Mutant'ı Oyna")} <span aria-hidden>→</span>
-          </a>
+
         </Reveal>
       </div>
     </section>
@@ -463,8 +326,8 @@ function Index() {
   return (
     <StudioPage>
       <main>
-        <Hero />
-        <StudioStats />
+        <GamesFeature hero />
+        <ServicesSection />
         <Products />
         <Philosophy />
         <Technology />
