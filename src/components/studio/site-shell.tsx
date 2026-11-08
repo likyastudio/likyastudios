@@ -1,25 +1,29 @@
 import logoAsset from "@/assets/likya-logo.png.asset.json";
 import { useEffect, useState, type ReactNode } from "react";
-import { useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { Instagram, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useRevealReady } from "./reveal";
 import { LanguageSwitcher, useT } from "@/lib/i18n";
 
 const logo = logoAsset.url;
 
 const NAV = [
-  { href: "/projects", label: "Projeler" },
-  { href: "/ai-lab", label: "AI Lab" },
-  { href: "/labs", label: "Likya Labs" },
-  { href: "/about", label: "Hakkımızda" },
-  { href: "/journal", label: "Journal" },
-];
+  { to: "/", hash: "games", label: "Oyunlar" },
+  { to: "/", hash: "services", label: "Hizmetler" },
+  { to: "/projects", hash: undefined, label: "Projeler" },
+  { to: "/contact", hash: undefined, label: "İletişim" },
+] as const;
 
 export function StudioHeader() {
   const t = useT();
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const hash = useRouterState({ select: (s) => s.location.hash });
+  const isActive = (item: (typeof NAV)[number]) => item.hash
+    ? pathname === "/" && hash === item.hash
+    : pathname === item.to || pathname.startsWith(`${item.to}/`);
 
   useEffect(() => {
     const onScroll = () => setCompact(window.scrollY > 24);
@@ -28,13 +32,24 @@ export function StudioHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => setOpen(false), [pathname, hash]);
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        document.getElementById("studio-menu-toggle")?.focus();
+      }
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
 
   return (
     <header
       className={`sticky top-0 z-40 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
         compact || open
-          ? "bg-void/85 shadow-[0_1px_0_oklch(0.965_0.012_85/0.08)] backdrop-blur-md"
+          ? "bg-void/95 border-b border-frost/10 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -43,84 +58,71 @@ export function StudioHeader() {
           compact ? "py-2.5" : "py-4 md:py-5"
         }`}
       >
-        <a
-          href="/"
+        <Link
+          to="/"
           className="flex min-w-0 items-center gap-2.5 rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-glow"
           aria-label={t("Likya Studios ana sayfa")}
         >
           <img src={logo} alt="Likya Studios" width={56} height={56} className={`shrink-0 object-contain transition-[height,width] duration-300 ${compact ? "h-11 w-11" : "h-12 w-12 md:h-14 md:w-14"}`} />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-1 text-sm md:flex" aria-label={t("Ana menü")}>
           {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              aria-current={isActive(item.href) ? "page" : undefined}
+            <Button asChild variant="ghost" key={item.label} className="h-11"><Link
+              to={item.to}
+              hash={item.hash}
+              onClick={() => setOpen(false)}
+              aria-current={isActive(item) ? (item.hash ? "location" : "page") : undefined}
               className={`relative rounded-full px-3 py-1.5 transition outline-none focus-visible:ring-2 focus-visible:ring-glow ${
-                isActive(item.href)
+                isActive(item)
                   ? "text-foreground after:absolute after:inset-x-3 after:-bottom-0.5 after:h-px after:bg-ember"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {t(item.label)}
-            </a>
+            </Link></Button>
           ))}
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
           <LanguageSwitcher />
-          <a
-            className="hidden rounded-full bg-frost px-4 py-2 text-sm font-semibold text-void transition hover:bg-sand active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-glow focus-visible:ring-offset-2 focus-visible:ring-offset-void outline-none sm:inline-flex"
-            href="/contact"
-          >
-            {t("Bize Ulaşın")}
-          </a>
-          <button
+          <Button asChild variant="ghost" size="icon" className="h-11 w-11"><a href="https://www.instagram.com/likyastudios/" target="_blank" rel="noopener noreferrer" aria-label={t("Likya Studios Instagram hesabı (yeni sekmede açılır)")} title="Instagram"><Instagram /></a></Button>
+          <Button
+            id="studio-menu-toggle"
             type="button"
+            variant="ghost"
+            size="icon"
             aria-label={t("Mobil menüyü aç veya kapat")}
             aria-expanded={open}
+            aria-controls="studio-mobile-menu"
             onClick={() => setOpen((value) => !value)}
-            className="grid h-10 w-10 place-items-center rounded-full ring-1 ring-frost/15 transition hover:bg-frost/5 focus-visible:ring-2 focus-visible:ring-glow outline-none md:hidden"
+            className="h-11 w-11 md:hidden"
           >
-            <span aria-hidden className="relative block h-3 w-4">
-              <span
-                className={`absolute left-0 h-px w-4 bg-foreground transition duration-300 ${open ? "top-1.5 rotate-45" : "top-0"}`}
-              />
-              <span
-                className={`absolute left-0 top-1.5 h-px w-4 bg-foreground transition duration-300 ${open ? "opacity-0" : ""}`}
-              />
-              <span
-                className={`absolute left-0 h-px w-4 bg-foreground transition duration-300 ${open ? "top-1.5 -rotate-45" : "top-3"}`}
-              />
-            </span>
-          </button>
+            {open ? <X /> : <Menu />}
+          </Button>
         </div>
       </div>
       {open && (
         <nav
+          id="studio-mobile-menu"
           className="mx-5 mb-4 grid gap-0.5 border-t border-frost/10 pt-3 text-base md:hidden"
           aria-label={t("Mobil menü")}
         >
           {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              aria-current={isActive(item.href) ? "page" : undefined}
+            <Button asChild variant="ghost" key={item.label} className="h-11"><Link
+              to={item.to}
+              hash={item.hash}
+              onClick={() => setOpen(false)}
+              aria-current={isActive(item) ? (item.hash ? "location" : "page") : undefined}
               className={`flex items-center justify-between rounded-xl px-3 py-2.5 transition ${
-                isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                isActive(item) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {t(item.label)}
-              {isActive(item.href) && <span className="h-1.5 w-1.5 rounded-full bg-ember" />}
-            </a>
+              {isActive(item) && <span className="h-1.5 w-1.5 rounded-full bg-ember" />}
+            </Link></Button>
           ))}
-          <a
-            className="mt-2 rounded-full bg-frost px-4 py-3 text-center text-sm font-semibold text-void"
-            href="/contact"
-          >
-            {t("Bize Ulaşın")}
-          </a>
+
         </nav>
       )}
     </header>
@@ -133,6 +135,7 @@ const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
     links: [
       ["/projects/wine-intelligence", "Wine Intelligence"],
       ["/projects/likya-batak", "Likya Batak"],
+      ["/projects/likya-mutant", "Likya Mutant"],
       ["/projects/astrosync", "AstroSync"],
       ["/labs/antalya-ai", "Antalya AI"],
     ],
@@ -162,6 +165,7 @@ const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
   {
     title: "Social",
     links: [
+      ["https://www.instagram.com/likyastudios/", "Instagram"],
       ["mailto:likyastudios@gmail.com", "E-posta"],
       ["/press", "Press"],
       ["/brand", "Brand"],
@@ -199,6 +203,9 @@ export function StudioFooter() {
                   key={href}
                   className="w-fit rounded transition hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-glow"
                   href={href}
+                  target={href.startsWith("https://") ? "_blank" : undefined}
+                  rel={href.startsWith("https://") ? "noopener noreferrer" : undefined}
+                  aria-label={label === "Instagram" ? t("Likya Studios Instagram hesabı (yeni sekmede açılır)") : undefined}
                 >
                   {t(label)}
                 </a>
@@ -220,9 +227,6 @@ export function StudioPage({ children }: { children: ReactNode }) {
   useRevealReady();
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[700px] overflow-hidden">
-        <div className="absolute -top-56 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-iris/15 blur-[140px]" />
-      </div>
       <StudioHeader />
       <div className="relative">{children}</div>
       <StudioFooter />
