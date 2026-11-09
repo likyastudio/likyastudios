@@ -5,14 +5,6 @@ export const accentStyles: Record<
   ProjectAccent,
   { text: string; ring: string; glow: string; edge: string; screen: string; badge: string }
 > = {
-  wine: {
-    text: "text-wine",
-    ring: "hover:ring-wine/40 focus-within:ring-wine/50",
-    glow: "from-wine/35",
-    edge: "via-wine/70",
-    screen: "bg-[radial-gradient(120%_80%_at_50%_0%,var(--wine),transparent_70%)]",
-    badge: "bg-wine/10 text-sand ring-wine/25",
-  },
   felt: {
     text: "text-felt",
     ring: "hover:ring-felt/40 focus-within:ring-felt/50",

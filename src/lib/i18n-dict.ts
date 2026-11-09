@@ -98,8 +98,8 @@ export const DICT: Record<string, [string, string]> = {
     "From Idea to Digital Reality.",
   ],
   "Apps • Games • AI • Digital Experiences": [
-    "Uygulamalar • Oyunlar • AI • Dijital Deneyimler",
-    "Apps • Games • AI • Digital Experiences",
+    "Web • Uygulama • Oyun • Video • Yapay Zekâ",
+    "Web • Apps • Games • Video • AI",
   ],
   "© 2026 Likya Studios. Tüm hakları saklıdır.": [
     "© 2026 Likya Studios. Tüm hakları saklıdır.",
@@ -234,21 +234,6 @@ export const DICT: Record<string, [string, string]> = {
       "Likya Batak; puan takibi, el istatistikleri ve çevrimiçi masa deneyimiyle Batak oyununu modern mobil arayüze taşıyan oyundur.",
       "Likya Batak brings the Batak card game to a modern mobile interface with score tracking, hand statistics and online tables.",
     ],
-  "Şarap keşfini veri, yapay zekâ ve kişiselleştirilmiş deneyimlerle birleştiren dijital ürün.": [
-    "Şarap keşfini veri, yapay zekâ ve kişiselleştirilmiş deneyimlerle birleştiren dijital ürün.",
-    "A digital product combining wine discovery with data, AI and personalized experiences.",
-  ],
-  "Wine Intelligence; şarap keşfi, tadım notları, koleksiyon yönetimi ve yapay zekâ destekli özellikleri tek mobil deneyimde bir araya getiren Likya Studios ürünüdür.":
-    [
-      "Wine Intelligence; şarap keşfi, tadım notları, koleksiyon yönetimi ve yapay zekâ destekli özellikleri tek mobil deneyimde bir araya getiren Likya Studios ürünüdür.",
-      "Wine Intelligence is a Likya Studios product bringing wine discovery, tasting notes, collection management and AI-powered features into one mobile experience.",
-    ],
-  "AstroSync uygulama ikonu": ["AstroSync uygulama ikonu", "AstroSync app icon"],
-  "Likya Batak oyun ikonu": ["Likya Batak oyun ikonu", "Likya Batak game icon"],
-  "Wine Intelligence uygulama ikonu": [
-    "Wine Intelligence uygulama ikonu",
-    "Wine Intelligence app icon",
-  ],
 
   // About
   "ABOUT LIKYA STUDIOS": ["LIKYA STUDIOS HAKKINDA", "ABOUT LIKYA STUDIOS"],
@@ -508,7 +493,6 @@ export const DICT: Record<string, [string, string]> = {
       "The journal is ready. There are no published articles yet, so we don't show fake dates or content.",
     ],
   Planned: ["Planlanan", "Planned"],
-  "Building Wine Intelligence": ["Wine Intelligence'ı Geliştirmek", "Building Wine Intelligence"],
   "Why We Created Likya Studios": ["Likya Studios'u Neden Kurduk", "Why We Created Likya Studios"],
   "Building a Modern Turkish Card Game": [
     "Modern Bir Türk Kart Oyunu Geliştirmek",
@@ -718,10 +702,8 @@ export const DICT: Record<string, [string, string]> = {
   "Gerçek ekran görüntüleri ürün yayına yaklaştığında burada paylaşılacak.": ["Gerçek ekran görüntüleri ürün yayına yaklaştığında burada paylaşılacak.", "Real screenshots will be shared here as the product gets closer to release."],
   "Projeyi İncele": ["Projeyi İncele", "View Project"],
   "Likya Studios, Akdeniz'in üretim ve keşif ruhundan ilham alan bağımsız bir teknoloji ve dijital ürün stüdyosudur.": ["Likya Studios, Akdeniz'in üretim ve keşif ruhundan ilham alan bağımsız bir teknoloji ve dijital ürün stüdyosudur.", "Likya Studios is an independent technology and digital product studio inspired by the Mediterranean spirit of making and discovery."],
-  "Yapay zekâ destekli şarap keşfi.": ["Yapay zekâ destekli şarap keşfi.", "AI-powered wine discovery."],
   "Masaya modern bir dokunuş.": ["Masaya modern bir dokunuş.", "A modern touch to the table."],
   "Gökyüzüyle senkron.": ["Gökyüzüyle senkron.", "In sync with the sky."],
-  "Wine Intelligence, şarap keşfini daha kişisel hale getirme fikriyle başladı. Ürün; AI sommelier, etiket tanıma ve tat profili özelliklerini tek bir mobil deneyimde birleştirecek şekilde geliştiriliyor.": ["Wine Intelligence, şarap keşfini daha kişisel hale getirme fikriyle başladı. Ürün; AI sommelier, etiket tanıma ve tat profili özelliklerini tek bir mobil deneyimde birleştirecek şekilde geliştiriliyor.", "Wine Intelligence started with the idea of making wine discovery more personal. It is being built to bring an AI sommelier, label recognition and taste profiles together in one mobile experience."],
   "Likya Batak, klasik Batak oyununu modern mobil arayüze taşımak için geliştiriliyor. Odak noktası; çevrimiçi masalar, adil rekabet ve oyunculara anlamlı istatistikler sunmak.": ["Likya Batak, klasik Batak oyununu modern mobil arayüze taşımak için geliştiriliyor. Odak noktası; çevrimiçi masalar, adil rekabet ve oyunculara anlamlı istatistikler sunmak.", "Likya Batak is being built to bring the classic Batak card game to a modern mobile interface. The focus is online tables, fair competition and meaningful statistics for players."],
   "AstroSync, gökyüzü verilerini kişisel bir deneyime dönüştürme fikriyle başladı. Ürün; gökyüzü takvimlerini, bildirimleri ve kişisel profilleri tek bir arayüzde birleştirecek şekilde geliştiriliyor.": ["AstroSync, gökyüzü verilerini kişisel bir deneyime dönüştürme fikriyle başladı. Ürün; gökyüzü takvimlerini, bildirimleri ve kişisel profilleri tek bir arayüzde birleştirecek şekilde geliştiriliyor.", "AstroSync started with the idea of turning sky data into a personal experience. It is being built to bring sky calendars, notifications and personal profiles together in one interface."],
   "Figma • Adobe • Git • CI/CD": ["Figma • Adobe • Git • CI/CD", "Figma • Adobe • Git • CI/CD"],

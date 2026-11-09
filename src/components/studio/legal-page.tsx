@@ -42,7 +42,7 @@ export function LegalPage({ kind }: { kind: LegalKind }) {
                   <Link to="/privacy/astrosync">{lang === "en" ? "AstroSync app privacy policy" : "AstroSync uygulaması gizlilik politikası"}</Link>
                 </Button>
                 <Button asChild variant="outline" className="h-auto min-h-11 max-w-full whitespace-normal py-3 text-center">
-                  <Link to="/privacy/wine-intelligence">{lang === "en" ? "Wine Intelligence app privacy policy" : "Wine Intelligence uygulaması gizlilik politikası"}</Link>
+                  <Link to="/privacy/likya-batak">{lang === "en" ? "Likya Batak app privacy policy" : "Likya Batak uygulaması gizlilik politikası"}</Link>
                 </Button>
               </div>
             )}
@@ -51,11 +51,6 @@ export function LegalPage({ kind }: { kind: LegalKind }) {
                 <Button asChild variant="outline" className="h-auto min-h-11 max-w-full whitespace-normal py-3 text-center">
                   <Link to="/delete-account/astrosync">
                     {lang === "en" ? "I want to delete my AstroSync account" : "AstroSync hesabımı silmek istiyorum"}
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" className="h-auto min-h-11 max-w-full whitespace-normal py-3 text-center">
-                  <Link to="/delete-account/wine-intelligence">
-                    {lang === "en" ? "I want to delete my Wine Intelligence account" : "Wine Intelligence hesabımı silmek istiyorum"}
                   </Link>
                 </Button>
               </div>

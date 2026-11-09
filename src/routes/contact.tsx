@@ -14,10 +14,12 @@ function ContactPage() {
       <main>
         <PageHero
           eyebrow={t("CONTACT")}
-          title={t("Yeni bir şey üretelim.")}
-          description={t("Ürün, iş birliği veya Likya Studios hakkında konuşmak için bize ulaşın.")}
+          title={t("Projenizi konuşalım.")}
+          description={t(
+            "İhtiyacınızı anlatın; kapsamı, süreyi ve fiyatı netleştirip size e-posta ile dönelim. Form doldurmak istemezseniz likyastudios@gmail.com adresine yazabilirsiniz.",
+          )}
         />
-        <ContactSection />
+        <ContactSection showHeading={false} />
       </main>
     </StudioPage>
   );

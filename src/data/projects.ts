@@ -1,11 +1,10 @@
 import astrosyncAsset from "@/assets/astrosync-icon.jpg.asset.json";
 import batakciAsset from "@/assets/batakci-icon.png.asset.json";
-import wineAsset from "@/assets/wine-icon.png.asset.json";
 import mutantMark from "@/assets/likya-mutant-mark.svg";
 import { batakScreenshots, type GameplayScreenshot } from "./batak-screenshots";
 
-export type ProjectStatus = "live" | "beta" | "development" | "concept" | "playable";
-export type ProjectAccent = "violet" | "felt" | "wine" | "mutant";
+export type ProjectStatus = "live" | "beta" | "testing" | "development" | "concept" | "playable";
+export type ProjectAccent = "violet" | "felt" | "mutant";
 
 export type StudioProject = {
   slug: string;
@@ -38,11 +37,11 @@ export const projects: StudioProject[] = [
     icon: astrosyncAsset.url,
     alt: "AstroSync astronomi uygulamasının logosu",
     accent: "violet",
-    platforms: ["iOS"],
-    status: "development",
+    platforms: ["Android", "iOS"],
+    status: "testing",
     features: ["Sky Data", "Notifications", "Personal Profiles", "Interactive Experience"],
     technologies: ["Mobile", "Cloud"],
-    storeLinks: {},
+    storeLinks: { googlePlay: "https://play.google.com/store/apps/details?id=com.erkan.astrosync" },
   },
   {
     slug: "likya-batak",
@@ -57,35 +56,11 @@ export const projects: StudioProject[] = [
     alt: "Likya Batak kart oyununun logosu",
     accent: "felt",
     platforms: ["Android"],
-    status: "development",
+    status: "testing",
     features: ["İhale sistemi ve PAS", "Koz göstergesi", "Eşli oyun arayüzü", "Tur / el takibi", "Yazboz / skor özeti", "Mobil kart masası", "Okunabilir kart arayüzü"],
     screenshots: batakScreenshots,
     technologies: ["Flutter", "Dart", "Android"],
-    storeLinks: {},
-  },
-  {
-    slug: "wine-intelligence",
-    name: "Wine Intelligence",
-    kind: "Uygulama",
-    category: "AI • Wine Technology • Mobile App",
-    shortDescription:
-      "Şarap keşfini veri, yapay zekâ ve kişiselleştirilmiş deneyimlerle birleştiren dijital ürün.",
-    description:
-      "Wine Intelligence; şarap keşfi, tadım notları, koleksiyon yönetimi ve yapay zekâ destekli özellikleri tek mobil deneyimde bir araya getiren Likya Studios ürünüdür.",
-    icon: wineAsset.url,
-    alt: "Wine Intelligence yapay zekâ sommelier uygulamasının logosu",
-    accent: "wine",
-    platforms: ["Android"],
-    status: "development",
-    features: [
-      "AI Sommelier",
-      "Wine Database",
-      "Label Recognition",
-      "Taste Profile",
-      "Food Pairing",
-    ],
-    technologies: ["Flutter", "Dart", "Python", "Google Cloud", "PostgreSQL", "OpenAI"],
-    storeLinks: {},
+    storeLinks: { googlePlay: "https://play.google.com/store/apps/details?id=com.likyastudios.likyabatak" },
   },
   {
     slug: "likya-mutant",
@@ -109,6 +84,7 @@ export const projects: StudioProject[] = [
 export const statusLabels: Record<ProjectStatus, string> = {
   live: "Yayında",
   beta: "Beta",
+  testing: "Kapalı Test",
   development: "Geliştiriliyor",
   concept: "Konsept",
   playable: "Oynanabilir Prototip",

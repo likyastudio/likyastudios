@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -262,12 +263,20 @@ export function WhyUs() {
       <Reveal>
         <Eyebrow no="03">{t("Neden Likya")}</Eyebrow>
         <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-5xl">{t("Tek ekip, uçtan uca.")}</h2>
-        <Button asChild variant="outline" className="mt-8 h-11 border-ember/30 bg-transparent">
-          <a href={CONTACT_HASH}>
-            {t("Teklif Al")}
-            <ArrowRight />
-          </a>
-        </Button>
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <Button asChild variant="outline" className="h-11 border-ember/30 bg-transparent">
+            <a href={CONTACT_HASH}>
+              {t("Teklif Al")}
+              <ArrowRight />
+            </a>
+          </Button>
+          <Button asChild variant="link" className="h-11 px-0">
+            <Link to="/projects">
+              {t("Ürünlerimizi görün")}
+              <ArrowRight />
+            </Link>
+          </Button>
+        </div>
       </Reveal>
       <div className="grid gap-8 sm:grid-cols-2">
         {REASONS.map(([Icon, title, copy], index) => (
@@ -323,13 +332,69 @@ export function GamesBand() {
   );
 }
 
+const FAQ: [string, string][] = [
+  [
+    "Fiyatlarınız ne kadar?",
+    "Sabit paket fiyatımız yok. Fiyatı, işin kapsamına ve isteklerinize göre veriyoruz. İhtiyacınızı form, WhatsApp veya e-posta ile anlatın; size özel bir teklif hazırlayalım.",
+  ],
+  [
+    "Bir web sitesi ne kadar sürede hazır olur?",
+    "Süre; sayfa sayısına, içeriğin hazır olup olmadığına ve istenen özelliklere bağlı. Teklifle birlikte size net bir takvim veriyoruz.",
+  ],
+  [
+    "Alan adı ve barındırma işini de yapıyor musunuz?",
+    "Evet. İsterseniz alan adı alımından yayına kadar her adımı kuruyoruz. Alan adının ve barındırmanın işletmeniz adına açılmasını öneriyoruz; böylece siteniz her zaman sizin olur.",
+  ],
+  [
+    "Türkçe ve İngilizce site yapıyor musunuz?",
+    "Evet. Bu site gibi iki dilli siteler hazırlıyoruz; turistlere ve yabancı müşterilere ulaşmak isteyen işletmelere öneriyoruz.",
+  ],
+  [
+    "Video ve sosyal medya içeriği de hazırlıyor musunuz?",
+    "Evet. Tanıtım ve reklam videoları, Reels / TikTok / Shorts içerikleri, kurgu, müzik ve altyazı hazırlıyoruz.",
+  ],
+  [
+    "Nasıl iletişime geçebilirim?",
+    "Sayfanın altındaki formu doldurabilir, WhatsApp'tan yazabilir, +90 545 776 05 57 numarasını arayabilir ya da likyastudios@gmail.com adresine e-posta gönderebilirsiniz.",
+  ],
+];
+
+export function FaqSection() {
+  const t = useT();
+  return (
+    <section id="faq" className="scroll-mt-28 border-y border-frost/10 bg-panel/25">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-[0.8fr_1.2fr] md:py-24">
+        <Reveal>
+          <Eyebrow no="05">{t("SSS")}</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-5xl">
+            {t("Sıkça sorulan sorular")}
+          </h2>
+        </Reveal>
+        <Reveal delay={80} className="divide-y divide-frost/10 border-y border-frost/10">
+          {FAQ.map(([question, answer]) => (
+            <details key={question} className="group py-1">
+              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3 font-display text-lg font-medium outline-none focus-visible:ring-2 focus-visible:ring-glow [&::-webkit-details-marker]:hidden">
+                {t(question)}
+                <span aria-hidden className="text-2xl text-ember transition group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="pb-5 pr-8 text-sm leading-relaxed text-muted-foreground md:text-base">{t(answer)}</p>
+            </details>
+          ))}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 export function AboutStudio() {
   const t = useT();
   return (
     <section id="about" className="scroll-mt-28">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-[0.9fr_1.1fr] md:py-24">
         <Reveal>
-          <Eyebrow no="05">{t("Hakkımızda")}</Eyebrow>
+          <Eyebrow no="06">{t("Hakkımızda")}</Eyebrow>
           <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-5xl">
             {t("Antalya'dan, işinize özel.")}
           </h2>

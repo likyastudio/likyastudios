@@ -12,6 +12,7 @@ import {
   ProcessSection,
   ServicesGrid,
   WhyUs,
+  FaqSection,
 } from "@/components/studio/studio-intro";
 import { Reveal } from "@/components/studio/reveal";
 import { StudioPage } from "@/components/studio/site-shell";
@@ -34,7 +35,7 @@ function Technology() {
   return (
     <section id="teknoloji" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-24">
       <Reveal className="max-w-2xl">
-        <Eyebrow no="06">{t("Teknoloji")}</Eyebrow>
+        <Eyebrow no="07">{t("Teknoloji")}</Eyebrow>
         <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-5xl">
           {t("Kullandığımız araçlar")}
         </h2>
@@ -75,6 +76,7 @@ function Index() {
         <ProcessSection />
         <WhyUs />
         <GamesBand />
+        <FaqSection />
         <AboutStudio />
         <Technology />
         <ContactSection />

@@ -1,4 +1,6 @@
 // Central per-route SEO metadata. Each route's head() calls seoHead(path).
+import { journalPosts } from "./journal";
+
 export const SITE_URL = "https://likyastudios.live";
 
 type SeoEntry = {
@@ -22,21 +24,11 @@ export const seoEntries: Record<string, SeoEntry> = {
     ogDescription: "Websites, mobile apps, games, video production and AI solutions for your business, from one team in Antalya.",
   },
   "/projects": {
-    title: "Studio Ecosystem & Projects — Likya Studios",
+    title: "Kendi Ürünlerimiz — Likya Studios",
     description:
       "Likya Studios tarafından geliştirilen mobil uygulamaları, oyunları ve yapay zekâ destekli dijital ürünleri keşfedin.",
     ogTitle: "Projects by Likya Studios",
     ogDescription: "Explore apps, games and AI products built at Likya Studios.",
-  },
-  "/projects/wine-intelligence": {
-    title: "Wine Intelligence — AI Sommelier | Likya Studios",
-    description:
-      "Wine Intelligence, şarap keşfi, kişiselleştirilmiş öneriler ve yapay zekâ destekli sommelier deneyimini bir araya getiren Likya Studios ürünüdür.",
-    ogTitle: "Wine Intelligence — AI-Powered Wine Experience",
-    ogDescription:
-      "Discover wine through AI, personalized recommendations, tasting intelligence and smart pairing.",
-    image: og("wine-intelligence"),
-    type: "product",
   },
   "/projects/likya-batak": {
     title: "Likya Batak — Modern Batak Game | Likya Studios",
@@ -100,9 +92,9 @@ export const seoEntries: Record<string, SeoEntry> = {
     image: og("ai-lab"),
   },
   "/about": {
-    title: "About Likya Studios",
+    title: "Hakkımızda — Likya Studios | Antalya Dijital Stüdyo",
     description:
-      "Antalya’da doğan Likya Studios’un hikâyesini, ürün geliştirme yaklaşımını ve E × A ortaklığını keşfedin.",
+      "Likya Studios, Antalya'da işletmeler için web sitesi, mobil uygulama, oyun, video ve yapay zekâ çözümleri üreten bağımsız bir dijital stüdyodur.",
     ogDescription:
       "Independent technology studio building apps, games and AI products from Antalya, Türkiye.",
     image: og("likya-studios"),
@@ -116,17 +108,17 @@ export const seoEntries: Record<string, SeoEntry> = {
     image: og("likya-studios"),
   },
   "/contact": {
-    title: "Contact — Likya Studios",
+    title: "Teklif Al — Likya Studios | Web Sitesi, Uygulama, Oyun, Video",
     description:
-      "Likya Studios ile ürün, teknoloji, iş birliği ve dijital projeler hakkında iletişime geçin.",
-    ogTitle: "Contact Likya Studios",
-    ogDescription: "Get in touch with Likya Studios in Antalya, Türkiye.",
+      "Web sitesi, mobil uygulama, oyun veya video projeniz için Likya Studios'tan teklif alın. İhtiyacınızı anlatın, size e-posta ile dönelim.",
+    ogTitle: "Get a Quote — Likya Studios",
+    ogDescription: "Tell us about your website, app, game or video project and get a quote from Likya Studios in Antalya.",
     image: og("likya-studios"),
   },
   "/support": {
     title: "Support — Likya Studios",
     description:
-      "Wine Intelligence, Likya Batak ve AstroSync için Likya Studios destek merkezine ulaşın.",
+      "Likya Batak, AstroSync ve Likya Mutant için Likya Studios destek merkezine ulaşın.",
     ogTitle: "Likya Studios Support",
     ogDescription: "Support for Likya Studios apps and digital products.",
     image: og("likya-studios"),
@@ -137,6 +129,12 @@ export const seoEntries: Record<string, SeoEntry> = {
       "Likya Studios web sitesi, iletişim formu, Antalya AI ve Google Maps kullanımında kişisel verilerin nasıl işlendiğini öğrenin.",
     ogTitle: "Likya Studios Gizlilik Politikası",
     ogDescription: "Likya Studios hizmetlerinde veri işleme, saklama, aktarım ve kullanıcı hakları hakkında güncel bilgiler.",
+  },
+  "/privacy/likya-batak": {
+    title: "Likya Batak — Gizlilik Politikası | Likya Studios",
+    description: "Likya Batak hesap gerektirmez; oyun verileri cihazda kalır. Google AdMob reklamları ve Google Play VIP üyeliği hakkında gizlilik politikası.",
+    ogTitle: "Likya Batak — Gizlilik Politikası",
+    ogDescription: "How the Likya Batak card game handles on-device data, AdMob ads and Google Play purchases.",
   },
   "/privacy/astrosync": {
     title: "AstroSync — Gizlilik Politikası | Likya Studios",
@@ -176,22 +174,10 @@ export const seoEntries: Record<string, SeoEntry> = {
     ogTitle: "AstroSync — Hesap ve Veri Silme",
     ogDescription: "AstroSync hesabı ve verileri için uygulama içi silme adımları, silinen veriler ve e-posta ile hesap silme talebi.",
   },
-  "/privacy/wine-intelligence": {
-    title: "Wine Intelligence — Gizlilik Politikası | Likya Studios",
-    description: "Wine Intelligence uygulamasında misafir modu, Firebase hesabı, AI Sommelier metni, cihazda OCR ve yalnızca cihazda kalan veriler hakkında gizlilik politikası.",
-    ogTitle: "Wine Intelligence — Gizlilik Politikası",
-    ogDescription: "Wine Intelligence uygulamasının hesap, AI Sommelier, arama, etiket tarama ve teknik verileri nasıl işlediğini öğrenin.",
-  },
-  "/delete-account/wine-intelligence": {
-    title: "Wine Intelligence — Hesap ve Veri Silme | Likya Studios",
-    description: "Wine Intelligence hesabınızı uygulama içinden silme adımları, e-posta ile silme talebi ve cihazdaki verilerin temizlenmesi.",
-    ogTitle: "Wine Intelligence — Hesap ve Veri Silme",
-    ogDescription: "Wine Intelligence için uygulama içi silme, e-posta talebi, silinen ve kalan veriler.",
-  },
   "/press": {
     title: "Press Kit — Likya Studios",
     description:
-      "Likya Studios marka bilgileri, şirket tanıtımı, ürün bilgileri ve basın materyalleri.",
+      "Likya Studios kısa şirket tanıtımı ve basın iletişimi.",
     ogTitle: "Likya Studios Press Kit",
     ogDescription: "Official brand and product information from Likya Studios.",
     image: og("likya-studios"),
@@ -205,6 +191,18 @@ export const seoEntries: Record<string, SeoEntry> = {
     image: og("ai-lab"),
   },
 };
+
+// Journal yazıları: başlık ve açıklama yazının Türkçe metninden, paylaşım metni İngilizcesinden gelir.
+for (const post of journalPosts) {
+  seoEntries[`/journal/${post.slug}`] = {
+    title: `${post.tr.title} | Likya Studios`,
+    description: post.tr.excerpt,
+    ogTitle: post.en.title,
+    ogDescription: post.en.excerpt,
+    image: og("likya-studios"),
+    type: "article",
+  };
+}
 
 type JsonLd = Record<string, unknown>;
 

@@ -8,6 +8,7 @@ import { projects, statusLabels } from "@/data/projects";
 import { seoHead, seoEntries, softwareAppLd } from "@/data/seo";
 import { BatakShowcase } from "@/components/studio/batak-showcase";
 import { MutantShowcase } from "@/components/studio/mutant-showcase";
+import { StoreAccess } from "@/components/studio/store-access";
 
 export const Route = createFileRoute("/projects/$slug")({
   head: ({ params }) => {
@@ -196,6 +197,7 @@ function ProjectDetailPage() {
         </section>
 
         {/* Store / CTA */}
+        {project.storeLinks.googlePlay ? <StoreAccess project={project} /> : (
         <section className="mx-auto max-w-6xl px-6 pb-20">
           <Reveal className="relative overflow-hidden rounded-[2rem] bg-panel/60 p-8 ring-1 ring-frost/10 md:p-12">
             <div aria-hidden className={`absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-b ${a.glow} to-transparent blur-3xl`} />
@@ -213,21 +215,12 @@ function ProjectDetailPage() {
             </a>
           </Reveal>
         </section>
+        )}
 
         {project.slug === "astrosync" && (
           <section className="mx-auto max-w-6xl px-6 pb-16">
             <Button asChild variant="link" className="h-auto min-h-11 max-w-full whitespace-normal px-0 py-3 text-left">
               <Link to="/privacy/astrosync">{lang === "en" ? "AstroSync privacy policy" : "AstroSync gizlilik politikası"}</Link>
-            </Button>
-          </section>
-        )}
-        {project.slug === "wine-intelligence" && (
-          <section className="mx-auto flex max-w-6xl flex-wrap gap-x-6 px-6 pb-16">
-            <Button asChild variant="link" className="h-auto min-h-11 max-w-full whitespace-normal px-0 py-3 text-left">
-              <Link to="/privacy/wine-intelligence">{lang === "en" ? "Wine Intelligence privacy policy" : "Wine Intelligence gizlilik politikası"}</Link>
-            </Button>
-            <Button asChild variant="link" className="h-auto min-h-11 max-w-full whitespace-normal px-0 py-3 text-left">
-              <Link to="/delete-account/wine-intelligence">{lang === "en" ? "Wine Intelligence account and data deletion" : "Wine Intelligence hesap ve veri silme"}</Link>
             </Button>
           </section>
         )}
@@ -274,12 +267,6 @@ function Label({ children }: { children: string }) {
 const FALLBACK_IDENTITY = { tagline: "", story: "", backdrop: "" };
 
 const IDENTITY: Record<string, { tagline: string; story: string; backdrop: string }> = {
-  "wine-intelligence": {
-    tagline: "Yapay zekâ destekli şarap keşfi.",
-    story:
-      "Wine Intelligence, şarap keşfini daha kişisel hale getirme fikriyle başladı. Ürün; AI sommelier, etiket tanıma ve tat profili özelliklerini tek bir mobil deneyimde birleştirecek şekilde geliştiriliyor.",
-    backdrop: "bg-[radial-gradient(60%_60%_at_75%_30%,var(--wine),transparent_70%)]",
-  },
   "likya-batak": {
     tagline: "Masaya modern bir dokunuş.",
     story:

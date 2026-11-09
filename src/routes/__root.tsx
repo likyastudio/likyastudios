@@ -15,6 +15,9 @@ import { LangProvider, useT } from "../lib/i18n";
 
 function NotFoundComponent() {
   const t = useT();
+  useEffect(() => {
+    document.title = `${t("Sayfa bulunamadı")} — Likya Studios`;
+  }, [t]);
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">

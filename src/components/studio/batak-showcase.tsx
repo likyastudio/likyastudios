@@ -7,6 +7,7 @@ import { useT } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { StudioPage } from "./site-shell";
 import { DeviceFrame } from "./project-visuals";
+import { StoreAccess } from "./store-access";
 
 const eyebrow = "font-mono text-[11px] uppercase tracking-[0.24em]";
 
@@ -153,9 +154,9 @@ export function BatakShowcase({ project }: { project: StudioProject }) {
             </div>
             <dl className="grid gap-5 text-sm">
               {[
-                ["Durum", "Geliştiriliyor"],
+                ["Durum", "Kapalı Test"],
                 ["Aşama", "Aktif geliştirme ve test"],
-                ["Mağaza yayını", "Henüz yok"],
+                ["Mağaza yayını", "Google Play kapalı test"],
               ].map(([k, v]) => (
                 <div key={k} className="grid grid-cols-[minmax(0,9rem)_1fr] gap-4 border-b border-frost/10 pb-4">
                   <dt className="text-muted-foreground">{t(k)}</dt>
@@ -165,6 +166,15 @@ export function BatakShowcase({ project }: { project: StudioProject }) {
               <p className="pt-1 leading-relaxed text-muted-foreground">{t("Geliştirme devam ediyor. Oynanış, kurallar, bot ve çevrimiçi sistemler ile arayüz üzerinde aktif testler sürüyor.")}</p>
             </dl>
           </Reveal>
+        </section>
+        <StoreAccess project={project} />
+        <section className="mx-auto max-w-6xl px-6 pb-16">
+          <Link
+            to="/privacy/likya-batak"
+            className="inline-flex min-h-11 items-center text-sm font-medium text-foreground underline-offset-4 hover:underline"
+          >
+            {t("Likya Batak gizlilik politikası")}
+          </Link>
         </section>
       </main>
     </StudioPage>

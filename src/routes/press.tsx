@@ -14,18 +14,29 @@ function PressPage() {
         <PageHero
           eyebrow={t("PRESS KIT")}
           title={t("Likya Studios medya kiti.")}
-          description={t(
-            "Logo, kısa şirket biyografisi, ürün görselleri ve basın iletişimi için merkezi alan.",
-          )}
+          description={t("Kısa şirket tanıtımı ve basın iletişimi.")}
         />
-        <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
-          <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10">
-            <p className="text-sm text-muted-foreground">
+        <section className="relative z-10 mx-auto grid max-w-6xl gap-5 px-6 pb-24 md:grid-cols-2">
+          <article className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10">
+            <h2 className="font-display text-2xl font-semibold">{t("Kısa tanıtım")}</h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               {t(
-                "Logo ve ürün varlıkları projede mevcut. Dışarıdan indirilebilir basın paketi yayınlanmadan önce lisans ve son marka dosyaları doğrulanmalıdır.",
+                "Likya Studios, Antalya merkezli bağımsız bir dijital stüdyodur. İşletmeler için web siteleri, mobil uygulamalar, oyunlar, video ve yapay zekâ çözümleri üretir; AstroSync, Likya Batak ve Likya Mutant gibi kendi ürünlerini de geliştirir.",
               )}
             </p>
-          </div>
+          </article>
+          <article className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10">
+            <h2 className="font-display text-2xl font-semibold">{t("Basın iletişimi")}</h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              {t("Röportaj, logo ve görsel talepleri için bize e-posta gönderin.")}
+            </p>
+            <a
+              href="mailto:likyastudios@gmail.com"
+              className="mt-4 inline-block font-medium text-glow hover:underline"
+            >
+              likyastudios@gmail.com
+            </a>
+          </article>
         </section>
       </main>
     </StudioPage>

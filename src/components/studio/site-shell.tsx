@@ -1,10 +1,11 @@
 import logoAsset from "@/assets/likya-logo.png.asset.json";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Instagram, Menu, X } from "lucide-react";
+import { Instagram, Menu, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRevealReady } from "./reveal";
-import { LanguageSwitcher, useT } from "@/lib/i18n";
+import { LanguageSwitcher, useLang, useT } from "@/lib/i18n";
+import { whatsappUrl } from "@/data/contact";
 
 const logo = logoAsset.url;
 
@@ -137,7 +138,6 @@ const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
   {
     title: "Products",
     links: [
-      ["/projects/wine-intelligence", "Wine Intelligence"],
       ["/projects/likya-batak", "Likya Batak"],
       ["/projects/likya-mutant", "Likya Mutant"],
       ["/projects/astrosync", "AstroSync"],
@@ -227,6 +227,24 @@ export function StudioFooter() {
   );
 }
 
+/** Her sayfada sağ altta duran WhatsApp düğmesi. */
+function WhatsAppButton() {
+  const t = useT();
+  const { lang } = useLang();
+  return (
+    <a
+      href={whatsappUrl(lang)}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t("WhatsApp'tan yazın (yeni sekmede açılır)")}
+      className="fixed bottom-5 right-5 z-50 inline-flex h-14 items-center gap-2 rounded-full bg-[#25D366] px-4 text-sm font-semibold text-[#0b1a12] shadow-lg shadow-black/30 transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow md:px-5"
+    >
+      <MessageCircle aria-hidden className="h-6 w-6" />
+      <span className="hidden sm:inline">WhatsApp</span>
+    </a>
+  );
+}
+
 export function StudioPage({ children }: { children: ReactNode }) {
   useRevealReady();
   return (
@@ -234,6 +252,7 @@ export function StudioPage({ children }: { children: ReactNode }) {
       <StudioHeader />
       <div className="relative">{children}</div>
       <StudioFooter />
+      <WhatsAppButton />
     </div>
   );
 }

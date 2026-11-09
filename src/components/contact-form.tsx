@@ -3,6 +3,7 @@ import { useT } from "@/lib/i18n";
 import { useLang } from "@/lib/i18n";
 import { useServerFn } from "@tanstack/react-start";
 import { submitContactRequest } from "@/lib/contact.functions";
+import { PHONE_DISPLAY, PHONE_TEL, whatsappUrl } from "@/data/contact";
 
 const serviceOptions = [
   { value: "mobil-uygulama", label: "Mobil Uygulama" },
@@ -23,7 +24,8 @@ const budgetOptions = [
 const inputClass =
   "w-full rounded-xl border-0 bg-frost/5 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 ring-1 ring-frost/15 transition outline-none focus:ring-2 focus:ring-glow/60";
 
-export function ContactSection() {
+/** showHeading: iletişim sayfasında başlık zaten sayfanın üstünde olduğu için kapatılır. */
+export function ContactSection({ showHeading = true }: { showHeading?: boolean }) {
   const t = useT();
   const { lang } = useLang();
   const submit = useServerFn(submitContactRequest);
@@ -57,27 +59,32 @@ export function ContactSection() {
   }
 
   return (
-    <section id="iletisim" className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-6 py-24">
-      <div className="mb-12">
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-ember/80">
-          {t("07 — İletişim")}
-        </span>
-        <h2 className="mt-2 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
-          {t("Yeni bir şey üretelim.")}
-        </h2>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          {t(
-            "Uygulama, oyun ya da yeni bir dijital ürün — formu doldurun; talebinizi inceleyip size e-posta yoluyla dönüş yapalım.",
-          )}
-        </p>
-      </div>
+    <section
+      id="iletisim"
+      className={`relative z-10 mx-auto max-w-6xl scroll-mt-20 px-6 ${showHeading ? "py-24" : "pb-24"}`}
+    >
+      {showHeading && (
+        <div className="mb-12">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-ember/80">
+            {t("08 — İletişim")}
+          </span>
+          <h2 className="mt-2 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
+            {t("Projenizi konuşalım.")}
+          </h2>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            {t(
+              "Web sitesi, uygulama, oyun ya da video: ihtiyacınızı birkaç cümleyle anlatın, inceleyip size e-posta ile dönüş yapalım.",
+            )}
+          </p>
+        </div>
+      )}
 
       <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
         <div className="rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10 backdrop-blur-xl">
           <h3 className="font-display text-lg font-semibold">{t("Doğrudan ulaşın")}</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {t(
-              "Form doldurmak istemiyorsanız e-posta yazın; ya da aşağıdaki bilgilerle bize ulaşın.",
+              "Form doldurmak istemiyorsanız arayın, WhatsApp'tan ya da e-posta ile yazın.",
             )}
           </p>
           <div className="mt-6 space-y-5 text-sm">
@@ -94,6 +101,22 @@ export function ContactSection() {
             </div>
             <div>
               <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                {t("Telefon ve WhatsApp")}
+              </span>
+              <a href={`tel:${PHONE_TEL}`} className="mt-1 block text-foreground transition hover:text-glow">
+                {PHONE_DISPLAY}
+              </a>
+              <a
+                href={whatsappUrl(lang)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#25D366] px-4 text-sm font-semibold text-[#0b1a12] transition hover:brightness-110"
+              >
+                {t("WhatsApp'tan yazın")}
+              </a>
+            </div>
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                 {t("Konum")}
               </span>
               <span className="mt-1 block text-foreground">Antalya, Türkiye</span>
@@ -102,7 +125,7 @@ export function ContactSection() {
               <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                 {t("Dönüş Süresi")}
               </span>
-              <span className="mt-1 block text-foreground">{t("E-posta ile yanıt")}</span>
+              <span className="mt-1 block text-foreground">{t("E-posta, telefon veya WhatsApp ile yanıt")}</span>
             </div>
           </div>
         </div>
