@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
-const SERVICE_TYPES = ["mobil-uygulama", "oyun", "web-sitesi", "danismanlik", "diger"] as const;
+const SERVICE_TYPES = ["mobil-uygulama", "oyun", "web-sitesi", "video", "danismanlik", "diger"] as const;
 
 const BUDGETS = ["50k-alti", "50k-150k", "150k-ustu", "belirsiz"] as const;
 

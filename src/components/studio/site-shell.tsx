@@ -9,10 +9,10 @@ import { LanguageSwitcher, useT } from "@/lib/i18n";
 const logo = logoAsset.url;
 
 const NAV = [
-  { to: "/", hash: "about", label: "Hakkımızda" },
   { to: "/", hash: "services", label: "Hizmetler" },
-  { to: "/projects", hash: undefined, label: "Projeler" },
+  { to: "/", hash: "process", label: "Süreç" },
   { to: "/", hash: "games", label: "Oyunlar" },
+  { to: "/", hash: "about", label: "Hakkımızda" },
   { to: "/contact", hash: undefined, label: "İletişim" },
 ] as const;
 
@@ -86,6 +86,9 @@ export function StudioHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <Button asChild className="hidden h-10 md:inline-flex">
+            <Link to="/contact">{t("Teklif Al")}</Link>
+          </Button>
           <LanguageSwitcher />
           <Button asChild variant="ghost" size="icon" className="h-11 w-11"><a href="https://www.instagram.com/likyastudios/" target="_blank" rel="noopener noreferrer" aria-label={t("Likya Studios Instagram hesabı (yeni sekmede açılır)")} title="Instagram"><Instagram /></a></Button>
           <Button

@@ -421,7 +421,6 @@ export const DICT: Record<string, [string, string]> = {
     "Get in touch to talk about a product, a collaboration or Likya Studios.",
   ],
   "04 — İletişim": ["04 — İletişim", "04 — Contact"],
-  "09 — İletişim": ["09 — İletişim", "09 — Contact"],
   "Bir fikriniz mi var? Konuşalım.": [
     "Bir fikriniz mi var? Konuşalım.",
     "Have an idea? Let's talk.",
