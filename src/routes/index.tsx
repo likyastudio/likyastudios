@@ -6,7 +6,8 @@ import { seoHead, organizationLd, websiteLd } from "@/data/seo";
 import antalyaImg from "@/assets/antalya.jpg";
 
 import { ContactSection } from "@/components/contact-form";
-import { GamesFeature, StudioEcosystem, ServicesSection } from "@/components/studio/studio-ecosystem";
+import { ServicesSection } from "@/components/studio/studio-ecosystem";
+import { AboutStudio, GamesBand, IntroHero, WorkSection } from "@/components/studio/studio-intro";
 import { Reveal } from "@/components/studio/reveal";
 import { StudioPage } from "@/components/studio/site-shell";
 
@@ -30,26 +31,6 @@ function SectionLabel({ no, children }: { no: string; children: string }) {
   );
 }
 
-function Products() {
-  const t = useT();
-  return (
-    <section id="urunler" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-20">
-      <Reveal className="mb-12 max-w-2xl">
-        <SectionLabel no="01">{t("Built at Likya Studios")}</SectionLabel>
-        <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-5xl">
-          {t("Stüdyo Ekosistemi")}
-        </h2>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-          {t(
-            "Fikir aşamasından tasarıma, koddan yayına kadar kendi bünyemizde geliştirdiğimiz dijital ürünler.",
-          )}
-        </p>
-      </Reveal>
-      <StudioEcosystem />
-    </section>
-  );
-}
-
 function Philosophy() {
   const t = useT();
   const items = [
@@ -66,7 +47,7 @@ function Philosophy() {
     <section className="relative border-y border-frost/5 bg-gradient-to-b from-panel/40 to-transparent">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <SectionLabel no="02">{t("Philosophy")}</SectionLabel>
+          <SectionLabel no="04">{t("Philosophy")}</SectionLabel>
           <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-5xl">
             {t("Küçük ekip. Derin iş.")}
           </h2>
@@ -98,7 +79,7 @@ function Technology() {
   return (
     <section id="teknoloji" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-24">
       <Reveal className="max-w-2xl">
-        <SectionLabel no="03">{t("Technology")}</SectionLabel>
+        <SectionLabel no="05">{t("Technology")}</SectionLabel>
         <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-5xl">
           {t("Technology Behind Our Products")}
         </h2>
@@ -140,7 +121,7 @@ function AILabTeaser() {
       <div className="relative mx-auto max-w-6xl px-6 py-28">
         <Reveal className="text-center">
           <p lang="en" className="font-mono text-[11px] uppercase tracking-[0.3em] text-glow">
-            04 — Likya AI Lab
+            06 — Likya AI Lab
           </p>
           <h2 lang="en" className="mt-5 font-display text-3xl font-bold uppercase tracking-[0.08em] sm:text-5xl md:text-6xl">
             Building with Intelligence
@@ -192,7 +173,7 @@ function Roots() {
       </div>
       <div className="relative mx-auto max-w-6xl px-6 py-28">
         <Reveal className="max-w-xl">
-          <SectionLabel no="05">ANTALYA • TÜRKİYE</SectionLabel>
+          <SectionLabel no="07">ANTALYA • TÜRKİYE</SectionLabel>
           <h2 className="mt-5 font-serif text-5xl font-medium leading-[1.02] md:text-6xl">
             Born in Antalya.
             <br />
@@ -231,42 +212,6 @@ function Signature() {
   );
 }
 
-function JournalPreview() {
-  const t = useT();
-  return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
-      <Reveal className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <SectionLabel no="06">Journal</SectionLabel>
-          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-4xl">
-            {t("Stüdyodan notlar")}
-          </h2>
-        </div>
-        <a className="text-sm font-medium text-glow hover:underline" href="/journal">
-          {t("Journal'a git →")}
-        </a>
-      </Reveal>
-      <div className="mt-10 grid gap-5 md:grid-cols-3">
-        {[0, 1, 2].map((i) => (
-          <Reveal
-            key={i}
-            delay={i * 80}
-            className="flex min-h-44 flex-col justify-between rounded-[1.5rem] border border-dashed border-frost/15 p-6"
-          >
-            <span lang="en" className="font-mono text-[10px] uppercase tracking-[0.2em] text-ember/80">
-              {t("Coming soon")}
-            </span>
-            <div className="space-y-2" aria-hidden>
-              <div className="h-2.5 w-4/5 rounded-full bg-frost/10" />
-              <div className="h-2.5 w-3/5 rounded-full bg-frost/[0.06]" />
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function Roadmap() {
   const t = useT();
   const cols: [string, string, string[]][] = [
@@ -278,7 +223,7 @@ function Roadmap() {
     <section className="border-y border-frost/5 bg-panel/25">
       <div className="mx-auto max-w-6xl px-6 py-20">
         <Reveal>
-          <SectionLabel no="07">{t("Public Roadmap")}</SectionLabel>
+          <SectionLabel no="08">{t("Public Roadmap")}</SectionLabel>
         </Reveal>
         <div className="mt-10 grid gap-8 sm:grid-cols-3">
           {cols.map(([title, color, items], i) => (
@@ -300,43 +245,21 @@ function Roadmap() {
   );
 }
 
-function FutureProject() {
-  const t = useT();
-  return (
-    <section className="relative overflow-hidden">
-      <div aria-hidden className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-iris/20 blur-[100px]" />
-      <Reveal className="relative mx-auto max-w-3xl px-6 py-28 text-center">
-        <p lang="en" className="font-mono text-[11px] uppercase tracking-[0.3em] text-ember">
-          {t("Coming soon")}
-        </p>
-        <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight md:text-5xl">
-          {t("What are we building next?")}
-        </h2>
-        <div aria-hidden className="mx-auto mt-8 flex justify-center gap-2">
-          {[0, 1, 2].map((i) => (
-            <span key={i} className="twinkle h-1.5 w-1.5 rounded-full bg-frost/60" style={{ animationDelay: `${i * 0.6}s` }} />
-          ))}
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
 function Index() {
   return (
     <StudioPage>
       <main>
-        <GamesFeature hero />
+        <IntroHero />
+        <AboutStudio />
+        <WorkSection />
+        <GamesBand />
         <ServicesSection />
-        <Products />
         <Philosophy />
         <Technology />
         <AILabTeaser />
         <Roots />
         <Signature />
-        <JournalPreview />
         <Roadmap />
-        <FutureProject />
         <ContactSection />
       </main>
     </StudioPage>

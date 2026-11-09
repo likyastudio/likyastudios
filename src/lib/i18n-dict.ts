@@ -2,8 +2,11 @@
 // Strings not listed here are shown unchanged in both languages.
 import { MUTANT_DICT } from "@/features/likya-mutant/i18n";
 import { MUTANT_PRODUCT_DICT } from "@/components/studio/mutant-showcase-i18n";
+import { INTRO_DICT } from "./i18n-intro";
 
 export const DICT: Record<string, [string, string]> = {
+  // En başta: aşağıda aynı anahtar varsa mevcut çeviri geçerli olur.
+  ...INTRO_DICT,
   "Oyunlar": ["Oyunlar", "Games"],
   "Hizmetler": ["Hizmetler", "Services"],
   "Stüdyo Ekosistemi": ["Stüdyo Ekosistemi", "Studio Ecosystem"],
@@ -418,7 +421,7 @@ export const DICT: Record<string, [string, string]> = {
     "Get in touch to talk about a product, a collaboration or Likya Studios.",
   ],
   "04 — İletişim": ["04 — İletişim", "04 — Contact"],
-  "08 — İletişim": ["08 — İletişim", "08 — Contact"],
+  "09 — İletişim": ["09 — İletişim", "09 — Contact"],
   "Bir fikriniz mi var? Konuşalım.": [
     "Bir fikriniz mi var? Konuşalım.",
     "Have an idea? Let's talk.",

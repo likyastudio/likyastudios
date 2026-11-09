@@ -9,9 +9,10 @@ import { LanguageSwitcher, useT } from "@/lib/i18n";
 const logo = logoAsset.url;
 
 const NAV = [
-  { to: "/", hash: "games", label: "Oyunlar" },
+  { to: "/", hash: "about", label: "Hakkımızda" },
   { to: "/", hash: "services", label: "Hizmetler" },
   { to: "/projects", hash: undefined, label: "Projeler" },
+  { to: "/", hash: "games", label: "Oyunlar" },
   { to: "/contact", hash: undefined, label: "İletişim" },
 ] as const;
 

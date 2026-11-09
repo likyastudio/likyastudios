@@ -59,7 +59,7 @@ export function ContactSection() {
     <section id="iletisim" className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-6 py-24">
       <div className="mb-12">
         <span className="font-mono text-xs uppercase tracking-[0.2em] text-ember/80">
-          {t("08 — İletişim")}
+          {t("09 — İletişim")}
         </span>
         <h2 className="mt-2 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
           {t("Yeni bir şey üretelim.")}
