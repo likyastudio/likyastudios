@@ -5,9 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — "Mediterranean midnight" (V3)
- * Likya Studios: gece mavisi zemin, Akdeniz mavisi/turkuaz ışık, antik altın yalnız vurgu.
- * Tüm renkler oklch.
+ * Design system — "Atelier Zero" (V4, OpenDesign)
+ * Sıcak kâğıt zemin, mürekkep metin, tek sıcak vurgu olarak mercan.
+ * Token adları önceki temadan kalır (void = zemin, frost = mürekkep, ember = mercan);
+ * değerler design-systems/atelier-zero/DESIGN.md'den gelir.
  */
 
 @theme inline {
@@ -46,47 +47,54 @@
   --color-iris: var(--iris);
   --color-mint: var(--mint);
   --color-ember: var(--ember);
+  --color-coral: var(--coral);
   --color-sand: var(--sand);
   --color-felt: var(--felt);
   --color-violet: var(--violet);
-  --font-serif: "Cormorant Garamond", serif;
+  --font-serif: "Playfair Display", serif;
   /* Fonts */
-  --font-display: "Space Grotesk", sans-serif;
+  --font-display: "Inter Tight", sans-serif;
   --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
 :root {
   --radius: 1rem;
-  /* Likya V3 — Mediterranean midnight: navy, Mediterranean blue, turquoise, antique gold, sand, off-white */
-  --void: oklch(0.165 0.035 255);
-  --panel: oklch(0.21 0.04 252);
-  --frost: oklch(0.965 0.012 85);
-  --glow: oklch(0.8 0.115 195);
-  --iris: oklch(0.63 0.15 245);
-  --mint: oklch(0.79 0.12 172);
-  --ember: oklch(0.79 0.105 80);
-  --sand: oklch(0.87 0.045 80);
+  /* Atelier Zero: paper #efe7d2, bone #f7f1de, ink #15140f, coral #ed6f5c, mustard #e9b94a, olive #6e7448 */
+  --void: #efe7d2;
+  --panel: #f7f1de;
+  --frost: #15140f;
+  --glow: #5c6139;
+  --iris: #e9b94a;
+  --mint: #5c6139;
+  /* Metin için koyu kiremit (kâğıt üzerinde 4.8:1); parlak mercan yalnız dolgu ve süs için. */
+  --ember: #ad4030;
+  --coral: #ed6f5c;
+  --sand: #2a2620;
   --felt: oklch(0.58 0.1 160);
   --violet: oklch(0.66 0.16 290);
+  --paper-dark: #ddd2b6;
+  --ink-mute: #5a5448;
+  /* Tasarımdaki #8b8676 küçük yazıda 3.0:1 kalıyordu; AA için koyulaştırıldı. */
+  --ink-faint: #67624f;
   --background: var(--void);
-  --foreground: oklch(0.965 0.012 85);
+  --foreground: #15140f;
   --card: var(--panel);
-  --card-foreground: oklch(0.965 0.012 85);
+  --card-foreground: #15140f;
   --popover: var(--panel);
-  --popover-foreground: oklch(0.965 0.012 85);
-  --primary: var(--frost);
-  --primary-foreground: var(--void);
-  --secondary: oklch(0.25 0.04 252);
-  --secondary-foreground: oklch(0.965 0.012 85);
-  --muted: oklch(0.25 0.04 252);
-  --muted-foreground: oklch(0.74 0.03 245);
-  --accent: oklch(0.25 0.04 252);
-  --accent-foreground: oklch(0.965 0.012 85);
+  --popover-foreground: #15140f;
+  --primary: #15140f;
+  --primary-foreground: #f7f1de;
+  --secondary: var(--paper-dark);
+  --secondary-foreground: #15140f;
+  --muted: var(--paper-dark);
+  --muted-foreground: var(--ink-mute);
+  --accent: var(--paper-dark);
+  --accent-foreground: #15140f;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.31 0.04 250);
-  --input: oklch(0.31 0.04 250);
+  --border: rgba(21, 20, 15, 0.16);
+  --input: rgba(21, 20, 15, 0.2);
   --ring: var(--glow);
 }
 
@@ -103,6 +111,21 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+  }
+
+  /* Atelier Zero: elle basılmış kâğıt dokusu (sabit, tıklamaya kapalı). */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+      radial-gradient(60% 50% at 15% 10%, rgba(106, 92, 56, 0.06), transparent 70%),
+      radial-gradient(50% 40% at 85% 90%, rgba(106, 92, 56, 0.06), transparent 70%);
   }
 }
 
@@ -161,8 +184,8 @@ html.reveal-ready [data-reveal][data-shown] {
 
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, oklch(0.965 0.012 85 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.965 0.012 85 / 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(21, 20, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(21, 20, 15, 0.05) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
@@ -200,7 +223,7 @@ html.reveal-ready [data-reveal][data-shown] {
 
 @utility hairline {
   height: 1px;
-  background: linear-gradient(to right, transparent, oklch(0.79 0.105 80 / 0.35), transparent);
+  background: linear-gradient(to right, transparent, rgba(21, 20, 15, 0.25), transparent);
 }
 
 /* Antalya keşif haritası */

@@ -20,6 +20,6 @@
 - AstroSync privacy content is typed bilingual data in `src/data/astrosync-privacy.ts` served by the non-nested `privacy_.astrosync` route; keep internal Play Data Safety audit notes under `docs/legal/`, outside public assets, to separate verified disclosures from submission decisions requiring app evidence.
 - Product screenshots use typed slots with optional uploaded asset pointers; missing assets render no image, preventing fabricated previews and broken image requests.
 - Likya Batak uses a dedicated showcase within the existing project detail route so other product presentations and route metadata remain unchanged.
-- Likya Mutant lives in `src/features/likya-mutant/` (pure engine/mutations/challenge/achievements/storage + components) with its own translation table merged into DICT, so game rules stay testable outside React; logic tests run with `bun test tests/`.
 
 - Homepage and Projects use the shared StudioEcosystem/GamesFeature presentation, separate from product showcases, so listing redesigns never alter game logic or detail pages.
+- Visual system is Atelier Zero (OpenDesign `design-systems/atelier-zero`): tokens keep their old names in `src/styles.css` (`void` = paper, `frost` = ink, `ember` = text-safe terracotta, `coral` = bright fill only). Homepage sections live in `src/components/atelier/` with TR/EN copy side by side; collage images are in `public/atelier/` (Apache-2.0, see NOTICE.txt). Likya Mutant is played on games.likyastudios.live, not on this site.

@@ -7,7 +7,6 @@ import { PhoneMockup, accentStyles } from "@/components/studio/project-visuals";
 import { projects, statusLabels } from "@/data/projects";
 import { seoHead, seoEntries, softwareAppLd } from "@/data/seo";
 import { BatakShowcase } from "@/components/studio/batak-showcase";
-import { MutantShowcase } from "@/components/studio/mutant-showcase";
 import { StoreAccess } from "@/components/studio/store-access";
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -54,7 +53,6 @@ function ProjectDetailPage() {
   }
 
   if (project.slug === "likya-batak") return <BatakShowcase project={project} />;
-  if (project.slug === "likya-mutant") return <MutantShowcase project={project} />;
 
   const a = accentStyles[project.accent];
   const identity = IDENTITY[project.slug] ?? FALLBACK_IDENTITY;
@@ -86,7 +84,7 @@ function ProjectDetailPage() {
               </p>
               <div className="mt-7 flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-frost/5 px-3 py-1.5 text-xs text-foreground ring-1 ring-frost/10">
-                  <span className="h-1.5 w-1.5 rounded-full bg-ember" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-coral" />
                   {t(statusLabels[project.status])}
                 </span>
                 {project.platforms.map((p) => (

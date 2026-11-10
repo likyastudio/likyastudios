@@ -83,14 +83,6 @@ export const seoEntries: Record<string, SeoEntry> = {
       "Discover Antalya and generate personalized travel ideas with an experimental AI experience.",
     image: og("antalya-ai"),
   },
-  "/labs/likya-mutant": {
-    title: "Likya Mutant — 15-Second Reflex Game | Likya Labs",
-    description:
-      "Likya Mutant, tarayıcıda oynanan 15 saniyelik deneysel refleks oyunudur: üç mutasyon, meydan okuma bağlantıları ve yerel başarımlar.",
-    ogTitle: "Likya Mutant — Test Your Reflexes in 15 Seconds",
-    ogDescription: "A playable micro-arcade prototype from Likya Labs. Every round can change the rules.",
-    image: og("ai-lab"),
-  },
   "/about": {
     title: "Hakkımızda — Likya Studios | Antalya Dijital Stüdyo",
     description:

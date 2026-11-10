@@ -11,11 +11,34 @@ const logo = logoAsset.url;
 
 const NAV = [
   { to: "/", hash: "services", label: "Hizmetler" },
+  { to: "/", hash: "labs", label: "Ürünler" },
   { to: "/", hash: "process", label: "Süreç" },
-  { to: "/", hash: "games", label: "Oyunlar" },
   { to: "/", hash: "about", label: "Hakkımızda" },
   { to: "/contact", hash: undefined, label: "İletişim" },
 ] as const;
+
+/** Atelier Zero dergi şeridi: cilt / kategori / canlı durum. */
+function TopStrip() {
+  const { lang } = useLang();
+  const en = lang === "en";
+  return (
+    <div className="hidden border-b border-frost/15 md:block">
+      <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-6 px-8 py-2 font-display text-[10.5px] text-[color:var(--ink-faint)] lg:px-11 xl:px-16">
+        <span>
+          <b className="text-frost">{en ? "Vol. 01" : "Cilt 01"}</b> / {en ? "Issue Nº 11" : "Sayı Nº 11"} · MMXXVI
+        </span>
+        <span className="hidden lg:inline">
+          {en ? "Filed under" : "Kategori"}{" "}
+          <span className="text-ember">{en ? "Web · Apps · Games · Video" : "Web · Uygulama · Oyun · Video"}</span>
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <span aria-hidden className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
+          {en ? "Open for new projects" : "Yeni projelere açığız"} · Antalya
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export function StudioHeader() {
   const t = useT();
@@ -55,9 +78,10 @@ export function StudioHeader() {
           : "bg-transparent"
       }`}
     >
+      {!compact && <TopStrip />}
       <div
-        className={`mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 transition-[padding] duration-300 sm:px-6 ${
-          compact ? "py-2.5" : "py-4 md:py-5"
+        className={`mx-auto flex max-w-[1360px] items-center justify-between gap-3 px-5 transition-[padding] duration-300 sm:px-8 lg:px-11 xl:px-16 ${
+          compact ? "py-2.5" : "py-3 md:py-4"
         }`}
       >
         <Link
@@ -77,7 +101,7 @@ export function StudioHeader() {
               aria-current={isActive(item) ? (item.hash ? "location" : "page") : undefined}
               className={`relative rounded-full px-3 py-1.5 transition outline-none focus-visible:ring-2 focus-visible:ring-glow ${
                 isActive(item)
-                  ? "text-foreground after:absolute after:inset-x-3 after:-bottom-0.5 after:h-px after:bg-ember"
+                  ? "text-foreground after:absolute after:inset-x-3 after:-bottom-0.5 after:h-px after:bg-coral"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -87,9 +111,12 @@ export function StudioHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <Button asChild className="hidden h-10 md:inline-flex">
-            <Link to="/contact">{t("Teklif Al")}</Link>
-          </Button>
+          <Link
+            to="/contact"
+            className="hidden min-h-10 items-center rounded-full bg-coral px-5 font-display text-sm font-semibold text-frost transition hover:-translate-y-px hover:bg-[#d95f4d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frost md:inline-flex"
+          >
+            {t("Teklif Al")}
+          </Link>
           <LanguageSwitcher />
           <Button asChild variant="ghost" size="icon" className="h-11 w-11"><a href="https://www.instagram.com/likyastudios/" target="_blank" rel="noopener noreferrer" aria-label={t("Likya Studios Instagram hesabı (yeni sekmede açılır)")} title="Instagram"><Instagram /></a></Button>
           <Button
@@ -124,7 +151,7 @@ export function StudioHeader() {
               }`}
             >
               {t(item.label)}
-              {isActive(item) && <span className="h-1.5 w-1.5 rounded-full bg-ember" />}
+              {isActive(item) && <span className="h-1.5 w-1.5 rounded-full bg-coral" />}
             </Link></Button>
           ))}
 
@@ -181,7 +208,7 @@ export function StudioFooter() {
   const t = useT();
   return (
     <footer className="relative z-10 mt-8 border-t border-frost/10 bg-gradient-to-b from-transparent to-void">
-      <div className="mx-auto max-w-6xl px-6 pb-10 pt-14">
+      <div className="mx-auto max-w-[1360px] px-6 pb-10 pt-14 sm:px-8 lg:px-11 xl:px-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
             <div className="flex items-center gap-2.5">
@@ -217,8 +244,14 @@ export function StudioFooter() {
             </div>
           ))}
         </div>
-        <div className="hairline mt-12" />
-        <div className="mt-6 flex flex-col justify-between gap-2 text-xs text-muted-foreground sm:flex-row">
+        <p
+          aria-hidden
+          className="mt-16 select-none font-display text-[clamp(64px,13vw,200px)] font-extrabold leading-[0.9] tracking-[-0.05em]"
+        >
+          Likya <em className="font-serif font-medium italic">Studios</em>
+          <span className="text-ember">.</span>
+        </p>
+        <div className="mt-8 flex flex-col justify-between gap-2 border-t border-frost/20 pt-5 font-mono text-[11px] text-[color:var(--ink-faint)] sm:flex-row">
           <span>© 2026 Likya Studios</span>
           <span>{t("Built in Antalya, Türkiye.")}</span>
         </div>
@@ -245,11 +278,27 @@ function WhatsAppButton() {
   );
 }
 
+/** Atelier Zero yan şeritleri: geniş ekranda iki kenarda dikey yazı. */
+function SideRails() {
+  const rail = "pointer-events-none fixed top-1/2 z-30 hidden whitespace-nowrap font-display text-[10px] font-semibold uppercase tracking-[0.42em] text-[color:var(--ink-faint)] 2xl:block";
+  return (
+    <>
+      <span aria-hidden className={`${rail} left-2 origin-left -translate-y-1/2 translate-x-[14px] -rotate-90`}>
+        Web · Uygulama · Oyun · Video · Yapay Zekâ
+      </span>
+      <span aria-hidden className={`${rail} right-2 origin-right -translate-y-1/2 -translate-x-[14px] rotate-90`}>
+        Likya Studios — Antalya · MMXXVI
+      </span>
+    </>
+  );
+}
+
 export function StudioPage({ children }: { children: ReactNode }) {
   useRevealReady();
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground">
       <StudioHeader />
+      <SideRails />
       <div className="relative">{children}</div>
       <StudioFooter />
       <WhatsAppButton />
@@ -268,8 +317,11 @@ export function PageHero({
 }) {
   return (
     <section className="relative z-10 mx-auto max-w-6xl px-6 pb-16 pt-20 md:pt-28">
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-ember/90">{eyebrow}</span>
-      <h1 className="mt-4 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+      <span className="flex items-center gap-3 font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-ember">
+        <span aria-hidden className="h-px w-[18px] bg-coral" />
+        {eyebrow}
+      </span>
+      <h1 className="mt-5 max-w-4xl font-display text-[clamp(38px,6vw,78px)] font-extrabold leading-[1.02] tracking-[-0.035em]">
         {title}
       </h1>
       <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">

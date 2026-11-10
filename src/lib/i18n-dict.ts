@@ -1,12 +1,14 @@
 // Source text (as written in components) -> [Turkish, English].
 // Strings not listed here are shown unchanged in both languages.
-import { MUTANT_DICT } from "@/features/likya-mutant/i18n";
-import { MUTANT_PRODUCT_DICT } from "@/components/studio/mutant-showcase-i18n";
 import { INTRO_DICT } from "./i18n-intro";
+import { SHARED_DICT } from "./i18n-shared";
 
 export const DICT: Record<string, [string, string]> = {
   // En başta: aşağıda aynı anahtar varsa mevcut çeviri geçerli olur.
   ...INTRO_DICT,
+  ...SHARED_DICT,
+  "AstroSync uygulama ikonu": ["AstroSync uygulama ikonu", "AstroSync app icon"],
+  "Likya Batak oyun ikonu": ["Likya Batak oyun ikonu", "Likya Batak game icon"],
   "Oyunlar": ["Oyunlar", "Games"],
   "Hizmetler": ["Hizmetler", "Services"],
   "Stüdyo Ekosistemi": ["Stüdyo Ekosistemi", "Studio Ecosystem"],
@@ -23,8 +25,6 @@ export const DICT: Record<string, [string, string]> = {
   "Fikirden deneyime.": ["Fikirden deneyime.", "From idea to experience."],
   "Birlikte Üretelim": ["Birlikte Üretelim", "Let’s Build Together"],
   "Likya Studios Instagram hesabı (yeni sekmede açılır)": ["Likya Studios Instagram hesabı (yeni sekmede açılır)", "Likya Studios on Instagram (opens in a new tab)"],
-  ...MUTANT_DICT,
-  ...MUTANT_PRODUCT_DICT,
   "Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.": ["Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.", "Bringing Türkiye’s classic Batak experience to the modern mobile table."],
   "Likya Batak; İhaleli Batak, Eşli Batak ve Koz Maça modlarını mobil kart masasında bir araya getiren, geliştirme aşamasındaki kart oyunudur.": ["Likya Batak; İhaleli Batak, Eşli Batak ve Koz Maça modlarını mobil kart masasında bir araya getiren, geliştirme aşamasındaki kart oyunudur.", "Likya Batak is a card game in development, bringing Auction Batak, Partnership Batak and Spades Trump together on a mobile table."],
   "Masadan gerçek kareler.": ["Masadan gerçek kareler.", "Real frames from the table."],

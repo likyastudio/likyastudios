@@ -332,7 +332,7 @@ export function GamesBand() {
   );
 }
 
-const FAQ: [string, string][] = [
+export const FAQ: [string, string][] = [
   [
     "Fiyatlarınız ne kadar?",
     "Sabit paket fiyatımız yok. Fiyatı, işin kapsamına ve isteklerinize göre veriyoruz. İhtiyacınızı form, WhatsApp veya e-posta ile anlatın; size özel bir teklif hazırlayalım.",

@@ -26,7 +26,6 @@ import { Route as JournalIndexRouteImport } from './routes/journal.index'
 import { Route as JournalSlugRouteImport } from './routes/journal.$slug'
 import { Route as LabsIndexRouteImport } from './routes/labs.index'
 import { Route as LabsAntalyaAiRouteImport } from './routes/labs.antalya-ai'
-import { Route as LabsLikyaMutantRouteImport } from './routes/labs.likya-mutant'
 import { Route as PrivacyAstrosyncRouteImport } from './routes/privacy_.astrosync'
 import { Route as PrivacyLikyaBatakRouteImport } from './routes/privacy_.likya-batak'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
@@ -117,11 +116,6 @@ const LabsAntalyaAiRoute = LabsAntalyaAiRouteImport.update({
   path: '/labs/antalya-ai',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LabsLikyaMutantRoute = LabsLikyaMutantRouteImport.update({
-  id: '/labs/likya-mutant',
-  path: '/labs/likya-mutant',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrivacyAstrosyncRoute = PrivacyAstrosyncRouteImport.update({
   id: '/privacy_/astrosync',
   path: '/privacy/astrosync',
@@ -159,7 +153,6 @@ export interface FileRoutesByFullPath {
   '/delete-account/astrosync': typeof DeleteAccountAstrosyncRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
-  '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/privacy/astrosync': typeof PrivacyAstrosyncRoute
   '/privacy/likya-batak': typeof PrivacyLikyaBatakRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -183,7 +176,6 @@ export interface FileRoutesByTo {
   '/delete-account/astrosync': typeof DeleteAccountAstrosyncRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
-  '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/privacy/astrosync': typeof PrivacyAstrosyncRoute
   '/privacy/likya-batak': typeof PrivacyLikyaBatakRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -208,7 +200,6 @@ export interface FileRoutesById {
   '/delete-account_/astrosync': typeof DeleteAccountAstrosyncRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
-  '/labs/likya-mutant': typeof LabsLikyaMutantRoute
   '/privacy_/astrosync': typeof PrivacyAstrosyncRoute
   '/privacy_/likya-batak': typeof PrivacyLikyaBatakRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -234,7 +225,6 @@ export interface FileRouteTypes {
     | '/delete-account/astrosync'
     | '/journal/$slug'
     | '/labs/antalya-ai'
-    | '/labs/likya-mutant'
     | '/privacy/astrosync'
     | '/privacy/likya-batak'
     | '/projects/$slug'
@@ -258,7 +248,6 @@ export interface FileRouteTypes {
     | '/delete-account/astrosync'
     | '/journal/$slug'
     | '/labs/antalya-ai'
-    | '/labs/likya-mutant'
     | '/privacy/astrosync'
     | '/privacy/likya-batak'
     | '/projects/$slug'
@@ -282,7 +271,6 @@ export interface FileRouteTypes {
     | '/delete-account_/astrosync'
     | '/journal/$slug'
     | '/labs/antalya-ai'
-    | '/labs/likya-mutant'
     | '/privacy_/astrosync'
     | '/privacy_/likya-batak'
     | '/projects/$slug'
@@ -307,7 +295,6 @@ export interface RootRouteChildren {
   DeleteAccountAstrosyncRoute: typeof DeleteAccountAstrosyncRoute
   JournalSlugRoute: typeof JournalSlugRoute
   LabsAntalyaAiRoute: typeof LabsAntalyaAiRoute
-  LabsLikyaMutantRoute: typeof LabsLikyaMutantRoute
   PrivacyAstrosyncRoute: typeof PrivacyAstrosyncRoute
   PrivacyLikyaBatakRoute: typeof PrivacyLikyaBatakRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
@@ -437,13 +424,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabsAntalyaAiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/labs/likya-mutant': {
-      id: '/labs/likya-mutant'
-      path: '/labs/likya-mutant'
-      fullPath: '/labs/likya-mutant'
-      preLoaderRoute: typeof LabsLikyaMutantRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/privacy_/astrosync': {
       id: '/privacy_/astrosync'
       path: '/privacy/astrosync'
@@ -491,7 +471,6 @@ const rootRouteChildren: RootRouteChildren = {
   DeleteAccountAstrosyncRoute: DeleteAccountAstrosyncRoute,
   JournalSlugRoute: JournalSlugRoute,
   LabsAntalyaAiRoute: LabsAntalyaAiRoute,
-  LabsLikyaMutantRoute: LabsLikyaMutantRoute,
   PrivacyAstrosyncRoute: PrivacyAstrosyncRoute,
   PrivacyLikyaBatakRoute: PrivacyLikyaBatakRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
 import { seoHead } from "@/data/seo";
 import { PageHero, StudioPage } from "@/components/studio/site-shell";
@@ -29,8 +29,10 @@ function LabsPage() {
               {t("Harita tabanlı keşif deneyimi ve yapay zekâ destekli kişisel gezi planlayıcısı.")}
             </p>
           </a>
-          <Link
-            to="/labs/likya-mutant"
+          <a
+            href="https://games.likyastudios.live/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-6 block rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10 transition hover:ring-violet/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"
           >
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-violet">
@@ -43,7 +45,7 @@ function LabsPage() {
             <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-mint">
               {t("Şimdi Oyna")} <span aria-hidden>→</span>
             </span>
-          </Link>
+          </a>
         </section>
       </main>
     </StudioPage>

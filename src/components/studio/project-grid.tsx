@@ -35,7 +35,7 @@ export function ProjectGrid() {
                     <span lang="en">{project.category.split(" • ")[0]}</span>
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-frost/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                    <span className="h-1.5 w-1.5 rounded-full bg-ember" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-coral" />
                     {t(statusLabels[project.status])}
                   </span>
                 </div>

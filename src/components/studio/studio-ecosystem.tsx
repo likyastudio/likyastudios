@@ -43,7 +43,7 @@ export function GamesFeature({ hero = false }: { hero?: boolean }) {
           <h3 className="mt-5 font-display text-3xl font-semibold md:text-4xl">{mutant.name}</h3>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">{t(mutant.shortDescription)}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Button asChild className="h-11 bg-mint text-primary-foreground hover:bg-mint/90"><Link to="/labs/likya-mutant"><Gamepad2 />{t("Şimdi Oyna")}</Link></Button>
+            <Button asChild className="h-11 bg-mint text-primary-foreground hover:bg-mint/90"><a href="https://games.likyastudios.live/" target="_blank" rel="noopener noreferrer"><Gamepad2 />{t("Şimdi Oyna")}</a></Button>
             <Button asChild variant="link" className="h-11 px-0"><Link to="/projects/$slug" params={{ slug: mutant.slug }}>{t("Projeyi İncele")}<ArrowRight /></Link></Button>
           </div>
         </article>
