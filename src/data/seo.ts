@@ -39,15 +39,6 @@ export const seoEntries: Record<string, SeoEntry> = {
     image: og("likya-batak"),
     type: "product",
   },
-  "/projects/likya-mutant": {
-    title: "Likya Mutant — 15-Second Reflex Web Game | Likya Studios",
-    description:
-      "Likya Mutant, 15 saniyelik turlar, üç mutasyon, combo, meydan okuma bağlantıları ve yerel başarımlarla tarayıcıda oynanan bir Likya Studios refleks oyunudur.",
-    ogTitle: "Likya Mutant — 15 Seconds. One Target. Changing Rules.",
-    ogDescription: "A playable browser reflex prototype with mutations, combos, challenges and local achievements.",
-    image: og("likya-studios"),
-    type: "product",
-  },
   "/projects/astrosync": {
     title: "AstroSync — Astronomy Experience | Likya Studios",
     description:
@@ -110,7 +101,7 @@ export const seoEntries: Record<string, SeoEntry> = {
   "/support": {
     title: "Support — Likya Studios",
     description:
-      "Likya Batak, AstroSync ve Likya Mutant için Likya Studios destek merkezine ulaşın.",
+      "Likya Batak, AstroSync ve Likya Games için Likya Studios destek merkezine ulaşın.",
     ogTitle: "Likya Studios Support",
     ogDescription: "Support for Likya Studios apps and digital products.",
     image: og("likya-studios"),
@@ -245,6 +236,7 @@ export const organizationLd: JsonLd = {
   logo: `${SITE_URL}/favicon.png`,
   email: "likyastudios@gmail.com",
   address: { "@type": "PostalAddress", addressLocality: "Antalya", addressCountry: "TR" },
+  sameAs: ["https://www.instagram.com/likyastudios/", "https://www.youtube.com/@kadimanadoluu", "https://games.likyastudios.live/"],
 };
 
 export const websiteLd: JsonLd = {

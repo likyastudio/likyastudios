@@ -21,7 +21,7 @@ function PressPage() {
             <h2 className="font-display text-2xl font-semibold">{t("Kısa tanıtım")}</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               {t(
-                "Likya Studios, Antalya merkezli bağımsız bir dijital stüdyodur. İşletmeler için web siteleri, mobil uygulamalar, oyunlar, video ve yapay zekâ çözümleri üretir; AstroSync, Likya Batak ve Likya Mutant gibi kendi ürünlerini de geliştirir.",
+                "Likya Studios, Antalya merkezli bağımsız bir dijital stüdyodur. İşletmeler için web siteleri, mobil uygulamalar, oyunlar, video ve yapay zekâ çözümleri üretir; AstroSync, Likya Batak ve Likya Games gibi kendi ürünlerini de geliştirir.",
               )}
             </p>
           </article>

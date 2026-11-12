@@ -171,9 +171,9 @@ export const INTRO_DICT: Record<string, [string, string]> = {
     "We create websites, mobile apps, games, video production and AI solutions for businesses. As one team, we take care of the design, code, content and launch.",
   ],
   "Kendi ürünlerimiz": ["Kendi ürünlerimiz", "Our own products"],
-  "Size önerdiğimizi önce kendimizde deniyoruz: AstroSync, Likya Batak ve Likya Mutant stüdyomuzda geliştirildi.": [
-    "Size önerdiğimizi önce kendimizde deniyoruz: AstroSync, Likya Batak ve Likya Mutant stüdyomuzda geliştirildi.",
-    "We try what we recommend on ourselves first: AstroSync, Likya Batak and Likya Mutant were built in our studio.",
+  "Size önerdiğimizi önce kendimizde deniyoruz: AstroSync, Likya Batak ve Likya Games stüdyomuzda geliştirildi.": [
+    "Size önerdiğimizi önce kendimizde deniyoruz: AstroSync, Likya Batak ve Likya Games stüdyomuzda geliştirildi.",
+    "We try what we recommend on ourselves first: AstroSync, Likya Batak and Likya Games were built in our studio.",
   ],
   "Ürünlerimizi görün": ["Ürünlerimizi görün", "See our products"],
 
@@ -191,9 +191,9 @@ export const INTRO_DICT: Record<string, [string, string]> = {
   // Basın sayfası
   "Kısa şirket tanıtımı ve basın iletişimi.": ["Kısa şirket tanıtımı ve basın iletişimi.", "A short company profile and press contact."],
   "Kısa tanıtım": ["Kısa tanıtım", "Company profile"],
-  "Likya Studios, Antalya merkezli bağımsız bir dijital stüdyodur. İşletmeler için web siteleri, mobil uygulamalar, oyunlar, video ve yapay zekâ çözümleri üretir; AstroSync, Likya Batak ve Likya Mutant gibi kendi ürünlerini de geliştirir.": [
-    "Likya Studios, Antalya merkezli bağımsız bir dijital stüdyodur. İşletmeler için web siteleri, mobil uygulamalar, oyunlar, video ve yapay zekâ çözümleri üretir; AstroSync, Likya Batak ve Likya Mutant gibi kendi ürünlerini de geliştirir.",
-    "Likya Studios is an independent digital studio based in Antalya. It makes websites, mobile apps, games, video and AI solutions for businesses, and develops its own products such as AstroSync, Likya Batak and Likya Mutant.",
+  "Likya Studios, Antalya merkezli bağımsız bir dijital stüdyodur. İşletmeler için web siteleri, mobil uygulamalar, oyunlar, video ve yapay zekâ çözümleri üretir; AstroSync, Likya Batak ve Likya Games gibi kendi ürünlerini de geliştirir.": [
+    "Likya Studios, Antalya merkezli bağımsız bir dijital stüdyodur. İşletmeler için web siteleri, mobil uygulamalar, oyunlar, video ve yapay zekâ çözümleri üretir; AstroSync, Likya Batak ve Likya Games gibi kendi ürünlerini de geliştirir.",
+    "Likya Studios is an independent digital studio based in Antalya. It makes websites, mobile apps, games, video and AI solutions for businesses, and develops its own products such as AstroSync, Likya Batak and Likya Games.",
   ],
   "Basın iletişimi": ["Basın iletişimi", "Press contact"],
   "Röportaj, logo ve görsel talepleri için bize e-posta gönderin.": [

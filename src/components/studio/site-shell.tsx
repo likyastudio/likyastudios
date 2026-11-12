@@ -1,7 +1,7 @@
 import logoAsset from "@/assets/likya-logo.png.asset.json";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Instagram, Menu, MessageCircle, X } from "lucide-react";
+import { Instagram, Menu, MessageCircle, X, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRevealReady } from "./reveal";
 import { useSiteMotion } from "./motion";
@@ -120,6 +120,7 @@ export function StudioHeader() {
           </Link>
           <LanguageSwitcher />
           <Button asChild variant="ghost" size="icon" className="h-11 w-11"><a href="https://www.instagram.com/likyastudios/" target="_blank" rel="noopener noreferrer" aria-label={t("Likya Studios Instagram hesabı (yeni sekmede açılır)")} title="Instagram"><Instagram /></a></Button>
+          <Button asChild variant="ghost" size="icon" className="hidden h-11 w-11 sm:inline-flex"><a href="https://www.youtube.com/@kadimanadoluu" target="_blank" rel="noopener noreferrer" aria-label={t("Kadim Anadolu YouTube kanalımız (yeni sekmede açılır)")} title="YouTube"><Youtube /></a></Button>
           <Button
             id="studio-menu-toggle"
             type="button"
@@ -167,7 +168,7 @@ const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
     title: "Products",
     links: [
       ["/projects/likya-batak", "Likya Batak"],
-      ["/projects/likya-mutant", "Likya Mutant"],
+      ["https://games.likyastudios.live/", "Likya Games"],
       ["/projects/astrosync", "AstroSync"],
       ["/labs/antalya-ai", "Antalya AI"],
     ],
@@ -198,6 +199,7 @@ const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
     title: "Social",
     links: [
       ["https://www.instagram.com/likyastudios/", "Instagram"],
+      ["https://www.youtube.com/@kadimanadoluu", "YouTube"],
       ["mailto:likyastudios@gmail.com", "E-posta"],
       ["/press", "Press"],
       ["/brand", "Brand"],
@@ -237,7 +239,7 @@ export function StudioFooter() {
                   href={href}
                   target={href.startsWith("https://") ? "_blank" : undefined}
                   rel={href.startsWith("https://") ? "noopener noreferrer" : undefined}
-                  aria-label={label === "Instagram" ? t("Likya Studios Instagram hesabı (yeni sekmede açılır)") : undefined}
+                  aria-label={label === "Instagram" ? t("Likya Studios Instagram hesabı (yeni sekmede açılır)") : label === "YouTube" ? t("Kadim Anadolu YouTube kanalımız (yeni sekmede açılır)") : undefined}
                 >
                   {t(label)}
                 </a>

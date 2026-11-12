@@ -8,9 +8,8 @@ import { useT } from "@/lib/i18n";
 export function GamesFeature({ hero = false }: { hero?: boolean }) {
   const t = useT();
   const batak = projects.find((project) => project.slug === "likya-batak");
-  const mutant = projects.find((project) => project.slug === "likya-mutant");
   const screenshot = batakScreenshots.find((image) => image.id === "bid-pass" && image.src);
-  if (!batak || !mutant) return null;
+  if (!batak) return null;
   const Heading = hero ? "h1" : "h2";
   return (
     <section id={hero ? "games" : undefined} className={`scroll-mt-28 ${hero ? "mx-auto max-w-6xl px-6 pb-14 pt-10 md:pt-14" : "pb-12"}`}>
@@ -36,15 +35,11 @@ export function GamesFeature({ hero = false }: { hero?: boolean }) {
           </div>
         </article>
         <article className="flex flex-col justify-center border-t border-frost/15 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-          <div className="flex items-center justify-between gap-4">
-            <p className="font-mono text-[11px] text-mint">{t(statusLabels[mutant.status])} / {t("Tarayıcı oyunu")}</p>
-            <img src={mutant.icon} alt={t(mutant.alt)} width={72} height={72} className="h-16 w-16 shrink-0" />
-          </div>
-          <h3 className="mt-5 font-display text-3xl font-semibold md:text-4xl">{mutant.name}</h3>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">{t(mutant.shortDescription)}</p>
+          <p className="font-mono text-[11px] text-mint">{t("Oynanabilir")} / {t("Tarayıcı oyunu")}</p>
+          <h3 className="mt-5 font-display text-3xl font-semibold md:text-4xl">{t("Oyun Arenası")}</h3>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">{t("Tarayıcıda oynanan 26 mini oyun tek yerde: refleks, zekâ, strateji ve parti oyunları. İndirme ve kayıt gerekmez.")}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild className="h-11 bg-mint text-primary-foreground hover:bg-mint/90"><a href="https://games.likyastudios.live/" target="_blank" rel="noopener noreferrer"><Gamepad2 />{t("Şimdi Oyna")}</a></Button>
-            <Button asChild variant="link" className="h-11 px-0"><Link to="/projects/$slug" params={{ slug: mutant.slug }}>{t("Projeyi İncele")}<ArrowRight /></Link></Button>
           </div>
         </article>
       </div>

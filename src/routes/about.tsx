@@ -42,7 +42,7 @@ function AboutPage() {
               <h2 className="font-display text-2xl font-semibold">{t("Kendi ürünlerimiz")}</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 {t(
-                  "Size önerdiğimizi önce kendimizde deniyoruz: AstroSync, Likya Batak ve Likya Mutant stüdyomuzda geliştirildi.",
+                  "Size önerdiğimizi önce kendimizde deniyoruz: AstroSync, Likya Batak ve Likya Games stüdyomuzda geliştirildi.",
                 )}
               </p>
             </div>

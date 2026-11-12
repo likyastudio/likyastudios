@@ -38,9 +38,9 @@ function LabsPage() {
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-violet">
               {t("Mini arcade")}
             </span>
-            <h2 className="mt-3 font-display text-3xl font-semibold">Likya Mutant</h2>
+            <h2 className="mt-3 font-display text-3xl font-semibold">{t("Oyun Arenası")}</h2>
             <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-              {t("Tarayıcıda oynanabilen 15 saniyelik refleks oyunu. Üç mutasyon, meydan okuma bağlantıları ve yerel başarımlar.")}
+              {t("Tarayıcıda oynanan 26 mini oyun tek yerde: refleks, zekâ, strateji ve parti oyunları. İndirme ve kayıt gerekmez.")}
             </p>
             <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-mint">
               {t("Şimdi Oyna")} <span aria-hidden>→</span>
