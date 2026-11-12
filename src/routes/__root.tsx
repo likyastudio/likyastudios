@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MOTION_BOOT_SCRIPT } from "@/components/studio/motion";
 import {
   Outlet,
   Link,
@@ -108,9 +109,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="tr">
+    <html lang="tr" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: MOTION_BOOT_SCRIPT }} />
       </head>
       <body>
         {children}

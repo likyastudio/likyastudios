@@ -64,6 +64,7 @@ export function Plate({
   imgClassName = "",
   notes,
   eager = false,
+  parallax = false,
 }: {
   src: string;
   alt?: string;
@@ -71,18 +72,22 @@ export function Plate({
   imgClassName?: string;
   notes?: { tl?: string; tr?: string; bl?: string; br?: string };
   eager?: boolean;
+  /** Kaydırırken görsel hafifçe kayar (motion.tsx). */
+  parallax?: boolean;
 }) {
   const corner = "pointer-events-none absolute h-[22px] w-[22px] border-frost/70";
   const note = "absolute font-mono text-[10px] tracking-[0.04em] text-[color:var(--ink-faint)]";
   return (
     <figure className={`relative ${className}`}>
-      <img
-        src={src}
-        alt={alt}
-        loading={eager ? "eager" : "lazy"}
-        decoding="async"
-        className={`block h-full w-full object-cover ${imgClassName}`}
-      />
+      <div className="h-full w-full overflow-hidden" {...(parallax ? { "data-m": "parallax" } : {})}>
+        <img
+          src={src}
+          alt={alt}
+          loading={eager ? "eager" : "lazy"}
+          decoding="async"
+          className={`block h-full w-full object-cover ${imgClassName}`}
+        />
+      </div>
       <span aria-hidden className={`${corner} -left-2 -top-2 border-l border-t`} />
       <span aria-hidden className={`${corner} -right-2 -top-2 border-r border-t`} />
       <span aria-hidden className={`${corner} -bottom-2 -left-2 border-b border-l`} />

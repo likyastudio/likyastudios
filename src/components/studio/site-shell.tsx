@@ -4,6 +4,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Instagram, Menu, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRevealReady } from "./reveal";
+import { useSiteMotion } from "./motion";
 import { LanguageSwitcher, useLang, useT } from "@/lib/i18n";
 import { whatsappUrl } from "@/data/contact";
 
@@ -295,6 +296,7 @@ function SideRails() {
 
 export function StudioPage({ children }: { children: ReactNode }) {
   useRevealReady();
+  useSiteMotion();
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground">
       <StudioHeader />

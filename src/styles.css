@@ -290,3 +290,40 @@ html.reveal-ready [data-reveal][data-shown] {
   scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
 }
+
+/* ---------- Hareket katmanı (motion.tsx: Lenis + GSAP) ---------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+html.lenis {
+  scroll-behavior: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* İlk boyamada hero'yu gizle; GSAP açar. JS gelmezse 2.5 sn sonra kendiliğinden görünür. */
+html.motion-ready [data-m-hero] > *,
+html.motion-ready [data-m-hero-plate] {
+  visibility: hidden;
+  animation: motion-fallback 0s linear 2.5s forwards;
+}
+@keyframes motion-fallback {
+  to {
+    visibility: visible;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.motion-ready [data-m-hero] > *,
+  html.motion-ready [data-m-hero-plate] {
+    visibility: visible;
+    animation: none;
+  }
+}

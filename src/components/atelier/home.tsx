@@ -94,7 +94,7 @@ function Hero() {
   return (
     <section className="relative">
       <div className={`${wrap} grid items-center gap-14 pb-20 pt-10 md:pt-14 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16 lg:pb-28`}>
-        <div>
+        <div data-m-hero>
           <Eyebrow ix="· Nº 01">{c.label}</Eyebrow>
           <h1 className="mt-7 font-display text-[clamp(42px,6.4vw,90px)] font-extrabold leading-[0.98] tracking-[-0.04em]">
             <Mixed segs={c.headline} />
@@ -115,7 +115,7 @@ function Hero() {
             ↳ +90 545 776 05 57 · likyastudios@gmail.com
           </p>
         </div>
-        <div className="relative">
+        <div className="relative" data-m-hero-plate>
           <Plate
             src={IMG("hero")}
             eager
@@ -178,7 +178,7 @@ function About() {
       <div className={wrap}>
         <SectionRule roman="II." meta={pick({ tr: "Hakkımızda / Manifesto · Likya Studios / Cilt 01", en: "About / Manifesto · Likya Studios / Vol. 01" })} page="002 / 008" />
         <div className="mt-14 grid items-center gap-14 lg:grid-cols-[1fr_0.9fr]">
-          <div>
+          <div data-m="stagger">
             <Eyebrow ix="· Nº 02">{c.label}</Eyebrow>
             <h2 className={h2}>
               <Mixed segs={c.headline} />
@@ -189,7 +189,7 @@ function About() {
             </Link>
           </div>
           <div className="relative">
-            <Plate src={IMG("about")} className="aspect-square w-full" notes={{ tl: "FIG. 02", br: "Antalya · MMXXVI" }} />
+            <Plate parallax src={IMG("about")} className="aspect-square w-full" notes={{ tl: "FIG. 02", br: "Antalya · MMXXVI" }} />
             <p className="mt-10 max-w-sm font-serif text-[17px] italic leading-snug text-[color:var(--ink-mute)]">{c.note}</p>
             <p className="mt-3 font-mono text-[10.5px] text-[color:var(--ink-faint)]">{c.caption}</p>
           </div>
@@ -248,15 +248,15 @@ function Services() {
         <SectionRule roman="III." meta={pick({ tr: "Hizmetler · Ne yapıyoruz · 4 alan / 1 ekip", en: "Services · What we do · 4 areas / 1 team" })} page="003 / 008" />
         <div className="mt-14 grid gap-14 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <Plate src={IMG("capabilities")} className="aspect-square w-full" notes={{ tl: "FIG. 03", br: "LS / 26" }} />
+            <Plate parallax src={IMG("capabilities")} className="aspect-square w-full" notes={{ tl: "FIG. 03", br: "LS / 26" }} />
           </div>
           <div>
             <Eyebrow ix="· Nº 03">{c.label}</Eyebrow>
-            <h2 className={h2}>
+            <h2 className={h2} data-m="rise">
               <Mixed segs={c.headline} />
             </h2>
             <p className={`mt-6 max-w-[36rem] ${lead}`}>{c.lead}</p>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2" data-m="stagger">
               {c.cards.map((card, i) => (
                 <a
                   key={card.title}
@@ -333,7 +333,7 @@ function Labs() {
       <div className={wrap}>
         <SectionRule roman="IV." meta={pick({ tr: "Laboratuvar / Kendi ürünlerimiz · 05 ürün", en: "Laboratory / Our own products · 05 products" })} page="004 / 008" />
         <div className="mt-14 flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl" data-m="stagger">
             <Eyebrow ix="· Nº 04">{c.label}</Eyebrow>
             <h2 className={h2}>
               <Mixed segs={c.headline} />
@@ -343,7 +343,7 @@ function Labs() {
             {c.all}
           </Link>
         </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5" data-m="stagger">
           {c.cards.map((card, i) => (
             <a
               key={card.title}
@@ -405,13 +405,13 @@ function Method() {
         <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
           <div>
             <Eyebrow ix="· Nº 05">{c.label}</Eyebrow>
-            <h2 className={h2}>
+            <h2 className={h2} data-m="rise">
               <Mixed segs={c.headline} />
             </h2>
           </div>
           <p className={`${lead} max-w-md`}>{c.right}</p>
         </div>
-        <ol className="relative mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <ol className="relative mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-m="stagger">
           <span aria-hidden className="absolute left-0 right-0 top-[26px] hidden h-px bg-frost/25 lg:block" />
           {c.steps.map(([title, body], i) => (
             <li key={title} className="relative">
@@ -479,7 +479,7 @@ function Work() {
   return (
     <section className="py-12 md:py-20">
       <div className={wrap}>
-        <div className="relative overflow-hidden rounded-[32px] bg-frost px-6 py-12 text-panel sm:px-10 md:px-14 md:py-16">
+        <div data-m="pop" className="relative overflow-hidden rounded-[32px] bg-frost px-6 py-12 text-panel sm:px-10 md:px-14 md:py-16">
           <div className="flex items-center justify-between gap-4 border-t border-panel/25 pt-3 font-display text-[10.5px] uppercase tracking-[0.18em] text-panel/60">
             <span className="font-serif text-sm normal-case italic tracking-normal text-coral">VI.</span>
             <span className="hidden sm:block">{pick({ tr: "Seçili işler · 2026 · Likya Studios imzalı", en: "Selected work · 2026 · Signed by Likya Studios" })}</span>
@@ -563,7 +563,7 @@ function Founders() {
         <div className="mt-14 grid items-center gap-14 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <Eyebrow ix="· Nº 06">{c.label}</Eyebrow>
-            <blockquote className="mt-7 font-display text-[clamp(28px,3.6vw,48px)] font-bold leading-[1.12] tracking-[-0.025em]">
+            <blockquote data-m="rise" className="mt-7 font-display text-[clamp(28px,3.6vw,48px)] font-bold leading-[1.12] tracking-[-0.025em]">
               “<Mixed segs={c.quote} />”
             </blockquote>
             <div className="mt-8 flex items-center gap-4">
@@ -574,7 +574,7 @@ function Founders() {
               </span>
             </div>
             <p className="mt-12 text-sm text-[color:var(--ink-mute)]">{c.tools}</p>
-            <ul className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-frost/15 bg-frost/15 sm:grid-cols-5">
+            <ul data-m="stagger" className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-frost/15 bg-frost/15 sm:grid-cols-5">
               {c.toolNames.map(([name, role]) => (
                 <li key={name} className="bg-background px-4 py-4">
                   <b className="block font-display text-sm">{name}</b>
@@ -583,7 +583,7 @@ function Founders() {
               ))}
             </ul>
           </div>
-          <Plate src={IMG("testimonial")} className="aspect-square w-full" notes={{ tl: "FIG. 07", br: "E × A" }} />
+          <Plate parallax src={IMG("testimonial")} className="aspect-square w-full" notes={{ tl: "FIG. 07", br: "E × A" }} />
         </div>
       </div>
     </section>
@@ -663,7 +663,7 @@ function Cta() {
       <div className={wrap}>
         <SectionRule roman="VIII." meta={pick({ tr: "İletişim / Teklif · Fiyat isteğe göre", en: "Contact / Quote · Priced on request" })} page="008 / 008" />
         <div className="mt-14 grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-          <div>
+          <div data-m="stagger">
             <Eyebrow ix="· Nº 07">{c.label}</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(40px,6vw,84px)] font-extrabold leading-[1] tracking-[-0.04em]">
               <Mixed segs={c.headline} />
@@ -676,7 +676,7 @@ function Cta() {
               </GhostButton>
             </div>
           </div>
-          <Plate src={IMG("cta")} className="aspect-square w-full" notes={{ tl: "FIG. 08", br: "LIKYA STUDIOS · FIN." }} />
+          <Plate parallax src={IMG("cta")} className="aspect-square w-full" notes={{ tl: "FIG. 08", br: "LIKYA STUDIOS · FIN." }} />
         </div>
       </div>
     </section>
