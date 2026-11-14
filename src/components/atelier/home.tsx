@@ -2,6 +2,7 @@
 // Metinler TR/EN yan yana tutulur; tasarım kuralları design-systems/atelier-zero/DESIGN.md.
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
+import { Gamepad2 } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { whatsappUrl } from "@/data/contact";
 import { useLang } from "@/lib/i18n";
@@ -40,6 +41,22 @@ function GhostButton({ href, children, external = false }: { href: string; child
       className="inline-flex min-h-12 items-center rounded-full border border-frost/20 px-[22px] font-display text-sm font-semibold transition duration-200 hover:-translate-y-px hover:bg-frost/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
     >
       {children}
+    </a>
+  );
+}
+
+/** Tek tıkla Likya Games'e git: ikon-yalnızca, yuvarlak buton. */
+function GamesButton({ label }: { label: string }) {
+  return (
+    <a
+      href={GAMES_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      title={label}
+      className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-frost/20 text-foreground transition duration-200 hover:-translate-y-px hover:border-mint hover:bg-frost/[0.04] hover:text-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint"
+    >
+      <Gamepad2 className="h-[18px] w-[18px]" aria-hidden />
     </a>
   );
 }
@@ -106,6 +123,7 @@ function Hero() {
             <GhostButton href={whatsappUrl(lang)} external>
               {c.wa}
             </GhostButton>
+            <GamesButton label={pick({ tr: "Likya Games'e git", en: "Go to Likya Games" })} />
           </div>
           <div className="mt-10 flex flex-wrap gap-x-7 gap-y-4 border-t border-frost/15 pt-6">
             {c.stats.map(([v, l, s], i) => (
@@ -675,6 +693,7 @@ function Cta() {
               <GhostButton href={whatsappUrl(lang)} external>
                 {c.wa}
               </GhostButton>
+              <GamesButton label={pick({ tr: "Likya Games'e git", en: "Go to Likya Games" })} />
             </div>
           </div>
           <Plate parallax src={IMG("cta")} className="aspect-square w-full" notes={{ tl: "FIG. 08", br: "LIKYA STUDIOS · FIN." }} />
