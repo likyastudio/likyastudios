@@ -46,6 +46,23 @@ function LabsPage() {
               {t("Şimdi Oyna")} <span aria-hidden>→</span>
             </span>
           </a>
+          <a
+            href="https://barakademi.likyastudios.live/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 block rounded-3xl bg-panel/60 p-8 ring-1 ring-frost/10 transition hover:ring-ember/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"
+          >
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
+              {t("Kurumsal eğitim")}
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-semibold">Bar Akademi</h2>
+            <p className="mt-3 max-w-xl text-sm text-muted-foreground">
+              {t("Resort bar ekipleri için üç dilli (TR/EN/RU) servis eğitim portalı: içecek bilgisi, servis dili ve quizler.")}
+            </p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ember">
+              {t("Portalı Gör")} <span aria-hidden>→</span>
+            </span>
+          </a>
         </section>
       </main>
     </StudioPage>

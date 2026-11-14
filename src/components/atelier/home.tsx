@@ -11,6 +11,7 @@ import { ArrowMark, Eyebrow, Mixed, Plate, SectionRule, StatRing, useBi, type Bi
 
 const IMG = (name: string) => `/atelier/${name}.webp`;
 const GAMES_URL = "https://games.likyastudios.live/";
+const BAR_AKADEMI_URL = "https://barakademi.likyastudios.live/";
 const YOUTUBE_URL = "https://www.youtube.com/@kadimanadoluu";
 
 const wrap = "relative mx-auto w-full max-w-[1360px] px-6 sm:px-8 lg:px-11 xl:px-16";
@@ -322,6 +323,7 @@ const LABS: Bi<{ label: string; headline: Seg[]; cards: Lab[]; all: string }> = 
       { badge: "Video · YouTube", title: "Kadim Anadolu", body: "Anadolu'nun kadim yapılarını ve kayıp şehirlerini anlatan belgesel kanalımız. Yapay zekâ destekli görsellerle üretiyoruz.", href: YOUTUBE_URL, external: true },
       { badge: "Arena", title: "Likya Oyun Arenası", body: "26 tarayıcı oyunu tek yerde: refleks, zekâ ve parti oyunları. İndirme yok, kayıt yok, tamamen ücretsiz.", href: GAMES_URL, external: true },
       { badge: "Yapay Zekâ", title: "Antalya AI", body: "Haritada Antalya'yı keşfedin, yapay zekâ ile kişisel gezi planı oluşturun.", href: "/labs/antalya-ai" },
+      { badge: "Kurumsal · Eğitim", title: "Bar Akademi", body: "Resort bar ekipleri için üç dilli (TR/EN/RU) servis eğitim portalı. İçecek bilgisi, servis dili ve quizlerle kendi hızında öğrenim.", href: BAR_AKADEMI_URL, external: true },
     ],
     all: "Tüm ürünler →",
   },
@@ -339,6 +341,7 @@ const LABS: Bi<{ label: string; headline: Seg[]; cards: Lab[]; all: string }> = 
       { badge: "Video · YouTube", title: "Kadim Anadolu", body: "Our documentary channel on Anatolia's ancient sites and lost cities, produced with AI-assisted visuals.", href: YOUTUBE_URL, external: true },
       { badge: "Arena", title: "Likya Game Arena", body: "26 browser games in one place: reflex, puzzle and party games. No download, no sign-up, completely free.", href: GAMES_URL, external: true },
       { badge: "AI", title: "Antalya AI", body: "Explore Antalya on the map and build a personal trip plan with AI.", href: "/labs/antalya-ai" },
+      { badge: "B2B · Training", title: "Bar Akademi", body: "A trilingual (TR/EN/RU) service-training portal for resort bar teams: drink knowledge, service phrases and quizzes at their own pace.", href: BAR_AKADEMI_URL, external: true },
     ],
     all: "All products →",
   },
