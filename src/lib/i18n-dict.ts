@@ -28,6 +28,7 @@ export const DICT: Record<string, [string, string]> = {
   "Kadim Anadolu YouTube kanalımız (yeni sekmede açılır)": ["Kadim Anadolu YouTube kanalımız (yeni sekmede açılır)", "Our Kadim Anadolu YouTube channel (opens in a new tab)"],
   "Tarayıcıda oynanan 26 mini oyun tek yerde: refleks, zekâ, strateji ve parti oyunları. İndirme ve kayıt gerekmez.": ["Tarayıcıda oynanan 26 mini oyun tek yerde: refleks, zekâ, strateji ve parti oyunları. İndirme ve kayıt gerekmez.", "26 browser mini games in one place: reflex, puzzle, strategy and party games. No download or sign-up needed."],
   "Oyun Arenası": ["Oyun Arenası", "Game Arena"],
+  "Likya Games'i Oyna": ["Likya Games'i Oyna", "Play Likya Games"],
   "Oynanabilir": ["Oynanabilir", "Playable"],
   "Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.": ["Türkiye'nin klasik Batak deneyimini modern mobil masaya taşıyoruz.", "Bringing Türkiye’s classic Batak experience to the modern mobile table."],
   "Likya Batak; İhaleli Batak, Eşli Batak ve Koz Maça modlarını mobil kart masasında bir araya getiren, geliştirme aşamasındaki kart oyunudur.": ["Likya Batak; İhaleli Batak, Eşli Batak ve Koz Maça modlarını mobil kart masasında bir araya getiren, geliştirme aşamasındaki kart oyunudur.", "Likya Batak is a card game in development, bringing Auction Batak, Partnership Batak and Spades Trump together on a mobile table."],

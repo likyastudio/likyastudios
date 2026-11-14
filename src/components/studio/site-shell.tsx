@@ -1,7 +1,7 @@
 import logoAsset from "@/assets/likya-logo.png.asset.json";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Instagram, Menu, MessageCircle, X, Youtube } from "lucide-react";
+import { Gamepad2, Instagram, Menu, MessageCircle, X, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRevealReady } from "./reveal";
 import { useSiteMotion } from "./motion";
@@ -17,6 +17,8 @@ const NAV = [
   { to: "/", hash: "about", label: "Hakkımızda" },
   { to: "/contact", hash: undefined, label: "İletişim" },
 ] as const;
+
+const GAMES_URL = "https://games.likyastudios.live/";
 
 /** Atelier Zero dergi şeridi: cilt / kategori / canlı durum. */
 function TopStrip() {
@@ -109,6 +111,15 @@ export function StudioHeader() {
               {t(item.label)}
             </Link></Button>
           ))}
+          <Button asChild variant="ghost" className="h-11"><a
+            href={GAMES_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-mint transition outline-none hover:text-mint focus-visible:ring-2 focus-visible:ring-glow"
+          >
+            <Gamepad2 className="h-4 w-4" aria-hidden />
+            {t("Oyunlar")}
+          </a></Button>
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
@@ -142,6 +153,16 @@ export function StudioHeader() {
           className="mx-5 mb-4 grid gap-0.5 border-t border-frost/10 pt-3 text-base md:hidden"
           aria-label={t("Mobil menü")}
         >
+          <a
+            href={GAMES_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="mb-1 flex items-center gap-2 rounded-xl bg-mint/10 px-3 py-2.5 font-semibold text-mint transition hover:bg-mint/15"
+          >
+            <Gamepad2 className="h-4 w-4" aria-hidden />
+            {t("Oyunlar")} — {t("Likya Games'i Oyna")}
+          </a>
           {NAV.map((item) => (
             <Button asChild variant="ghost" key={item.label} className="h-11"><Link
               to={item.to}
