@@ -1,6 +1,7 @@
 // Video promptları: her Instagram videosunun DM'de istenen prompt, link ve notları.
 // DM otomasyonu yalnızca kısa bağlantıyı gönderir (likyastudios.live/prompt/<slug> veya /prompt/<no>),
-// metinler burada durur. Yeni video için listeye bir kayıt eklemek yeterlidir; rota ve SEO kendiliğinden oluşur.
+// metinler src/content/prompts/ altındaki JSON dosyalarında durur. Yeni video için bir dosya eklemek yeterlidir;
+// rota, liste ve SEO kendiliğinden oluşur.
 // Metinler videonun kendi DM dosyasından birebir alınır; uydurma özellik, fiyat veya link eklenmez.
 
 export type PromptBlock =
@@ -28,91 +29,32 @@ export type PromptPage = {
   blocks: PromptBlock[];
 };
 
-export const promptPages: PromptPage[] = [
-  {
-    number: 23,
-    slug: "upscayl",
-    date: "2026-11-14",
-    category: "GitHub keşfi",
-    title: "Upscayl: bulanık fotoğrafı ücretsiz netleştir",
-    excerpt:
-      "Videoda gösterilen açık kaynak fotoğraf büyütme uygulamasının indirme ve GitHub bağlantıları.",
-    blocks: [
-      {
-        type: "link",
-        label: "Upscayl'ı indir",
-        url: "https://upscayl.org",
-        note: "Windows, Mac ve Linux için",
-      },
-      {
-        type: "link",
-        label: "GitHub sayfası",
-        url: "https://github.com/upscayl/upscayl",
-        note: "Açık kaynak kodu ve sürümler",
-      },
-      { type: "h2", text: "Nasıl kullanılır?" },
-      {
-        type: "steps",
-        items: [
-          "Kurulumdan sonra fotoğrafını pencereye sürükle.",
-          "Modeli seç.",
-          '"Upscayl" butonuna bas.',
-        ],
-      },
-      {
-        type: "tip",
-        text: "Ekran kartı istiyor; çalışmazsa ayarlardan farklı bir GPU seçmeyi dene.",
-      },
-    ],
-  },
-  {
-    number: 22,
-    slug: "orgu-yemek",
-    date: "2026-11-13",
-    category: "Yapay zekâ",
-    title: "Örgü yemek videosu promptları",
-    excerpt:
-      "Gemini ile örgüden yemek görseli ve videosu üretmek için videoda kullanılan promptların tamamı.",
-    blocks: [
-      { type: "h2", text: "1. Sebze sote" },
-      {
-        type: "prompt",
-        label: "Görsel promptu",
-        tool: "Gemini'de, dikey 9:16",
-        text: "Örgüden (tığ işi yün) yapılmış minyatür bir sebze sote: kırmızı biber, yeşil biber, havuç dilimleri ve köfteler, hepsi renkli yün ilmekleriyle örülmüş. Örgüden bir tavada, örgü bir ocağın üstünde pişiyor, tavadan buhar yükseliyor. Gerçek bir el örgü spatulayla karıştırıyor. Sıcak, loş bir mutfak, arka plan bulanık, yakın çekim, sinematik ışık, ilmekler net görünsün. Dikey 9:16.",
-      },
-      {
-        type: "prompt",
-        label: "Video promptu",
-        tool: "Görseli Gemini Omni'ye ekle",
-        text: "Bu görseli 10 saniyelik videoya çevir. El örgü spatulayla sebzeleri yavaşça karıştırsın, örgü sebzeler tavada hafifçe zıplasın, buhar yükselsin. Kamera yavaşça yaklaşsın. Dikey 9:16, yazı ve logo olmasın.",
-      },
-      { type: "h2", text: "2. Bonus: doğrama" },
-      {
-        type: "prompt",
-        label: "Görsel promptu",
-        tool: "Gemini'de, dikey 9:16",
-        text: "Örgüden (tığ işi yün) yapılmış bir kesme tahtası üzerinde örgü bir domates ve örgü bir salatalık. Gerçek bir el, örgüden yapılmış bir bıçakla domatesi dilimliyor; kesilen dilimlerin içi de ilmek ilmek yün. Yanda örgü soğan halkaları. Sıcak, loş bir mutfak, arka plan bulanık, yakın çekim, sinematik ışık, ilmekler net görünsün. Dikey 9:16.",
-      },
-      {
-        type: "prompt",
-        label: "Video promptu",
-        tool: "Görseli Gemini Omni'ye ekle",
-        text: "Bu görseli 10 saniyelik videoya çevir. El, örgü bıçakla domatesi ritmik şekilde dilimlesin, yün dilimler tahtaya düşüp hafifçe yaylansın, kesim sesleri yumuşak ve tok olsun. Kamera sabit, hafif yaklaşsın. Dikey 9:16, yazı ve logo olmasın.",
-      },
-      {
-        type: "tip",
-        text: '"Sote" yerine kendi yemeğini yaz: menemen, mantı, pizza… Video için Google AI Plus gerekiyor; üniversite öğrencisiysen 12 ay ücretsiz.',
-      },
-      {
-        type: "link",
-        label: "Gemini öğrenci teklifi",
-        url: "https://gemini.google.com/students",
-        note: "Üniversite öğrencilerine 12 ay ücretsiz",
-      },
-    ],
-  },
-];
+import { promptPageErrors } from "./prompt-check";
+
+// Her video src/content/prompts/<NNN>-<slug>.json dosyasıdır (şema: README.md). Dosya eklemek yeterli.
+const files = import.meta.glob<PromptPage>("../content/prompts/*.json", {
+  eager: true,
+  import: "default",
+});
+
+// Bozuk bir dosya siteyi düşürmesin: atlanır ve sunucu günlüğüne yazılır.
+// Yayından önce `bun run check:prompts` aynı kontrolü yapıp hatayı gösterir.
+function loadPages(): PromptPage[] {
+  const pages: PromptPage[] = [];
+  for (const [file, page] of Object.entries(files)) {
+    const errors = promptPageErrors(page);
+    const clash = pages.find((p) => p.slug === page.slug || p.number === page.number);
+    if (clash) errors.push(`slug/number ${clash.slug} ile çakışıyor`);
+    if (errors.length) {
+      console.error(`[prompts] ${file} atlandı: ${errors.join("; ")}`);
+      continue;
+    }
+    pages.push(page);
+  }
+  return pages;
+}
+
+export const promptPages: PromptPage[] = loadPages();
 
 export const sortedPromptPages = () => [...promptPages].sort((a, b) => b.number - a.number);
 
