@@ -1,5 +1,6 @@
 // Central per-route SEO metadata. Each route's head() calls seoHead(path).
 import { journalPosts } from "./journal";
+import { promptPages, promptPath } from "./prompts";
 
 export const SITE_URL = "https://likyastudios.live";
 
@@ -182,6 +183,24 @@ for (const post of journalPosts) {
     description: post.tr.excerpt,
     ogTitle: post.en.title,
     ogDescription: post.en.excerpt,
+    image: og("likya-studios"),
+    type: "article",
+  };
+}
+
+// Video prompt sayfaları: Instagram DM'lerinden gelen ziyaretçiler için.
+seoEntries["/prompt"] = {
+  title: "Video Promptları ve Linkleri — Likya Studios",
+  description:
+    "Likya Studios Instagram videolarında kullanılan promptlar, araç linkleri ve adımlar. Kopyala, yapıştır, dene.",
+  ogTitle: "Likya Studios — Video Prompts & Links",
+  ogDescription: "Prompts, tool links and steps from Likya Studios videos. Copy, paste, try.",
+  image: og("likya-studios"),
+};
+for (const page of promptPages) {
+  seoEntries[promptPath(page)] = {
+    title: `${page.title} | Likya Studios`,
+    description: page.excerpt,
     image: og("likya-studios"),
     type: "article",
   };

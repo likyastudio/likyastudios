@@ -202,6 +202,7 @@ const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
       ["/labs", "Likya Labs"],
       ["/about", "Hakkımızda"],
       ["/journal", "Journal"],
+      ["/prompt", "Promptlar"],
       ["/support", "Destek"],
       ["/contact", "İletişim"],
     ],
