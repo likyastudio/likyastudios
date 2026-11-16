@@ -1,0 +1,23 @@
+{
+  "number": 25,
+  "slug": "markitdown",
+  "date": "2026-11-16",
+  "category": "GitHub keşfi",
+  "title": "MarkItDown: dosyanı yapay zekâya hazırla",
+  "excerpt": "Microsoft'un açık kaynak aracı MarkItDown ile PDF, Word, Excel ve PowerPoint dosyalarını Markdown'a çevirmenin kurulum adımları.",
+  "blocks": [
+    { "type": "link", "label": "GitHub sayfası", "url": "https://github.com/microsoft/markitdown", "note": "Açık kaynak kodu ve belgeler" },
+    { "type": "link", "label": "Python'u indir", "url": "https://www.python.org/downloads/", "note": "Python 3.10 veya üstü gerekli" },
+    { "type": "h2", "text": "Kurulum ve kullanım" },
+    { "type": "steps", "items": [
+      "Bilgisayarında Python 3.10 veya üstü kurulu olsun.",
+      "Terminali (Windows'ta Komut İstemi veya PowerShell) aç.",
+      "Aşağıdaki kurulum komutunu yapıştır.",
+      "Dosyanı çevirme komutunu kendi dosya adınla çalıştır.",
+      "Oluşan .md dosyasını aç, metni kopyala ve ChatGPT, Claude ya da Gemini'ye yapıştır."
+    ] },
+    { "type": "prompt", "label": "Kurulum komutu", "tool": "Terminal", "text": "pip install \"markitdown[all]\"" },
+    { "type": "prompt", "label": "Dosyayı çevir", "tool": "Terminal", "text": "markitdown dosyan.pdf -o dosyan.md" },
+    { "type": "tip", "text": "Sadece PDF, Word ve PowerPoint için daha hafif kurulum: pip install \"markitdown[pdf,docx,pptx]\"" }
+  ]
+}
