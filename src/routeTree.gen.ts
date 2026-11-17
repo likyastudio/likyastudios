@@ -30,6 +30,8 @@ import { Route as PrivacyAstrosyncRouteImport } from './routes/privacy_.astrosyn
 import { Route as PrivacyLikyaBatakRouteImport } from './routes/privacy_.likya-batak'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as PromptIndexRouteImport } from './routes/prompt.index'
+import { Route as PromptSlugRouteImport } from './routes/prompt.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -136,6 +138,16 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   path: '/projects/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PromptIndexRoute = PromptIndexRouteImport.update({
+  id: '/prompt/',
+  path: '/prompt/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PromptSlugRoute = PromptSlugRouteImport.update({
+  id: '/prompt/$slug',
+  path: '/prompt/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -156,9 +168,11 @@ export interface FileRoutesByFullPath {
   '/privacy/astrosync': typeof PrivacyAstrosyncRoute
   '/privacy/likya-batak': typeof PrivacyLikyaBatakRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/prompt/$slug': typeof PromptSlugRoute
   '/journal/': typeof JournalIndexRoute
   '/labs/': typeof LabsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
+  '/prompt/': typeof PromptIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -179,9 +193,11 @@ export interface FileRoutesByTo {
   '/privacy/astrosync': typeof PrivacyAstrosyncRoute
   '/privacy/likya-batak': typeof PrivacyLikyaBatakRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/prompt/$slug': typeof PromptSlugRoute
   '/journal': typeof JournalIndexRoute
   '/labs': typeof LabsIndexRoute
   '/projects': typeof ProjectsIndexRoute
+  '/prompt': typeof PromptIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -203,9 +219,11 @@ export interface FileRoutesById {
   '/privacy_/astrosync': typeof PrivacyAstrosyncRoute
   '/privacy_/likya-batak': typeof PrivacyLikyaBatakRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/prompt/$slug': typeof PromptSlugRoute
   '/journal/': typeof JournalIndexRoute
   '/labs/': typeof LabsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
+  '/prompt/': typeof PromptIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -228,9 +246,11 @@ export interface FileRouteTypes {
     | '/privacy/astrosync'
     | '/privacy/likya-batak'
     | '/projects/$slug'
+    | '/prompt/$slug'
     | '/journal/'
     | '/labs/'
     | '/projects/'
+    | '/prompt/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -251,9 +271,11 @@ export interface FileRouteTypes {
     | '/privacy/astrosync'
     | '/privacy/likya-batak'
     | '/projects/$slug'
+    | '/prompt/$slug'
     | '/journal'
     | '/labs'
     | '/projects'
+    | '/prompt'
   id:
     | '__root__'
     | '/'
@@ -274,9 +296,11 @@ export interface FileRouteTypes {
     | '/privacy_/astrosync'
     | '/privacy_/likya-batak'
     | '/projects/$slug'
+    | '/prompt/$slug'
     | '/journal/'
     | '/labs/'
     | '/projects/'
+    | '/prompt/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -298,9 +322,11 @@ export interface RootRouteChildren {
   PrivacyAstrosyncRoute: typeof PrivacyAstrosyncRoute
   PrivacyLikyaBatakRoute: typeof PrivacyLikyaBatakRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
+  PromptSlugRoute: typeof PromptSlugRoute
   JournalIndexRoute: typeof JournalIndexRoute
   LabsIndexRoute: typeof LabsIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
+  PromptIndexRoute: typeof PromptIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -452,6 +478,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/prompt/': {
+      id: '/prompt/'
+      path: '/prompt'
+      fullPath: '/prompt/'
+      preLoaderRoute: typeof PromptIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prompt/$slug': {
+      id: '/prompt/$slug'
+      path: '/prompt/$slug'
+      fullPath: '/prompt/$slug'
+      preLoaderRoute: typeof PromptSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -474,9 +514,11 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyAstrosyncRoute: PrivacyAstrosyncRoute,
   PrivacyLikyaBatakRoute: PrivacyLikyaBatakRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
+  PromptSlugRoute: PromptSlugRoute,
   JournalIndexRoute: JournalIndexRoute,
   LabsIndexRoute: LabsIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
+  PromptIndexRoute: PromptIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

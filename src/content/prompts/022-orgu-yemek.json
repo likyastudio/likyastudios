@@ -1,0 +1,52 @@
+{
+  "number": 22,
+  "slug": "orgu-yemek",
+  "date": "2026-11-13",
+  "category": "Yapay zekâ",
+  "title": "Örgü yemek videosu promptları",
+  "excerpt": "Gemini ile örgüden yemek görseli ve videosu üretmek için videoda kullanılan promptların tamamı.",
+  "blocks": [
+    {
+      "type": "h2",
+      "text": "1. Sebze sote"
+    },
+    {
+      "type": "prompt",
+      "label": "Görsel promptu",
+      "tool": "Gemini'de, dikey 9:16",
+      "text": "Örgüden (tığ işi yün) yapılmış minyatür bir sebze sote: kırmızı biber, yeşil biber, havuç dilimleri ve köfteler, hepsi renkli yün ilmekleriyle örülmüş. Örgüden bir tavada, örgü bir ocağın üstünde pişiyor, tavadan buhar yükseliyor. Gerçek bir el örgü spatulayla karıştırıyor. Sıcak, loş bir mutfak, arka plan bulanık, yakın çekim, sinematik ışık, ilmekler net görünsün. Dikey 9:16."
+    },
+    {
+      "type": "prompt",
+      "label": "Video promptu",
+      "tool": "Görseli Gemini Omni'ye ekle",
+      "text": "Bu görseli 10 saniyelik videoya çevir. El örgü spatulayla sebzeleri yavaşça karıştırsın, örgü sebzeler tavada hafifçe zıplasın, buhar yükselsin. Kamera yavaşça yaklaşsın. Dikey 9:16, yazı ve logo olmasın."
+    },
+    {
+      "type": "h2",
+      "text": "2. Bonus: doğrama"
+    },
+    {
+      "type": "prompt",
+      "label": "Görsel promptu",
+      "tool": "Gemini'de, dikey 9:16",
+      "text": "Örgüden (tığ işi yün) yapılmış bir kesme tahtası üzerinde örgü bir domates ve örgü bir salatalık. Gerçek bir el, örgüden yapılmış bir bıçakla domatesi dilimliyor; kesilen dilimlerin içi de ilmek ilmek yün. Yanda örgü soğan halkaları. Sıcak, loş bir mutfak, arka plan bulanık, yakın çekim, sinematik ışık, ilmekler net görünsün. Dikey 9:16."
+    },
+    {
+      "type": "prompt",
+      "label": "Video promptu",
+      "tool": "Görseli Gemini Omni'ye ekle",
+      "text": "Bu görseli 10 saniyelik videoya çevir. El, örgü bıçakla domatesi ritmik şekilde dilimlesin, yün dilimler tahtaya düşüp hafifçe yaylansın, kesim sesleri yumuşak ve tok olsun. Kamera sabit, hafif yaklaşsın. Dikey 9:16, yazı ve logo olmasın."
+    },
+    {
+      "type": "tip",
+      "text": "\"Sote\" yerine kendi yemeğini yaz: menemen, mantı, pizza… Video için Google AI Plus gerekiyor; üniversite öğrencisiysen 12 ay ücretsiz."
+    },
+    {
+      "type": "link",
+      "label": "Gemini öğrenci teklifi",
+      "url": "https://gemini.google.com/students",
+      "note": "Üniversite öğrencilerine 12 ay ücretsiz"
+    }
+  ]
+}

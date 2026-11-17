@@ -1,0 +1,16 @@
+{
+  "number": 24,
+  "slug": "ogrenci",
+  "date": "2026-11-15",
+  "category": "Öğrenci fırsatları",
+  "title": "Öğrencilere ücretsiz 8 araç: başvuru linkleri",
+  "excerpt": "Videodaki öğrenci tekliflerinin resmi başvuru sayfaları: Office 365 A1, Gemini AI Plus, GitHub Öğrenci Paketi, Miro ve Unity.",
+  "blocks": [
+    { "type": "link", "label": "Word, Excel, PowerPoint", "url": "https://www.microsoft.com/tr-tr/education/products/office", "note": "Office 365 A1, okul hesabınla, tarayıcıda (okulun programa dahilse)" },
+    { "type": "link", "label": "Gemini Google AI Plus öğrenci planı", "url": "https://gemini.google/tr/students/", "note": "1 yıl ücretsiz" },
+    { "type": "link", "label": "GitHub Öğrenci Paketi", "url": "https://education.github.com/pack", "note": "Copilot, Notion, JetBrains ve 1Password burada" },
+    { "type": "link", "label": "Miro öğrenci planı", "url": "https://miro.com/education/", "note": "10 kişi, 2 yıl" },
+    { "type": "link", "label": "Unity Student planı", "url": "https://unity.com/products/unity-student", "note": "Unity Pro, 1 yıl, yenilenir" },
+    { "type": "tip", "text": "GitHub paketine başvururken okul mailini GitHub hesabına ekle ve öğrenci belgeni hazır tut. Paket onaylanınca Copilot, Notion, JetBrains ve 1Password tekliflerini paket sayfasından tek tek açarsın." }
+  ]
+}

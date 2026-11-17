@@ -1,0 +1,38 @@
+{
+  "number": 23,
+  "slug": "upscayl",
+  "date": "2026-11-14",
+  "category": "GitHub keşfi",
+  "title": "Upscayl: bulanık fotoğrafı ücretsiz netleştir",
+  "excerpt": "Videoda gösterilen açık kaynak fotoğraf büyütme uygulamasının indirme ve GitHub bağlantıları.",
+  "blocks": [
+    {
+      "type": "link",
+      "label": "Upscayl'ı indir",
+      "url": "https://upscayl.org",
+      "note": "Windows, Mac ve Linux için"
+    },
+    {
+      "type": "link",
+      "label": "GitHub sayfası",
+      "url": "https://github.com/upscayl/upscayl",
+      "note": "Açık kaynak kodu ve sürümler"
+    },
+    {
+      "type": "h2",
+      "text": "Nasıl kullanılır?"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Kurulumdan sonra fotoğrafını pencereye sürükle.",
+        "Modeli seç.",
+        "\"Upscayl\" butonuna bas."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Ekran kartı istiyor; çalışmazsa ayarlardan farklı bir GPU seçmeyi dene."
+    }
+  ]
+}

@@ -23,3 +23,4 @@
 
 - Homepage and Projects use the shared StudioEcosystem/GamesFeature presentation, separate from product showcases, so listing redesigns never alter game logic or detail pages.
 - Visual system is Atelier Zero (OpenDesign `design-systems/atelier-zero`): tokens keep their old names in `src/styles.css` (`void` = paper, `frost` = ink, `ember` = text-safe terracotta, `coral` = bright fill only). Homepage sections live in `src/components/atelier/` with TR/EN copy side by side; collage images are in `public/atelier/` (Apache-2.0, see NOTICE.txt). Likya Mutant is played on games.likyastudios.live, not on this site.
+- Video prompt pages (`/prompt`, `/prompt/$slug`) are data-only: one JSON file per Instagram video in `src/content/prompts/` (schema and steps in its README), loaded and validated by `src/data/prompts.ts`. Adding a video never needs code changes.
