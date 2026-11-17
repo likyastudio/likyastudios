@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LangProvider, useT } from "../lib/i18n";
+import { ConsentBanner } from "@/components/studio/consent-banner";
 
 function NotFoundComponent() {
   const t = useT();
@@ -130,6 +131,7 @@ function RootComponent() {
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <LangProvider>
         <Outlet />
+        <ConsentBanner />
       </LangProvider>
     </QueryClientProvider>
   );

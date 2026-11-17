@@ -113,6 +113,7 @@ export const DICT: Record<string, [string, string]> = {
   Gizlilik: ["Gizlilik", "Privacy"],
   "Kullanım Koşulları": ["Kullanım Koşulları", "Terms of Service"],
   Çerezler: ["Çerezler", "Cookies"],
+  "Çerez tercihleri": ["Çerez tercihleri", "Cookie settings"],
   "Hesap Silme": ["Hesap Silme", "Delete Account"],
   "From Idea to Digital Reality.": [
     "Fikirden Dijital Gerçekliğe.",

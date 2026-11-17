@@ -1,5 +1,6 @@
 import logoAsset from "@/assets/likya-logo.png.asset.json";
 import { useEffect, useState, type ReactNode } from "react";
+import { analyticsEnabled, openConsentSettings } from "@/lib/analytics";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Gamepad2, Instagram, Menu, MessageCircle, X, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -277,7 +278,14 @@ export function StudioFooter() {
           <span className="text-ember">.</span>
         </p>
         <div className="mt-8 flex flex-col justify-between gap-2 border-t border-frost/20 pt-5 font-mono text-[11px] text-[color:var(--ink-faint)] sm:flex-row">
-          <span>© 2026 Likya Studios</span>
+          <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <span>© 2026 Likya Studios</span>
+            {analyticsEnabled() && (
+              <button type="button" onClick={openConsentSettings} className="underline-offset-2 hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-glow">
+                {t("Çerez tercihleri")}
+              </button>
+            )}
+          </span>
           <span>{t("Built in Antalya, Türkiye.")}</span>
         </div>
       </div>

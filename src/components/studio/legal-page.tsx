@@ -56,7 +56,7 @@ export function LegalPage({ kind }: { kind: LegalKind }) {
               </div>
             )}
             <p className="border-b border-frost/10 pb-6 text-sm text-muted-foreground">
-              {page.updatedLabel}: <time dateTime="2026-10-02">{lang === "en" ? "2 October 2026" : LAST_UPDATED}</time>
+              {page.updatedLabel}: <time dateTime="2026-11-18">{lang === "en" ? "18 November 2026" : LAST_UPDATED}</time>
             </p>
             {page.sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-28 border-b border-frost/10 py-8 first:pt-8">
