@@ -11,8 +11,9 @@ import { PromptBlocks, PROMPT_BRAND as B } from "@/components/studio/prompt-bloc
 export const Route = createFileRoute("/prompt/$slug")({
   // /prompt/22 gibi numaralı bağlantılar da çalışır; SEO her zaman slug'lı adresi kullanır.
   head: ({ params }) => {
+    // Henüz açılmamış (publishAt) ya da olmayan sayfa: başlık ve açıklama sızmasın, noindex varsayılanı.
     const page = findPromptPage(params.slug);
-    return seoHead(page ? promptPath(page) : `/prompt/${params.slug}`);
+    return seoHead(page ? promptPath(page) : "/prompt/bulunamadi");
   },
   component: PromptPageView,
 });

@@ -23,6 +23,13 @@ export type PromptPage = {
   number: number;
   slug: string;
   date: string; // ISO, videonun hazırlandığı tarih (VIDEO-KAYDI.md)
+  /**
+   * İsteğe bağlı yayın anı, saat dilimiyle: "2026-11-18T09:00:00+03:00".
+   * Bu andan önce sayfa listede görünmez ve adresi "bulunamadı" der; an gelince
+   * yeniden yayın gerekmeden kendiliğinden açılır (sayfa her istekte sunucuda çizilir).
+   * Yoksa sayfa hemen yayındadır.
+   */
+  publishAt?: string;
   category: string;
   title: string;
   excerpt: string;
@@ -56,14 +63,19 @@ function loadPages(): PromptPage[] {
 
 export const promptPages: PromptPage[] = loadPages();
 
-export const sortedPromptPages = () => [...promptPages].sort((a, b) => b.number - a.number);
+/** Sayfa şu an açık mı? publishAt yoksa her zaman açıktır. */
+export const isPromptLive = (p: PromptPage, now = Date.now()) =>
+  !p.publishAt || Date.parse(p.publishAt) <= now;
+
+export const sortedPromptPages = () =>
+  promptPages.filter((p) => isPromptLive(p)).sort((a, b) => b.number - a.number);
 
 /** Slug ya da video numarasıyla ("22", "022") sayfayı bulur. */
 export function findPromptPage(key: string) {
-  const bySlug = promptPages.find((p) => p.slug === key);
-  if (bySlug) return bySlug;
-  if (/^\d{1,4}$/.test(key)) return promptPages.find((p) => p.number === Number(key));
-  return undefined;
+  const page =
+    promptPages.find((p) => p.slug === key) ??
+    (/^\d{1,4}$/.test(key) ? promptPages.find((p) => p.number === Number(key)) : undefined);
+  return page && isPromptLive(page) ? page : undefined;
 }
 
 export const promptPath = (p: PromptPage) => `/prompt/${p.slug}`;
