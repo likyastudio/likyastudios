@@ -34,7 +34,12 @@ for (const name of readdirSync(dir)
     failed = true;
     for (const e of errors) console.error(`✗ ${name}: ${e}`);
   } else {
-    console.log(`✓ ${name} → likyastudios.live/prompt/${page.slug}`);
+    const at = page.publishAt ? Date.parse(page.publishAt) : 0;
+    const when =
+      at > Date.now()
+        ? ` (⏰ ${new Date(at).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })} İstanbul saatinde açılır)`
+        : "";
+    console.log(`✓ ${name} → likyastudios.live/prompt/${page.slug}${when}`);
   }
 }
 process.exit(failed ? 1 : 0);

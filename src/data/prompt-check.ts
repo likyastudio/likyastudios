@@ -12,6 +12,14 @@ export function promptPageErrors(page: Partial<PromptPage>): string[] {
   if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(page.slug ?? ""))
     errors.push("slug küçük harf, rakam ve tire olmalı");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(page.date ?? "")) errors.push("date YYYY-AA-GG olmalı");
+  if (
+    page.publishAt !== undefined &&
+    !(
+      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(Z|[+-]\d{2}:\d{2})$/.test(page.publishAt) &&
+      !Number.isNaN(Date.parse(page.publishAt))
+    )
+  )
+    errors.push('publishAt saat dilimiyle yazılmalı, örn. "2026-11-18T09:00:00+03:00"');
   for (const key of ["category", "title", "excerpt"] as const) {
     if (typeof page[key] !== "string" || !page[key]?.trim()) errors.push(`${key} boş olamaz`);
   }
