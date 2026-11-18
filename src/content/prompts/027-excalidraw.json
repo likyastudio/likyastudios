@@ -1,0 +1,45 @@
+{
+  "number": 27,
+  "slug": "excalidraw",
+  "date": "2026-11-18",
+  "publishAt": "2026-11-19T09:00:00+03:00",
+  "category": "GitHub keşfi",
+  "title": "Excalidraw: elle çizim gibi ücretsiz beyaz tahta",
+  "excerpt": "Açık kaynak beyaz tahta Excalidraw'ı üye olmadan kullanma, birlikte çizme ve PNG/SVG olarak indirme adımları.",
+  "blocks": [
+    {
+      "type": "link",
+      "label": "Excalidraw'ı aç",
+      "url": "https://excalidraw.com",
+      "note": "Üye olmadan, tarayıcıda çalışır"
+    },
+    {
+      "type": "link",
+      "label": "GitHub sayfası",
+      "url": "https://github.com/excalidraw/excalidraw",
+      "note": "Açık kaynak, MIT lisans"
+    },
+    {
+      "type": "h2",
+      "text": "Nasıl kullanılır?"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Linki aç; üye olmana gerek yok. Dil Türkçe değilse sol üstteki menüden (☰) en alttaki listeden Türkçe'yi seç.",
+        "Alttaki araçlardan kutu, ok ve yazı aracını seçip tuvale çiz.",
+        "Bir şeklin içine yazı yazmak için şekle çift dokun.",
+        "Arkadaşınla birlikte çizmek için: menü (☰) → Canlı ortak çalışma alanı → Oturumu başlat. Çıkan linki paylaş.",
+        "Bitince: menü (☰) → Resimleri dışa aktar → PNG ya da SVG."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Çizimler tarayıcında saklanır ve tarayıcı verisi silinirse kaybolabilir. Önemli çalışmalarını menü (☰) → Şuraya kaydet ile dosyaya da kaydet."
+    },
+    {
+      "type": "p",
+      "text": "Canlı ortak çalışma oturumları uçtan uca şifrelidir; Excalidraw'ın kendi açıklamasına göre çizdiklerinizi sunucuları bile göremez."
+    }
+  ]
+}
