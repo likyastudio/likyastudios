@@ -1,0 +1,82 @@
+{
+  "number": 28,
+  "slug": "gta6-turkce-altyazi",
+  "date": "2026-11-19",
+  "publishAt": "2026-11-19T09:00:00+03:00",
+  "category": "Oyun",
+  "title": "GTA 6'yı konsolda Türkçe altyazıyla oynamak: CouchSubs kurulumu",
+  "excerpt": "GTA 6'da Türkçe yok. Ücretsiz ve açık kaynak CouchSubs ile PS5'te İngilizce altyazıyı TV'de Türkçe görme adımları ve dürüst uyarılar.",
+  "blocks": [
+    {
+      "type": "link",
+      "label": "CouchSubs resmi sitesi",
+      "url": "https://couchsubs.enmeraapps.com",
+      "note": "Ücretsiz, hesap istemez · Windows, Mac ve Android"
+    },
+    {
+      "type": "link",
+      "label": "GitHub sayfası",
+      "url": "https://github.com/yorulmazsinan/couchsubs",
+      "note": "Açık kaynak (AGPL-3.0) · sadece buradan ya da Google Play'den indir"
+    },
+    {
+      "type": "h2",
+      "text": "Neden gerekli?"
+    },
+    {
+      "type": "p",
+      "text": "GTA 6 PS5 ve Xbox Series X|S'te çıktı ama Türkçe altyazı, menü ya da dublaj yok. Konsola Türkçe yama kurulamaz; \"GTA 6 Türkçe yama\" diye satılan ya da paylaşılan dosyalar sahte. CouchSubs oyuna dokunmadan, ekrandaki İngilizce altyazıyı okuyup Türkçeye çevirir ve TV'de oyunun üstünde gösterir."
+    },
+    {
+      "type": "h2",
+      "text": "Gerekenler"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "PS5 (TV'ye HDMI ile bağlı). Xbox desteği yeni eklendi ve hâlâ beta.",
+        "Aynı ev ağında bir Windows 10/11 bilgisayar, Mac ya da Android telefon.",
+        "Akıllı TV: LG (webOS 4+), Samsung (2019 ve sonrası) ya da Android TV / Google TV. Linux tabanlı Vestel/Arçelik/Beko/Grundig modelleri ve Philips Saphi desteklenmiyor.",
+        "Ücretsiz ikinci bir PSN hesabı."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Kurulum adımları"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "CouchSubs'ı yalnızca resmi siteden, GitHub'dan ya da Google Play'den indir. İsim değiştirilmiş kopyaları indirme.",
+        "Windows \"bilgisayarınızı korudu\" uyarısı verirse: Ek bilgi → Yine de çalıştır (yalnızca resmi dosya için).",
+        "Ücretsiz yeni bir PSN hesabı aç ve kurulumda onunla giriş yap. Giriş Sony'nin kendi sayfasında yapılır.",
+        "PS5'te ikinci hesabın kullanıcısıyla: Ayarlar → Sistem → Uzaktan Oynatma → Cihazı Eşleştir. Çıkan 8 haneli kodu CouchSubs'a gir.",
+        "TV'ni seç ve geliştirici modunu aç. Adımları uygulama ekranda gösterir, TV uygulamasını kendisi kurar.",
+        "GTA 6'da altyazıyı aç ve dilini İngilizce yap.",
+        "Oyuna ana hesabınla gir, TV'de normal oyna. Türkçe altyazı oyunun üstünde görünür."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Kendi hesabınla Remote Play bağlantısı kolunu kapatır; bu yüzden ikinci hesap şart. PS Remote Play uygulamasıyla aynı anda çalışmaz."
+    },
+    {
+      "type": "h2",
+      "text": "Dürüst uyarılar"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Uygulama hâlâ beta; sık güncelleniyor, hatalar olabilir.",
+        "Çeviri makine çevirisi; bazı cümleler kusurlu olabilir. GTA 6 için hazır çeviri paketi henüz yok.",
+        "Sony'den resmi bir görüş yok; geliştirici de ban olmayacağını garanti etmiyor.",
+        "Okunan İngilizce altyazı satırları varsayılan olarak ortak havuza gönderilir; istersen ayarlardan kapat.",
+        "TV geliştirici modunu kullanmadığın zaman kapatabilirsin."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Ücretli alternatifler de var (Game Caption, Dijitransio, Console Translator); hepsi deneme süresinden sonra abonelik istiyor ve aynı yöntemle çalışıyor."
+    }
+  ]
+}
