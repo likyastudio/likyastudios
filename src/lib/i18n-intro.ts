@@ -237,9 +237,9 @@ export const INTRO_DICT: Record<string, [string, string]> = {
   "SSS": ["SSS", "FAQ"],
   "Sıkça sorulan sorular": ["Sıkça sorulan sorular", "Frequently asked questions"],
   "Fiyatlarınız ne kadar?": ["Fiyatlarınız ne kadar?", "How much do you charge?"],
-  "Sabit paket fiyatımız yok. Fiyatı, işin kapsamına ve isteklerinize göre veriyoruz. İhtiyacınızı form, WhatsApp veya e-posta ile anlatın; size özel bir teklif hazırlayalım.": [
-    "Sabit paket fiyatımız yok. Fiyatı, işin kapsamına ve isteklerinize göre veriyoruz. İhtiyacınızı form, WhatsApp veya e-posta ile anlatın; size özel bir teklif hazırlayalım.",
-    "We have no fixed packages. We price each job by its scope and your requirements. Tell us what you need by form, WhatsApp or email and we will prepare a quote for you.",
+  "İşletmeler için Başlangıç Paketi'nde kurulum ücretsiz, aylık bakım 2.500 TL'den başlıyor. Uygulama, oyun ve video işlerinde kapsama göre teklif veriyoruz.": [
+    "İşletmeler için Başlangıç Paketi'nde kurulum ücretsiz, aylık bakım 2.500 TL'den başlıyor. Uygulama, oyun ve video işlerinde kapsama göre teklif veriyoruz.",
+    "For businesses, the Starter Package has free setup and monthly care starting from 2,500 TL. For apps, games and video we quote based on scope.",
   ],
   "Bir web sitesi ne kadar sürede hazır olur?": ["Bir web sitesi ne kadar sürede hazır olur?", "How long does a website take?"],
   "Süre; sayfa sayısına, içeriğin hazır olup olmadığına ve istenen özelliklere bağlı. Teklifle birlikte size net bir takvim veriyoruz.": [

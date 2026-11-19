@@ -16,6 +16,7 @@ import { Route as BrandRouteImport } from './routes/brand'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DeleteAccountRouteImport } from './routes/delete-account'
+import { Route as IsletmelerRouteImport } from './routes/isletmeler'
 import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as PressRouteImport } from './routes/press'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -66,6 +67,11 @@ const CookiesRoute = CookiesRouteImport.update({
 const DeleteAccountRoute = DeleteAccountRouteImport.update({
   id: '/delete-account',
   path: '/delete-account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IsletmelerRoute = IsletmelerRouteImport.update({
+  id: '/isletmeler',
+  path: '/isletmeler',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KvkkRoute = KvkkRouteImport.update({
@@ -157,6 +163,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/delete-account': typeof DeleteAccountRoute
+  '/isletmeler': typeof IsletmelerRoute
   '/kvkk': typeof KvkkRoute
   '/press': typeof PressRoute
   '/privacy': typeof PrivacyRoute
@@ -182,6 +189,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/delete-account': typeof DeleteAccountRoute
+  '/isletmeler': typeof IsletmelerRoute
   '/kvkk': typeof KvkkRoute
   '/press': typeof PressRoute
   '/privacy': typeof PrivacyRoute
@@ -208,6 +216,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/delete-account': typeof DeleteAccountRoute
+  '/isletmeler': typeof IsletmelerRoute
   '/kvkk': typeof KvkkRoute
   '/press': typeof PressRoute
   '/privacy': typeof PrivacyRoute
@@ -235,6 +244,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/delete-account'
+    | '/isletmeler'
     | '/kvkk'
     | '/press'
     | '/privacy'
@@ -260,6 +270,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/delete-account'
+    | '/isletmeler'
     | '/kvkk'
     | '/press'
     | '/privacy'
@@ -285,6 +296,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/delete-account'
+    | '/isletmeler'
     | '/kvkk'
     | '/press'
     | '/privacy'
@@ -311,6 +323,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DeleteAccountRoute: typeof DeleteAccountRoute
+  IsletmelerRoute: typeof IsletmelerRoute
   KvkkRoute: typeof KvkkRoute
   PressRoute: typeof PressRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -378,6 +391,13 @@ declare module '@tanstack/react-router' {
       path: '/delete-account'
       fullPath: '/delete-account'
       preLoaderRoute: typeof DeleteAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/isletmeler': {
+      id: '/isletmeler'
+      path: '/isletmeler'
+      fullPath: '/isletmeler'
+      preLoaderRoute: typeof IsletmelerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kvkk': {
@@ -503,6 +523,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DeleteAccountRoute: DeleteAccountRoute,
+  IsletmelerRoute: IsletmelerRoute,
   KvkkRoute: KvkkRoute,
   PressRoute: PressRoute,
   PrivacyRoute: PrivacyRoute,

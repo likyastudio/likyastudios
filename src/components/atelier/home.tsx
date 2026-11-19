@@ -276,6 +276,12 @@ function Services() {
               <Mixed segs={c.headline} />
             </h2>
             <p className={`mt-6 max-w-[36rem] ${lead}`}>{c.lead}</p>
+            <Link
+              to="/isletmeler"
+              className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full border border-ember/50 px-[22px] font-display text-sm font-semibold text-ember transition duration-200 hover:-translate-y-px hover:bg-ember/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
+            >
+              {pick({ tr: "İşletmeler için Başlangıç Paketi →", en: "Starter Package for businesses →" })}
+            </Link>
             <div className="mt-10 grid gap-4 sm:grid-cols-2" data-m="stagger">
               {c.cards.map((card, i) => (
                 <a
@@ -657,7 +663,7 @@ const CTA: Bi<{ label: string; headline: Seg[]; lead: string; cta: string; wa: s
       { text: " hayata geçirelim" },
       { text: ".", dot: true },
     ],
-    lead: "Sabit paket fiyatımız yok; fiyatı isteğinize göre veriyoruz. İhtiyacınızı birkaç cümleyle yazın, size e-posta, telefon ya da WhatsApp ile dönelim.",
+    lead: "İşletmeler için Başlangıç Paketi: kurulum ücretsiz, aylık bakım 2.500 TL'den. Diğer işlerde fiyatı isteğinize göre veriyoruz. İhtiyacınızı birkaç cümleyle yazın, size e-posta, telefon ya da WhatsApp ile dönelim.",
     cta: "Formu Doldur",
     wa: "WhatsApp'tan Yazın",
   },
@@ -670,7 +676,7 @@ const CTA: Bi<{ label: string; headline: Seg[]; lead: string; cta: string; wa: s
       { text: "care", em: true },
       { text: ".", dot: true },
     ],
-    lead: "We have no fixed packages; we price each job by your request. Describe what you need in a few sentences and we will reply by email, phone or WhatsApp.",
+    lead: "For businesses, the Starter Package: free setup, monthly care from 2,500 TL. For other work we price by your request. Describe what you need in a few sentences and we will reply by email, phone or WhatsApp.",
     cta: "Fill in the Form",
     wa: "Message us on WhatsApp",
   },

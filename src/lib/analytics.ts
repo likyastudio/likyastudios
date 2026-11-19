@@ -74,6 +74,39 @@ export function trackPageView() {
   });
 }
 
+/** Özel olay gönderir; gtag yüklü değilse (onay yoksa) hiçbir şey yapmaz. */
+export function trackEvent(name: string, params: Record<string, unknown> = {}) {
+  if (!loaded || !window.gtag || readConsent() !== "granted") return;
+  window.gtag("event", name, params);
+}
+
+let leadTrackingInstalled = false;
+
+/**
+ * WhatsApp (wa.me) ve tel: bağlantılarına yapılan tıklamaları tek bir dinleyiciyle
+ * "generate_lead" olayı olarak ölçer. Form gönderimi contact-form içinden ayrıca bildirilir.
+ */
+export function installLeadTracking() {
+  if (leadTrackingInstalled || typeof document === "undefined") return;
+  leadTrackingInstalled = true;
+  document.addEventListener(
+    "click",
+    (event) => {
+      const target = event.target as Element | null;
+      const link = target?.closest?.("a[href]") as HTMLAnchorElement | null;
+      if (!link) return;
+      const href = link.getAttribute("href") ?? "";
+      const method = href.startsWith("tel:")
+        ? "phone"
+        : /^https?:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)
+          ? "whatsapp"
+          : null;
+      if (method) trackEvent("generate_lead", { method, page: window.location.pathname });
+    },
+    { capture: true },
+  );
+}
+
 export function setConsent(value: Consent) {
   try {
     window.localStorage.setItem(CONSENT_KEY, value);
