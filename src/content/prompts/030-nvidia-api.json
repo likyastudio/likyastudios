@@ -1,0 +1,40 @@
+{
+  "number": 30,
+  "slug": "nvidia-api",
+  "date": "2026-11-19",
+  "publishAt": "2026-11-21T06:03:00+03:00",
+  "category": "Yapay zeka araçları",
+  "title": "NVIDIA API anahtarı: ücretsiz yapay zekayla kod yazdır",
+  "excerpt": "build.nvidia.com'dan ücretsiz bir API anahtarı al, OpenCode'a bağla ve Kimi, GLM, DeepSeek gibi dev açık modellere Türkçe anlatarak kod yazdır.",
+  "blocks": [
+    { "type": "link", "label": "NVIDIA build (API anahtarı ve modeller)", "url": "https://build.nvidia.com/models", "note": "Ücretsiz deneme uç noktaları · hesap gerekir" },
+    { "type": "link", "label": "OpenCode indir", "url": "https://opencode.ai/download", "note": "Açık kaynak kodlama ajanı · Mac, Windows, Linux" },
+    { "type": "h2", "text": "1. Anahtarı al" },
+    { "type": "steps", "items": [
+      "build.nvidia.com'a gir ve ücretsiz hesap aç.",
+      "Bir modelin sayfasını aç (ör. GLM, Kimi, DeepSeek). \"Prototype: Start building with a free API endpoint\" bölümünde \"Generate API Key\"e bas.",
+      "Anahtarı kopyala ve güvenli bir yere kaydet. Kimseyle paylaşma, ekran görüntüsünde gösterme."
+    ] },
+    { "type": "h2", "text": "2. OpenCode'u kur" },
+    { "type": "steps", "items": [
+      "En kolayı masaüstü uygulaması: opencode.ai/download adresinden işletim sistemine uygun dosyayı indir ve kur.",
+      "Terminal seviyorsan: curl -fsSL https://opencode.ai/v2/install | bash ya da npm i -g @opencode/cli@latest.",
+      "Bir proje klasörü aç (boş bir klasör de olur); OpenCode orada çalışır."
+    ] },
+    { "type": "h2", "text": "3. NVIDIA'yı bağla" },
+    { "type": "steps", "items": [
+      "OpenCode'da /connect yaz, sağlayıcı listesinden Nvidia'yı seç ve anahtarını yapıştır.",
+      "/models yaz ve NVIDIA modellerinden birini seç.",
+      "Ne istediğini Türkçe yaz. Örnek: \"Kahve dükkanım için menüsü olan tek sayfalık bir web sitesi yap.\""
+    ] },
+    { "type": "h2", "text": "Neler yaptırabilirsin?" },
+    { "type": "steps", "items": [
+      "Kendi web siten: portfolyo, menü, etkinlik sayfası.",
+      "Excel'i otomatik dolduran bir araç: klasördeki faturalardan tablo çıkaran küçük bir betik.",
+      "PDF'teki tabloları ayıklayan bir uygulama: tabloları Excel'e aktaran bir araç.",
+      "Mevcut kodunu açıklatma, hata buldurma, yeni özellik ekletme."
+    ] },
+    { "type": "tip", "text": "Bu bir deneme hizmeti. NVIDIA'nın sayfasında yazdığı gibi girdi ve çıktıların kaydediliyor; gizli bilgi, şifre ya da müşteri verisi yükleme. İstek sayısında dakikalık sınır var, yoğun saatlerde yavaşlayabilir." },
+    { "type": "p", "text": "Ücretsiz uç noktalar NVIDIA'nın deneme ve geliştirme için sunduğu hizmettir; modeller ve koşullar zamanla değişebilir. Güncel listeyi build.nvidia.com/models sayfasında \"Free Endpoint\" filtresiyle görebilirsin." }
+  ]
+}
