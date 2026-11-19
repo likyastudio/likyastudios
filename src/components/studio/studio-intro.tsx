@@ -335,7 +335,7 @@ export function GamesBand() {
 export const FAQ: [string, string][] = [
   [
     "Fiyatlarınız ne kadar?",
-    "Sabit paket fiyatımız yok. Fiyatı, işin kapsamına ve isteklerinize göre veriyoruz. İhtiyacınızı form, WhatsApp veya e-posta ile anlatın; size özel bir teklif hazırlayalım.",
+    "İşletmeler için Başlangıç Paketi'nde kurulum ücretsiz; aylık bakım ücretini işletmenize göre, bize ulaştığınızda iletiyoruz. Uygulama, oyun ve video işlerinde kapsama göre teklif veriyoruz.",
   ],
   [
     "Bir web sitesi ne kadar sürede hazır olur?",

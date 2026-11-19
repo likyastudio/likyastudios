@@ -12,3 +12,12 @@ export function whatsappUrl(lang: "tr" | "en") {
       : "Merhaba, web sitenizden ulaşıyorum. Bir proje için teklif almak istiyorum.";
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
+
+/** /isletmeler sayfası için: Başlangıç Paketi hakkında bilgi isteyen hazır mesaj. */
+export function starterPackWhatsappUrl(lang: "tr" | "en") {
+  const text =
+    lang === "en"
+      ? "Hello, I found you on your website. I'd like information about the Starter Package for my business."
+      : "Merhaba, web sitenizden ulaşıyorum. İşletmem için Başlangıç Paketi hakkında bilgi almak istiyorum.";
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}

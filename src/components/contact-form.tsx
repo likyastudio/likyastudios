@@ -4,8 +4,10 @@ import { useLang } from "@/lib/i18n";
 import { useServerFn } from "@tanstack/react-start";
 import { submitContactRequest } from "@/lib/contact.functions";
 import { PHONE_DISPLAY, PHONE_TEL, whatsappUrl } from "@/data/contact";
+import { trackEvent } from "@/lib/analytics";
 
 const serviceOptions = [
+  { value: "isletme-sitesi", label: "QR Menü / İşletme Sitesi" },
   { value: "mobil-uygulama", label: "Mobil Uygulama" },
   { value: "oyun", label: "Oyun" },
   { value: "web-sitesi", label: "Web Sitesi" },
@@ -15,6 +17,7 @@ const serviceOptions = [
 ];
 
 const budgetOptions = [
+  { value: "baslangic-paketi", label: "Başlangıç Paketi (aylık)" },
   { value: "50k-alti", label: "50.000 ₺ altı" },
   { value: "50k-150k", label: "50.000 – 150.000 ₺" },
   { value: "150k-ustu", label: "150.000 ₺ üzeri" },
@@ -41,11 +44,16 @@ export function ContactSection({ showHeading = true }: { showHeading?: boolean }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("sending");
     setError(null);
+    if (!email.trim() && !phone.trim()) {
+      setError(t("E-posta veya telefon numarasından en az birini yazın."));
+      return;
+    }
+    setStatus("sending");
     try {
       await submit({ data: { name, email, phone, serviceType, budget, message } });
       setStatus("sent");
+      trackEvent("generate_lead", { method: "form", page: window.location.pathname });
     } catch (err) {
       setStatus("idle");
       setError(
@@ -147,7 +155,9 @@ export function ContactSection({ showHeading = true }: { showHeading?: boolean }
               <h3 className="font-display text-xl font-semibold">{t("Talebiniz bize ulaştı")}</h3>
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
                 {t("Teşekkürler")} {name.split(" ")[0]}.{" "}
-                {t("En kısa sürede e-posta yoluyla size dönüş yapacağız.")}
+                {email.trim()
+                  ? t("En kısa sürede e-posta yoluyla size dönüş yapacağız.")
+                  : t("En kısa sürede telefon veya WhatsApp ile size dönüş yapacağız.")}
               </p>
               <button
                 type="button"
@@ -182,12 +192,12 @@ export function ContactSection({ showHeading = true }: { showHeading?: boolean }
                 </label>
                 <label htmlFor="cf-email" className="block">
                   <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                    {t("E-posta *")}
+                    {t("E-posta")}
                   </span>
                   <input
                     id="cf-email"
-                    required
                     type="email"
+                    aria-describedby="cf-contact-hint"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={t("ornek@mail.com")}
@@ -196,14 +206,19 @@ export function ContactSection({ showHeading = true }: { showHeading?: boolean }
                 </label>
               </div>
 
+              <p id="cf-contact-hint" className="-mt-1 text-xs text-muted-foreground">
+                {t("E-posta veya telefondan en az biri yeterli.")}
+              </p>
+
               <div className="grid gap-4 sm:grid-cols-2">
                 <label htmlFor="cf-phone" className="block">
                   <span className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                    {t("Telefon (opsiyonel)")}
+                    {t("Telefon")}
                   </span>
                   <input
                     id="cf-phone"
                     type="tel"
+                    aria-describedby="cf-contact-hint"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+90 5xx xxx xx xx"

@@ -13,6 +13,7 @@ const logo = logoAsset.url;
 
 const NAV = [
   { to: "/", hash: "services", label: "Hizmetler" },
+  { to: "/isletmeler", hash: undefined, label: "İşletmeler" },
   { to: "/", hash: "labs", label: "Ürünler" },
   { to: "/", hash: "process", label: "Süreç" },
   { to: "/", hash: "about", label: "Hakkımızda" },

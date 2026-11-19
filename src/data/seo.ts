@@ -23,6 +23,16 @@ export const seoEntries: Record<string, SeoEntry> = {
       "Antalya'dan işletmenize web sitesi, mobil uygulama, oyun, video prodüksiyon ve yapay zekâ çözümleri. Tasarımdan yayına tek ekip. Hemen teklif alın.",
     ogTitle: "Likya Studios — Websites, Apps, Games & Video",
     ogDescription: "Websites, mobile apps, games, video production and AI solutions for your business, from one team in Antalya.",
+    image: og("likya-studios"),
+  },
+  "/isletmeler": {
+    title: "İşletmeler İçin Web Sitesi ve QR Menü — Antalya | Likya Studios",
+    description:
+      "Antalya'daki restoran, kafe ve otellere web sitesi ve QR menü. Kurulum ücretsiz, aylık bakımla hep güncel. Fiyat için WhatsApp'tan yazın.",
+    ogTitle: "Website & QR Menu for Businesses in Antalya — Likya Studios",
+    ogDescription:
+      "Websites and QR menus for restaurants, cafes and hotels in Antalya. Free setup, monthly care keeps it up to date. Message us on WhatsApp for the price.",
+    image: og("likya-studios"),
   },
   "/projects": {
     title: "Kendi Ürünlerimiz — Likya Studios",
@@ -254,8 +264,18 @@ export const organizationLd: JsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.png`,
   email: "likyastudios@gmail.com",
+  telephone: "+905457760557",
   address: { "@type": "PostalAddress", addressLocality: "Antalya", addressCountry: "TR" },
   sameAs: ["https://www.instagram.com/likyastudios/", "https://www.youtube.com/@kadimanadoluu", "https://games.likyastudios.live/"],
+};
+
+export const starterPackServiceLd: JsonLd = {
+  "@type": "Service",
+  name: "İşletmeler için web sitesi ve QR menü",
+  serviceType: "Web sitesi ve QR menü",
+  url: `${SITE_URL}/isletmeler`,
+  areaServed: { "@type": "City", name: "Antalya" },
+  provider: { "@type": "Organization", name: "Likya Studios", url: SITE_URL, telephone: "+905457760557" },
 };
 
 export const websiteLd: JsonLd = {

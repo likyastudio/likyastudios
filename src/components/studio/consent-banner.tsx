@@ -6,6 +6,7 @@ import {
   analyticsEnabled,
   readConsent,
   setConsent,
+  installLeadTracking,
   startAnalytics,
   trackPageView,
   type Consent,
@@ -19,6 +20,7 @@ export function ConsentBanner() {
 
   useEffect(() => {
     if (!analyticsEnabled()) return;
+    installLeadTracking();
     if (readConsent() === null) setOpen(true);
     else startAnalytics();
     const onOpen = () => setOpen(true);
