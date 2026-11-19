@@ -752,7 +752,7 @@ export const DICT: Record<string, [string, string]> = {
   "Kurulum": ["Kurulum", "Setup"],
   "ücretsiz": ["ücretsiz", "free"],
   "Aylık bakım": ["Aylık bakım", "Monthly care"],
-  "2.500 TL'den başlayan": ["2.500 TL'den başlayan", "from 2,500 TL"],
+  "işletmenize göre; fiyatı WhatsApp'tan yazdığınızda hemen iletiyoruz.": ["işletmenize göre; fiyatı WhatsApp'tan yazdığınızda hemen iletiyoruz.", "depends on your business; message us on WhatsApp and we will send the price right away."],
   "Alan adı": ["Alan adı", "Domain name"],
   "yıllık, gerçek maliyetiyle, işletmeniz adına kayıtlı": ["yıllık, gerçek maliyetiyle, işletmeniz adına kayıtlı", "yearly, at actual cost, registered in your business's name"],
   "Bilgi alın": ["Bilgi alın", "Get details"],

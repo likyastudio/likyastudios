@@ -335,7 +335,7 @@ export function GamesBand() {
 export const FAQ: [string, string][] = [
   [
     "Fiyatlarınız ne kadar?",
-    "İşletmeler için Başlangıç Paketi'nde kurulum ücretsiz, aylık bakım 2.500 TL'den başlıyor. Uygulama, oyun ve video işlerinde kapsama göre teklif veriyoruz.",
+    "İşletmeler için Başlangıç Paketi'nde kurulum ücretsiz; aylık bakım ücretini işletmenize göre, bize ulaştığınızda iletiyoruz. Uygulama, oyun ve video işlerinde kapsama göre teklif veriyoruz.",
   ],
   [
     "Bir web sitesi ne kadar sürede hazır olur?",

@@ -28,10 +28,10 @@ export const seoEntries: Record<string, SeoEntry> = {
   "/isletmeler": {
     title: "İşletmeler İçin Web Sitesi ve QR Menü — Antalya | Likya Studios",
     description:
-      "Antalya'daki restoran, kafe ve otellere web sitesi ve QR menü. Kurulum ücretsiz, aylık bakım 2.500 TL'den başlayan fiyatlarla. WhatsApp'tan yazın.",
+      "Antalya'daki restoran, kafe ve otellere web sitesi ve QR menü. Kurulum ücretsiz, aylık bakımla hep güncel. Fiyat için WhatsApp'tan yazın.",
     ogTitle: "Website & QR Menu for Businesses in Antalya — Likya Studios",
     ogDescription:
-      "Websites and QR menus for restaurants, cafes and hotels in Antalya. Free setup, monthly care from 2,500 TL.",
+      "Websites and QR menus for restaurants, cafes and hotels in Antalya. Free setup, monthly care keeps it up to date. Message us on WhatsApp for the price.",
     image: og("likya-studios"),
   },
   "/projects": {
@@ -276,12 +276,6 @@ export const starterPackServiceLd: JsonLd = {
   url: `${SITE_URL}/isletmeler`,
   areaServed: { "@type": "City", name: "Antalya" },
   provider: { "@type": "Organization", name: "Likya Studios", url: SITE_URL, telephone: "+905457760557" },
-  offers: {
-    "@type": "Offer",
-    price: "2500",
-    priceCurrency: "TRY",
-    description: "Aylık bakım, başlangıç fiyatı",
-  },
 };
 
 export const websiteLd: JsonLd = {

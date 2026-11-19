@@ -24,7 +24,7 @@ const INCLUDED = [
 
 const PRICES: [string, string][] = [
   ["Kurulum", "ücretsiz"],
-  ["Aylık bakım", "2.500 TL'den başlayan"],
+  ["Aylık bakım", "işletmenize göre; fiyatı WhatsApp'tan yazdığınızda hemen iletiyoruz."],
   ["Alan adı", "yıllık, gerçek maliyetiyle, işletmeniz adına kayıtlı"],
 ];
 
