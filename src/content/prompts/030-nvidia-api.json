@@ -5,14 +5,14 @@
   "publishAt": "2026-11-21T06:03:00+03:00",
   "category": "Yapay zeka araçları",
   "title": "NVIDIA API anahtarı: ücretsiz yapay zekayla kod yazdır",
-  "excerpt": "build.nvidia.com'dan ücretsiz bir API anahtarı al, OpenCode'a bağla ve Kimi, GLM, DeepSeek gibi dev açık modellere Türkçe anlatarak kod yazdır.",
+  "excerpt": "build.nvidia.com'dan ücretsiz bir API anahtarı al, OpenCode'a bağla ve Kimi, GLM, DeepSeek ve NVIDIA'nın kendi modeli Nemotron gibi dev açık modellere Türkçe anlatarak kod yazdır.",
   "blocks": [
     { "type": "link", "label": "NVIDIA build (API anahtarı ve modeller)", "url": "https://build.nvidia.com/models", "note": "Ücretsiz deneme uç noktaları · hesap gerekir" },
     { "type": "link", "label": "OpenCode indir", "url": "https://opencode.ai/download", "note": "Açık kaynak kodlama ajanı · Mac, Windows, Linux" },
     { "type": "h2", "text": "1. Anahtarı al" },
     { "type": "steps", "items": [
       "build.nvidia.com'a gir ve ücretsiz hesap aç.",
-      "Bir modelin sayfasını aç (ör. GLM, Kimi, DeepSeek). \"Prototype: Start building with a free API endpoint\" bölümünde \"Generate API Key\"e bas.",
+      "Bir modelin sayfasını aç (ör. GLM, Kimi, DeepSeek, Nemotron). \"Prototype: Start building with a free API endpoint\" bölümünde \"Generate API Key\"e bas.",
       "Anahtarı kopyala ve güvenli bir yere kaydet. Kimseyle paylaşma, ekran görüntüsünde gösterme."
     ] },
     { "type": "h2", "text": "2. OpenCode'u kur" },
