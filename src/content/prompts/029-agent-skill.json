@@ -1,0 +1,35 @@
+{
+  "number": 29,
+  "slug": "agent-skill",
+  "date": "2026-11-19",
+  "publishAt": "2026-11-20T06:03:00+03:00",
+  "category": "GitHub keşfi",
+  "title": "Agent skill paketleri: Claude'u YouTube ve Instagram asistanına çevir",
+  "excerpt": "Ücretsiz ve açık kaynak iki Claude skill paketi: Instagram için 13, YouTube için 11 komut. Ne yapıyorlar, nasıl kurulur, nasıl kullanılır.",
+  "blocks": [
+    { "type": "link", "label": "Instagram agent skill (GitHub)", "url": "https://github.com/Jakeschincariol/instagram-agent-skill", "note": "13 komut · MIT lisans · ücretsiz" },
+    { "type": "link", "label": "YouTube agent skill (GitHub)", "url": "https://github.com/Jakeschincariol/youtube-agent-skill", "note": "11 komut · MIT lisans · ücretsiz" },
+    { "type": "h2", "text": "Kurulum" },
+    { "type": "steps", "items": [
+      "Claude Code'u aç ve repo linkini yapıştır, ardından şunu yaz: \"Install this skill, then confirm /ig-reel works.\" (YouTube paketi için /yt-script).",
+      "Ya da eklenti olarak kur: /plugin marketplace add Jakeschincariol/instagram-agent-skill ve /plugin install instagram-agent (YouTube için youtube-agent-skill ve youtube-agent).",
+      "İstersen elle: repoyu klonla ve skills klasöründeki ig-* (ya da yt-*) klasörlerini ~/.claude/skills/ içine kopyala.",
+      "templates/voice.md dosyasını kendi tarzına göre doldur; her komut bu dosyayı okur. Kendi 3 videonu verip Claude'dan yazmasını da isteyebilirsin."
+    ] },
+    { "type": "h2", "text": "Instagram paketinden öne çıkanlar" },
+    { "type": "steps", "items": [
+      "/ig-reel: bir fikri Reels senaryosuna çevirir; 26 hook formülünden üç hook yazar ve puanlar.",
+      "/ig-caption: açıklamayı kontrol eder, akışta \"...devamı\"ndan önce görünen ilk 125 karakteri gösterir.",
+      "/ig-dm, /ig-reply, /ig-plan, /ig-profile, /ig-human ve diğerleri: DM akışı, yorum yanıtları, haftalık plan, profil puanı, metni doğallaştırma."
+    ] },
+    { "type": "h2", "text": "YouTube paketinden öne çıkanlar" },
+    { "type": "steps", "items": [
+      "/yt-script: fikirden senaryo; 21 formülden beş hook yazar ve puanlar.",
+      "/yt-package: başlık ve küçük resmi birlikte kontrol eder.",
+      "/yt-retention: izleyicinin hangi saniyede ayrıldığını ve o an ne dediğini bulur (YouTube Studio'dan dışa aktarılan veriyle).",
+      "/yt-shorts: uzun videonun içindeki Shorts adaylarını bulur."
+    ] },
+    { "type": "tip", "text": "Bu paketler hiçbir şeyi senin yerine paylaşmaz: metni yazar, paylaşmayı sen yaparsın. Claude Code yoksa tek bir SKILL.md'yi sohbetin başına yapıştırarak da kullanabilirsin, ama Python araçları (hook puanlama vb.) çalışmaz." },
+    { "type": "p", "text": "Hazırlayan: Jake Schincariol (MIT lisans). Hook puanlayıcı bir sezgisel araçtır; zayıf hook'ları ayıklar ama hangisinin tutacağını garanti etmez, bunu README'de kendisi de yazıyor." }
+  ]
+}
