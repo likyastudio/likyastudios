@@ -14,7 +14,16 @@ Instagram otomatik DM'i uzun metni tek mesajda gönderemediği için DM yalnızc
 
 Videolar önceden hazırlandığı için sayfa da önceden yayına alınır ama `publishAt` anına kadar kapalı kalır:
 listede görünmez, adresi "bulunamadı" der. An gelince yeniden yayın gerekmeden kendiliğinden açılır.
-Değer, Instagram'da planlanan paylaşım saatidir ve saat dilimiyle yazılır: `"publishAt": "2026-11-18T09:00:00+03:00"`.
+Varsayılan paylaşım saati **06:00 (İstanbul)**: yalnızca tarih yazmak yeterli, `"publishAt": "2026-11-18"` o gün 06:00'da açılır.
+Başka bir saat gerekirse saat dilimiyle yazılır: `"publishAt": "2026-11-18T18:05:00+03:00"`.
+
+Elle düzenlemek yerine komutla da ayarlanır:
+
+```bash
+bun run yayin 32 2026-11-23          # 23.11.2026 06:00
+bun run yayin 32 2026-11-23 18:05    # 23.11.2026 18:05
+bun run yayin 32 simdi               # hemen aç
+```
 `bun run check:prompts` henüz açılmamış sayfaları ⏰ ile ve açılış saatiyle gösterir.
 
 İçerik o videonun `reels/cikti/dm-metni.txt` dosyasından alınır. Prompt metinleri birebir kopyalanır;
@@ -27,7 +36,7 @@ uydurma özellik, fiyat veya link eklenmez. Linkler https ile başlar.
   "number": 24,
   "slug": "kisa-ad",
   "date": "2026-11-16",
-  "publishAt": "2026-11-17T09:00:00+03:00",
+  "publishAt": "2026-11-17",
   "category": "Yapay zekâ",
   "title": "Sayfa başlığı",
   "excerpt": "Tek cümlelik açıklama (Google ve liste kartında görünür)",

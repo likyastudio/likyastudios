@@ -2,32 +2,83 @@
   "number": 32,
   "slug": "flux-gorsel",
   "date": "2026-11-20",
-  "publishAt": "2026-11-23T06:03:00+03:00",
+  "publishAt": "2026-11-23",
   "category": "Yapay zeka araçları",
   "title": "NVIDIA FLUX: hesap açmadan ücretsiz yapay zekâ görseli",
   "excerpt": "build.nvidia.com'daki FLUX modeliyle, giriş yapmadan ürün fotoğrafı, menü görseli ya da sunum kapağı üret. Videodaki 4 prompt burada.",
   "blocks": [
-    { "type": "link", "label": "FLUX 3 Image Klein (NVIDIA build)", "url": "https://build.nvidia.com/black-forest-labs/flux-3-image-klein", "note": "Deneme hizmeti · sayfada kalan deneme hakkı görünür" },
-    { "type": "link", "label": "Tüm FLUX modelleri", "url": "https://build.nvidia.com/models", "note": "Arama kutusuna flux yaz · Klein, Kontext, schnell, dev" },
-    { "type": "h2", "text": "Adımlar" },
-    { "type": "steps", "items": [
-      "build.nvidia.com'a gir, arama kutusuna \"flux\" yaz ve flux-3-image-klein'ı aç.",
-      "Experience sekmesinde Mode olarak Image Generation seçili kalsın. Prompt kutusuna ne istediğini yaz; Türkçe de çalışıyor.",
-      "Run'a bas. Görsel sağdaki Output bölümünde çıkıyor; sağ tıklayıp kaydedebilirsin.",
-      "Run düğmesinin altında kalan deneme hakkını görürsün (ör. 25 / 25 requests remaining)."
-    ] },
-    { "type": "h2", "text": "Videodaki promptlar" },
-    { "type": "prompt", "label": "Sahilde çay", "tool": "NVIDIA build · flux-3-image-klein", "text": "A cozy seaside cafe in Antalya at golden hour, a glass of Turkish tea on a wooden table, Mediterranean sea and mountains in the background, photorealistic" },
-    { "type": "prompt", "label": "Kaleiçi sokağı", "tool": "NVIDIA build · flux-3-image-klein", "text": "Narrow old town street in Kaleici Antalya with pink bougainvillea, white Ottoman houses with wooden bay windows, morning light, photorealistic" },
-    { "type": "prompt", "label": "Ürün fotoğrafı: çini fincan", "tool": "NVIDIA build · flux-3-image-klein", "text": "Product photo of handmade ceramic coffee cup with turquoise Iznik pattern on a marble table, soft studio light, minimalist" },
-    { "type": "prompt", "label": "Türkçe prompt: Konyaaltı", "tool": "NVIDIA build · flux-3-image-klein", "text": "Antalya Konyaaltı sahilinde gün batımı, denizde bir yelkenli, arkada Toros dağları, fotoğraf gerçekliğinde" },
-    { "type": "h2", "text": "Nerede kullanılır?" },
-    { "type": "steps", "items": [
-      "Ürün fotoğrafı ve e-ticaret görseli (gerçek ürünün yerine geçmemeli, fikir ve arka plan için).",
-      "Menü ve kafe görselleri.",
-      "Sunum kapağı, blog ve sosyal medya görseli."
-    ] },
-    { "type": "tip", "text": "Bu bir deneme hizmeti. Kişisel fotoğraf, başkasının yüzü ya da gizli bilgi yükleme. Paylaşırken görselin yapay zekâyla üretildiğini belirt; gerçek bir ürünü satıyorsan, ürünün kendisini gerçek fotoğrafla göster." },
-    { "type": "p", "text": "Modeller, deneme hakları ve koşullar NVIDIA tarafından değiştirilebilir; güncel bilgi model sayfasında." }
+    {
+      "type": "link",
+      "label": "FLUX 3 Image Klein (NVIDIA build)",
+      "url": "https://build.nvidia.com/black-forest-labs/flux-3-image-klein",
+      "note": "Deneme hizmeti · sayfada kalan deneme hakkı görünür"
+    },
+    {
+      "type": "link",
+      "label": "Tüm FLUX modelleri",
+      "url": "https://build.nvidia.com/models",
+      "note": "Arama kutusuna flux yaz · Klein, Kontext, schnell, dev"
+    },
+    {
+      "type": "h2",
+      "text": "Adımlar"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "build.nvidia.com'a gir, arama kutusuna \"flux\" yaz ve flux-3-image-klein'ı aç.",
+        "Experience sekmesinde Mode olarak Image Generation seçili kalsın. Prompt kutusuna ne istediğini yaz; Türkçe de çalışıyor.",
+        "Run'a bas. Görsel sağdaki Output bölümünde çıkıyor; sağ tıklayıp kaydedebilirsin.",
+        "Run düğmesinin altında kalan deneme hakkını görürsün (ör. 25 / 25 requests remaining)."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Videodaki promptlar"
+    },
+    {
+      "type": "prompt",
+      "label": "Sahilde çay",
+      "tool": "NVIDIA build · flux-3-image-klein",
+      "text": "A cozy seaside cafe in Antalya at golden hour, a glass of Turkish tea on a wooden table, Mediterranean sea and mountains in the background, photorealistic"
+    },
+    {
+      "type": "prompt",
+      "label": "Kaleiçi sokağı",
+      "tool": "NVIDIA build · flux-3-image-klein",
+      "text": "Narrow old town street in Kaleici Antalya with pink bougainvillea, white Ottoman houses with wooden bay windows, morning light, photorealistic"
+    },
+    {
+      "type": "prompt",
+      "label": "Ürün fotoğrafı: çini fincan",
+      "tool": "NVIDIA build · flux-3-image-klein",
+      "text": "Product photo of handmade ceramic coffee cup with turquoise Iznik pattern on a marble table, soft studio light, minimalist"
+    },
+    {
+      "type": "prompt",
+      "label": "Türkçe prompt: Konyaaltı",
+      "tool": "NVIDIA build · flux-3-image-klein",
+      "text": "Antalya Konyaaltı sahilinde gün batımı, denizde bir yelkenli, arkada Toros dağları, fotoğraf gerçekliğinde"
+    },
+    {
+      "type": "h2",
+      "text": "Nerede kullanılır?"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Ürün fotoğrafı ve e-ticaret görseli (gerçek ürünün yerine geçmemeli, fikir ve arka plan için).",
+        "Menü ve kafe görselleri.",
+        "Sunum kapağı, blog ve sosyal medya görseli."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Bu bir deneme hizmeti. Kişisel fotoğraf, başkasının yüzü ya da gizli bilgi yükleme. Paylaşırken görselin yapay zekâyla üretildiğini belirt; gerçek bir ürünü satıyorsan, ürünün kendisini gerçek fotoğrafla göster."
+    },
+    {
+      "type": "p",
+      "text": "Modeller, deneme hakları ve koşullar NVIDIA tarafından değiştirilebilir; güncel bilgi model sayfasında."
+    }
   ]
 }

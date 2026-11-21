@@ -2,33 +2,64 @@
   "number": 33,
   "slug": "reklam-ayarlari",
   "date": "2026-11-20",
-  "publishAt": "2026-11-24T06:03:00+03:00",
+  "publishAt": "2026-11-24",
   "category": "Telefon ve gizlilik",
   "title": "Telefonun seni dinliyor mu? Reklam takibini azaltan 2 ayar",
   "excerpt": "Konuştuğun şeyin reklamı çıkınca akla mikrofon geliyor. Asıl kaynak çoğu zaman uygulamalar arası takip. iPhone ve Android'de bunu azaltan iki ayar.",
   "blocks": [
-    { "type": "link", "label": "Apple: Bir uygulama eylemlerinizi takip etmek isterse", "url": "https://support.apple.com/tr-tr/102420", "note": "Resmi Apple Destek sayfası" },
-    { "type": "link", "label": "Google: Reklam kimliğini sıfırlama veya silme", "url": "https://support.google.com/googleplay/android-developer/answer/6048248?hl=tr", "note": "Resmi Google yardım sayfası" },
-    { "type": "h2", "text": "iPhone: uygulamaların takibini kapat" },
-    { "type": "steps", "items": [
-      "Ayarlar'ı aç ve Gizlilik ve Güvenlik'e dokun.",
-      "Takip'e dokun.",
-      "\"Uygulamalar Takip İzni İsteyebilsin\" ayarını kapat. Kapalıyken izin isteyen her uygulama \"Uygulama Beni Takip Etmesin\" seçilmiş gibi işlem görür.",
-      "Daha önce izin verdiğin uygulamalar aynı ekranda listelenir; istediğini tek tek kapatabilirsin."
-    ] },
-    { "type": "h2", "text": "Android: reklam kimliğini sil" },
-    { "type": "steps", "items": [
-      "Ayarlar'ı aç ve Gizlilik'e dokun.",
-      "Reklamlar'a dokun.",
-      "Reklam Kimliğini Sil'e dokun ve onayla.",
-      "Menü adı marka ve sürüme göre değişebilir. Bulamazsan Ayarlar'ın arama kutusuna \"reklam\" yaz."
-    ] },
-    { "type": "h2", "text": "Bonus: mikrofonu kim kullanıyor?" },
-    { "type": "steps", "items": [
-      "iPhone'da ekranın üstünde turuncu nokta: bir uygulama o an mikrofonu kullanıyor. Yeşil nokta: kamera kullanılıyor.",
-      "Denetim Merkezi'ni açınca, hangi uygulamanın yakın zamanda kullandığı en üstte yazar.",
-      "Mikrofon iznini görmek için: Ayarlar → Gizlilik ve Güvenlik → Mikrofon. Gerek görmediğin uygulamaların iznini kapat."
-    ] },
-    { "type": "tip", "text": "Bu ayarlar reklamları bitirmez; reklamlar daha az kişiselleşir. Meta, reklamlar için telefon mikrofonunu kullanmadığını açıkça söylüyor; reklamlar çoğunlukla gezdiğin siteler, aramaların ve uygulamalar arası verilerle eşleşir." }
+    {
+      "type": "link",
+      "label": "Apple: Bir uygulama eylemlerinizi takip etmek isterse",
+      "url": "https://support.apple.com/tr-tr/102420",
+      "note": "Resmi Apple Destek sayfası"
+    },
+    {
+      "type": "link",
+      "label": "Google: Reklam kimliğini sıfırlama veya silme",
+      "url": "https://support.google.com/googleplay/android-developer/answer/6048248?hl=tr",
+      "note": "Resmi Google yardım sayfası"
+    },
+    {
+      "type": "h2",
+      "text": "iPhone: uygulamaların takibini kapat"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Ayarlar'ı aç ve Gizlilik ve Güvenlik'e dokun.",
+        "Takip'e dokun.",
+        "\"Uygulamalar Takip İzni İsteyebilsin\" ayarını kapat. Kapalıyken izin isteyen her uygulama \"Uygulama Beni Takip Etmesin\" seçilmiş gibi işlem görür.",
+        "Daha önce izin verdiğin uygulamalar aynı ekranda listelenir; istediğini tek tek kapatabilirsin."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Android: reklam kimliğini sil"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Ayarlar'ı aç ve Gizlilik'e dokun.",
+        "Reklamlar'a dokun.",
+        "Reklam Kimliğini Sil'e dokun ve onayla.",
+        "Menü adı marka ve sürüme göre değişebilir. Bulamazsan Ayarlar'ın arama kutusuna \"reklam\" yaz."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Bonus: mikrofonu kim kullanıyor?"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "iPhone'da ekranın üstünde turuncu nokta: bir uygulama o an mikrofonu kullanıyor. Yeşil nokta: kamera kullanılıyor.",
+        "Denetim Merkezi'ni açınca, hangi uygulamanın yakın zamanda kullandığı en üstte yazar.",
+        "Mikrofon iznini görmek için: Ayarlar → Gizlilik ve Güvenlik → Mikrofon. Gerek görmediğin uygulamaların iznini kapat."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Bu ayarlar reklamları bitirmez; reklamlar daha az kişiselleşir. Meta, reklamlar için telefon mikrofonunu kullanmadığını açıkça söylüyor; reklamlar çoğunlukla gezdiğin siteler, aramaların ve uygulamalar arası verilerle eşleşir."
+    }
   ]
 }

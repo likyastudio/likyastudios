@@ -24,7 +24,8 @@ export type PromptPage = {
   slug: string;
   date: string; // ISO, videonun hazırlandığı tarih (VIDEO-KAYDI.md)
   /**
-   * İsteğe bağlı yayın anı, saat dilimiyle: "2026-11-18T09:00:00+03:00".
+   * İsteğe bağlı yayın anı. Yalnızca tarih ("2026-11-18") yazılırsa o gün 06:00'da (İstanbul)
+   * açılır; başka saat için saat dilimiyle yazılır: "2026-11-18T09:00:00+03:00".
    * Bu andan önce sayfa listede görünmez ve adresi "bulunamadı" der; an gelince
    * yeniden yayın gerekmeden kendiliğinden açılır (sayfa her istekte sunucuda çizilir).
    * Yoksa sayfa hemen yayındadır.
@@ -36,7 +37,7 @@ export type PromptPage = {
   blocks: PromptBlock[];
 };
 
-import { promptPageErrors } from "./prompt-check";
+import { promptPageErrors, publishMs } from "./prompt-check";
 
 // Her video src/content/prompts/<NNN>-<slug>.json dosyasıdır (şema: README.md). Dosya eklemek yeterli.
 const files = import.meta.glob<PromptPage>("../content/prompts/*.json", {
@@ -65,7 +66,7 @@ export const promptPages: PromptPage[] = loadPages();
 
 /** Sayfa şu an açık mı? publishAt yoksa her zaman açıktır. */
 export const isPromptLive = (p: PromptPage, now = Date.now()) =>
-  !p.publishAt || Date.parse(p.publishAt) <= now;
+  !p.publishAt || publishMs(p.publishAt) <= now;
 
 export const sortedPromptPages = () =>
   promptPages.filter((p) => isPromptLive(p)).sort((a, b) => b.number - a.number);

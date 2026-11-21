@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "check:prompts": "bun scripts/check-prompts.ts"
+    "check:prompts": "bun scripts/check-prompts.ts",
+    "yayin": "bun scripts/yayin-saati.ts"
   },
   "overrides": {
     "rolldown": "1.2.1"

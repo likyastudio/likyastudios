@@ -2,35 +2,71 @@
   "number": 31,
   "slug": "3d-menu",
   "date": "2026-11-20",
-  "publishAt": "2026-11-22T06:03:00+03:00",
+  "publishAt": "2026-11-22",
   "category": "Yapay zeka araçları",
   "title": "3D menü videosu: Google Flow ile menü fotoğrafını canlandır",
   "excerpt": "Tek bir menü fotoğrafını Google Flow'da, yemeklerin sayfadan yükseldiği kısa bir videoya çevir. Günlük ücretsiz krediyle, hazır promptla.",
   "blocks": [
-    { "type": "link", "label": "Google Flow", "url": "https://flow.google.com/", "note": "Google hesabıyla giriş · günde 50 ücretsiz kredi" },
-    { "type": "link", "label": "Google Flow kredileri (resmi yardım sayfası)", "url": "https://support.google.com/flow/answer/16526234", "note": "Güncel kredi ve sınırlar" },
-    { "type": "h2", "text": "Adımlar" },
-    { "type": "steps", "items": [
-      "flow.google.com'a Google hesabınla gir ve yeni bir proje aç.",
-      "Menü fotoğrafını başlangıç karesi olarak ekle. Fotoğraf dik, düz ve iyi ışıkta çekilmiş olsun.",
-      "Modeli Omni Flash 1.2 seç; en-boy oranını 9:16, çözünürlüğü 720p, süreyi 8-10 saniye yap.",
-      "Aşağıdaki promptu yapıştır ve oluştur. Beğenmezsen aynı promptla bir kez daha dene."
-    ] },
-    { "type": "prompt", "label": "3D menü promptu", "tool": "Google Flow, Omni Flash 1.2, 9:16, 720p", "text": "Use the uploaded menu photo as the first frame. Keep the menu layout, all text and all prices exactly as they are, do not add or change any words. The camera slowly pushes in. One by one, each dish pictured on the page rises out of the paper as a realistic 3D plate of that same dish, with soft steam and a gentle half turn, then settles back onto the page. Warm restaurant lighting, shallow depth of field, cinematic, smooth motion, no new text, no logos, no people." },
-    { "type": "h2", "text": "Kredi ve sınırlar" },
-    { "type": "steps", "items": [
-      "Abonelik olsun olmasın her hesaba günde 50 Google Flow kredisi veriliyor; kullanılmayan kredi ertesi güne geçmiyor.",
-      "Omni Flash 1.2 ile 720p video saniye başına 3 kredi: 10 saniye yaklaşık 30 kredi.",
-      "Abonelik yoksa yoğun saatlerde (yaklaşık 14:00-17:00 UTC, Türkiye saatiyle 17:00-20:00) video üretimi kısıtlanabiliyor.",
-      "Fiyatlar ve krediler değişebilir; güncel bilgi Google Flow yardım sayfasında."
-    ] },
-    { "type": "h2", "text": "Nerede kullanılır?" },
-    { "type": "steps", "items": [
-      "QR menünün açılış videosu.",
-      "Mekândaki ekranlarda döngü video.",
-      "Instagram Reels ve hikâye tanıtımı.",
-      "Restoranlara hizmet olarak: fotoğrafı çek, videoyu üret, menüleriyle birlikte teslim et."
-    ] },
-    { "type": "tip", "text": "Videodaki yemek, masaya gelenle aynı görünmeli. Yazılar ya da fiyatlar bozulursa videoyu kullanma, yeniden üret. Başka bir restoranın menüsünü izin almadan kullanma." }
+    {
+      "type": "link",
+      "label": "Google Flow",
+      "url": "https://flow.google.com/",
+      "note": "Google hesabıyla giriş · günde 50 ücretsiz kredi"
+    },
+    {
+      "type": "link",
+      "label": "Google Flow kredileri (resmi yardım sayfası)",
+      "url": "https://support.google.com/flow/answer/16526234",
+      "note": "Güncel kredi ve sınırlar"
+    },
+    {
+      "type": "h2",
+      "text": "Adımlar"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "flow.google.com'a Google hesabınla gir ve yeni bir proje aç.",
+        "Menü fotoğrafını başlangıç karesi olarak ekle. Fotoğraf dik, düz ve iyi ışıkta çekilmiş olsun.",
+        "Modeli Omni Flash 1.2 seç; en-boy oranını 9:16, çözünürlüğü 720p, süreyi 8-10 saniye yap.",
+        "Aşağıdaki promptu yapıştır ve oluştur. Beğenmezsen aynı promptla bir kez daha dene."
+      ]
+    },
+    {
+      "type": "prompt",
+      "label": "3D menü promptu",
+      "tool": "Google Flow, Omni Flash 1.2, 9:16, 720p",
+      "text": "Use the uploaded menu photo as the first frame. Keep the menu layout, all text and all prices exactly as they are, do not add or change any words. The camera slowly pushes in. One by one, each dish pictured on the page rises out of the paper as a realistic 3D plate of that same dish, with soft steam and a gentle half turn, then settles back onto the page. Warm restaurant lighting, shallow depth of field, cinematic, smooth motion, no new text, no logos, no people."
+    },
+    {
+      "type": "h2",
+      "text": "Kredi ve sınırlar"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Abonelik olsun olmasın her hesaba günde 50 Google Flow kredisi veriliyor; kullanılmayan kredi ertesi güne geçmiyor.",
+        "Omni Flash 1.2 ile 720p video saniye başına 3 kredi: 10 saniye yaklaşık 30 kredi.",
+        "Abonelik yoksa yoğun saatlerde (yaklaşık 14:00-17:00 UTC, Türkiye saatiyle 17:00-20:00) video üretimi kısıtlanabiliyor.",
+        "Fiyatlar ve krediler değişebilir; güncel bilgi Google Flow yardım sayfasında."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Nerede kullanılır?"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "QR menünün açılış videosu.",
+        "Mekândaki ekranlarda döngü video.",
+        "Instagram Reels ve hikâye tanıtımı.",
+        "Restoranlara hizmet olarak: fotoğrafı çek, videoyu üret, menüleriyle birlikte teslim et."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Videodaki yemek, masaya gelenle aynı görünmeli. Yazılar ya da fiyatlar bozulursa videoyu kullanma, yeniden üret. Başka bir restoranın menüsünü izin almadan kullanma."
+    }
   ]
 }

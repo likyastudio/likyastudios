@@ -2,7 +2,7 @@
 // src/content/prompts/*.json dosyalarını kontrol eder; sorun varsa listeler ve 1 ile çıkar.
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { promptPageErrors } from "../src/data/prompt-check";
+import { promptPageErrors, publishMs } from "../src/data/prompt-check";
 
 const dir = join(import.meta.dir, "../src/content/prompts");
 const sitemap = readFileSync(join(import.meta.dir, "../public/sitemap.xml"), "utf8");
@@ -34,7 +34,7 @@ for (const name of readdirSync(dir)
     failed = true;
     for (const e of errors) console.error(`✗ ${name}: ${e}`);
   } else {
-    const at = page.publishAt ? Date.parse(page.publishAt) : 0;
+    const at = page.publishAt ? publishMs(page.publishAt) : 0;
     const when =
       at > Date.now()
         ? ` (⏰ ${new Date(at).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })} İstanbul saatinde açılır)`
