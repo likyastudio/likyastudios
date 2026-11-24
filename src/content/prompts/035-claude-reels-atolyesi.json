@@ -1,0 +1,61 @@
+{
+  "number": 35,
+  "slug": "claude-reels-atolyesi",
+  "date": "2026-11-24",
+  "publishAt": "2026-11-26",
+  "category": "Yapay zekâ",
+  "title": "Kamera yok, kurgu yok: Claude Code ile Reels atölyesi",
+  "excerpt": "Ücretsiz, açık kaynak Reels Sistemi ile Claude Code metni yazar, altyazıyı kelime kelime oturtur, sahneleri kodla çizer ve MP4 çıkarır. 6 adımda kurulum.",
+  "blocks": [
+    {
+      "type": "link",
+      "label": "Reels Sistemi (GitHub)",
+      "url": "https://github.com/yapaytu/reels-sistemi",
+      "note": "Ücretsiz, açık kaynak (MIT lisansı)"
+    },
+    {
+      "type": "h2",
+      "text": "Gerekenler"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Claude Code (Claude hesabı; hangi planlarda olduğunu claude.com/pricing'den kontrol et).",
+        "Node.js 18 veya üzeri ve ffmpeg.",
+        "Python 3 ve bir Whisper paketi (kelime zamanları için).",
+        "Seslendirme: kendi sesin ya da istediğin bir seslendirme servisi."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "6 adım"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Claude'un masaüstü uygulamasını indir: claude.com/download",
+        "Bilgisayarında \"Video Atölyesi\" adında bir klasör aç. Bütün videoların burada duracak.",
+        "Claude Code'da yeni sohbet başlat ve bu klasörü seç. Terminal kullanıyorsan klasörde claude yazman yeterli.",
+        "Reels Sistemi'ni klasöre indir (aşağıdaki komutlar).",
+        "Konuyu tek satırda yaz. Claude önce metni gösterir; onaylayınca seslendirip ses dosyasını klasöre koyarsın, altyazı, sahneler ve MP4'ü o çıkarır.",
+        "Beğenmediğin yeri kurgucuya söyler gibi söyle: \"Kancayı daha vurucu yap.\""
+      ]
+    },
+    {
+      "type": "prompt",
+      "label": "4. adım: Reels Sistemi'ni indir",
+      "tool": "Terminal",
+      "text": "git clone https://github.com/yapaytu/reels-sistemi.git\ncd reels-sistemi\nnpm install\nnpx playwright install chromium"
+    },
+    {
+      "type": "prompt",
+      "label": "5. adım: örnek istek",
+      "tool": "Claude Code",
+      "text": "reels-sistemi skill'iyle \"telefon şarjını uzatan 3 ayar\" konusunda reel yap. Yorum kelimesi ŞARJ."
+    },
+    {
+      "type": "tip",
+      "text": "Önce örneği görmek istersen ornek/ornek.html dosyasını tarayıcıda aç ya da node araclar/kaydet.mjs ornek/ornek.html ciktilar/ornek.mp4 ile MP4'e çevir."
+    }
+  ]
+}
