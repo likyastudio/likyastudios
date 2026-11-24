@@ -1,0 +1,69 @@
+{
+  "number": 34,
+  "slug": "claude-codex-gorsel",
+  "date": "2026-11-24",
+  "publishAt": "2026-11-25",
+  "category": "Yapay zekâ",
+  "title": "Claude görsel üretemez, Codex'e ürettirir",
+  "excerpt": "OpenAI'ın Claude Code için resmi Codex eklentisiyle Claude planı yapar, görsel işini alt ajan Codex'e devreder. 3 kurulum komutu ve örnek istek.",
+  "blocks": [
+    {
+      "type": "link",
+      "label": "Codex plugin for Claude Code",
+      "url": "https://github.com/openai/codex-plugin-cc",
+      "note": "OpenAI'ın resmi deposu (Apache-2.0)"
+    },
+    {
+      "type": "h2",
+      "text": "Gerekenler"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Bilgisayarında Claude Code kurulu olsun.",
+        "ChatGPT hesabı (veya OpenAI API anahtarı). Kullanım Codex kullanım limitinden düşer.",
+        "Node.js 18.18 veya üzeri."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Kurulum: Claude Code içinde sırayla"
+    },
+    {
+      "type": "prompt",
+      "label": "1. Eklenti pazarını ekle",
+      "tool": "Claude Code",
+      "text": "/plugin marketplace add openai/codex-plugin-cc"
+    },
+    {
+      "type": "prompt",
+      "label": "2. Eklentiyi kur ve yenile",
+      "tool": "Claude Code",
+      "text": "/plugin install codex@openai-codex\n/reload-plugins"
+    },
+    {
+      "type": "prompt",
+      "label": "3. Kurulumu çalıştır",
+      "tool": "Claude Code",
+      "text": "/codex:setup"
+    },
+    {
+      "type": "tip",
+      "text": "Codex'e henüz giriş yapmadıysan Claude Code içinde !codex login yaz ve ChatGPT hesabınla giriş yap."
+    },
+    {
+      "type": "h2",
+      "text": "Sonra Claude'a sadece şunu yaz"
+    },
+    {
+      "type": "prompt",
+      "label": "Örnek istek",
+      "tool": "Claude Code",
+      "text": "Bu görselleri Codex'e ürettir: kafem için 4 menü görseli, dikey, klasöre kaydet."
+    },
+    {
+      "type": "tip",
+      "text": "Her istek Codex kullanım limitinden düşer. İsteğini net yaz: kaç görsel, hangi boyut, nereye kaydedilecek."
+    }
+  ]
+}
