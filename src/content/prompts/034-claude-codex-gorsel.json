@@ -2,7 +2,6 @@
   "number": 34,
   "slug": "claude-codex-gorsel",
   "date": "2026-11-24",
-  "publishAt": "2026-11-25",
   "category": "Yapay zekâ",
   "title": "Claude görsel üretemez, Codex'e ürettirir",
   "excerpt": "OpenAI'ın Claude Code için resmi Codex eklentisiyle Claude planı yapar, görsel işini alt ajan Codex'e devreder. 3 kurulum komutu ve örnek istek.",

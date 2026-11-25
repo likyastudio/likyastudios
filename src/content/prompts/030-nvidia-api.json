@@ -2,7 +2,6 @@
   "number": 30,
   "slug": "nvidia-api",
   "date": "2026-11-19",
-  "publishAt": "2026-11-20T18:05:00+03:00",
   "category": "Yapay zeka araçları",
   "title": "NVIDIA API anahtarı: ücretsiz yapay zekayla kod yazdır",
   "excerpt": "build.nvidia.com'dan ücretsiz bir API anahtarı al, OpenCode'a bağla ve Kimi, GLM, DeepSeek ve NVIDIA'nın kendi modeli Nemotron gibi dev açık modellere Türkçe anlatarak kod yazdır.",

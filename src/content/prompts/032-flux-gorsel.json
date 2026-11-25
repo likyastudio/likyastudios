@@ -2,7 +2,6 @@
   "number": 32,
   "slug": "flux-gorsel",
   "date": "2026-11-20",
-  "publishAt": "2026-11-23",
   "category": "Yapay zeka araçları",
   "title": "NVIDIA FLUX: hesap açmadan ücretsiz yapay zekâ görseli",
   "excerpt": "build.nvidia.com'daki FLUX modeliyle, giriş yapmadan ürün fotoğrafı, menü görseli ya da sunum kapağı üret. Videodaki 4 prompt burada.",
