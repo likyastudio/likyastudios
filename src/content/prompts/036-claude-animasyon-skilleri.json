@@ -1,0 +1,141 @@
+{
+  "number": 36,
+  "slug": "claude-animasyon-skilleri",
+  "date": "2026-11-25",
+  "publishAt": "2026-11-27",
+  "category": "Yapay zekâ",
+  "title": "Claude Code ile animasyon: 5 ücretsiz skill ve kurulum komutları",
+  "excerpt": "Fotoğraftan döngü, 39 çizim stili, kırmızı kalemle tasarım düzeltme, kodla 3D sahne ve karakter canlandırma: Claude Code için 5 ücretsiz skill ve kurulum komutları.",
+  "blocks": [
+    {
+      "type": "h2",
+      "text": "Gerekenler"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Claude Code.",
+        "Node.js (çoğu için 18+, open-3d-skills'in npx kurulumu için 22.20+) ve ffmpeg.",
+        "/ ile başlayan komutları Claude Code'un içine, diğerlerini terminale yaz. Kurduktan sonra yeni bir Claude Code oturumu aç.",
+        "Kurmadan önce her deponun README'sine bir göz at."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "1) lemo-wake: tek fotoğraf → 5 sn döngü"
+    },
+    {
+      "type": "p",
+      "text": "Bir görseli yaklaşık 5 saniyelik, sonu başına kusursuz bağlanan bir animasyona çevirir (MP4, GIF, WebP). API anahtarı ya da bulut hizmeti yok; her şey bilgisayarında çalışır."
+    },
+    {
+      "type": "prompt",
+      "label": "Kurulum",
+      "tool": "Claude Code",
+      "text": "/plugin marketplace add lemomo-ai/lemo-wake\n/plugin install lemo-wake@lemo-wake"
+    },
+    {
+      "type": "link",
+      "label": "lemo-wake (GitHub)",
+      "url": "https://github.com/lemomo-ai/lemo-wake",
+      "note": "Ücretsiz; lisans CC BY-NC 4.0 (ticari olmayan kullanım)"
+    },
+    {
+      "type": "h2",
+      "text": "2) animation-styles: aynı hikâye, 39 stil"
+    },
+    {
+      "type": "p",
+      "text": "Suluboya, piksel art, hologram, vitray, ukiyo-e dahil 39 animasyon stilini Remotion ile kodla çizer; kendi hikâyeni istediğin stilde yeniden anlatır."
+    },
+    {
+      "type": "prompt",
+      "label": "Kurulum",
+      "tool": "Claude Code",
+      "text": "Install this skill for me: https://github.com/deenukhan/animation-styles"
+    },
+    {
+      "type": "prompt",
+      "label": "Örnek istek",
+      "tool": "Claude Code",
+      "text": "Use animation-styles to make a 5-second video of rain filling a small pond in ukiyo-e style."
+    },
+    {
+      "type": "link",
+      "label": "animation-styles (GitHub)",
+      "url": "https://github.com/deenukhan/animation-styles",
+      "note": "MIT lisansı"
+    },
+    {
+      "type": "h2",
+      "text": "3) ui-redline-walkthrough: kırmızı kalemle tasarım düzeltme"
+    },
+    {
+      "type": "p",
+      "text": "Arayüzün önce ve sonra ekran görüntüsünü ver; sorunları kırmızı mürekkeple işaretleyip düzeltilmiş hâline dönüşen bir anlatım videosu (HTML + MP4) çıkarır. Playwright ve Chromium gerekir."
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Depodaki ui-redline-walkthrough klasörünü ~/.claude/skills/ içine kopyala.",
+        "Yeni Claude Code oturumunda önce/sonra ekran görüntülerini ver."
+      ]
+    },
+    {
+      "type": "link",
+      "label": "ui-redline-walkthrough (GitHub)",
+      "url": "https://github.com/rjmahesh/ui-redline-walkthrough",
+      "note": "MIT lisansı"
+    },
+    {
+      "type": "h2",
+      "text": "4) open-3d-skills: kodla 3D sahne"
+    },
+    {
+      "type": "p",
+      "text": "8 skill: three.js sahneleri, bir makineyi parçalarına ayıran görünüm (exploded view), scroll filmleri, şeffaf video ve 60 fps kayıt. Claude Code, Codex, Cursor ve Gemini CLI ile çalışır."
+    },
+    {
+      "type": "prompt",
+      "label": "Kurulum (terminal)",
+      "tool": "Terminal",
+      "text": "npx skills add Moh4696/open-3d-skills"
+    },
+    {
+      "type": "prompt",
+      "label": "ya da Claude Code içinden",
+      "tool": "Claude Code",
+      "text": "/plugin marketplace add Moh4696/open-3d-skills\n/plugin install open-3d-skills@open-3d-skills"
+    },
+    {
+      "type": "link",
+      "label": "open-3d-skills (GitHub)",
+      "url": "https://github.com/Moh4696/open-3d-skills",
+      "note": "MIT lisansı"
+    },
+    {
+      "type": "h2",
+      "text": "5) rossark-motion-skill: çizdiğin karakter canlansın"
+    },
+    {
+      "type": "p",
+      "text": "SVG çizimi 60 fps canlı animasyona çevirir: nefes alma, göz kırpma, etrafa bakma, ağırlık aktarma. Şablonlar React Native ve SwiftUI için."
+    },
+    {
+      "type": "prompt",
+      "label": "Kurulum (terminal)",
+      "tool": "Terminal",
+      "text": "npx skills@latest add rossark0/rossark-motion-skill"
+    },
+    {
+      "type": "link",
+      "label": "rossark-motion-skill (GitHub)",
+      "url": "https://github.com/rossark0/rossark-motion-skill",
+      "note": "MIT lisansı"
+    },
+    {
+      "type": "tip",
+      "text": "Videodaki görüntüler her deponun kendi GitHub demosundan alındı."
+    }
+  ]
+}
