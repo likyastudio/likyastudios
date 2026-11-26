@@ -4,7 +4,7 @@ export const CONTACT_LOCATION = "Kemer, Antalya, Türkiye";
 export const REGISTERED_ADDRESS = CONTACT_LOCATION;
 export const CONTACT_EMAIL = "likyastudios@gmail.com";
 export const CONTACT_RETENTION_PERIOD = "30 gün";
-export const LAST_UPDATED = "18 Kasım 2026";
+export const LAST_UPDATED = "26 Kasım 2026";
 
 export type LegalKind = "privacy" | "terms" | "cookies" | "kvkk" | "delete-account";
 export type LegalLocale = "tr" | "en";
@@ -63,6 +63,14 @@ const tr: Record<LegalKind, LegalDocument> = {
         id: "google-maps",
         title: "Google Maps Platform",
         paragraphs: ["Antalya AI haritası Google Maps Platform üzerinden sunulmaktadır. Harita yüklenirken Google tarafından IP adresi ve teknik bağlantı bilgileri gibi veriler işlenebilir. Bu işleme Google'ın kendi koşulları ve gizlilik uygulamalarına tabidir."],
+      },
+      {
+        id: "instagram",
+        title: "Instagram mesajları",
+        paragraphs: [
+          "@likyastudios Instagram hesabımızdaki bir videoya yorum yaptığınızda, bize mesaj gönderdiğinizde veya mesajımızdaki bir düğmeye (örneğin \"Takip ettim\") bastığınızda; Instagram'ın bize ilettiği hesaba özel kimliğiniz, kullanıcı adınız, yorumunuz veya mesajınız ve hesabımızı takip edip etmediğiniz bilgisi işlenir. Bu bilgiler yalnızca yorumunuza yanıt vermek ve istediğiniz video kaynaklarının bağlantısını size göndermek için kullanılır.",
+          "Mesajlar yalnızca sizin bir yorumunuz, mesajınız veya düğmeye basmanız üzerine gönderilir; istenmeyen veya tanıtım amaçlı mesaj gönderilmez. Bize doğrudan yazdığınız mesajlara, yanıt oluşturmak amacıyla Google'ın Gemini yapay zekâ hizmeti kullanılarak cevap verilebilir. Mesaj içerikleri kalıcı olarak saklanmaz; hangi video için bağlantı istediğiniz bilgisi, bağlantı gönderilene kadar kısa süre tutulur. Bu bilgiler Google Cloud üzerinde (Avrupa bölgesi) işlenir, satılmaz ve reklam amacıyla paylaşılmaz. Silinmesini istediğiniz bilgiler için Hesap Silme Talebi sayfasındaki adımları izleyebilir veya " + CONTACT_EMAIL + " adresine yazabilirsiniz.",
+        ],
       },
       {
         id: "saklama",
@@ -172,6 +180,10 @@ const en: Record<LegalKind, LegalDocument> = {
       { id: "purposes", title: "Purposes of processing", paragraphs: ["Information is used to receive and respond to requests, provide the selected service, generate an Antalya AI itinerary, limit abuse, maintain security and meet legal obligations."] },
       { id: "antalya-ai", title: "Antalya AI", paragraphs: ["Antalya AI does not request identity information and does not provide free-text input. Only your selected number of days, interests and language are sent to the AI service to generate a personalised travel suggestion. Private AI API keys remain server-side and are not exposed to visitors."] },
       { id: "google-maps", title: "Google Maps Platform", paragraphs: ["The Antalya AI map is provided through Google Maps Platform. When the map loads, Google may process technical connection information such as an IP address. This processing is subject to Google's own terms and privacy practices."] },
+      { id: "instagram", title: "Instagram messages", paragraphs: [
+        "When you comment on a video on our @likyastudios Instagram account, send us a message or tap a button in our message (for example \"Takip ettim\"), we process the account-specific ID Instagram shares with us, your username, your comment or message and whether you follow our account. We use this information only to reply to your comment and send you the link to the video resources you asked for.",
+        "Messages are sent only in response to your comment, message or button tap; we never send unsolicited or promotional messages. Messages you send us directly may be answered with the help of Google's Gemini AI service to generate a reply. Message contents are not stored permanently; the video you asked about is kept briefly until the link is sent. This information is processed on Google Cloud (Europe region) and is never sold or shared for advertising. To request deletion, follow the steps on the Account Deletion Request page or email " + CONTACT_EMAIL + ".",
+      ] },
       { id: "retention", title: "Retention and deletion", paragraphs: ["Personal data received through the contact form is retained for no longer than 30 days after the request has been resolved. Unless an applicable legal obligation requires longer retention, it is then deleted, destroyed or anonymised. Your language choice may remain on your device until you clear browser storage or change the preference."] },
       { id: "transfers", title: "Service providers and international transfers", paragraphs: ["Information may be made available to technical hosting, database, AI and Google Maps providers as necessary to deliver the services and may be processed outside Türkiye. Such processing takes place within the applicable KVKK provisions and required safeguard mechanisms. Information is not sold for advertising."] },
       { id: "analytics", title: "Analytics and advertising", paragraphs: ["This website uses Google Analytics 4 (Google Ireland Ltd. / Google LLC) only if you give explicit consent in the cookie banner. With your consent, usage data such as pages visited, time of visit, device and browser type, referring site and approximate location derived from your IP address (country, city) is processed as statistics to improve the site. Google Analytics 4 does not log IP addresses. If you do not consent, the analytics script is not loaded at all.", "No advertising, remarketing or behavioural targeting takes place; Google advertising consent signals remain off. Analytics data may be processed by Google outside Türkiye (including the United States) and is retained in Google Analytics for up to 14 months. You can withdraw consent at any time through the \"Cookie settings\" link at the bottom of the site, which also deletes the analytics cookies."] },
