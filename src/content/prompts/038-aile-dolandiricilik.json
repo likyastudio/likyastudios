@@ -1,0 +1,19 @@
+{
+  "number": 38,
+  "slug": "aile-dolandiricilik",
+  "date": "2026-11-26",
+  "category": "Telefon ve gizlilik",
+  "title": "Büyüklerine telefon dolandırıcılığını anlat: 4 kural ve hazır mesaj",
+  "excerpt": "Annene babana gönderebileceğin hazır WhatsApp mesajı ve sahte polis/savcı, yapay zekâ ses taklidi aramalarına karşı 4 basit kural.",
+  "blocks": [
+    { "type": "prompt", "label": "Ailene gönder: hazır mesaj", "text": "Anneciğim/babacığım, telefon dolandırıcıları çok arttı. Lütfen şu 4 kuralı unutma:\n\n1) Polis, savcı ya da hâkim telefonda para, altın veya hesap bilgisi İSTEMEZ. Böyle bir şey isteyen dolandırıcıdır.\n2) Böyle bir arama gelirse hemen kapat ve 155'i kendin ara. Kimseye para, altın, kart teslim etme.\n3) Benim sesim gibi gelse bile acil para isteyen bir arama olursa kapat, beni her zamanki numaramdan ara. Sesler artık yapay zekâyla taklit edilebiliyor.\n4) Aramızda bir aile parolası olsun: ____ . Acil bir durumda önce bu parolayı sor. Parolayı kimseye söyleme, sosyal medyaya yazma.\n\nŞüphelendiğin her an önce beni ara. Seni seviyorum ❤️" },
+    { "type": "h2", "text": "4 kural" },
+    { "type": "steps", "items": [
+      "Polis, savcı ya da hâkim telefonla para, altın veya hesap bilgisi istemez (Emniyet Genel Müdürlüğü uyarıları).",
+      "Böyle bir aramada telefonu kapat ve 155 Polis İmdat'ı kendin ara. Gelen aramadaki numaraya güvenme.",
+      "Ses tanıdık gelse bile acil para isteyene güvenme. Yapay zekâ ile ses taklidi yapılabiliyor; kapat ve yakınını bildiğin numaradan ara.",
+      "Aile içinde bir parola belirleyin. Acil durumda önce parola sorulsun; parolayı sosyal medyada asla paylaşmayın."
+    ] },
+    { "type": "tip", "text": "Mesajdaki boşluğa parolanızı yazmak yerine parolayı yüz yüze konuşarak belirleyin; mesajlar başkasının eline geçebilir. Dolandırıldığını düşünürsen vakit kaybetmeden bankanı ve 155'i ara." }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "number": 39,
+  "slug": "ucretsiz-programlama-kitaplari",
+  "date": "2026-11-26",
+  "category": "GitHub keşfi",
+  "title": "free-programming-books: Türkçe dahil ücretsiz yazılım kitapları ve kursları",
+  "excerpt": "GitHub'ın en popüler depolarından biri olan free-programming-books listesinin Türkçe kitap ve kurs bölümleri.",
+  "blocks": [
+    { "type": "link", "label": "Türkçe ücretsiz programlama kitapları", "url": "https://ebookfoundation.github.io/free-programming-books/books/free-programming-books-tr.html", "note": "Python, JavaScript, C++, Git, yapay zekâ ve daha fazlası" },
+    { "type": "link", "label": "Türkçe ücretsiz kurslar", "url": "https://ebookfoundation.github.io/free-programming-books/courses/free-courses-tr.html", "note": "C#, Java, Python, SQL, makine öğrenmesi" },
+    { "type": "link", "label": "Tüm diller (ana sayfa)", "url": "https://ebookfoundation.github.io/free-programming-books/", "note": "Kitap, kurs, podcast, interaktif dersler" },
+    { "type": "link", "label": "Arama sitesi", "url": "https://ebookfoundation.github.io/free-programming-books-search/", "note": "Kitap ya da yazar adıyla ara" },
+    { "type": "h2", "text": "Nasıl kullanılır?" },
+    { "type": "steps", "items": [
+      "Ana sayfada Books ya da Courses altında \"Turkish / Türkçe\" bağlantısına tıkla (ya da yukarıdaki Türkçe linkleri kullan).",
+      "İçindekiler'den konunu seç: Python, JavaScript, Git, Yapay Zeka…",
+      "Linke tıkla; çoğu PDF ya da web sayfası olarak doğrudan açılır.",
+      "Yanında 🗃️ (archived) yazan linkler artık arşiv kopyasından (web.archive.org) açılır."
+    ] },
+    { "type": "tip", "text": "Liste gönüllülerce güncelleniyor ve Free Ebook Foundation tarafından yönetiliyor. Kitapların lisansları farklı olabilir; çoğaltıp dağıtmadan önce kitabın kendi lisansına bak." }
+  ]
+}
