@@ -49,7 +49,7 @@ export function SocialSection() {
   return (
     <section id={SOCIAL_SECTION_ID} className="scroll-mt-28 py-20 md:py-28 lg:py-[130px] pt-0 md:pt-0 lg:pt-0">
       <div className="relative mx-auto w-full max-w-[1360px] px-6 sm:px-8 lg:px-11 xl:px-16">
-        <div className="grid gap-10 border-t border-frost/80 pt-14 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid gap-10 border-t border-frost/80 pt-14 xl:grid-cols-[0.8fr_1.2fr]">
           <div data-m="stagger">
             <Eyebrow>{t("Sosyal medyalarımız")}</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(34px,5.2vw,66px)] font-extrabold leading-[1.02] tracking-[-0.035em]">
