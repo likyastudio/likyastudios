@@ -15,6 +15,7 @@ const NAV = [
   { to: "/", hash: "services", label: "Hizmetler" },
   { to: "/isletmeler", hash: undefined, label: "İşletmeler" },
   { to: "/", hash: "labs", label: "Ürünler" },
+  { to: "/", hash: "sosyal", label: "Sosyal Medya" },
   { to: "/", hash: "process", label: "Süreç" },
   { to: "/", hash: "about", label: "Hakkımızda" },
   { to: "/contact", hash: undefined, label: "İletişim" },
@@ -97,7 +98,7 @@ export function StudioHeader() {
           <img src={logo} alt="Likya Studios" width={56} height={56} className={`shrink-0 object-contain transition-[height,width] duration-300 ${compact ? "h-11 w-11" : "h-12 w-12 md:h-14 md:w-14"}`} />
         </Link>
 
-        <nav className="hidden items-center gap-1 text-sm md:flex" aria-label={t("Ana menü")}>
+        <nav className="hidden items-center gap-1 text-sm min-[1320px]:flex" aria-label={t("Ana menü")}>
           {NAV.map((item) => (
             <Button asChild variant="ghost" key={item.label} className="h-11"><Link
               to={item.to}
@@ -143,7 +144,7 @@ export function StudioHeader() {
             aria-expanded={open}
             aria-controls="studio-mobile-menu"
             onClick={() => setOpen((value) => !value)}
-            className="h-11 w-11 md:hidden"
+            className="h-11 w-11 min-[1320px]:hidden"
           >
             {open ? <X /> : <Menu />}
           </Button>
@@ -152,7 +153,7 @@ export function StudioHeader() {
       {open && (
         <nav
           id="studio-mobile-menu"
-          className="mx-5 mb-4 grid gap-0.5 border-t border-frost/10 pt-3 text-base md:hidden"
+          className="mx-5 mb-4 grid gap-0.5 border-t border-frost/10 pt-3 text-base min-[1320px]:hidden"
           aria-label={t("Mobil menü")}
         >
           <a
