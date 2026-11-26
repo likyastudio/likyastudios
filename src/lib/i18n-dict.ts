@@ -776,4 +776,9 @@ export const DICT: Record<string, [string, string]> = {
   "E-posta veya telefon numarasından en az birini yazın.": ["E-posta veya telefon numarasından en az birini yazın.", "Please enter at least an email or a phone number."],
   "Geçerli bir telefon numarası girin.": ["Geçerli bir telefon numarası girin.", "Enter a valid phone number."],
   "En kısa sürede telefon veya WhatsApp ile size dönüş yapacağız.": ["En kısa sürede telefon veya WhatsApp ile size dönüş yapacağız.", "We'll get back to you soon by phone or WhatsApp."],
+  // Ana sayfa: Sosyal medyalarımız bölümü
+  "Sosyal medyalarımız": ["Sosyal medyalarımız", "Our social media"],
+  "Dört kanalımızda yeni videolar ve kısa içerikler paylaşıyoruz. Instagram ve YouTube hesaplarımıza tek tıkla ulaşın.": ["Dört kanalımızda yeni videolar ve kısa içerikler paylaşıyoruz. Instagram ve YouTube hesaplarımıza tek tıkla ulaşın.", "We share new videos and short content across four channels. Reach our Instagram and YouTube accounts in one click."],
+  "Takip et": ["Takip et", "Follow"],
+  "yeni sekmede açılır": ["yeni sekmede açılır", "opens in a new tab"],
 };
