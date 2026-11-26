@@ -780,5 +780,6 @@ export const DICT: Record<string, [string, string]> = {
   "Sosyal medyalarımız": ["Sosyal medyalarımız", "Our social media"],
   "Dört kanalımızda yeni videolar ve kısa içerikler paylaşıyoruz. Instagram ve YouTube hesaplarımıza tek tıkla ulaşın.": ["Dört kanalımızda yeni videolar ve kısa içerikler paylaşıyoruz. Instagram ve YouTube hesaplarımıza tek tıkla ulaşın.", "We share new videos and short content across four channels. Reach our Instagram and YouTube accounts in one click."],
   "Takip et": ["Takip et", "Follow"],
+  "Abone ol": ["Abone ol", "Subscribe"],
   "yeni sekmede açılır": ["yeni sekmede açılır", "opens in a new tab"],
 };

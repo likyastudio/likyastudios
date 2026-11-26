@@ -6,20 +6,21 @@ import { useT } from "@/lib/i18n";
 import { SOCIAL_BRANDS, SOCIAL_SECTION_ID, type SocialAccount } from "@/data/social";
 import { Eyebrow, Mixed, useBi } from "./parts";
 
+// YouTube'da ?sub_confirmation=1 kanala gidince abonelik onay penceresini açar.
 const PLATFORM = {
-  instagram: { label: "Instagram", Icon: Instagram },
-  youtube: { label: "YouTube", Icon: Youtube },
+  instagram: { label: "Instagram", Icon: Instagram, action: "Takip et", href: (url: string) => url },
+  youtube: { label: "YouTube", Icon: Youtube, action: "Abone ol", href: (url: string) => `${url}?sub_confirmation=1` },
 } as const;
 
 function FollowLink({ brand, account }: { brand: string; account: SocialAccount }) {
   const t = useT();
-  const { label, Icon } = PLATFORM[account.platform];
+  const { label, Icon, action, href } = PLATFORM[account.platform];
   return (
     <a
-      href={account.url}
+      href={href(account.url)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${brand} ${label}: ${account.handle} (${t("yeni sekmede açılır")})`}
+      aria-label={`${brand} ${label}: ${t(action)} ${account.handle} (${t("yeni sekmede açılır")})`}
       className="group/link flex min-h-12 items-center gap-3 rounded-full border border-frost/20 px-4 transition duration-200 hover:-translate-y-px hover:border-coral hover:bg-frost/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
     >
       <Icon aria-hidden className="h-[18px] w-[18px] shrink-0 text-ember" />
@@ -28,7 +29,7 @@ function FollowLink({ brand, account }: { brand: string; account: SocialAccount 
         <span className="block truncate font-mono text-[10.5px] text-[color:var(--ink-faint)]">{account.handle}</span>
       </span>
       <span aria-hidden className="font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-ember">
-        {t("Takip et")}
+        {t(action)}
       </span>
     </a>
   );
