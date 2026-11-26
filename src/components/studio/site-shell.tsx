@@ -224,6 +224,7 @@ const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
     links: [
       ["https://www.instagram.com/likyastudios/", "Instagram"],
       ["https://www.youtube.com/@kadimanadoluu", "YouTube"],
+      ["/#sosyal", "Sosyal medyalarımız"],
       ["mailto:likyastudios@gmail.com", "E-posta"],
       ["/press", "Press"],
       ["/brand", "Brand"],

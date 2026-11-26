@@ -8,6 +8,7 @@ import { whatsappUrl } from "@/data/contact";
 import { useLang } from "@/lib/i18n";
 import { FAQ } from "@/components/studio/studio-intro";
 import { ArrowMark, Eyebrow, Mixed, Plate, SectionRule, StatRing, useBi, type Bi, type Seg } from "./parts";
+import { SocialSection } from "./social";
 
 const IMG = (name: string) => `/atelier/${name}.webp`;
 const GAMES_URL = "https://games.likyastudios.live/";
@@ -723,6 +724,7 @@ export function AtelierHome({ contact }: { contact: ReactNode }) {
       <Method />
       <Work />
       <Founders />
+      <SocialSection />
       <Faq />
       <Cta />
       {contact}
