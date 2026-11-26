@@ -1,0 +1,37 @@
+{
+  "number": 37,
+  "slug": "ogrenci-araclar-2",
+  "date": "2026-11-26",
+  "category": "Öğrenciler",
+  "title": "Öğrenci mailinle 4 ücretli araç bedava: Figma, Framer, Autodesk, Azure",
+  "excerpt": "Okul mailinle Figma, Framer, AutoCAD/Fusion ve 100 $ Azure kredisini ücretsiz açmanın resmi yolları.",
+  "blocks": [
+    { "type": "link", "label": "Figma for Education", "url": "https://www.figma.com/education/", "note": "Doğrulanmış öğrencilere ücretsiz (Professional)" },
+    { "type": "link", "label": "Framer öğrenci indirimi", "url": "https://www.framer.com/students", "note": "Portfolyo sitesi + ayda 1.000 yapay zekâ kredisi" },
+    { "type": "link", "label": "Autodesk Education", "url": "https://www.autodesk.com/education/home", "note": "AutoCAD, Fusion · 1 yıl, yenilenebilir" },
+    { "type": "link", "label": "Azure for Students", "url": "https://azure.microsoft.com/en-us/free/students", "note": "100 $ kredi · kredi kartı yok" },
+    { "type": "h2", "text": "1. Figma: tasarım, sunum, prototip" },
+    { "type": "steps", "items": [
+      "figma.com/education adresine gir ve \"Verify higher ed status\" ile öğrenciliğini doğrula.",
+      "Onaylanınca Figma ve FigJam'in Professional özellikleri ücretsiz açılır."
+    ] },
+    { "type": "h2", "text": "2. Framer: kendi portfolyo siten" },
+    { "type": "steps", "items": [
+      "framer.com/students adresinde \"Apply for the discount\"a bas.",
+      "Öğrenci teklifinde yılda 120 $ değerindeki site barındırma, Design Canvas ve CMS'e tam erişim ve ayda 1.000 yapay zekâ kredisi var."
+    ] },
+    { "type": "h2", "text": "3. Autodesk: AutoCAD ve Fusion" },
+    { "type": "steps", "items": [
+      "autodesk.com/education adresinde okul mailinle hesap aç.",
+      "Öğrenciliğini doğrula (doğrulamayı SheerID yapıyor, belge istenebilir).",
+      "Lisans 1 yıllık ve öğrenciliğin sürdükçe her yıl yenilenir. Yalnızca öğrenme ve araştırma için kullanılabilir, ticari işte kullanılamaz."
+    ] },
+    { "type": "h2", "text": "4. Microsoft Azure: 100 $ bulut kredisi" },
+    { "type": "steps", "items": [
+      "azure.microsoft.com/free/students adresinde \"Start free\"e bas ve okul mailinle kaydol.",
+      "Kredi kartı istenmez. 12 ay içinde kullanılacak 100 $ kredi ve ücretsiz hizmetler gelir; öğrenci olduğun sürece her yıl yenilenebilir.",
+      "Yalnızca tam zamanlı üniversite öğrencileri içindir."
+    ] },
+    { "type": "tip", "text": "Bu teklifler eğitim içindir; ticari işte kullanmadan önce her aracın şartlarını oku. Teklifler zamanla değişebilir, güncel bilgi her aracın kendi sayfasında. Office 365, Gemini ve GitHub Öğrenci Paketi için: likyastudios.live/prompt/ogrenci" }
+  ]
+}
