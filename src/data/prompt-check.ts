@@ -12,6 +12,8 @@ export function promptPageErrors(page: Partial<PromptPage>): string[] {
   if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(page.slug ?? ""))
     errors.push("slug küçük harf, rakam ve tire olmalı");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(page.date ?? "")) errors.push("date YYYY-AA-GG olmalı");
+  if (page.commentWord !== undefined && !/^[A-ZÇĞİÖŞÜ0-9]{2,20}$/.test(page.commentWord))
+    errors.push("commentWord büyük harfle tek kelime olmalı (ör. GÖRSEL)");
   if (
     page.publishAt !== undefined &&
     !(
@@ -20,7 +22,9 @@ export function promptPageErrors(page: Partial<PromptPage>): string[] {
       !Number.isNaN(publishMs(page.publishAt))
     )
   )
-    errors.push('publishAt tarih ("2026-11-18" = o gün 06:00) ya da saat dilimli an ("2026-11-18T09:00:00+03:00") olmalı');
+    errors.push(
+      'publishAt tarih ("2026-11-18" = o gün 06:00) ya da saat dilimli an ("2026-11-18T09:00:00+03:00") olmalı',
+    );
   for (const key of ["category", "title", "excerpt"] as const) {
     if (typeof page[key] !== "string" || !page[key]?.trim()) errors.push(`${key} boş olamaz`);
   }
@@ -51,6 +55,8 @@ export const DEFAULT_PUBLISH_TIME = "06:00";
 /** publishAt'i milisaniyeye çevirir: "2026-11-23" → 23.11.2026 06:00 İstanbul (+03:00). */
 export function publishMs(publishAt: string): number {
   return Date.parse(
-    /^\d{4}-\d{2}-\d{2}$/.test(publishAt) ? `${publishAt}T${DEFAULT_PUBLISH_TIME}:00+03:00` : publishAt,
+    /^\d{4}-\d{2}-\d{2}$/.test(publishAt)
+      ? `${publishAt}T${DEFAULT_PUBLISH_TIME}:00+03:00`
+      : publishAt,
   );
 }

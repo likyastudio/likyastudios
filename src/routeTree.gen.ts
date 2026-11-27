@@ -22,6 +22,7 @@ import { Route as PressRouteImport } from './routes/press'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ApiPromptsRouteImport } from './routes/api.prompts'
 import { Route as DeleteAccountAstrosyncRouteImport } from './routes/delete-account_.astrosync'
 import { Route as JournalIndexRouteImport } from './routes/journal.index'
 import { Route as JournalSlugRouteImport } from './routes/journal.$slug'
@@ -99,6 +100,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPromptsRoute = ApiPromptsRouteImport.update({
+  id: '/api/prompts',
+  path: '/api/prompts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DeleteAccountAstrosyncRoute = DeleteAccountAstrosyncRouteImport.update({
   id: '/delete-account_/astrosync',
   path: '/delete-account/astrosync',
@@ -169,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/api/prompts': typeof ApiPromptsRoute
   '/delete-account/astrosync': typeof DeleteAccountAstrosyncRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/api/prompts': typeof ApiPromptsRoute
   '/delete-account/astrosync': typeof DeleteAccountAstrosyncRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/api/prompts': typeof ApiPromptsRoute
   '/delete-account_/astrosync': typeof DeleteAccountAstrosyncRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/labs/antalya-ai': typeof LabsAntalyaAiRoute
@@ -250,6 +259,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/support'
     | '/terms'
+    | '/api/prompts'
     | '/delete-account/astrosync'
     | '/journal/$slug'
     | '/labs/antalya-ai'
@@ -276,6 +286,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/support'
     | '/terms'
+    | '/api/prompts'
     | '/delete-account/astrosync'
     | '/journal/$slug'
     | '/labs/antalya-ai'
@@ -302,6 +313,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/support'
     | '/terms'
+    | '/api/prompts'
     | '/delete-account_/astrosync'
     | '/journal/$slug'
     | '/labs/antalya-ai'
@@ -329,6 +341,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
+  ApiPromptsRoute: typeof ApiPromptsRoute
   DeleteAccountAstrosyncRoute: typeof DeleteAccountAstrosyncRoute
   JournalSlugRoute: typeof JournalSlugRoute
   LabsAntalyaAiRoute: typeof LabsAntalyaAiRoute
@@ -435,6 +448,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/prompts': {
+      id: '/api/prompts'
+      path: '/api/prompts'
+      fullPath: '/api/prompts'
+      preLoaderRoute: typeof ApiPromptsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/delete-account_/astrosync': {
       id: '/delete-account_/astrosync'
       path: '/delete-account/astrosync'
@@ -529,6 +549,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
+  ApiPromptsRoute: ApiPromptsRoute,
   DeleteAccountAstrosyncRoute: DeleteAccountAstrosyncRoute,
   JournalSlugRoute: JournalSlugRoute,
   LabsAntalyaAiRoute: LabsAntalyaAiRoute,

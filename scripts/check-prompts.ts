@@ -9,6 +9,7 @@ const sitemap = readFileSync(join(import.meta.dir, "../public/sitemap.xml"), "ut
 let failed = false;
 const slugs = new Map<string, string>();
 const numbers = new Map<number, string>();
+const words = new Map<string, string>();
 
 for (const name of readdirSync(dir)
   .filter((f) => f.endsWith(".json"))
@@ -28,6 +29,11 @@ for (const name of readdirSync(dir)
   if (numbers.has(page.number)) errors.push(`number ${numbers.get(page.number)} ile aynı`);
   if (!sitemap.includes(`https://likyastudios.live/prompt/${page.slug}<`))
     errors.push(`public/sitemap.xml'de /prompt/${page.slug} satırı yok`);
+  if (!page.commentWord)
+    errors.push('commentWord yok: videoda "yoruma KELİME yaz" denen kelimeyi ekle');
+  else if (words.has(page.commentWord))
+    errors.push(`commentWord ${page.commentWord} ${words.get(page.commentWord)} ile aynı`);
+  else words.set(page.commentWord, name);
   slugs.set(page.slug, name);
   numbers.set(page.number, name);
   if (errors.length) {
