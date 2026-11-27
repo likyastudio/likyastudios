@@ -22,6 +22,8 @@ export type PromptPage = {
   /** Video numarası (VIDEO-KAYDI.md ile aynı). /prompt/<no> da bu sayfayı açar. */
   number: number;
   slug: string;
+  /** Instagram'da "yoruma KELİME yaz" denen kelime (ör. "GÖRSEL"). DM sistemi paylaşılan videoyu bununla sayfasına bağlar. */
+  commentWord?: string;
   date: string; // ISO, videonun hazırlandığı tarih (VIDEO-KAYDI.md)
   /**
    * İsteğe bağlı yayın anı. Yalnızca tarih ("2026-11-18") yazılırsa o gün 06:00'da (İstanbul)

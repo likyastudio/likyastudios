@@ -35,6 +35,7 @@ uydurma özellik, fiyat veya link eklenmez. Linkler https ile başlar.
 {
   "number": 24,
   "slug": "kisa-ad",
+  "commentWord": "KELİME",
   "date": "2026-11-16",
   "publishAt": "2026-11-17",
   "category": "Yapay zekâ",
@@ -54,3 +55,4 @@ uydurma özellik, fiyat veya link eklenmez. Linkler https ile başlar.
 - `prompt`: kopyala butonlu kutu. `tool` isteğe bağlı (hangi araca yapıştırılacağı).
 - `link`: dokunulabilir link kartı. `note` isteğe bağlı.
 - `slug`: küçük harf, rakam, tire; Türkçe karakter yok (ç→c, ğ→g, ı→i, ö→o, ş→s, ü→u).
+- `commentWord`: videoda "yoruma KELİME yaz" denen kelime, büyük harf (ör. `GÖRSEL`). **Zorunlu**: DM sistemi paylaşılan videoyu bu kelimeyle doğru sayfaya bağlar (`/api/prompts` listesinden okur). Her videoda farklı olmalı.
